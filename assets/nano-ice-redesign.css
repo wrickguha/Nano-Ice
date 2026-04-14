@@ -161,6 +161,11 @@ html {
   z-index: 1;
 }
 
+/* Remove default theme gap between header and hero on homepage */
+.template-index .main-content {
+  padding-top: 0 !important;
+}
+
 /* ============================================================
    HEADER — Glassmorphism Modern Header
    ============================================================ */
@@ -193,7 +198,7 @@ html {
 /* Nav Links */
 .site-nav__link {
   font-family: var(--ni-font-body) !important;
-  font-weight: 700 !important;
+  font-weight: 500 !important;
   font-size: 18px !important;
   letter-spacing: 0.01em !important;
   color: var(--ni-gray-700) !important;
@@ -1271,7 +1276,7 @@ html {
    PRESS LOGOS MARQUEE
    ============================================================ */
 .press-logos-section {
-  padding: var(--ni-space-2xl) 0;
+  padding: 18px 0;
   background: linear-gradient(135deg, #0a1628 0%, #0d2b4e 40%, #0a3d6b 70%, #05BFDB 100%);
   background-size: 300% 300%;
   animation: press-bg-shift 8s ease infinite;
@@ -1295,13 +1300,7 @@ html {
 }
 
 .press-logos__heading {
-  text-align: center;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: rgba(255, 255, 255, 0.6);
-  font-weight: 600;
-  margin-bottom: var(--ni-space-xl);
+  display: none;
 }
 
 .press-logos__track-wrapper {
