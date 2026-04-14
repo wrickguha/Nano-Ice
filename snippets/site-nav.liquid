@@ -2,15 +2,15 @@
   {% for link in linklists[section.settings.main_linklist].links %}
     {%- assign nav_title = link.title -%}
     {% if link.title == 'Reviews' %}
-      {%- assign nav_title = 'Review & Press' -%}
+      {%- assign nav_title = 'Reviews' -%}
     {% endif %}
 
     {% if link.title == 'Blog' %}
       {% continue %}
     {% endif %}
     
-    {% comment %} Skip Tech and Press links {% endcomment %}
-    {% if link.title == 'Tech' or link.title == 'Press' %}
+    {% comment %} Skip Tech links {% endcomment %}
+    {% if link.title == 'Tech' %}
       {% continue %}
     {% endif %}
 

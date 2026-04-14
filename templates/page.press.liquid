@@ -1,0 +1,217 @@
+<div class="press-page">
+
+  <!-- Hero -->
+  <div class="press-page__hero">
+    <h1 class="press-page__hero-title">Press &amp; Media</h1>
+    <p class="press-page__hero-sub">Nano-Ice has been featured in leading news outlets across Boston and beyond.</p>
+  </div>
+
+  <div class="page-width press-page__content">
+
+    <!-- VIDEO FEATURES -->
+    <section class="press-section">
+      <h2 class="press-section__heading">Video Features</h2>
+      <div class="press-videos-grid">
+
+        <div class="press-video-card">
+          <div class="press-video-card__outlet">Press Overview</div>
+          <div class="press-video-card__embed">
+            <iframe src="https://www.youtube.com/embed/XOu4J0Mt6uw" title="Press Overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <div class="press-video-card">
+          <div class="press-video-card__outlet">ABC Boston</div>
+          <div class="press-video-card__embed">
+            <iframe src="https://www.youtube.com/embed/loEmjYsA0ZQ" title="ABC Boston" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <div class="press-video-card">
+          <div class="press-video-card__outlet">MSNBC Pitch</div>
+          <div class="press-video-card__embed">
+            <iframe src="https://www.youtube.com/embed/Hro_8FFs1Lw" title="MSNBC Pitch" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <div class="press-video-card">
+          <div class="press-video-card__outlet">Fox 13</div>
+          <div class="press-video-card__embed">
+            <iframe src="https://www.youtube.com/embed/tc0qTbgYyIU" title="Fox 13" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ARTICLE FEATURES -->
+    <section class="press-section">
+      <h2 class="press-section__heading">Press Articles</h2>
+      <div class="press-articles-grid">
+
+        <!-- CBS Boston -->
+        <a href="https://boston.cbslocal.com/2016/07/07/cooling-necklaces-nano-ice-brookline-white/" target="_blank" rel="noopener noreferrer" class="press-article-card">
+          <div class="press-article-card__logo-wrap">
+            <img src="{{ 'press-cbs-boston.svg' | asset_url }}" alt="CBS Boston" class="press-article-card__logo">
+          </div>
+          <p class="press-article-card__headline">"Brookline Couple Designs Cooling Necklaces To Beat Summer Heat"</p>
+          <span class="press-article-card__cta">Read Article →</span>
+        </a>
+
+        <!-- Wicked Local -->
+        <a href="http://brookline.wickedlocal.com/news/20170707/brookline-innovator-puts-twist-on-technology-to-beat-heat" target="_blank" rel="noopener noreferrer" class="press-article-card">
+          <div class="press-article-card__logo-wrap">
+            <img src="{{ 'press-wicked-local.avif' | asset_url }}" alt="Wicked Local" class="press-article-card__logo">
+          </div>
+          <p class="press-article-card__headline">"Brookline innovator puts a twist on technology to beat the heat"</p>
+          <span class="press-article-card__cta">Read Article →</span>
+        </a>
+
+        <!-- Boston Globe -->
+        <a href="https://www.bostonglobe.com/business/2017/07/16/cool-jewels-these-necklace-help-weater-beat-heat/ZKZ7VOUWxuRQBvlBe70tSP/story.html" target="_blank" rel="noopener noreferrer" class="press-article-card">
+          <div class="press-article-card__logo-wrap">
+            <img src="{{ 'press-boston-globe.avif' | asset_url }}" alt="The Boston Globe" class="press-article-card__logo">
+          </div>
+          <p class="press-article-card__headline">"Cool jewels — these necklaces help the wearer beat the heat"</p>
+          <span class="press-article-card__cta">Read Article →</span>
+        </a>
+
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<style>
+/* ── Press Page ── */
+.press-page__hero {
+  background: linear-gradient(135deg, #0a1628 0%, #0d2b4e 50%, #05BFDB 100%);
+  text-align: center;
+  padding: 64px 24px 56px;
+}
+.press-page__hero-title {
+  color: #fff;
+  font-size: 42px;
+  font-weight: 800;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+}
+.press-page__hero-sub {
+  color: rgba(255,255,255,0.7);
+  font-size: 18px;
+  margin: 0;
+}
+.press-page__content {
+  padding: 60px 24px 80px;
+}
+.press-section {
+  margin-bottom: 64px;
+}
+.press-section__heading {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0b1a2b;
+  margin: 0 0 32px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid #05BFDB;
+  display: inline-block;
+}
+
+/* Video grid */
+.press-videos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+.press-video-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.press-video-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(5,191,219,0.18);
+}
+.press-video-card__outlet {
+  background: #0b1a2b;
+  color: #05BFDB;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 10px 16px;
+}
+.press-video-card__embed {
+  position: relative;
+  padding-top: 56.25%;
+}
+.press-video-card__embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Article grid */
+.press-articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.press-article-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: all 0.25s ease;
+}
+.press-article-card:hover {
+  border-color: #05BFDB;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(5,191,219,0.15);
+}
+.press-article-card__logo-wrap {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.press-article-card__logo {
+  max-height: 44px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+}
+.press-article-card__headline {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0b1a2b;
+  line-height: 1.5;
+  flex: 1;
+  margin: 0 0 16px;
+}
+.press-article-card__cta {
+  font-size: 13px;
+  font-weight: 700;
+  color: #05BFDB;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .press-videos-grid { grid-template-columns: 1fr; }
+  .press-articles-grid { grid-template-columns: 1fr; }
+  .press-page__hero-title { font-size: 28px; }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .press-articles-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
