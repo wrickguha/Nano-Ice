@@ -37,7 +37,7 @@
   {% if product.available %}
     <form method="post" action="/cart/add" class="ni-quick-add">
       <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-      <button type="submit" class="btn ni-quick-add__btn">+ Quick Add</button>
+      <button type="submit" class="btn ni-quick-add__btn">Add To Cart</button>
     </form>
   {% endif %}
 </div>
