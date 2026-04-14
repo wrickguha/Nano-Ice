@@ -1349,24 +1349,26 @@ html {
   align-items: center;
   justify-content: center;
   height: 70px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.35s ease;
+}
+
+.press-logos__item:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 24px rgba(5, 191, 219, 0.35);
 }
 
 .press-logos__item img {
-  height: 60px;
+  height: 44px;
   width: auto;
-  max-width: 180px;
+  max-width: 160px;
   object-fit: contain;
-  opacity: 0.55;
-  filter: brightness(0) invert(1);
-  transition: all 0.35s ease;
-  border-radius: 6px;
-}
-
-.press-logos__item img:hover {
-  opacity: 1;
   filter: none;
-  transform: scale(1.08);
-  drop-shadow: 0 0 12px rgba(5, 191, 219, 0.6);
+  opacity: 1;
+  transition: all 0.35s ease;
 }
 
 @keyframes press-marquee {
