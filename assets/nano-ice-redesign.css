@@ -1267,6 +1267,117 @@ html {
   margin: 8px auto 0 !important;
 }
 
+/* ============================================================
+   PRESS LOGOS MARQUEE
+   ============================================================ */
+.press-logos-section {
+  padding: var(--ni-space-2xl) 0;
+  background: linear-gradient(135deg, #0a1628 0%, #0d2b4e 40%, #0a3d6b 70%, #05BFDB 100%);
+  background-size: 300% 300%;
+  animation: press-bg-shift 8s ease infinite;
+  overflow: hidden;
+  position: relative;
+}
+
+.press-logos-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(5, 191, 219, 0.18) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 50%, rgba(8, 131, 149, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+@keyframes press-bg-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.press-logos__heading {
+  text-align: center;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  margin-bottom: var(--ni-space-xl);
+}
+
+.press-logos__track-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.press-logos__track-wrapper::before,
+.press-logos__track-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.press-logos__track-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, #0a1628, transparent);
+}
+
+.press-logos__track-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, #0a1628, transparent);
+}
+
+.press-logos__track {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  width: max-content;
+  animation: press-marquee 25s linear infinite;
+}
+
+.press-logos__track:hover {
+  animation-play-state: paused;
+}
+
+.press-logos__item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+}
+
+.press-logos__item img {
+  height: 60px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  opacity: 0.55;
+  filter: brightness(0) invert(1);
+  transition: all 0.35s ease;
+  border-radius: 6px;
+}
+
+.press-logos__item img:hover {
+  opacity: 1;
+  filter: none;
+  transform: scale(1.08);
+  drop-shadow: 0 0 12px rgba(5, 191, 219, 0.6);
+}
+
+@keyframes press-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 /* Benefits Section */
 .benefits-section {
   background: var(--ni-ice-white) !important;
@@ -3253,7 +3364,7 @@ img, video, iframe {
 
 .benefits-wrapper {
   display: grid !important;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: var(--ni-space-md) !important;
 }
 
