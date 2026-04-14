@@ -1,0 +1,165 @@
+{%- assign social_icons = false -%}
+
+{% if
+  settings.social_twitter_link != blank
+  or settings.social_facebook_link != blank
+  or settings.social_pinterest_link != blank
+  or settings.social_instagram_link != blank
+  or settings.social_tumblr_link != blank
+  or settings.social_snapchat_link != blank
+  or settings.social_youtube_link != blank
+  or settings.social_vimeo_link != blank
+  or template.name == 'article'
+  or template.name == 'blog'
+%}
+  {%- assign social_icons = true -%}
+{% endif %}
+
+<footer class="site-footer" role="contentinfo">
+  <div class="page-width">
+    <div class="custom-footer-top">
+
+  <!-- Column 1 -->
+  <div class="footer-col">
+    <h2>{{ shop.name }}</h2>
+    <p>We are a team of designers and developers that create high quality products.</p>
+  </div>
+
+  <!-- Column 2 -->
+  <div class="footer-col">
+    <h3>Contact Us</h3>
+    <p>📍 Concord, MA</p>
+    <p>✉️ Info@nano-ice.com</p>
+    <p>📞 +1 617-512-8811</p>
+  </div>
+
+  <!-- Column 3 (Dynamic Menu) -->
+  <div class="footer-col">
+    <h3>Information</h3>
+    <ul>
+      {% for link in linklists[section.settings.footer_linklist].links %}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Column 4 (Social Icons) -->
+  <div class="footer-col">
+    <h3>Follow Us</h3>
+    <div class="social-icons">
+
+  {% if settings.social_facebook_link != blank %}
+    <a href="{{ settings.social_facebook_link }}">
+      {% render 'icon-facebook' %}
+    </a>
+  {% endif %}
+
+  {% if settings.social_instagram_link != blank %}
+    <a href="{{ settings.social_instagram_link }}">
+      {% render 'icon-instagram' %}
+    </a>
+  {% endif %}
+
+  {% if settings.social_twitter_link != blank %}
+    <a href="{{ settings.social_twitter_link }}">
+      {% render 'icon-twitter' %}
+    </a>
+  {% endif %}
+
+  {% if settings.social_youtube_link != blank %}
+  <a href="{{ settings.social_youtube_link }}">
+    {% render 'icon-youtube' %}
+  </a>
+{% endif %}
+
+</div>
+  </div>
+
+    </div><!-- end custom-footer-top -->
+
+    <!-- Newsletter Section -->
+    {% if section.settings.footer_newsletter_enable %}
+      <div class="footer-newsletter-row">
+        {% form 'customer' %}
+          {{ form.errors | default_errors }}
+          {% if form.posted_successfully? %}
+            <p class="form--success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+          {% else %}
+            <label for="Email" class="footer-newsletter__heading">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
+            <div class="footer-newsletter__form">
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <input type="email"
+                name="contact[email]"
+                id="Email"
+                class="footer-newsletter__input"
+                value="{% if customer %}{{ customer.email }}{% endif %}"
+                placeholder="Enter your email"
+                autocorrect="off"
+                autocapitalize="off">
+              <button type="submit" class="footer-newsletter__btn" name="commit" id="Subscribe">
+                {{ 'general.newsletter_form.submit' | t }}
+              </button>
+            </div>
+          {% endif %}
+        {% endform %}
+      </div>
+    {% endif %}
+
+    <!-- Footer Bottom: Payment + Copyright -->
+    <div class="footer-bottom-row">
+      {% if section.settings.show_payment_icons %}
+        {% unless shop.enabled_payment_types == empty %}
+          {%- assign payment_icons_available = 'amazon_payments,american_express,apple_pay,bitcoin,cirrus,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,jcb,litecoin,maestro,master,paypal,stripe,visa' | split: ',' -%}
+          <ul class="payment-icons list--inline">
+            {% for type in shop.enabled_payment_types %}
+              {% if payment_icons_available contains type %}
+                <li class="payment-icon">
+                  {%- assign icon_name = type | prepend: 'icon-' -%}
+                  {% include icon_name %}
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endunless %}
+      {% endif %}
+      <div class="footer-copyright">
+        <small>&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}</small>
+        <small>{{ powered_by_link }}</small>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "footer_linklist",
+        "label": "Primary menu",
+        "default": "footer"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist_two",
+        "label": "Additional menu",
+        "default": "main-menu"
+      },
+      {
+        "type": "checkbox",
+        "id": "footer_newsletter_enable",
+        "label": "Show newsletter signup",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_payment_icons",
+        "label": "Show payment icons",
+        "default": false
+      }
+    ]
+  }
+{% endschema %}
+

@@ -1,0 +1,948 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+  :root {
+    --brand:       #0284c7;
+    --brand-dark:  #0369a1;
+    --brand-light: #e0f2fe;
+    --brand-50:    #f0f9ff;
+    --green:       #16a34a;
+    --green-bg:    #dcfce7;
+    --amber:       #d97706;
+    --amber-bg:    #fef3c7;
+    --red:         #dc2626;
+    --red-bg:      #fee2e2;
+    --slate-50:    #f8fafc;
+    --slate-100:   #f1f5f9;
+    --slate-200:   #e2e8f0;
+    --slate-300:   #cbd5e1;
+    --slate-400:   #94a3b8;
+    --slate-500:   #64748b;
+    --slate-600:   #475569;
+    --slate-700:   #334155;
+    --slate-800:   #1e293b;
+    --slate-900:   #0f172a;
+    --white:       #ffffff;
+    --radius-xs:   6px;
+    --radius-sm:   10px;
+    --radius-md:   14px;
+    --radius-lg:   20px;
+    --shadow-sm:   0 1px 3px rgba(15,23,42,.07),0 1px 2px rgba(15,23,42,.05);
+    --shadow-md:   0 4px 16px rgba(15,23,42,.08),0 2px 6px rgba(15,23,42,.05);
+  }
+
+  .ap-wrap * { box-sizing: border-box; margin: 0; padding: 0; }
+  .ap-wrap {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--slate-100);
+    min-height: 80vh;
+    padding-bottom: 80px;
+    color: var(--slate-800);
+    font-size: 14px;
+  }
+
+  /* HERO */
+  .ap-hero {
+    background: linear-gradient(120deg, #0c1a2e 0%, #0369a1 60%, #0ea5e9 100%);
+    padding: 40px 24px 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .ap-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 10% 80%, rgba(14,165,233,.22) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 10%, rgba(56,189,248,.15) 0%, transparent 45%);
+    pointer-events: none;
+  }
+  .ap-hero::before {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    right: -80px; top: -140px;
+    border-radius: 50%;
+    border: 60px solid rgba(255,255,255,.04);
+    pointer-events: none;
+  }
+  .ap-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .ap-avatar-ring {
+    width: 78px; height: 78px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.14);
+    border: 2.5px solid rgba(255,255,255,.3);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    backdrop-filter: blur(10px);
+  }
+  .ap-avatar-ring svg { width: 34px; height: 34px; stroke: #fff; }
+  .ap-hero-text { flex: 1; }
+  .ap-hero-text h1 {
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -.02em;
+    line-height: 1.2;
+  }
+  .ap-hero-email { color: rgba(255,255,255,.6); font-size: 13px; margin-top: 4px; }
+  .ap-hero-meta { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+  .ap-hero-chip {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 100px;
+    padding: 4px 12px;
+    font-size: 11.5px; font-weight: 600;
+    color: rgba(255,255,255,.85);
+    backdrop-filter: blur(6px);
+  }
+  .ap-hero-chip svg { width: 12px; height: 12px; stroke: currentColor; }
+  .ap-logout-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: var(--radius-sm);
+    padding: 8px 16px;
+    color: rgba(255,255,255,.8);
+    font-size: 12.5px; font-weight: 600;
+    text-decoration: none;
+    transition: all .2s;
+    backdrop-filter: blur(6px);
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .ap-logout-btn:hover { background: rgba(255,255,255,.18); color: #fff; }
+
+  /* QUICK NAV */
+  .ap-quicknav {
+    background: var(--white);
+    border-bottom: 1px solid var(--slate-200);
+    position: sticky; top: 0; z-index: 50;
+    box-shadow: var(--shadow-sm);
+  }
+  .ap-quicknav-inner {
+    max-width: 1180px; margin: 0 auto;
+    display: flex; overflow-x: auto; scrollbar-width: none;
+  }
+  .ap-quicknav-inner::-webkit-scrollbar { display: none; }
+  .ap-qn-item {
+    display: flex; align-items: center; gap: 7px;
+    padding: 14px 20px;
+    font-size: 12.5px; font-weight: 600;
+    color: var(--slate-500);
+    text-decoration: none;
+    border-bottom: 2.5px solid transparent;
+    white-space: nowrap;
+    transition: all .2s;
+  }
+  .ap-qn-item svg { width: 15px; height: 15px; stroke: currentColor; }
+  .ap-qn-item:hover, .ap-qn-item.active { color: var(--brand); border-bottom-color: var(--brand); }
+
+  /* MAIN LAYOUT */
+  .ap-main {
+    max-width: 1180px;
+    margin: -46px auto 0;
+    padding: 0 16px;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 20px;
+    position: relative; z-index: 2;
+  }
+
+  /* CARDS */
+  .ap-sidebar { display: flex; flex-direction: column; gap: 16px; }
+  .ap-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--slate-200);
+    overflow: hidden;
+  }
+  .ap-card-head {
+    display: flex; align-items: center; gap: 9px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--slate-100);
+  }
+  .ap-card-head-icon {
+    width: 30px; height: 30px;
+    background: var(--brand-50);
+    border-radius: var(--radius-xs);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .ap-card-head-icon svg { width: 14px; height: 14px; stroke: var(--brand); }
+  .ap-card-head h3 { font-size: 13.5px; font-weight: 700; color: var(--slate-900); }
+  .ap-card-body { padding: 18px 20px; }
+
+  /* PROFILE SIDEBAR */
+  .ap-profile-row { display: flex; flex-direction: column; gap: 12px; }
+  .ap-profile-field { display: flex; flex-direction: column; gap: 3px; }
+  .ap-profile-label {
+    font-size: 10px; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--slate-400);
+  }
+  .ap-profile-value { font-size: 13.5px; font-weight: 600; color: var(--slate-800); word-break: break-word; }
+  .ap-profile-value.muted { color: var(--slate-400); font-weight: 400; font-style: italic; }
+  .ap-divider { height: 1px; background: var(--slate-100); margin: 4px 0; }
+
+  /* STATS */
+  .ap-stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .ap-stat-box {
+    background: var(--slate-50);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-sm);
+    padding: 12px; text-align: center;
+  }
+  .ap-stat-num { font-size: 22px; font-weight: 800; color: var(--brand); line-height: 1; }
+  .ap-stat-lbl { font-size: 10.5px; color: var(--slate-500); font-weight: 500; margin-top: 4px; }
+
+  /* SIDEBAR NAV */
+  .ap-sidenav { display: flex; flex-direction: column; }
+  .ap-sidenav-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 20px;
+    font-size: 13px; font-weight: 500;
+    color: var(--slate-600);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: all .15s;
+  }
+  .ap-sidenav-item svg { width: 15px; height: 15px; stroke: currentColor; flex-shrink: 0; }
+  .ap-sidenav-item:hover { background: var(--brand-50); color: var(--brand); border-left-color: var(--brand); }
+  .ap-sidenav-item + .ap-sidenav-item { border-top: 1px solid var(--slate-100); }
+
+  /* CONTENT */
+  .ap-content { display: flex; flex-direction: column; gap: 20px; }
+  .ap-section-title { font-size: 15px; font-weight: 800; color: var(--slate-900); letter-spacing: -.02em; }
+  .ap-section-sub { font-size: 12px; color: var(--slate-400); margin-top: 2px; }
+
+  /* TABLE */
+  .ap-table-wrap { overflow-x: auto; }
+  .ap-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .ap-table thead th {
+    text-align: left; padding: 10px 16px;
+    font-size: 10px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
+    color: var(--slate-400); background: var(--slate-50);
+    border-bottom: 1px solid var(--slate-200); white-space: nowrap;
+  }
+  .ap-table tbody tr { border-bottom: 1px solid var(--slate-100); transition: background .15s; }
+  .ap-table tbody tr:last-child { border-bottom: none; }
+  .ap-table tbody tr:hover { background: var(--brand-50); }
+  .ap-table td { padding: 13px 16px; color: var(--slate-700); vertical-align: middle; }
+  .ap-order-num {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-weight: 700; color: var(--brand); text-decoration: none; font-size: 12.5px;
+    padding: 4px 10px; background: var(--brand-light);
+    border: 1px solid #bae6fd; border-radius: var(--radius-xs); transition: all .15s;
+  }
+  .ap-order-num:hover { background: #bae6fd; }
+  .ap-price { font-weight: 700; color: var(--slate-900); }
+
+  /* BADGES */
+  .ap-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 3px 9px; border-radius: 100px;
+    font-size: 11px; font-weight: 700; white-space: nowrap;
+  }
+  .ap-badge::before {
+    content: ''; width: 5px; height: 5px; border-radius: 50%;
+    background: currentColor; opacity: .7; flex-shrink: 0;
+  }
+  .ap-badge-green   { background: var(--green-bg);  color: var(--green); }
+  .ap-badge-amber   { background: var(--amber-bg);  color: var(--amber); }
+  .ap-badge-red     { background: var(--red-bg);    color: var(--red); }
+  .ap-badge-blue    { background: var(--brand-light); color: var(--brand-dark); }
+  .ap-badge-default { background: var(--slate-100); color: var(--slate-500); }
+
+  /* EMPTY */
+  .ap-empty { text-align: center; padding: 52px 24px; }
+  .ap-empty-icon {
+    width: 60px; height: 60px; background: var(--brand-50); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
+  }
+  .ap-empty-icon svg { width: 26px; height: 26px; stroke: var(--brand); }
+  .ap-empty h4 { font-size: 15px; font-weight: 700; color: var(--slate-800); margin-bottom: 6px; }
+  .ap-empty p  { font-size: 13px; color: var(--slate-400); line-height: 1.6; }
+  .ap-cta-btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    margin-top: 16px; background: var(--brand); color: var(--white);
+    padding: 10px 20px; border-radius: var(--radius-sm);
+    font-size: 13px; font-weight: 600; text-decoration: none; transition: background .2s;
+  }
+  .ap-cta-btn:hover { background: var(--brand-dark); }
+
+  /* ADDRESS GRID */
+  .ap-addr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .ap-addr-box {
+    border: 1.5px solid var(--slate-200); border-radius: var(--radius-md);
+    padding: 16px; position: relative; transition: border-color .2s, box-shadow .2s;
+  }
+  .ap-addr-box:hover { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(2,132,199,.08); }
+  .ap-addr-box.default-addr { border-color: var(--brand); background: var(--brand-50); }
+  .ap-addr-default-tag {
+    position: absolute; top: -1px; right: 14px;
+    background: var(--brand); color: #fff;
+    font-size: 9.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 0 0 6px 6px;
+  }
+  .ap-addr-name { font-size: 13.5px; font-weight: 700; color: var(--slate-900); margin-bottom: 6px; }
+  .ap-addr-detail { font-size: 12.5px; color: var(--slate-500); line-height: 1.7; }
+  .ap-addr-actions { display: flex; gap: 8px; margin-top: 12px; }
+  .ap-addr-action-btn {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 11.5px; font-weight: 600; color: var(--brand);
+    text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--brand-light); border-radius: var(--radius-xs);
+    background: var(--brand-50); transition: all .15s;
+  }
+  .ap-addr-action-btn:hover { background: var(--brand-light); }
+  .ap-addr-action-btn svg { width: 11px; height: 11px; stroke: currentColor; }
+
+  /* INFO ROWS */
+  .ap-info-rows { display: flex; flex-direction: column; }
+  .ap-info-row {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    padding: 13px 0; border-bottom: 1px solid var(--slate-100); gap: 12px;
+  }
+  .ap-info-row:last-child { border-bottom: none; }
+  .ap-info-row-left { display: flex; align-items: center; gap: 10px; }
+  .ap-info-icon {
+    width: 32px; height: 32px; background: var(--slate-50);
+    border-radius: var(--radius-xs); display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; border: 1px solid var(--slate-200);
+  }
+  .ap-info-icon svg { width: 14px; height: 14px; stroke: var(--slate-500); }
+  .ap-info-key { font-size: 12px; font-weight: 600; color: var(--slate-500); }
+  .ap-info-val { font-size: 13.5px; font-weight: 600; color: var(--slate-900); margin-top: 1px; }
+  .ap-info-val.muted { color: var(--slate-400); font-style: italic; font-weight: 400; }
+  .ap-edit-link {
+    font-size: 11.5px; font-weight: 700; color: var(--brand); text-decoration: none;
+    white-space: nowrap; padding: 4px 10px;
+    border: 1px solid var(--brand-light); border-radius: var(--radius-xs);
+    background: var(--brand-50); transition: all .15s; flex-shrink: 0;
+  }
+  .ap-edit-link:hover { background: var(--brand-light); }
+
+  /* SECURITY */
+  .ap-security-rows { display: flex; flex-direction: column; }
+  .ap-security-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 13px 0; border-bottom: 1px solid var(--slate-100); gap: 12px;
+  }
+  .ap-security-row:last-child { border-bottom: none; }
+  .ap-security-left { display: flex; align-items: center; gap: 10px; }
+  .ap-security-icon {
+    width: 32px; height: 32px; border-radius: var(--radius-xs);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .ap-security-icon.ok   { background: var(--green-bg); }
+  .ap-security-icon.ok svg { stroke: var(--green); }
+  .ap-security-icon.warn { background: var(--amber-bg); }
+  .ap-security-icon.warn svg { stroke: var(--amber); }
+  .ap-security-icon svg { width: 15px; height: 15px; }
+  .ap-security-lbl { font-size: 13px; font-weight: 600; color: var(--slate-800); }
+  .ap-security-sub { font-size: 11px; color: var(--slate-400); margin-top: 2px; }
+  .ap-sec-btn {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 11.5px; font-weight: 700; color: var(--brand); text-decoration: none;
+    padding: 5px 12px; border: 1px solid var(--brand-light); border-radius: var(--radius-xs);
+    background: var(--brand-50); transition: all .15s; white-space: nowrap; flex-shrink: 0;
+  }
+  .ap-sec-btn:hover { background: var(--brand-light); }
+
+  /* NOTIFICATIONS */
+  .ap-notif-rows { display: flex; flex-direction: column; }
+  .ap-notif-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 0; border-bottom: 1px solid var(--slate-100);
+  }
+  .ap-notif-row:last-child { border-bottom: none; }
+  .ap-notif-left { display: flex; align-items: center; gap: 10px; }
+  .ap-notif-icon {
+    width: 30px; height: 30px; border-radius: var(--radius-xs);
+    display: flex; align-items: center; justify-content: center;
+    background: var(--slate-50); border: 1px solid var(--slate-200);
+  }
+  .ap-notif-icon svg { width: 14px; height: 14px; stroke: var(--slate-400); }
+  .ap-notif-lbl { font-size: 13px; font-weight: 600; color: var(--slate-700); }
+  .ap-notif-sub { font-size: 11px; color: var(--slate-400); margin-top: 1px; }
+  .ap-toggle {
+    width: 40px; height: 22px; background: var(--slate-200); border-radius: 100px;
+    position: relative; cursor: pointer; transition: background .2s;
+    flex-shrink: 0; border: none;
+  }
+  .ap-toggle.on { background: var(--brand); }
+  .ap-toggle::after {
+    content: ''; position: absolute;
+    width: 16px; height: 16px; background: #fff; border-radius: 50%;
+    top: 3px; left: 3px; transition: left .2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+  }
+  .ap-toggle.on::after { left: 21px; }
+
+  /* PAGINATION */
+  .ap-pagination { padding: 14px 20px; border-top: 1px solid var(--slate-100); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .ap-main { grid-template-columns: 1fr; margin-top: -24px; }
+    .ap-sidebar { flex-direction: row; flex-wrap: wrap; }
+    .ap-sidebar .ap-card { flex: 1; min-width: 240px; }
+    .ap-addr-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .ap-hero { padding: 30px 16px 70px; }
+    .ap-hero-content { flex-wrap: wrap; }
+    .ap-logout-btn { width: 100%; justify-content: center; }
+    .ap-table thead { display: none; }
+    .ap-table td {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 9px 14px; font-size: 12.5px;
+    }
+    .ap-table td::before {
+      content: attr(data-label);
+      font-weight: 700; font-size: 10px; letter-spacing: .06em;
+      text-transform: uppercase; color: var(--slate-400);
+      flex-shrink: 0; margin-right: 10px;
+    }
+    .ap-table tr {
+      display: block; border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md); margin-bottom: 10px; overflow: hidden;
+    }
+    .ap-table tbody { display: block; padding: 14px; }
+
+/* UPDATED FOOTER ICON FIX */
+.site-footer img, 
+.site-footer svg,
+.payment-icons-list img,
+.payment-icons-list svg {
+  opacity: 1 !important;
+  filter: none !important;
+  /* We removed "fill" and "color" here so original brand colors show through */
+}
+
+/* Only apply color to social icons if they are simple paths */
+.social-icons-row a svg {
+  fill: currentColor !important; 
+}
+</style>
+
+<div class="ap-wrap">
+
+  <!-- HERO -->
+  <div class="ap-hero">
+    <div class="ap-hero-content">
+      <div class="ap-avatar-ring">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/>
+        </svg>
+      </div>
+      <div class="ap-hero-text">
+        <h1>{{ customer.first_name | default: 'My' }} {{ customer.last_name | default: 'Account' }}</h1>
+        <div class="ap-hero-email">{{ customer.email }}</div>
+        <div class="ap-hero-meta">
+          <span class="ap-hero-chip">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007Z"/></svg>
+            {{ customer.orders_count }} Order{% if customer.orders_count != 1 %}s{% endif %}
+          </span>
+          <span class="ap-hero-chip">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+            {{ customer.addresses_count }} Address{% if customer.addresses_count != 1 %}es{% endif %}
+          </span>
+          <span class="ap-hero-chip">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"/></svg>
+            Verified Member
+          </span>
+        </div>
+      </div>
+      {{ 'layout.customer.log_out' | t | customer_logout_link | replace: '<a ', '<a class="ap-logout-btn" ' }}
+    </div>
+  </div>
+
+  <!-- QUICK NAV -->
+  <div class="ap-quicknav">
+    <div class="ap-quicknav-inner">
+      <a class="ap-qn-item active" href="#orders">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25Z"/></svg>
+        My Orders
+      </a>
+      <a class="ap-qn-item" href="#addresses">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+        Addresses
+      </a>
+      <a class="ap-qn-item" href="#profile">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
+        Profile
+      </a>
+      <a class="ap-qn-item" href="#security">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+        Security
+      </a>
+      <a class="ap-qn-item" href="#notifications">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"/></svg>
+        Notifications
+      </a>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="ap-main">
+
+    <!-- SIDEBAR -->
+    <aside class="ap-sidebar">
+
+      <div class="ap-card">
+        <div class="ap-card-head">
+          <div class="ap-card-head-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
+          </div>
+          <h3>Profile</h3>
+        </div>
+        <div class="ap-card-body">
+          <div class="ap-profile-row">
+            <div class="ap-profile-field">
+              <span class="ap-profile-label">Full Name</span>
+              <span class="ap-profile-value">{{ customer.name | default: '—' }}</span>
+            </div>
+            <div class="ap-divider"></div>
+            <div class="ap-profile-field">
+              <span class="ap-profile-label">Email</span>
+              <span class="ap-profile-value">{{ customer.email }}</span>
+            </div>
+            <div class="ap-divider"></div>
+            <div class="ap-profile-field">
+              <span class="ap-profile-label">Phone</span>
+              <span class="ap-profile-value {% unless customer.default_address.phone %}muted{% endunless %}">{{ customer.default_address.phone | default: 'Not added' }}</span>
+            </div>
+            <div class="ap-divider"></div>
+            <div class="ap-profile-field">
+              <span class="ap-profile-label">Country</span>
+              <span class="ap-profile-value {% unless customer.default_address.country %}muted{% endunless %}">{{ customer.default_address.country | default: 'Not set' }}</span>
+            </div>
+            <div class="ap-divider"></div>
+            <div class="ap-profile-field">
+              <span class="ap-profile-label">Member Since</span>
+              <span class="ap-profile-value">{{ customer.created_at | date: '%b %Y' }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ap-card">
+        <div class="ap-card-head">
+          <div class="ap-card-head-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
+          </div>
+          <h3>My Stats</h3>
+        </div>
+        <div class="ap-card-body">
+          <div class="ap-stats-grid">
+            <div class="ap-stat-box">
+              <div class="ap-stat-num">{{ customer.orders_count }}</div>
+              <div class="ap-stat-lbl">Orders</div>
+            </div>
+            <div class="ap-stat-box">
+              <div class="ap-stat-num">{{ customer.addresses_count }}</div>
+              <div class="ap-stat-lbl">Addresses</div>
+            </div>
+            <div class="ap-stat-box">
+              <div class="ap-stat-num">{{ customer.total_spent | money_without_currency }}</div>
+              <div class="ap-stat-lbl">Total Spent</div>
+            </div>
+            <div class="ap-stat-box">
+              <div class="ap-stat-num">{{ customer.orders | map: 'line_items_count' | sum | default: 0 }}</div>
+              <div class="ap-stat-lbl">Items Bought</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ap-card">
+        <div class="ap-card-head">
+          <div class="ap-card-head-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+          </div>
+          <h3>Quick Links</h3>
+        </div>
+        <nav class="ap-sidenav">
+          <a href="/collections/all" class="ap-sidenav-item">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016 2.993 2.993 0 0 0 2.25-1.016 3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"/></svg>
+            Shop Products
+          </a>
+          <a href="/account/addresses" class="ap-sidenav-item">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+            Manage Addresses
+          </a>
+          <a href="/cart" class="ap-sidenav-item">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></svg>
+            View Cart
+          </a>
+          <a href="/pages/contact" class="ap-sidenav-item">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z"/></svg>
+            Contact Support
+          </a>
+          <a href="/blogs/news" class="ap-sidenav-item">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z"/></svg>
+            Blog &amp; News
+          </a>
+        </nav>
+      </div>
+
+    </aside>
+
+    <!-- RIGHT CONTENT -->
+    <div class="ap-content">
+
+      <!-- 1. ORDERS -->
+      <div class="ap-card" id="orders">
+        <div class="ap-card-head">
+          <div class="ap-card-head-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25Z"/></svg>
+          </div>
+          <div>
+            <div class="ap-section-title">{{ 'customer.orders.title' | t }}</div>
+            <div class="ap-section-sub">{{ customer.orders_count }} total order{% if customer.orders_count != 1 %}s{% endif %} placed</div>
+          </div>
+        </div>
+        {% paginate customer.orders by 20 %}
+          {% if customer.orders.size != 0 %}
+            <div class="ap-table-wrap">
+              <table class="ap-table">
+                <thead>
+                  <tr>
+                    <th>{{ 'customer.orders.order_number' | t }}</th>
+                    <th>{{ 'customer.orders.date' | t }}</th>
+                    <th>Items</th>
+                    <th>{{ 'customer.orders.payment_status' | t }}</th>
+                    <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+                    <th>{{ 'customer.orders.total' | t }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for order in customer.orders %}
+                    <tr>
+                      <td data-label="{{ 'customer.orders.order_number' | t }}">
+                        <a href="{{ order.customer_url }}" class="ap-order-num">{{ order.name }}</a>
+                      </td>
+                      <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: format: 'month_day_year' }}</td>
+                      <td data-label="Items">{{ order.line_items_count }} item{% if order.line_items_count != 1 %}s{% endif %}</td>
+                      <td data-label="{{ 'customer.orders.payment_status' | t }}">
+                        {% assign fs = order.financial_status %}
+                        {% if fs == 'paid' %}
+                          <span class="ap-badge ap-badge-green">{{ order.financial_status_label }}</span>
+                        {% elsif fs == 'pending' or fs == 'partially_paid' %}
+                          <span class="ap-badge ap-badge-amber">{{ order.financial_status_label }}</span>
+                        {% elsif fs == 'refunded' or fs == 'partially_refunded' %}
+                          <span class="ap-badge ap-badge-red">{{ order.financial_status_label }}</span>
+                        {% else %}
+                          <span class="ap-badge ap-badge-default">{{ order.financial_status_label }}</span>
+                        {% endif %}
+                      </td>
+                      <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">
+                        {% assign fulf = order.fulfillment_status %}
+                        {% if fulf == 'fulfilled' %}
+                          <span class="ap-badge ap-badge-green">{{ order.fulfillment_status_label }}</span>
+                        {% elsif fulf == 'partial' %}
+                          <span class="ap-badge ap-badge-amber">{{ order.fulfillment_status_label }}</span>
+                        {% elsif fulf == 'unfulfilled' %}
+                          <span class="ap-badge ap-badge-blue">{{ order.fulfillment_status_label }}</span>
+                        {% else %}
+                          <span class="ap-badge ap-badge-default">{{ order.fulfillment_status_label }}</span>
+                        {% endif %}
+                      </td>
+                      <td data-label="{{ 'customer.orders.total' | t }}">
+                        <span class="ap-price">{{ order.total_price | money }}</span>
+                      </td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          {% else %}
+            <div class="ap-empty">
+              <div class="ap-empty-icon">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007Z"/></svg>
+              </div>
+              <h4>{{ 'customer.orders.none' | t }}</h4>
+              <p>You haven't placed any orders yet.<br>Start shopping to see your order history here.</p>
+              <a href="/collections/all" class="ap-cta-btn">Start Shopping</a>
+            </div>
+          {% endif %}
+          {% if paginate.pages > 1 %}
+            <div class="ap-pagination">{% include 'pagination' %}</div>
+          {% endif %}
+        {% endpaginate %}
+      </div>
+
+      <!-- 2. ADDRESSES -->
+      <div class="ap-card" id="addresses">
+        <div class="ap-card-head">
+          <div class="ap-card-head-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+          </div>
+          <div style="flex:1">
+            <div class="ap-section-title">Saved Addresses</div>
+            <div class="ap-section-sub">{{ customer.addresses_count }} address{% if customer.addresses_count != 1 %}es{% endif %} saved</div>
+          </div>
+          <a href="/account/addresses" class="ap-edit-link">+ Add New</a>
+        </div>
+        <div class="ap-card-body">
+          {% if customer.addresses.size > 0 %}
+            <div class="ap-addr-grid">
+              {% for address in customer.addresses %}
+                <div class="ap-addr-box {% if address == customer.default_address %}default-addr{% endif %}">
+                  {% if address == customer.default_address %}<div class="ap-addr-default-tag">Default</div>{% endif %}
+                  <div class="ap-addr-name">{{ address.first_name }} {{ address.last_name }}</div>
+                  <div class="ap-addr-detail">
+                    {{ address.address1 }}{% if address.address2 %}, {{ address.address2 }}{% endif %}<br>
+                    {{ address.city }}{% if address.province_code %}, {{ address.province_code }}{% endif %} {{ address.zip }}<br>
+                    {{ address.country }}<br>
+                    {% if address.phone %}&#128222; {{ address.phone }}{% endif %}
+                  </div>
+                  <div class="ap-addr-actions">
+                    <a href="/account/addresses/{{ address.id }}" class="ap-addr-action-btn">
+                      <svg fill="none" viewBox="0 0 24 24" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Z"/></svg>
+                      Edit
+                    </a>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% else %}
+            <div class="ap-empty">
+              <div class="ap-empty-icon">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+              </div>
+              <h4>No addresses saved</h4>
+              <p>Save an address for faster checkout.</p>
+              <a href="/account/addresses" class="ap-cta-btn">Add Address</a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- 3. PERSONAL INFORMATION -->
+      <div class="ap-card" id="profile">
+        <div class="ap-card-head">
+          <div class="ap-card-head-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
+          </div>
+          <div style="flex:1">
+            <div class="ap-section-title">Personal Information</div>
+            <div class="ap-section-sub">Your account details and preferences</div>
+          </div>
+          <a href="/account/edit" class="ap-edit-link">Edit Profile</a>
+        </div>
+        <div class="ap-card-body">
+          <div class="ap-info-rows">
+            <div class="ap-info-row">
+              <div class="ap-info-row-left">
+                <div class="ap-info-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg></div>
+                <div>
+                  <div class="ap-info-key">Full Name</div>
+                  <div class="ap-info-val {% unless customer.name %}muted{% endunless %}">{{ customer.name | default: 'Not set' }}</div>
+                </div>
+              </div>
+              <a href="/account/edit" class="ap-edit-link">Edit</a>
+            </div>
+            <div class="ap-info-row">
+              <div class="ap-info-row-left">
+                <div class="ap-info-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg></div>
+                <div>
+                  <div class="ap-info-key">Email Address</div>
+                  <div class="ap-info-val">{{ customer.email }}</div>
+                </div>
+              </div>
+              <span class="ap-badge ap-badge-green">Verified</span>
+            </div>
+            <div class="ap-info-row">
+              <div class="ap-info-row-left">
+                <div class="ap-info-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg></div>
+                <div>
+                  <div class="ap-info-key">Phone Number</div>
+                  <div class="ap-info-val {% unless customer.default_address.phone %}muted{% endunless %}">{{ customer.default_address.phone | default: 'Not added' }}</div>
+                </div>
+              </div>
+              <a href="/account/edit" class="ap-edit-link">{% if customer.default_address.phone %}Edit{% else %}Add{% endif %}</a>
+            </div>
+            <div class="ap-info-row">
+              <div class="ap-info-row-left">
+                <div class="ap-info-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253M3 12c0 .778.099 1.533.284 2.253"/></svg></div>
+                <div>
+                  <div class="ap-info-key">Country</div>
+                  <div class="ap-info-val {% unless customer.default_address.country %}muted{% endunless %}">{{ customer.default_address.country | default: 'Not set' }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="ap-info-row">
+              <div class="ap-info-row-left">
+                <div class="ap-info-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg></div>
+                <div>
+                  <div class="ap-info-key">Member Since</div>
+                  <div class="ap-info-val">{{ customer.created_at | date: '%B %d, %Y' }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="ap-info-row">
+              <div class="ap-info-row-left">
+                <div class="ap-info-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></div>
+                <div>
+                  <div class="ap-info-key">Total Spent</div>
+                  <div class="ap-info-val">{{ customer.total_spent | money }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="ap-info-row">
+              <div class="ap-info-row-left">
+                <div class="ap-info-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"/></svg></div>
+                <div>
+                  <div class="ap-info-key">Email Marketing</div>
+                  <div class="ap-info-val">
+                    {% if customer.accepts_marketing %}
+                      <span class="ap-badge ap-badge-green">Subscribed</span>
+                    {% else %}
+                      <span class="ap-badge ap-badge-default">Not subscribed</span>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. SECURITY -->
+      <div class="ap-card" id="security">
+        <div class="ap-card-head">
+          <div class="ap-card-head-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+          </div>
+          <div>
+            <div class="ap-section-title">Security &amp; Privacy</div>
+            <div class="ap-section-sub">Manage your account security settings</div>
+          </div>
+        </div>
+        <div class="ap-card-body">
+          <div class="ap-security-rows">
+            <div class="ap-security-row">
+              <div class="ap-security-left">
+                <div class="ap-security-icon ok"><svg fill="none" viewBox="0 0 24 24" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></div>
+                <div>
+                  <div class="ap-security-lbl">Email Verified</div>
+                  <div class="ap-security-sub">{{ customer.email }}</div>
+                </div>
+              </div>
+              <span class="ap-badge ap-badge-green">Active</span>
+            </div>
+            <div class="ap-security-row">
+              <div class="ap-security-left">
+                <div class="ap-security-icon warn"><svg fill="none" viewBox="0 0 24 24" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"/></svg></div>
+                <div>
+                  <div class="ap-security-lbl">Password</div>
+                  <div class="ap-security-sub">Keep your account secure with a strong password</div>
+                </div>
+              </div>
+              <a href="/account/edit" class="ap-sec-btn">Change Password</a>
+            </div>
+            <div class="ap-security-row">
+              <div class="ap-security-left">
+                <div class="ap-security-icon ok"><svg fill="none" viewBox="0 0 24 24" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg></div>
+                <div>
+                  <div class="ap-security-lbl">Account Status</div>
+                  <div class="ap-security-sub">Member since {{ customer.created_at | date: '%B %d, %Y' }}</div>
+                </div>
+              </div>
+              <span class="ap-badge ap-badge-green">Good Standing</span>
+            </div>
+            <div class="ap-security-row">
+              <div class="ap-security-left">
+                <div class="ap-security-icon warn"><svg fill="none" viewBox="0 0 24 24" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg></div>
+                <div>
+                  <div class="ap-security-lbl">Privacy Policy</div>
+                  <div class="ap-security-sub">Review how we use your data</div>
+                </div>
+              </div>
+              <a href="/pages/privacy-policy" class="ap-sec-btn">View Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. NOTIFICATIONS -->
+      <div class="ap-card" id="notifications">
+        <div class="ap-card-head">
+          <div class="ap-card-head-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"/></svg>
+          </div>
+          <div>
+            <div class="ap-section-title">Notification Preferences</div>
+            <div class="ap-section-sub">Choose what updates you receive</div>
+          </div>
+        </div>
+        <div class="ap-card-body">
+          <div class="ap-notif-rows">
+            <div class="ap-notif-row">
+              <div class="ap-notif-left">
+                <div class="ap-notif-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25Z"/></svg></div>
+                <div>
+                  <div class="ap-notif-lbl">Order Updates</div>
+                  <div class="ap-notif-sub">Shipping, delivery &amp; status changes</div>
+                </div>
+              </div>
+              <button class="ap-toggle on" onclick="this.classList.toggle('on')" aria-label="Toggle order updates"></button>
+            </div>
+            <div class="ap-notif-row">
+              <div class="ap-notif-left">
+                <div class="ap-notif-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z"/></svg></div>
+                <div>
+                  <div class="ap-notif-lbl">Promotions &amp; Offers</div>
+                  <div class="ap-notif-sub">Discounts, sales and special deals</div>
+                </div>
+              </div>
+              <button class="ap-toggle {% if customer.accepts_marketing %}on{% endif %}" onclick="this.classList.toggle('on')" aria-label="Toggle promotions"></button>
+            </div>
+            <div class="ap-notif-row">
+              <div class="ap-notif-left">
+                <div class="ap-notif-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg></div>
+                <div>
+                  <div class="ap-notif-lbl">Wishlist Alerts</div>
+                  <div class="ap-notif-sub">Price drops on saved items</div>
+                </div>
+              </div>
+              <button class="ap-toggle on" onclick="this.classList.toggle('on')" aria-label="Toggle wishlist alerts"></button>
+            </div>
+            <div class="ap-notif-row">
+              <div class="ap-notif-left">
+                <div class="ap-notif-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z"/></svg></div>
+                <div>
+                  <div class="ap-notif-lbl">Product Reviews</div>
+                  <div class="ap-notif-sub">Reminders to review purchased items</div>
+                </div>
+              </div>
+              <button class="ap-toggle" onclick="this.classList.toggle('on')" aria-label="Toggle review reminders"></button>
+            </div>
+            <div class="ap-notif-row">
+              <div class="ap-notif-left">
+                <div class="ap-notif-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></svg></div>
+                <div>
+                  <div class="ap-notif-lbl">Back in Stock</div>
+                  <div class="ap-notif-sub">Notify when out-of-stock items return</div>
+                </div>
+              </div>
+              <button class="ap-toggle on" onclick="this.classList.toggle('on')" aria-label="Toggle back in stock"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

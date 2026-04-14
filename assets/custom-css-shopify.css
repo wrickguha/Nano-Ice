@@ -1,0 +1,214 @@
+.hero-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+/* --- Global Footer Styling --- */
+.site-footer {
+  background-color: #f8f8f8;
+  padding: 80px 0 30px;
+  color: #666;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+.page-width {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- Row 1: 4 Columns Layout --- */
+.custom-footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 220px;
+  padding-right: 20px;
+}
+
+.footer-col h2, .footer-col h3 {
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 25px;
+  margin-top: 0;
+}
+
+/* --- Logo Styling --- */
+.corano-logo {
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 20px 0;
+  position: relative;
+  letter-spacing: -1px;
+}
+.corano-logo span { position: relative; }
+.corano-logo span::before {
+  content: '👑'; 
+  position: absolute;
+  top: -18px;
+  left: 2px;
+  font-size: 14px;
+}
+
+.footer-col p {
+  line-height: 1.6;
+  max-width: 260px;
+}
+
+/* --- Contact & Information Lists --- */
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-col ul li {
+  margin-bottom: 15px;
+}
+.footer-col ul a {
+  text-decoration: none;
+  color: #666;
+}
+.footer-col ul a:hover {
+  color: #c29958; 
+}
+
+/* --- Social Icons Styling --- */
+.social-icons {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+.social-icons a, .social-icons__link {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #ebebeb;
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #666;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.social-icons svg {
+  width: 16px;
+  height: 16px;
+}
+.social-icons a:hover, .social-icons__link:hover {
+  background: #c29958;
+  border-color: #c29958;
+  color: #fff !important;
+}
+
+/* --- Row 2: Newsletter & Payments --- */
+.custom-footer-middle {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* --- Payment Icons --- */
+.payment-icons {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+.payment-icons li svg, .payment-icons li img {
+  height: 25px;
+  width: auto;
+}
+
+/* --- Bottom Copyright --- */
+.footer-copyright-row, .site-footer__copyright-content {
+  text-align: center;
+  color: #999;
+}
+
+/* --- Scroll To Top Button --- */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 45px;
+  height: 45px;
+  background: #222;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  z-index: 99;
+}
+.scroll-top-btn::after {
+  content: '';
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(-135deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .custom-footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-col { margin-bottom: 30px; }
+}
+
+/* ============================================================
+   GLOBAL ICON FIX: This forces colors on ALL pages
+   ============================================================ */
+
+/* 1. Remove Fading and Grayscale from everything in footer */
+.site-footer svg, 
+.site-footer img, 
+.social-icons svg, 
+.payment-icons svg {
+  filter: none !important;
+  -webkit-filter: none !important;
+  opacity: 1 !important;
+}
+
+/* 2. Fix Payment Icons specifically (Visa, Mastercard, etc.) */
+/* This prevents the theme from forcing them to be solid grey/black */
+.payment-icons svg, 
+.payment-icons svg path,
+.site-footer__payment-icons svg,
+.site-footer__payment-icons svg path {
+  fill: unset !important;
+  stroke: unset !important;
+  color: unset !important;
+}
+
+/* 3. Ensure Social Icons stay colored/visible */
+.social-icons a svg, .social-icons__link svg {
+  fill: currentColor !important; /* Uses the #666 or #fff on hover */
+}

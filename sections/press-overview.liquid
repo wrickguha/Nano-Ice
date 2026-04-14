@@ -1,0 +1,40 @@
+{% if section.settings.video_url != blank %}
+<div class="index-section press-overview-wrap">
+  <div class="page-width">
+    <div class="section-header text-center">
+      <h2 class="h2">Press Overview</h2>
+    </div>
+    <div class="video-wrapper" data-video-autoplay>
+      {% if section.settings.video_url.type == 'youtube' %}
+        <iframe
+          class="video-autoplay-iframe"
+          src="https://www.youtube.com/embed/{{ section.settings.video_url.id }}?rel=0&showinfo=0&enablejsapi=1"
+          data-src-base="https://www.youtube.com/embed/{{ section.settings.video_url.id }}?rel=0&showinfo=0&enablejsapi=1"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      {% elsif section.settings.video_url.type == 'vimeo' %}
+        <iframe
+          class="video-autoplay-iframe"
+          src="https://player.vimeo.com/video/{{ section.settings.video_url.id }}?byline=0&portrait=0&badge=0"
+          data-src-base="https://player.vimeo.com/video/{{ section.settings.video_url.id }}?byline=0&portrait=0&badge=0"
+          allowfullscreen></iframe>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Press Overview",
+  "settings": [
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "Press Overview Video URL",
+      "accept": ["youtube", "vimeo"],
+      "info": "Paste the YouTube or Vimeo URL for the Press Overview video"
+    }
+  ]
+}
+{% endschema %}
