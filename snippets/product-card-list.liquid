@@ -1,5 +1,12 @@
 <div class="list-view-item__image-column">
-  <div class="list-view-item__image-wrapper">
+  <div class="list-view-item__image-wrapper" style="position:relative;">
+    {%- assign total_inventory = 0 -%}
+    {%- for variant in product.variants -%}
+      {%- assign total_inventory = total_inventory | plus: variant.inventory_quantity -%}
+    {%- endfor -%}
+    {% if product.available and total_inventory >= 20 %}
+      <span class="badge sale-badge">SALE</span>
+    {% endif %}
     <img class="list-view-item__image" src="{{ product.featured_image.src | img_url: '95x95', scale: 2 }}" alt="{{ product.featured_image.alt | escape }}">
   </div>
 </div>

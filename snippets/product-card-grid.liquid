@@ -1,5 +1,12 @@
 <div class="grid-view-item{% unless product.available %} product-price--sold-out grid-view-item--sold-out{% endunless %} ni-product-card">
+  {%- assign total_inventory = 0 -%}
+  {%- for variant in product.variants -%}
+    {%- assign total_inventory = total_inventory | plus: variant.inventory_quantity -%}
+  {%- endfor -%}
   <a class="grid-view-item__link grid-view-item__image-container" href="{{ product.url | within: collection }}">
+    {% if product.available and total_inventory >= 20 %}
+      <span class="badge sale-badge">SALE</span>
+    {% endif %}
     {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
     {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
     {%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
