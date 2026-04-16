@@ -6,9 +6,7 @@
 
 <div class="list-view-item__title-column">
   <div class="list-view-item__title">{{ product.title }}</div>
-  {% if product.compare_at_price > product.price %}
-    <div class="list-view-item__on-sale">{{ 'products.product.on_sale' | t }}</div>
-  {% endif %}
+  {# Removed SALE tag #}
   {% if section.settings.show_vendor %}
     <div class="list-view-item__vendor medium-up--hide">{{ product.vendor }}</div>
   {% endif %}

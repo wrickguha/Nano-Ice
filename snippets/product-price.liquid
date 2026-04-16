@@ -19,14 +19,12 @@
     <s class="product-price__price">{{ compare_at_price | money }}</s>
     <span class="product-price__price product-price__sale">
       {{ money_price }}
-      <span class="product-price__sale-label">{{ 'products.product.on_sale' | t }}</span>
     </span>
   {% else %}
     <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
     <s class="product-price__price">{{ compare_at_price | money }}</s>
     <span class="product-price__price product-price__sale">
       {{ money_price }}
-      <span class="product-price__sale-label">{{ 'products.product.on_sale' | t }}</span>
     </span>
   {% endif %}
 {% else %}

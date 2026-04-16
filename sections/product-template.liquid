@@ -170,9 +170,6 @@
                 >
                   {{ current_variant.price | money }}
                 </span>
-                <span class="product-price__sale-label product-price__sale-label-{{ section.id }}">
-                  {{- 'products.product.on_sale' | t -}}
-                </span>
               </span>
             {% else %}
               <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
