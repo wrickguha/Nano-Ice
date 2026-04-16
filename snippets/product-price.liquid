@@ -13,7 +13,12 @@
 
 {%- assign money_price = price | money -%}
 
-{% if compare_at_price > price %}
+{%- assign total_inventory = 0 -%}
+{%- for variant in product.variants -%}
+  {%- assign total_inventory = total_inventory | plus: variant.inventory_quantity -%}
+{%- endfor -%}
+
+{% if compare_at_price > price and total_inventory >= 20 %}
   {% if price_varies %}
     <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
     <s class="product-price__price">{{ compare_at_price | money }}</s>
