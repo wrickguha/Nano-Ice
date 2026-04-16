@@ -5087,3 +5087,153 @@ img, video, iframe {
     padding: 20px 16px !important;
   }
 }
+
+/* ============================================================
+   CHECKOUT BUTTON — Premium Payment Icons Layout
+   ============================================================ */
+
+.ni-checkout-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  background: var(--ni-gradient-primary) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 9999px !important;
+  padding: 18px 30px !important;
+  cursor: pointer !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  box-shadow: 0 4px 24px rgba(10, 77, 104, 0.35),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  margin-top: var(--ni-space-md) !important;
+  min-height: auto !important;
+  gap: 16px !important;
+  overflow: hidden !important;
+  text-decoration: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  position: relative !important;
+}
+
+/* Shimmer sweep on hover */
+.ni-checkout-btn::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent) !important;
+  transition: left 0.6s ease !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.ni-checkout-btn:hover::before {
+  left: 100% !important;
+}
+
+.ni-checkout-btn:hover {
+  transform: translateY(-2px) scale(1.01) !important;
+  box-shadow: 0 8px 32px rgba(10, 77, 104, 0.5),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.ni-checkout-btn:active {
+  transform: translateY(0) scale(0.995) !important;
+  box-shadow: 0 2px 12px rgba(10, 77, 104, 0.3) !important;
+}
+
+.ni-checkout-btn__label {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-family: var(--ni-font-body) !important;
+  font-weight: 700 !important;
+  font-size: 17px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: #fff !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.ni-checkout-btn__lock {
+  flex-shrink: 0 !important;
+  opacity: 0.85 !important;
+}
+
+.ni-checkout-btn__divider {
+  width: 1px !important;
+  height: 28px !important;
+  background: rgba(255, 255, 255, 0.3) !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.ni-checkout-btn__icons {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.ni-pay-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
+  line-height: 1 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  flex-shrink: 0 !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.ni-pay-badge:hover {
+  transform: scale(1.06) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3) !important;
+}
+
+.ni-pay-badge svg {
+  display: block !important;
+  max-width: none !important;
+}
+
+@media (max-width: 520px) {
+  .ni-checkout-btn {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    padding: 16px 22px !important;
+    border-radius: 18px !important;
+  }
+
+  .ni-checkout-btn__label {
+    width: 100% !important;
+    justify-content: center !important;
+    font-size: 15px !important;
+  }
+
+  .ni-checkout-btn__divider {
+    display: none !important;
+  }
+
+  .ni-checkout-btn__icons {
+    gap: 6px !important;
+    justify-content: center !important;
+  }
+
+  .ni-pay-badge svg {
+    width: 64px !important;
+    height: 22px !important;
+  }
+}
