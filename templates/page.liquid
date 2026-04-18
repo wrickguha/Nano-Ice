@@ -1,3 +1,386 @@
+{% if page.handle == 'testimonials-gallery' %}
+
+<div id="nitv-raw" style="display:none">{{ page.content }}</div>
+
+<div class="nitv-page">
+  <div class="nitv-header">
+    <p class="nitv-eyebrow">Real Customer Stories</p>
+    <h1 class="nitv-title">{{ page.title }}</h1>
+  </div>
+
+  <div class="nitv-stage">
+    <button class="nitv-arrow nitv-arrow--prev" id="nitv-prev" aria-label="Previous testimonial">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="nitv-track" id="nitv-track"></div>
+    <button class="nitv-arrow nitv-arrow--next" id="nitv-next" aria-label="Next testimonial">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+
+  <div class="nitv-dots" id="nitv-dots"></div>
+</div>
+
+<style>
+/* ================================================
+   NITV — Video Testimonials Spotlight Carousel
+   ================================================ */
+.nitv-page {
+  background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 28%, #e8eaf6 62%, #fffde7 100%);
+  padding: 80px 24px 100px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.nitv-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.nitv-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9e8fa0;
+  margin: 0 0 14px;
+}
+
+.nitv-title {
+  font-family: 'Inter', Georgia, sans-serif !important;
+  font-size: clamp(2rem, 5vw, 3.5rem) !important;
+  font-weight: 700 !important;
+  color: #2d2240 !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+  -webkit-text-fill-color: #2d2240 !important;
+  background: none !important;
+}
+
+/* Stage: arrow | track | arrow */
+.nitv-stage {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Track */
+.nitv-track {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+  height: 500px;
+  border-radius: 26px;
+  overflow: hidden;
+}
+
+/* Slides */
+.nitv-slide {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #1a1428 center/cover no-repeat;
+  transition: flex 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.nitv-slide--active { flex: 54 0 0; cursor: default; }
+.nitv-slide--near   { flex: 12 0 0; cursor: pointer; }
+.nitv-slide--far    { flex:  7 0 0; cursor: pointer; }
+
+/* Dark overlay on side panels */
+.nitv-panel-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 8, 32, 0.55);
+  transition: background 0.35s ease;
+  z-index: 1;
+}
+.nitv-slide--near:hover .nitv-panel-overlay,
+.nitv-slide--far:hover .nitv-panel-overlay {
+  background: rgba(18, 8, 32, 0.28);
+}
+
+/* Vertical name on side panels */
+.nitv-panel-name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  writing-mode: vertical-rl;
+  white-space: nowrap;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+/* Active slide iframe */
+.nitv-slide--active iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Gradient info bar at bottom of active slide */
+.nitv-active-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 60px 28px 24px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, transparent 100%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.nitv-active-name {
+  display: block;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.nitv-active-quote {
+  display: block;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
+  font-style: italic;
+  margin-top: 5px;
+  line-height: 1.45;
+}
+
+/* Arrows */
+.nitv-arrow {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  color: #2d2240;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  transition: background 0.25s ease, color 0.25s ease,
+              transform 0.25s ease, box-shadow 0.25s ease;
+}
+.nitv-arrow:hover {
+  background: #2d2240;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+}
+
+/* Dots */
+.nitv-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 32px;
+}
+.nitv-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  border: none;
+  background: rgba(45, 34, 64, 0.2);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+.nitv-dot.is-active {
+  width: 28px;
+  background: #2d2240;
+}
+
+/* Slide-change fade */
+@keyframes nitv-fade { from { opacity: 0; } to { opacity: 1; } }
+.nitv-track.nitv-anim .nitv-slide {
+  animation: nitv-fade 0.45s ease both;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nitv-track { height: 420px; }
+}
+@media (max-width: 640px) {
+  .nitv-page  { padding: 56px 12px 80px; }
+  .nitv-stage { gap: 8px; }
+  .nitv-track { height: 280px; gap: 6px; }
+  .nitv-arrow { width: 40px; height: 40px; }
+  .nitv-slide--far    { display: none; }
+  .nitv-slide--active { flex: 62 0 0; }
+  .nitv-slide--near   { flex:  9 0 0; }
+}
+@media (max-width: 400px) {
+  .nitv-slide--near   { display: none; }
+  .nitv-slide--active { flex: 1 0 0; border-radius: 16px; }
+  .nitv-stage         { gap: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nitv-slide { transition: none; }
+  .nitv-track.nitv-anim .nitv-slide { animation: none; }
+}
+</style>
+
+<script>
+(function () {
+  'use strict';
+  var rawEl = document.getElementById('nitv-raw');
+  if (!rawEl) return;
+
+  var iframes = rawEl.querySelectorAll('iframe');
+  if (!iframes.length) return;
+
+  var allH3 = Array.from(rawEl.querySelectorAll('h3')).map(function (el) {
+    return el.textContent.trim();
+  });
+
+  function getYTId(src) {
+    var m = (src || '').match(/(?:embed\/|v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+    return m ? m[1] : null;
+  }
+  function thumb(ytId) {
+    return ytId ? 'https://img.youtube.com/vi/' + ytId + '/hqdefault.jpg' : '';
+  }
+  function clean(str, max) {
+    if (!str) return '';
+    str = str.replace(/^["""''—–\-~\s]+|["""''—–\-~\s]+$/g, '').trim();
+    return str.length > max ? str.slice(0, max - 1) + '\u2026' : str;
+  }
+
+  var videos = Array.from(iframes).map(function (iframe, i) {
+    var src = iframe.src || iframe.getAttribute('src') || '';
+    var ytId = getYTId(src);
+    var nameRaw  = allH3[i * 2 + 1] || allH3[i] || '';
+    var quoteRaw = allH3[i * 2] || '';
+    return {
+      src:   src,
+      ytId:  ytId,
+      thumb: thumb(ytId),
+      name:  clean(nameRaw, 32) || ('Review #' + (i + 1)),
+      quote: clean(quoteRaw, 90)
+    };
+  });
+
+  var current = 0;
+  var n = videos.length;
+  var track   = document.getElementById('nitv-track');
+  var dotsEl  = document.getElementById('nitv-dots');
+  var prevBtn = document.getElementById('nitv-prev');
+  var nextBtn = document.getElementById('nitv-next');
+
+  function idx(offset) { return (current + offset + n) % n; }
+
+  function render() {
+    var slots, roles;
+    if (n >= 5) {
+      slots = [idx(-2), idx(-1), current, idx(1), idx(2)];
+      roles = ['far', 'near', 'active', 'near', 'far'];
+    } else if (n >= 3) {
+      slots = [idx(-1), current, idx(1)];
+      roles = ['near', 'active', 'near'];
+    } else {
+      slots = [current];
+      roles = ['active'];
+    }
+
+    track.classList.remove('nitv-anim');
+    void track.offsetWidth;
+    track.classList.add('nitv-anim');
+
+    track.innerHTML = '';
+    slots.forEach(function (vi, si) {
+      track.appendChild(makeSlide(videos[vi], roles[si], vi));
+    });
+    renderDots();
+  }
+
+  function makeSlide(v, role, vi) {
+    var el = document.createElement('div');
+    el.className = 'nitv-slide nitv-slide--' + role;
+
+    if (role === 'active') {
+      var ifr = document.createElement('iframe');
+      ifr.src = v.src;
+      ifr.setAttribute('frameborder', '0');
+      ifr.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+      ifr.setAttribute('allowfullscreen', '');
+      el.appendChild(ifr);
+
+      if (v.name) {
+        var info = document.createElement('div');
+        info.className = 'nitv-active-info';
+        var nm = document.createElement('span');
+        nm.className = 'nitv-active-name';
+        nm.textContent = v.name;
+        info.appendChild(nm);
+        if (v.quote) {
+          var qt = document.createElement('span');
+          qt.className = 'nitv-active-quote';
+          qt.textContent = v.quote;
+          info.appendChild(qt);
+        }
+        el.appendChild(info);
+      }
+    } else {
+      if (v.thumb) el.style.backgroundImage = 'url(' + v.thumb + ')';
+
+      var ov = document.createElement('div');
+      ov.className = 'nitv-panel-overlay';
+      el.appendChild(ov);
+
+      var lbl = document.createElement('span');
+      lbl.className = 'nitv-panel-name';
+      lbl.textContent = v.name;
+      el.appendChild(lbl);
+
+      el.addEventListener('click', (function (i) {
+        return function () { current = i; render(); };
+      }(vi)));
+    }
+    return el;
+  }
+
+  function renderDots() {
+    dotsEl.innerHTML = '';
+    for (var i = 0; i < n; i++) {
+      var dot = document.createElement('button');
+      dot.className = 'nitv-dot' + (i === current ? ' is-active' : '');
+      dot.setAttribute('aria-label', 'Video ' + (i + 1));
+      dot.addEventListener('click', (function (i) {
+        return function () { current = i; render(); };
+      }(i)));
+      dotsEl.appendChild(dot);
+    }
+  }
+
+  prevBtn.addEventListener('click', function () { current = idx(-1); render(); });
+  nextBtn.addEventListener('click', function () { current = idx(1);  render(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft')  { current = idx(-1); render(); }
+    if (e.key === 'ArrowRight') { current = idx(1);  render(); }
+  });
+
+  render();
+}());
+</script>
+
+{% else %}
+
 <div class="page-width">
   <div class="grid">
     <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
@@ -11,3 +394,5 @@
     </div>
   </div>
 </div>
+
+{% endif %}
