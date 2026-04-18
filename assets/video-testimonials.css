@@ -1,6 +1,6 @@
 /* ============================================================
-   VIDEO TESTIMONIALS GALLERY — Premium CSS
-   Uses Nano-Ice design tokens from nano-ice-redesign.css
+   VIDEO TESTIMONIALS GALLERY — Premium CSS v2
+   Complete redesign with modern animations & layout
    ============================================================ */
 
 /* ============================================================
@@ -9,14 +9,24 @@
 
 .vtg-hero {
   position: relative;
-  padding: 100px 0 80px;
+  padding: 120px 0 100px;
   text-align: center;
   overflow: hidden;
   background: linear-gradient(135deg, #0A4D68 0%, #088395 40%, #05BFDB 100%);
+  animation: vtg-hero-gradient 12s ease infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes vtg-hero-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .vtg-hero[data-bg="dark"] {
-  background: linear-gradient(135deg, #0C1222 0%, #0A4D68 60%, #088395 100%);
+  background: linear-gradient(135deg, #0C1222 0%, #0A4D68 50%, #088395 100%);
+  background-size: 200% 200%;
+  animation: vtg-hero-gradient 12s ease infinite;
 }
 
 .vtg-hero[data-bg="mesh"] {
@@ -38,33 +48,33 @@
 .vtg-hero__orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.3;
-  animation: vtg-float 8s ease-in-out infinite;
+  filter: blur(100px);
+  opacity: 0.35;
+  animation: vtg-float 10s ease-in-out infinite;
 }
 
 .vtg-hero__orb--1 {
-  width: 400px;
-  height: 400px;
-  background: rgba(5, 191, 219, 0.4);
-  top: -100px;
-  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: rgba(5, 191, 219, 0.45);
+  top: -150px;
+  right: -120px;
   animation-delay: 0s;
 }
 
 .vtg-hero__orb--2 {
-  width: 300px;
-  height: 300px;
-  background: rgba(0, 255, 202, 0.3);
-  bottom: -80px;
-  left: -80px;
+  width: 350px;
+  height: 350px;
+  background: rgba(0, 255, 202, 0.35);
+  bottom: -100px;
+  left: -100px;
   animation-delay: -3s;
 }
 
 .vtg-hero__orb--3 {
-  width: 200px;
-  height: 200px;
-  background: rgba(8, 131, 149, 0.4);
+  width: 250px;
+  height: 250px;
+  background: rgba(8, 131, 149, 0.45);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -73,15 +83,17 @@
 
 @keyframes vtg-float {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -30px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.95); }
+  25% { transform: translate(40px, -25px) scale(1.08); }
+  50% { transform: translate(-15px, 35px) scale(0.96); }
+  75% { transform: translate(25px, 15px) scale(1.05); }
 }
 
 .vtg-hero__content {
   position: relative;
   z-index: 2;
-  max-width: 780px;
+  max-width: 800px;
   margin: 0 auto;
+  padding: 0 24px;
 }
 
 /* Badge */
@@ -89,17 +101,18 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 8px 20px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 10px 24px;
   border-radius: 100px;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.03em;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+  animation: vtg-fadeUp 0.7s ease-out 0.1s both;
 }
 
 .vtg-hero__badge svg {
@@ -109,23 +122,25 @@
 /* Title */
 .vtg-hero__title {
   font-family: var(--ni-font-heading, 'Inter', sans-serif) !important;
-  font-size: clamp(2rem, 6vw, 3.5rem) !important;
+  font-size: clamp(2.2rem, 7vw, 4rem) !important;
   font-weight: 800 !important;
   color: #fff !important;
-  line-height: 1.1 !important;
-  letter-spacing: -0.03em !important;
-  margin: 0 0 20px !important;
-  text-shadow: 0 2px 40px rgba(0, 0, 0, 0.2);
+  line-height: 1.08 !important;
+  letter-spacing: -0.035em !important;
+  margin: 0 0 24px !important;
+  text-shadow: 0 4px 50px rgba(0, 0, 0, 0.15);
+  animation: vtg-fadeUp 0.7s ease-out 0.25s both;
 }
 
 /* Subtitle */
 .vtg-hero__subtitle {
-  font-size: clamp(1rem, 2.5vw, 1.2rem) !important;
-  color: rgba(255, 255, 255, 0.8) !important;
-  line-height: 1.7 !important;
-  margin: 0 auto 32px !important;
-  max-width: 580px;
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  line-height: 1.75 !important;
+  margin: 0 auto 40px !important;
+  max-width: 600px;
   font-weight: 400 !important;
+  animation: vtg-fadeUp 0.7s ease-out 0.4s both;
 }
 
 /* CTA Button */
@@ -135,17 +150,18 @@
   gap: 10px;
   background: linear-gradient(135deg, #05BFDB 0%, #00FFCA 100%);
   color: #0C1222 !important;
-  padding: 16px 40px;
+  padding: 18px 48px;
   border-radius: 100px;
   font-weight: 700;
   font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   text-decoration: none;
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 4px 25px rgba(5, 191, 219, 0.35);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 8px 32px rgba(5, 191, 219, 0.4);
   position: relative;
   overflow: hidden;
+  animation: vtg-fadeUp 0.7s ease-out 0.55s both;
 }
 
 .vtg-hero__cta::before {
@@ -158,8 +174,8 @@
 }
 
 .vtg-hero__cta:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 8px 40px rgba(5, 191, 219, 0.5);
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 12px 48px rgba(5, 191, 219, 0.55);
   color: #0C1222 !important;
   text-decoration: none;
 }
@@ -184,6 +200,8 @@
   background: #fff;
   border-bottom: 1px solid var(--ni-gray-200, #E2E8F0);
   padding: 0;
+  position: relative;
+  z-index: 2;
 }
 
 .vtg-stats__grid {
@@ -194,13 +212,14 @@
 
 .vtg-stats__item {
   text-align: center;
-  padding: 32px 16px;
+  padding: 40px 20px;
   position: relative;
-  transition: background 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .vtg-stats__item:hover {
-  background: var(--ni-ice-white, #F0F9FF);
+  background: linear-gradient(180deg, rgba(5, 191, 219, 0.04) 0%, rgba(5, 191, 219, 0.08) 100%);
+  transform: translateY(-2px);
 }
 
 .vtg-stats__item:not(:last-child)::after {
@@ -273,31 +292,31 @@
    ============================================================ */
 
 .vtg-section {
-  padding: 64px 0 80px;
+  padding: 80px 0 100px;
   background: var(--ni-gray-50, #F8FAFC);
 }
 
 .vtg-section__header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 56px;
 }
 
 .vtg-section__title {
   font-family: var(--ni-font-heading, 'Inter', sans-serif) !important;
-  font-size: clamp(1.75rem, 4vw, 2.5rem) !important;
+  font-size: clamp(1.85rem, 4.5vw, 2.75rem) !important;
   font-weight: 800 !important;
   color: var(--ni-dark, #0C1222) !important;
-  letter-spacing: -0.02em !important;
-  margin: 0 0 12px !important;
-  line-height: 1.15 !important;
+  letter-spacing: -0.025em !important;
+  margin: 0 0 14px !important;
+  line-height: 1.12 !important;
 }
 
 .vtg-section__subtitle {
-  font-size: 16px !important;
+  font-size: 17px !important;
   color: var(--ni-gray-500, #64748B) !important;
-  max-width: 520px;
+  max-width: 540px;
   margin: 0 auto !important;
-  line-height: 1.6 !important;
+  line-height: 1.65 !important;
 }
 
 /* ============================================================
@@ -307,7 +326,7 @@
 .vtg-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 32px;
 }
 
 /* ============================================================
@@ -316,24 +335,24 @@
 
 .vtg-card {
   background: #fff;
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
   box-shadow:
-    0 1px 3px rgba(10, 77, 104, 0.04),
-    0 4px 16px rgba(10, 77, 104, 0.06);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    0 1px 4px rgba(10, 77, 104, 0.03),
+    0 8px 24px rgba(10, 77, 104, 0.06);
+  border: 1px solid rgba(226, 232, 240, 0.6);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
 .vtg-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px) scale(1.015);
   box-shadow:
-    0 12px 40px rgba(10, 77, 104, 0.12),
-    0 0 0 1px rgba(5, 191, 219, 0.15);
-  border-color: rgba(5, 191, 219, 0.2);
+    0 20px 60px rgba(10, 77, 104, 0.14),
+    0 0 0 1px rgba(5, 191, 219, 0.18);
+  border-color: rgba(5, 191, 219, 0.25);
 }
 
 /* ============================================================
@@ -383,10 +402,10 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 64px;
-  height: 64px;
-  background: rgba(255, 255, 255, 0.95);
+  transform: translate(-50%, -50%) scale(1);
+  width: 68px;
+  height: 68px;
+  background: rgba(255, 255, 255, 0.97);
   border: none;
   border-radius: 50%;
   display: flex;
@@ -394,8 +413,8 @@
   justify-content: center;
   cursor: pointer;
   color: var(--ni-primary, #0A4D68);
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
   z-index: 3;
 }
 
@@ -473,7 +492,7 @@
    ============================================================ */
 
 .vtg-card__content {
-  padding: 20px 24px 24px;
+  padding: 24px 28px 28px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -512,13 +531,14 @@
 /* Quote */
 .vtg-card__quote {
   font-size: 15px;
-  line-height: 1.65;
+  line-height: 1.7;
   color: var(--ni-gray-700, #334155);
-  margin: 0 0 16px;
+  margin: 0 0 18px;
   padding: 0;
   border: none;
-  font-style: normal;
+  font-style: italic;
   flex: 1;
+  position: relative;
 }
 
 /* Author */
@@ -604,17 +624,19 @@
    ============================================================ */
 
 .vtg-bottom-cta {
-  padding: 0 0 80px;
+  padding: 0 0 100px;
   background: var(--ni-gray-50, #F8FAFC);
 }
 
 .vtg-bottom-cta__inner {
   background: linear-gradient(135deg, #0A4D68 0%, #088395 50%, #05BFDB 100%);
-  border-radius: 20px;
-  padding: 64px 48px;
+  border-radius: 24px;
+  padding: 80px 56px;
   text-align: center;
   position: relative;
   overflow: hidden;
+  animation: vtg-hero-gradient 12s ease infinite;
+  background-size: 200% 200%;
 }
 
 .vtg-bottom-cta__inner::before {
@@ -692,7 +714,7 @@
   justify-content: center;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .vtg-lightbox--open {
@@ -703,23 +725,23 @@
 .vtg-lightbox__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(12, 18, 34, 0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(12, 18, 34, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   cursor: pointer;
 }
 
 .vtg-lightbox__content {
   position: relative;
   width: 90%;
-  max-width: 900px;
+  max-width: 920px;
   aspect-ratio: 16 / 9;
   background: #000;
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
-  transform: scale(0.9) translateY(20px);
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.55);
+  transform: scale(0.85) translateY(30px);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   z-index: 2;
 }
 
@@ -768,17 +790,72 @@
    SCROLL ANIMATIONS (card stagger)
    ============================================================ */
 
+@keyframes vtg-fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .vtg-card.ni-animate {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(50px) scale(0.97);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: var(--card-delay, 0ms);
 }
 
 .vtg-card.ni-animate.ni-visible {
   opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.vtg-hero .ni-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.vtg-hero .ni-animate.ni-visible {
+  opacity: 1;
   transform: translateY(0);
+}
+
+.vtg-stats__item.ni-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.vtg-stats__item.ni-animate.ni-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vtg-section__header.ni-animate {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.vtg-section__header.ni-animate.ni-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vtg-bottom-cta__inner.ni-animate {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.vtg-bottom-cta__inner.ni-animate.ni-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 /* ============================================================
@@ -788,7 +865,7 @@
 @media (max-width: 999px) {
   .vtg-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 24px;
   }
 
   .vtg-stats__grid {
@@ -800,11 +877,15 @@
   }
 
   .vtg-hero {
-    padding: 80px 0 60px;
+    padding: 90px 0 70px;
   }
 
   .vtg-bottom-cta__inner {
-    padding: 48px 32px;
+    padding: 56px 36px;
+  }
+
+  .vtg-section {
+    padding: 64px 0 80px;
   }
 }
 
@@ -814,16 +895,16 @@
 
 @media (max-width: 749px) {
   .vtg-hero {
-    padding: 60px 0 48px;
+    padding: 72px 0 56px;
   }
 
   .vtg-hero__badge {
     font-size: 11px;
-    padding: 6px 14px;
+    padding: 7px 16px;
   }
 
   .vtg-hero__cta {
-    padding: 14px 32px;
+    padding: 16px 36px;
     font-size: 13px;
   }
 
@@ -833,7 +914,7 @@
   }
 
   .vtg-stats__item {
-    padding: 20px 12px;
+    padding: 24px 14px;
   }
 
   .vtg-stats__item:nth-child(2)::after {
@@ -846,8 +927,8 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    gap: 16px;
-    padding-bottom: 8px;
+    gap: 20px;
+    padding: 0 4px 12px;
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
@@ -857,7 +938,7 @@
   }
 
   .vtg-card {
-    flex: 0 0 calc(100% - 32px);
+    flex: 0 0 calc(100% - 40px);
     scroll-snap-align: center;
   }
 
@@ -874,12 +955,12 @@
 
   /* Bottom CTA */
   .vtg-bottom-cta {
-    padding: 0 0 48px;
+    padding: 0 0 56px;
   }
 
   .vtg-bottom-cta__inner {
-    padding: 40px 24px;
-    border-radius: 16px;
+    padding: 48px 28px;
+    border-radius: 20px;
   }
 
   .vtg-bottom-cta__btn {
@@ -888,11 +969,11 @@
   }
 
   .vtg-section {
-    padding: 48px 0 40px;
+    padding: 56px 0 48px;
   }
 
   .vtg-section__header {
-    margin-bottom: 32px;
+    margin-bottom: 36px;
   }
 
   /* Lightbox mobile */
@@ -934,20 +1015,24 @@
 
 @media (max-width: 480px) {
   .vtg-card {
-    flex: 0 0 calc(100% - 16px);
+    flex: 0 0 calc(100% - 20px);
   }
 
   .vtg-card__content {
-    padding: 16px 18px 20px;
+    padding: 20px 20px 24px;
   }
 
   .vtg-card__play-btn {
-    width: 52px;
-    height: 52px;
+    width: 56px;
+    height: 56px;
   }
 
   .vtg-stats__number {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+  }
+
+  .vtg-hero {
+    padding: 60px 0 48px;
   }
 }
 

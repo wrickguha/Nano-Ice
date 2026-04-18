@@ -1,13 +1,87 @@
-<div class="page-width ni-testimonials-page">
-  <div class="grid">
-    <div class="grid__item">
-      <div class="section-header text-center">
-        <h1>{{ page.title }}</h1>
-      </div>
+{% comment %}
+  Template: page.reviews
+  Premium Video Testimonials Page with hero, animated grid, and CTA
+{% endcomment %}
 
-      <div class="rte">
+<div class="ni-testimonials-page">
+  {% comment %} === HERO SECTION === {% endcomment %}
+  <section class="ni-test-hero">
+    <div class="ni-test-hero__bg">
+      <div class="ni-test-hero__orb ni-test-hero__orb--1"></div>
+      <div class="ni-test-hero__orb ni-test-hero__orb--2"></div>
+      <div class="ni-test-hero__orb ni-test-hero__orb--3"></div>
+    </div>
+    <div class="ni-test-hero__content">
+      <div class="ni-test-hero__badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span>Trusted by 5,000+ Happy Customers</span>
+      </div>
+      <h1 class="ni-test-hero__title">{{ page.title }}</h1>
+      <p class="ni-test-hero__subtitle">Watch real customers share their Nano-Ice cooling experience. Hear their stories and see why they love staying cool.</p>
+    </div>
+  </section>
+
+  {% comment %} === VIDEO CONTENT GRID === {% endcomment %}
+  <section class="ni-test-content">
+    <div class="ni-test-content__inner">
+      <div class="rte ni-test-videos">
         {{ page.content }}
       </div>
     </div>
-  </div>
+  </section>
+
+  {% comment %} === BOTTOM CTA === {% endcomment %}
+  <section class="ni-test-cta">
+    <div class="ni-test-cta__inner">
+      <h2 class="ni-test-cta__title">Ready to Experience the Cool?</h2>
+      <p class="ni-test-cta__text">Join thousands of satisfied customers. Try the Nano-Ice Cooling Necklace today.</p>
+      <a href="/collections/all" class="ni-test-cta__btn">
+        Shop Now
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </section>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Scroll-triggered reveal animations
+  var animEls = document.querySelectorAll('.ni-test-reveal');
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('ni-test-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    animEls.forEach(function(el) { obs.observe(el); });
+  } else {
+    animEls.forEach(function(el) { el.classList.add('ni-test-visible'); });
+  }
+
+  // Auto-tag video containers for stagger animation
+  var videos = document.querySelectorAll('.ni-test-videos iframe');
+  videos.forEach(function(iframe, i) {
+    var wrapper = iframe.closest('td') || iframe.closest('p') || iframe.parentElement;
+    if (wrapper) {
+      wrapper.classList.add('ni-test-reveal');
+      wrapper.style.setProperty('--stagger', (i * 120) + 'ms');
+    }
+  });
+
+  // Re-observe newly tagged elements
+  if ('IntersectionObserver' in window) {
+    var obs2 = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('ni-test-visible');
+          obs2.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.ni-test-reveal:not(.ni-test-visible)').forEach(function(el) { obs2.observe(el); });
+  }
+});
+</script>
