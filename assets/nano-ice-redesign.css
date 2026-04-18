@@ -5265,3 +5265,269 @@ img, video, iframe {
     height: 22px !important;
   }
 }
+
+/* ==========================================================================
+   VIDEO TESTIMONIALS PAGE — Premium Styling
+   ========================================================================== */
+
+/* Page wrapper */
+.ni-testimonials-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 30px 80px;
+}
+
+/* Page title */
+.ni-testimonials-page .section-header h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--ni-primary, #0A4D68), var(--ni-secondary, #088395));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.ni-testimonials-page .section-header {
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.ni-testimonials-page .section-header::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--ni-accent, #05BFDB), var(--ni-mint, #00FFCA));
+  border-radius: 2px;
+  margin: 20px auto 0;
+}
+
+/* RTE content container */
+.ni-testimonials-page .rte {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Style all iframes (video embeds) */
+.ni-testimonials-page .rte iframe {
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+  border: none;
+  border-radius: 16px;
+  box-shadow:
+    0 4px 24px rgba(10, 77, 104, 0.12),
+    0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s ease;
+  display: block;
+  margin: 0 auto 12px;
+}
+
+.ni-testimonials-page .rte iframe:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow:
+    0 12px 40px rgba(10, 77, 104, 0.18),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Table layout → responsive grid for video pairs */
+.ni-testimonials-page .rte table {
+  width: 100%;
+  border: none;
+  border-collapse: separate;
+  border-spacing: 24px;
+  table-layout: fixed;
+}
+
+.ni-testimonials-page .rte table td {
+  border: none;
+  padding: 0;
+  vertical-align: top;
+  text-align: center;
+}
+
+.ni-testimonials-page .rte table td iframe {
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+
+/* Quote headings — testimonial cards */
+.ni-testimonials-page .rte h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--ni-text, #1a2332);
+  line-height: 1.6;
+  margin: 8px auto 24px;
+  max-width: 700px;
+  text-align: center;
+  position: relative;
+  padding: 20px 32px;
+  background: linear-gradient(135deg, rgba(10, 77, 104, 0.03), rgba(5, 191, 219, 0.05));
+  border-radius: 16px;
+  border-left: 4px solid var(--ni-accent, #05BFDB);
+}
+
+/* Quotes that are attributions (contain ~) */
+.ni-testimonials-page .rte h3:last-of-type {
+  border-left: none;
+  background: transparent;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--ni-secondary, #088395);
+  margin-top: -12px;
+  padding: 8px 0 32px;
+}
+
+/* Decorative quote marks */
+.ni-testimonials-page .rte h3::before {
+  content: '\201C';
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  font-size: 3rem;
+  color: var(--ni-accent, #05BFDB);
+  opacity: 0.25;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+/* Remove quote mark from attributions */
+.ni-testimonials-page .rte h3:last-of-type::before {
+  display: none;
+}
+
+/* Spacing between video + quote groups */
+.ni-testimonials-page .rte > p,
+.ni-testimonials-page .rte > div {
+  margin-bottom: 8px;
+}
+
+/* Add subtle dividers between testimonial groups */
+.ni-testimonials-page .rte > p:has(iframe) {
+  padding-top: 32px;
+  margin-top: 32px;
+}
+
+.ni-testimonials-page .rte > p:first-child:has(iframe) {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* Hero gradient background behind title */
+.ni-testimonials-page .section-header {
+  background: linear-gradient(135deg,
+    rgba(10, 77, 104, 0.04) 0%,
+    rgba(8, 131, 149, 0.06) 50%,
+    rgba(5, 191, 219, 0.04) 100%);
+  border-radius: 24px;
+  padding: 48px 32px 32px;
+}
+
+/* Star rating decoration under title */
+.ni-testimonials-page .section-header::before {
+  content: '\2605\2605\2605\2605\2605';
+  display: block;
+  font-size: 1.5rem;
+  color: #f5a623;
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+}
+
+/* Smooth entrance animation */
+.ni-testimonials-page .rte iframe,
+.ni-testimonials-page .rte h3 {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: ni-testimonial-fadein 0.6s ease forwards;
+}
+
+.ni-testimonials-page .rte iframe { animation-delay: 0.1s; }
+.ni-testimonials-page .rte h3:nth-of-type(1) { animation-delay: 0.15s; }
+.ni-testimonials-page .rte h3:nth-of-type(2) { animation-delay: 0.2s; }
+.ni-testimonials-page .rte h3:nth-of-type(3) { animation-delay: 0.25s; }
+.ni-testimonials-page .rte h3:nth-of-type(4) { animation-delay: 0.3s; }
+.ni-testimonials-page .rte h3:nth-of-type(5) { animation-delay: 0.35s; }
+.ni-testimonials-page .rte h3:nth-of-type(6) { animation-delay: 0.4s; }
+
+@keyframes ni-testimonial-fadein {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media only screen and (max-width: 749px) {
+  .ni-testimonials-page {
+    padding: 32px 16px 48px;
+  }
+
+  .ni-testimonials-page .section-header h1 {
+    font-size: 2rem;
+  }
+
+  .ni-testimonials-page .section-header {
+    padding: 32px 20px 24px;
+  }
+
+  .ni-testimonials-page .rte iframe {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+  }
+
+  .ni-testimonials-page .rte h3 {
+    font-size: 1rem;
+    padding: 16px 20px;
+    margin: 6px auto 16px;
+  }
+
+  .ni-testimonials-page .rte table {
+    border-spacing: 12px;
+  }
+
+  .ni-testimonials-page .section-header::before {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .ni-testimonials-page .rte table,
+  .ni-testimonials-page .rte tbody,
+  .ni-testimonials-page .rte tr,
+  .ni-testimonials-page .rte td {
+    display: block;
+    width: 100%;
+  }
+
+  .ni-testimonials-page .rte table {
+    border-spacing: 0;
+  }
+
+  .ni-testimonials-page .rte td {
+    margin-bottom: 20px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .ni-testimonials-page .rte iframe,
+  .ni-testimonials-page .rte h3 {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .ni-testimonials-page .rte iframe:hover {
+    transform: none;
+  }
+}

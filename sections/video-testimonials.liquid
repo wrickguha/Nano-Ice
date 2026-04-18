@@ -1,0 +1,559 @@
+{% comment %}
+  ============================================================
+  VIDEO TESTIMONIALS GALLERY — Premium Section
+  Admin-customizable via Shopify section schema
+  ============================================================
+{% endcomment %}
+
+{{ 'video-testimonials.css' | asset_url | stylesheet_tag }}
+
+{%- assign heading = section.settings.heading -%}
+{%- assign subheading = section.settings.subheading -%}
+{%- assign cta_text = section.settings.cta_text -%}
+{%- assign cta_link = section.settings.cta_link -%}
+{%- assign show_hero = section.settings.show_hero -%}
+{%- assign stats_enabled = section.settings.stats_enabled -%}
+{%- assign bg_style = section.settings.bg_style -%}
+
+{% comment %} === HERO SECTION === {% endcomment %}
+{% if show_hero %}
+<section class="vtg-hero" data-bg="{{ bg_style }}">
+  <div class="vtg-hero__bg-shapes">
+    <div class="vtg-hero__orb vtg-hero__orb--1"></div>
+    <div class="vtg-hero__orb vtg-hero__orb--2"></div>
+    <div class="vtg-hero__orb vtg-hero__orb--3"></div>
+  </div>
+  <div class="vtg-hero__content page-width">
+    <div class="vtg-hero__badge ni-animate">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <span>{{ section.settings.badge_text }}</span>
+    </div>
+    <h1 class="vtg-hero__title ni-animate">{{ heading }}</h1>
+    <p class="vtg-hero__subtitle ni-animate">{{ subheading }}</p>
+    {% if cta_text != blank %}
+    <a href="{{ cta_link }}" class="vtg-hero__cta ni-animate">
+      {{ cta_text }}
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+{% comment %} === SOCIAL PROOF STATS BAR === {% endcomment %}
+{% if stats_enabled %}
+<section class="vtg-stats">
+  <div class="page-width">
+    <div class="vtg-stats__grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'stat' %}
+        <div class="vtg-stats__item ni-animate" {{ block.shopify_attributes }}>
+          <span class="vtg-stats__number" data-count="{{ block.settings.stat_number }}">{{ block.settings.stat_number }}</span>
+          <span class="vtg-stats__label">{{ block.settings.stat_label }}</span>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% comment %} === FILTER TABS (optional) === {% endcomment %}
+{% if section.settings.show_filters %}
+<div class="vtg-filters page-width">
+  <button class="vtg-filter-btn vtg-filter-btn--active" data-filter="all">All</button>
+  {% for block in section.blocks %}
+    {% if block.type == 'testimonial' and block.settings.category != blank %}
+      {% unless categories contains block.settings.category %}
+        <button class="vtg-filter-btn" data-filter="{{ block.settings.category | handleize }}">{{ block.settings.category }}</button>
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+</div>
+{% endif %}
+
+{% comment %} === VIDEO TESTIMONIALS GRID === {% endcomment %}
+<section class="vtg-section" id="vtg-grid-section">
+  <div class="page-width">
+    {% if section.settings.section_title != blank %}
+    <div class="vtg-section__header ni-animate">
+      <h2 class="vtg-section__title">{{ section.settings.section_title }}</h2>
+      {% if section.settings.section_subtitle != blank %}
+      <p class="vtg-section__subtitle">{{ section.settings.section_subtitle }}</p>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <div class="vtg-grid" id="vtg-grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'testimonial' %}
+        <div class="vtg-card ni-animate"
+             data-category="{{ block.settings.category | handleize }}"
+             data-index="{{ forloop.index }}"
+             {{ block.shopify_attributes }}
+             style="--card-delay: {{ forloop.index0 | times: 80 }}ms">
+
+          {% comment %} Video Container {% endcomment %}
+          <div class="vtg-card__video-wrap">
+            {% if block.settings.video_url != blank %}
+              {% comment %} External video (YouTube/Vimeo) {% endcomment %}
+              {% assign video_url = block.settings.video_url %}
+              {% if video_url contains 'youtube.com' or video_url contains 'youtu.be' %}
+                {% comment %} Extract YouTube ID {% endcomment %}
+                {% if video_url contains 'youtu.be/' %}
+                  {% assign yt_id = video_url | split: 'youtu.be/' | last | split: '?' | first %}
+                {% elsif video_url contains 'v=' %}
+                  {% assign yt_id = video_url | split: 'v=' | last | split: '&' | first %}
+                {% elsif video_url contains 'embed/' %}
+                  {% assign yt_id = video_url | split: 'embed/' | last | split: '?' | first %}
+                {% endif %}
+                <div class="vtg-card__video-placeholder" data-video-type="youtube" data-video-id="{{ yt_id }}">
+                  <img src="https://img.youtube.com/vi/{{ yt_id }}/hqdefault.jpg"
+                       alt="{{ block.settings.customer_name | escape }} testimonial"
+                       class="vtg-card__thumbnail"
+                       loading="lazy">
+                  <button class="vtg-card__play-btn" aria-label="Play video">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </button>
+                  <div class="vtg-card__video-duration">
+                    {% if block.settings.video_duration != blank %}
+                      {{ block.settings.video_duration }}
+                    {% endif %}
+                  </div>
+                </div>
+              {% elsif video_url contains 'vimeo.com' %}
+                {% assign vimeo_id = video_url | split: 'vimeo.com/' | last | split: '?' | first %}
+                <div class="vtg-card__video-placeholder" data-video-type="vimeo" data-video-id="{{ vimeo_id }}">
+                  {% if block.settings.thumbnail != blank %}
+                    <img src="{{ block.settings.thumbnail | img_url: '600x400', crop: 'center' }}"
+                         alt="{{ block.settings.customer_name | escape }} testimonial"
+                         class="vtg-card__thumbnail"
+                         loading="lazy">
+                  {% else %}
+                    <div class="vtg-card__thumbnail vtg-card__thumbnail--placeholder"></div>
+                  {% endif %}
+                  <button class="vtg-card__play-btn" aria-label="Play video">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </button>
+                </div>
+              {% endif %}
+            {% elsif block.settings.video_file != blank %}
+              {% comment %} Uploaded Shopify video {% endcomment %}
+              <div class="vtg-card__video-placeholder" data-video-type="hosted">
+                <video class="vtg-card__hosted-video"
+                       src="{{ block.settings.video_file }}"
+                       muted
+                       loop
+                       playsinline
+                       preload="metadata"
+                       poster="{{ block.settings.thumbnail | img_url: '600x400', crop: 'center' }}">
+                </video>
+                <button class="vtg-card__play-btn" aria-label="Play video">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+              </div>
+            {% elsif block.settings.thumbnail != blank %}
+              {% comment %} Image-only testimonial {% endcomment %}
+              <div class="vtg-card__video-placeholder vtg-card__video-placeholder--image">
+                <img src="{{ block.settings.thumbnail | img_url: '600x400', crop: 'center' }}"
+                     alt="{{ block.settings.customer_name | escape }} testimonial"
+                     class="vtg-card__thumbnail"
+                     loading="lazy">
+              </div>
+            {% else %}
+              {% comment %} Placeholder if nothing provided {% endcomment %}
+              <div class="vtg-card__video-placeholder vtg-card__video-placeholder--empty">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3">
+                  <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                </svg>
+              </div>
+            {% endif %}
+          </div>
+
+          {% comment %} Card Content {% endcomment %}
+          <div class="vtg-card__content">
+            {% if block.settings.verified %}
+            <div class="vtg-card__verified">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Verified Customer</span>
+            </div>
+            {% endif %}
+
+            {% if block.settings.stars > 0 %}
+            <div class="vtg-card__stars" aria-label="{{ block.settings.stars }} out of 5 stars">
+              {% for i in (1..5) %}
+                {% if i <= block.settings.stars %}
+                  <svg class="vtg-card__star vtg-card__star--filled" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                {% else %}
+                  <svg class="vtg-card__star" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                {% endif %}
+              {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if block.settings.quote != blank %}
+            <blockquote class="vtg-card__quote">
+              &#8220;{{ block.settings.quote }}&#8221;
+            </blockquote>
+            {% endif %}
+
+            <div class="vtg-card__author">
+              {% if block.settings.customer_name != blank %}
+              <span class="vtg-card__name">{{ block.settings.customer_name }}</span>
+              {% endif %}
+              {% if block.settings.customer_location != blank %}
+              <span class="vtg-card__location">{{ block.settings.customer_location }}</span>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% comment %} Mobile Carousel Navigation {% endcomment %}
+    <div class="vtg-carousel-nav" id="vtg-carousel-nav">
+      <button class="vtg-carousel-btn vtg-carousel-btn--prev" aria-label="Previous testimonial">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="vtg-carousel-dots" id="vtg-carousel-dots"></div>
+      <button class="vtg-carousel-btn vtg-carousel-btn--next" aria-label="Next testimonial">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+{% comment %} === BOTTOM CTA === {% endcomment %}
+{% if section.settings.bottom_cta_enabled %}
+<section class="vtg-bottom-cta">
+  <div class="page-width">
+    <div class="vtg-bottom-cta__inner ni-animate">
+      <h2 class="vtg-bottom-cta__title">{{ section.settings.bottom_cta_heading }}</h2>
+      <p class="vtg-bottom-cta__text">{{ section.settings.bottom_cta_text }}</p>
+      <a href="{{ section.settings.bottom_cta_link }}" class="vtg-bottom-cta__btn">
+        {{ section.settings.bottom_cta_button }}
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% comment %} === VIDEO LIGHTBOX MODAL === {% endcomment %}
+<div class="vtg-lightbox" id="vtg-lightbox" role="dialog" aria-modal="true" aria-label="Video player">
+  <div class="vtg-lightbox__overlay"></div>
+  <div class="vtg-lightbox__content">
+    <button class="vtg-lightbox__close" aria-label="Close video">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="vtg-lightbox__video-container" id="vtg-lightbox-container"></div>
+  </div>
+</div>
+
+<script src="{{ 'video-testimonials.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Video Testimonials",
+  "tag": "div",
+  "class": "vtg-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero Section"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_hero",
+      "label": "Show hero section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge text",
+      "default": "Trusted by 5,000+ Customers"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Real Customers. Real Cooling Experience."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "See what thousands of happy customers are saying about the Nano-Ice Cooling Necklace. Watch their stories and discover the difference."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA button text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA button link"
+    },
+    {
+      "type": "select",
+      "id": "bg_style",
+      "label": "Hero background style",
+      "options": [
+        { "value": "gradient", "label": "Gradient" },
+        { "value": "dark", "label": "Dark" },
+        { "value": "mesh", "label": "Mesh gradient" }
+      ],
+      "default": "gradient"
+    },
+    {
+      "type": "header",
+      "content": "Stats Bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "stats_enabled",
+      "label": "Show stats bar",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Testimonials Grid"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section title",
+      "default": "What Our Customers Say"
+    },
+    {
+      "type": "text",
+      "id": "section_subtitle",
+      "label": "Section subtitle",
+      "default": "Real reviews from real people who trust Nano-Ice"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_filters",
+      "label": "Show category filter tabs",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Bottom CTA"
+    },
+    {
+      "type": "checkbox",
+      "id": "bottom_cta_enabled",
+      "label": "Show bottom CTA",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "bottom_cta_heading",
+      "label": "CTA heading",
+      "default": "Ready to Experience the Cool?"
+    },
+    {
+      "type": "textarea",
+      "id": "bottom_cta_text",
+      "label": "CTA description",
+      "default": "Join thousands of satisfied customers. Try the Nano-Ice Cooling Necklace today and feel the difference."
+    },
+    {
+      "type": "text",
+      "id": "bottom_cta_button",
+      "label": "CTA button text",
+      "default": "Shop the Collection"
+    },
+    {
+      "type": "url",
+      "id": "bottom_cta_link",
+      "label": "CTA button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "text",
+          "id": "customer_name",
+          "label": "Customer name",
+          "default": "Happy Customer"
+        },
+        {
+          "type": "text",
+          "id": "customer_location",
+          "label": "Location (optional)"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote / Review",
+          "default": "Best thing I've ever had around my neck! The cooling effect is incredible."
+        },
+        {
+          "type": "range",
+          "id": "stars",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "label": "Star rating",
+          "default": 5
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Show verified badge",
+          "default": true
+        },
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "Video URL (YouTube or Vimeo)"
+        },
+        {
+          "type": "text",
+          "id": "video_file",
+          "label": "Hosted video URL (mp4)",
+          "info": "Upload to Shopify Files and paste the URL here"
+        },
+        {
+          "type": "text",
+          "id": "video_duration",
+          "label": "Video duration (e.g. 0:45)"
+        },
+        {
+          "type": "image_picker",
+          "id": "thumbnail",
+          "label": "Thumbnail image (fallback)"
+        },
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Category (for filtering)"
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "name": "Stat Counter",
+      "settings": [
+        {
+          "type": "text",
+          "id": "stat_number",
+          "label": "Number",
+          "default": "5,000+"
+        },
+        {
+          "type": "text",
+          "id": "stat_label",
+          "label": "Label",
+          "default": "Happy Customers"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Testimonials",
+      "category": "Testimonials",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "stat_number": "5,000+",
+            "stat_label": "Happy Customers"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "stat_number": "4.9★",
+            "stat_label": "Average Rating"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "stat_number": "50+",
+            "stat_label": "Video Reviews"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "stat_number": "98%",
+            "stat_label": "Recommend Us"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "customer_name": "Sarah M.",
+            "customer_location": "Boston, MA",
+            "quote": "Best thing I've ever had around my neck! The cooling effect is incredible and lasts so long.",
+            "stars": 5,
+            "verified": true
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "customer_name": "Cambridge Naturals",
+            "customer_location": "Cambridge, MA",
+            "quote": "For those moments when you feel really agitated...the necklaces really do help cool you down.",
+            "stars": 5,
+            "verified": true
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "customer_name": "Mike R.",
+            "customer_location": "New York, NY",
+            "quote": "Woah, this is a COOL product! Perfect for summer outdoor events.",
+            "stars": 5,
+            "verified": true
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "customer_name": "Jennifer L.",
+            "customer_location": "Austin, TX",
+            "quote": "UNBELIEVABLE! I can't go to the gym without it anymore. Total game changer.",
+            "stars": 5,
+            "verified": true
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "customer_name": "David K.",
+            "customer_location": "Miami, FL",
+            "quote": "Best thing I've ever seen! Bought one for everyone in my family.",
+            "stars": 5,
+            "verified": true
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "customer_name": "Lisa P.",
+            "customer_location": "Phoenix, AZ",
+            "quote": "Living in Arizona, this necklace is a lifesaver. I wear it every single day during summer.",
+            "stars": 5,
+            "verified": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
