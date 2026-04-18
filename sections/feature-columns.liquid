@@ -1,189 +1,375 @@
 <style>
-  .testimonial-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-    cursor: pointer;
-    margin-bottom: 20px;
-  }
-  .testimonial-card .feature-row__image-wrapper {
-    margin: 0;
-  }
-  .testimonial-card .feature-row__image-wrapper > div {
-    padding-top: 120% !important;
-  }
-  .testimonial-card .feature-row__image {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: transform 0.4s ease;
-  }
-  .testimonial-card:hover .feature-row__image,
-  .testimonial-card.is-active .feature-row__image {
-    transform: scale(1.05);
-  }
-  .testimonial-card__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    padding: 24px 20px 24px 24px;
-    box-sizing: border-box;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 2;
-    right: 0;
-  }
-  .testimonial-card:hover .testimonial-card__overlay,
-  .testimonial-card.is-active .testimonial-card__overlay {
-    opacity: 1;
-  }
-  .testimonial-card__quote-icon {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 48px;
-    line-height: 1;
-    color: rgba(255,255,255,0.5);
-    font-family: Georgia, serif;
-  }
-  .testimonial-card__name {
-    color: #fff;
-    font-size: 18px;
-    font-weight: 700;
-    margin: 0 0 8px 0;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-  .testimonial-card__text {
-    color: rgba(255,255,255,0.92);
-    font-size: 14px;
-    line-height: 1.5;
-    font-style: italic;
-    margin: 0;
-    max-height: 150px;
-    overflow-y: auto;
-  }
-  .testimonial-card__text p {
-    margin: 0;
-    color: inherit;
-  }
-  /* Mobile: tap to toggle */
-  @media only screen and (max-width: 749px) {
-    .testimonial-card__overlay {
-      /* On mobile, always show a subtle name bar at the bottom */
-    }
-    .testimonial-card__text {
-      font-size: 13px;
-      max-height: 120px;
-    }
-  }
+/* ================================================
+   TESTIMONIALS SPOTLIGHT CAROUSEL
+   ================================================ */
+.tc-wrap {
+  padding: 80px 24px 100px;
+  background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 28%, #e8eaf6 62%, #fffde7 100%);
+}
+
+.tc-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.tc-header__eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9e8fa0;
+  margin: 0 0 14px;
+}
+
+.tc-header__title {
+  font-family: 'Inter', sans-serif !important;
+  font-size: clamp(2rem, 5vw, 3.2rem) !important;
+  font-weight: 700 !important;
+  color: #2d2240 !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+  -webkit-text-fill-color: #2d2240 !important;
+  background: none !important;
+}
+
+/* Stage */
+.tc-stage {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Track */
+.tc-track {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+  height: 520px;
+  border-radius: 26px;
+  overflow: hidden;
+}
+
+/* Slides */
+.tc-slide {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #1a1428 center/cover no-repeat;
+  transition: flex 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.tc-slide--active { flex: 54 0 0; cursor: default; }
+.tc-slide--near   { flex: 12 0 0; cursor: pointer; }
+.tc-slide--far    { flex:  7 0 0; cursor: pointer; }
+
+/* Dark overlay on side panels */
+.tc-panel-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 8, 32, 0.55);
+  transition: background 0.35s ease;
+  z-index: 1;
+}
+.tc-slide--near:hover .tc-panel-overlay,
+.tc-slide--far:hover .tc-panel-overlay {
+  background: rgba(18, 8, 32, 0.28);
+}
+
+/* Vertical name on side panels */
+.tc-panel-name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  writing-mode: vertical-rl;
+  white-space: nowrap;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+/* Active slide image */
+.tc-slide--active .tc-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Gradient info bar at bottom of active slide */
+.tc-active-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 80px 28px 28px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.80) 0%, transparent 100%);
+  z-index: 3;
+}
+
+.tc-quote-mark {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 3rem;
+  line-height: 1;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 6px;
+}
+
+.tc-active-name {
+  display: block;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+}
+
+.tc-active-text {
+  display: block;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.55;
+  max-height: 90px;
+  overflow: hidden;
+}
+
+/* Arrows */
+.tc-arrow {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  color: #2d2240;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  transition: background 0.25s ease, color 0.25s ease,
+              transform 0.25s ease, box-shadow 0.25s ease;
+}
+.tc-arrow:hover {
+  background: #2d2240;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+}
+
+/* Dots */
+.tc-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 32px;
+}
+.tc-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  border: none;
+  background: rgba(45, 34, 64, 0.2);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+.tc-dot.is-active {
+  width: 28px;
+  background: #2d2240;
+}
+
+/* Fade on slide change */
+@keyframes tc-fade { from { opacity: 0; } to { opacity: 1; } }
+.tc-track.tc-anim .tc-slide {
+  animation: tc-fade 0.45s ease both;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .tc-track { height: 440px; }
+}
+@media (max-width: 640px) {
+  .tc-wrap  { padding: 56px 12px 80px; }
+  .tc-stage { gap: 8px; }
+  .tc-track { height: 320px; gap: 6px; }
+  .tc-arrow { width: 40px; height: 40px; }
+  .tc-slide--far    { display: none; }
+  .tc-slide--active { flex: 62 0 0; }
+  .tc-slide--near   { flex:  9 0 0; }
+}
+@media (max-width: 400px) {
+  .tc-slide--near   { display: none; }
+  .tc-slide--active { flex: 1 0 0; border-radius: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tc-slide { transition: none; }
+  .tc-track.tc-anim .tc-slide { animation: none; }
+}
 </style>
 
-<div class="page-width">
-  {% if section.settings.title != blank %}
-    <div class="section-header text-center">
-      <h2>{{ section.settings.title | escape }}</h2>
-    </div>
-  {% endif %}
+{%- comment -%} Build data array from blocks {%- endcomment -%}
+{%- assign tc_blocks_json = '[]' -%}
 
-  <div class="grid {% unless section.blocks.size == 5 %}grid--uniform{% endunless %} grid--flush-bottom">
-    {%- assign grid_item_width = 'medium-up--one-third' -%}
-    {%- assign max_height = 345 -%}
-    {% case section.blocks.size %}
-      {% when 1 %}
-        {%- assign grid_item_width = 'medium-up--one-half' -%}
-        {%- assign max_height = 530 -%}
-      {% when 2 %}
-        {%- assign grid_item_width = 'medium-up--one-half' -%}
-        {%- assign max_height = 530 -%}
-      {% when 4 %}
-        {%- assign grid_item_width = 'medium-up--one-half' -%}
-        {%- assign max_height = 530 -%}
-    {% endcase %}
-    {% for block in section.blocks %}
-      {% if section.blocks.size == 5 and forloop.index < 3 %}
-        {%- assign column_width = 'medium-up--one-half' -%}
-        {%- assign max_height = 530 -%}
-      {% else %}
-        {%- assign column_width = grid_item_width -%}
-      {% endif %}
-      <div class="grid__item {{ column_width }}" {{ block.shopify_attributes }}>
-        <div class="testimonial-card">
-          {% if block.settings.enable_image %}
-            {% if block.settings.image != blank %}
-              {% capture img_id %}TextColumnImage-{{ block.id }}{% endcapture %}
-              {% capture wrapper_id %}TextColumnImageWrapper-{{ block.id }}{% endcapture %}
-              {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-              {% include 'image-style' with image: block.settings.image, width: max_height, height: max_height, small_style: true, wrapper_id: wrapper_id, img_id: img_id %}
-              <div id="{{ wrapper_id }}" class="feature-row__image-wrapper js">
-                <div style="padding-top:{{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100}}%;">
-                  <img id="{{ img_id }}"
-                       class="feature-row__image lazyload"
-                       src="{{ block.settings.image | img_url: '300x300' }}"
-                       data-src="{{ img_url }}"
-                       data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                       data-aspectratio="{{ block.settings.image.aspect_ratio }}"
-                       data-sizes="auto"
-                       alt="{{ block.settings.image.alt | escape }}">
-                </div>
-              </div>
-              <noscript>
-                <p>
-                  {{ block.settings.image | img_url: '480x480', scale: 2 | img_tag: block.settings.image.alt, 'feature-row__image' }}
-                </p>
-              </noscript>
-            {% else %}
-              <p>
-                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-              </p>
-            {% endif %}
-          {% endif %}
-
-          <div class="testimonial-card__overlay">
-            <span class="testimonial-card__quote-icon">&ldquo;</span>
-            {% if block.settings.title != blank %}
-              <p class="testimonial-card__name">{{ block.settings.title | escape }}</p>
-            {% endif %}
-            {% if block.settings.text != blank %}
-              <div class="testimonial-card__text">{{ block.settings.text }}</div>
-            {% endif %}
-          </div>
-        </div>
-      </div>
-    {% endfor %}
+<div class="tc-wrap">
+  <div class="tc-header">
+    <p class="tc-header__eyebrow">What Our Customers Say</p>
+    {% if section.settings.title != blank %}
+      <h2 class="tc-header__title">{{ section.settings.title | escape }}</h2>
+    {% endif %}
   </div>
 
-  {% if section.blocks.size == 0 %}
-    {% include 'no-blocks' %}
-  {% endif %}
+  <div class="tc-stage">
+    <button class="tc-arrow tc-arrow--prev" id="tc-prev" aria-label="Previous testimonial">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="tc-track" id="tc-track"></div>
+    <button class="tc-arrow tc-arrow--next" id="tc-next" aria-label="Next testimonial">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+
+  <div class="tc-dots" id="tc-dots"></div>
 </div>
 
-<script>
-  // Toggle overlay on tap for touch devices
-  document.addEventListener('DOMContentLoaded', function() {
-    var cards = document.querySelectorAll('.testimonial-card');
-    cards.forEach(function(card) {
-      card.addEventListener('click', function(e) {
-        if ('ontouchstart' in window) {
-          cards.forEach(function(c) {
-            if (c !== card) c.classList.remove('is-active');
-          });
-          card.classList.toggle('is-active');
-        }
-      });
-    });
-  });
+{%- comment -%} Embed data for JS {%- endcomment -%}
+<script id="tc-data" type="application/json">
+[{% for block in section.blocks %}{% if block.settings.image != blank %}{
+  "img":   "{{ block.settings.image | img_url: '1200x' }}",
+  "thumb": "{{ block.settings.image | img_url: '600x' }}",
+  "alt":   "{{ block.settings.image.alt | escape }}",
+  "name":  "{{ block.settings.title | escape }}",
+  "text":  "{{ block.settings.text | strip_html | truncate: 140 | escape }}"
+}{% unless forloop.last %},{% endunless %}{% endif %}{% endfor %}]
 </script>
+
+<script>
+(function () {
+  'use strict';
+  var raw = document.getElementById('tc-data');
+  if (!raw) return;
+  var videos;
+  try { videos = JSON.parse(raw.textContent || raw.innerHTML); } catch(e) { return; }
+  videos = videos.filter(function(v){ return v.img; });
+  if (!videos.length) return;
+
+  var n       = videos.length;
+  var current = 0;
+  var track   = document.getElementById('tc-track');
+  var dotsEl  = document.getElementById('tc-dots');
+  var prevBtn = document.getElementById('tc-prev');
+  var nextBtn = document.getElementById('tc-next');
+
+  function idx(offset) { return (current + offset + n) % n; }
+
+  function render() {
+    var slots, roles;
+    if (n >= 5) {
+      slots = [idx(-2), idx(-1), current, idx(1), idx(2)];
+      roles = ['far', 'near', 'active', 'near', 'far'];
+    } else if (n >= 3) {
+      slots = [idx(-1), current, idx(1)];
+      roles = ['near', 'active', 'near'];
+    } else {
+      slots = [current];
+      roles = ['active'];
+    }
+
+    track.classList.remove('tc-anim');
+    void track.offsetWidth;
+    track.classList.add('tc-anim');
+    track.innerHTML = '';
+    slots.forEach(function(vi, si) {
+      track.appendChild(makeSlide(videos[vi], roles[si], vi));
+    });
+    renderDots();
+  }
+
+  function makeSlide(v, role, vi) {
+    var el = document.createElement('div');
+    el.className = 'tc-slide tc-slide--' + role;
+    el.style.backgroundImage = 'url(' + (role === 'active' ? v.img : v.thumb) + ')';
+
+    if (role === 'active') {
+      var img = document.createElement('img');
+      img.src = v.img;
+      img.alt = v.alt || v.name;
+      img.className = 'tc-img';
+      el.appendChild(img);
+
+      var info = document.createElement('div');
+      info.className = 'tc-active-info';
+
+      var qm = document.createElement('span');
+      qm.className = 'tc-quote-mark';
+      qm.innerHTML = '&ldquo;';
+      info.appendChild(qm);
+
+      if (v.name) {
+        var nm = document.createElement('span');
+        nm.className = 'tc-active-name';
+        nm.textContent = v.name;
+        info.appendChild(nm);
+      }
+      if (v.text) {
+        var tx = document.createElement('span');
+        tx.className = 'tc-active-text';
+        tx.textContent = v.text;
+        info.appendChild(tx);
+      }
+      el.appendChild(info);
+    } else {
+      var ov = document.createElement('div');
+      ov.className = 'tc-panel-overlay';
+      el.appendChild(ov);
+
+      if (v.name) {
+        var lbl = document.createElement('span');
+        lbl.className = 'tc-panel-name';
+        lbl.textContent = v.name;
+        el.appendChild(lbl);
+      }
+      el.addEventListener('click', (function(i){ return function(){ current = i; render(); }; }(vi)));
+    }
+    return el;
+  }
+
+  function renderDots() {
+    dotsEl.innerHTML = '';
+    for (var i = 0; i < n; i++) {
+      var dot = document.createElement('button');
+      dot.className = 'tc-dot' + (i === current ? ' is-active' : '');
+      dot.setAttribute('aria-label', 'Testimonial ' + (i + 1));
+      dot.addEventListener('click', (function(i){ return function(){ current = i; render(); }; }(i)));
+      dotsEl.appendChild(dot);
+    }
+  }
+
+  prevBtn.addEventListener('click', function(){ current = idx(-1); render(); });
+  nextBtn.addEventListener('click', function(){ current = idx(1);  render(); });
+  document.addEventListener('keydown', function(e){
+    if (document.activeElement && document.activeElement.closest && document.activeElement.closest('.tc-wrap')) return;
+    if (e.key === 'ArrowLeft')  { current = idx(-1); render(); }
+    if (e.key === 'ArrowRight') { current = idx(1);  render(); }
+  });
+
+  render();
+}());
+</script>
+
 
 {% schema %}
   {
