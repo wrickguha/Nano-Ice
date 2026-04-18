@@ -1,3 +1,94 @@
+<style>
+  .testimonial-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  .testimonial-card .feature-row__image-wrapper {
+    margin: 0;
+  }
+  .testimonial-card .feature-row__image-wrapper > div {
+    padding-top: 120% !important;
+  }
+  .testimonial-card .feature-row__image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.4s ease;
+  }
+  .testimonial-card:hover .feature-row__image,
+  .testimonial-card.is-active .feature-row__image {
+    transform: scale(1.05);
+  }
+  .testimonial-card__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 24px 20px 24px 24px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 2;
+    right: 0;
+  }
+  .testimonial-card:hover .testimonial-card__overlay,
+  .testimonial-card.is-active .testimonial-card__overlay {
+    opacity: 1;
+  }
+  .testimonial-card__quote-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 48px;
+    line-height: 1;
+    color: rgba(255,255,255,0.5);
+    font-family: Georgia, serif;
+  }
+  .testimonial-card__name {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .testimonial-card__text {
+    color: rgba(255,255,255,0.92);
+    font-size: 14px;
+    line-height: 1.5;
+    font-style: italic;
+    margin: 0;
+    max-height: 150px;
+    overflow-y: auto;
+  }
+  .testimonial-card__text p {
+    margin: 0;
+    color: inherit;
+  }
+  /* Mobile: tap to toggle */
+  @media only screen and (max-width: 749px) {
+    .testimonial-card__overlay {
+      /* On mobile, always show a subtle name bar at the bottom */
+    }
+    .testimonial-card__text {
+      font-size: 13px;
+      max-height: 120px;
+    }
+  }
+</style>
+
 <div class="page-width">
   {% if section.settings.title != blank %}
     <div class="section-header text-center">
@@ -26,47 +117,48 @@
       {% else %}
         {%- assign column_width = grid_item_width -%}
       {% endif %}
-      <div class="grid__item {{ column_width }} text-{{ section.settings.align_text }}" {{ block.shopify_attributes }}>
-        {% if block.settings.enable_image %}
-          {% if block.settings.image != blank %}
-            {% capture img_id %}TextColumnImage-{{ block.id }}{% endcapture %}
-            {% capture wrapper_id %}TextColumnImageWrapper-{{ block.id }}{% endcapture %}
-            {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-            {% include 'image-style' with image: block.settings.image, width: max_height, height: max_height, small_style: true, wrapper_id: wrapper_id, img_id: img_id %}
-            <div id="{{ wrapper_id }}" class="feature-row__image-wrapper js">
-              <div style="padding-top:{{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100}}%;">
-                <img id="{{ img_id }}"
-                     class="feature-row__image lazyload"
-                     src="{{ block.settings.image | img_url: '300x300' }}"
-                     data-src="{{ img_url }}"
-                     data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                     data-aspectratio="{{ block.settings.image.aspect_ratio }}"
-                     data-sizes="auto"
-                     alt="{{ block.settings.image.alt | escape }}">
+      <div class="grid__item {{ column_width }}" {{ block.shopify_attributes }}>
+        <div class="testimonial-card">
+          {% if block.settings.enable_image %}
+            {% if block.settings.image != blank %}
+              {% capture img_id %}TextColumnImage-{{ block.id }}{% endcapture %}
+              {% capture wrapper_id %}TextColumnImageWrapper-{{ block.id }}{% endcapture %}
+              {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+              {% include 'image-style' with image: block.settings.image, width: max_height, height: max_height, small_style: true, wrapper_id: wrapper_id, img_id: img_id %}
+              <div id="{{ wrapper_id }}" class="feature-row__image-wrapper js">
+                <div style="padding-top:{{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100}}%;">
+                  <img id="{{ img_id }}"
+                       class="feature-row__image lazyload"
+                       src="{{ block.settings.image | img_url: '300x300' }}"
+                       data-src="{{ img_url }}"
+                       data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                       data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+                       data-sizes="auto"
+                       alt="{{ block.settings.image.alt | escape }}">
+                </div>
               </div>
-            </div>
-            <noscript>
+              <noscript>
+                <p>
+                  {{ block.settings.image | img_url: '480x480', scale: 2 | img_tag: block.settings.image.alt, 'feature-row__image' }}
+                </p>
+              </noscript>
+            {% else %}
               <p>
-                {{ block.settings.image | img_url: '480x480', scale: 2 | img_tag: block.settings.image.alt, 'feature-row__image' }}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
               </p>
-            </noscript>
-          {% else %}
-            <p>
-              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-            </p>
+            {% endif %}
           {% endif %}
-        {% endif %}
-        {% if block.settings.title != blank %}
-          <h3 class="h4">{{ block.settings.title | escape }}</h3>
-        {% endif %}
-        {% if block.settings.text != blank %}
-          <div class="rte-setting">{{ block.settings.text }}</div>
-        {% endif %}
-        {% if block.settings.button_label != blank and block.settings.button_link != blank %}
-          <a href="{{ block.settings.button_link }}" class="btn btn--secondary btn--small">
-            {{ block.settings.button_label | escape }}
-          </a>
-        {% endif %}
+
+          <div class="testimonial-card__overlay">
+            <span class="testimonial-card__quote-icon">&ldquo;</span>
+            {% if block.settings.title != blank %}
+              <p class="testimonial-card__name">{{ block.settings.title | escape }}</p>
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <div class="testimonial-card__text">{{ block.settings.text }}</div>
+            {% endif %}
+          </div>
+        </div>
       </div>
     {% endfor %}
   </div>
@@ -75,6 +167,23 @@
     {% include 'no-blocks' %}
   {% endif %}
 </div>
+
+<script>
+  // Toggle overlay on tap for touch devices
+  document.addEventListener('DOMContentLoaded', function() {
+    var cards = document.querySelectorAll('.testimonial-card');
+    cards.forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        if ('ontouchstart' in window) {
+          cards.forEach(function(c) {
+            if (c !== card) c.classList.remove('is-active');
+          });
+          card.classList.toggle('is-active');
+        }
+      });
+    });
+  });
+</script>
 
 {% schema %}
   {
