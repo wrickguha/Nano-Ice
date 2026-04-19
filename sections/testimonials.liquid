@@ -174,7 +174,7 @@
 .swiper-slide-active.ni-testi__slide{opacity:1;transform:scale(1)}
 
 /* Card — image only by default */
-.ni-testi__card{position:relative;border-radius:24px;overflow:hidden;cursor:pointer;height:420px;box-shadow:0 8px 32px rgba(10,77,104,.12);transition:transform .4s cubic-bezier(.34,1.56,.64,1),box-shadow .4s ease}
+.ni-testi__card{position:relative;border-radius:24px;overflow:hidden;cursor:pointer;height:420px;box-shadow:0 8px 32px rgba(10,77,104,.12);transition:transform .4s cubic-bezier(.34,1.56,.64,1),box-shadow .4s ease;background:none!important;}
 .ni-testi__card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 24px 60px rgba(5,191,219,.22),0 4px 16px rgba(0,0,0,.08)}
 
 /* Image fills card */
@@ -183,7 +183,7 @@
 .ni-testi__card:hover .ni-testi__img{transform:scale(1.06)}
 
 /* Hover overlay — hidden by default, slides up on hover */
-.ni-testi__hover-overlay{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:28px 24px 24px;background:linear-gradient(to bottom,rgba(5,25,50,0) 0%,rgba(5,25,50,.5) 38%,rgba(5,25,50,.92) 100%);opacity:0;transform:translateY(10px);transition:opacity .35s ease,transform .35s ease;pointer-events:none}
+.ni-testi__hover-overlay{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:28px 24px 24px;background:linear-gradient(to bottom,rgba(5,25,50,0) 0%,rgba(5,25,50,.5) 38%,rgba(5,25,50,.92) 100%);opacity:0;transform:translateY(10px);transition:opacity .35s ease,transform .35s ease;pointer-events:auto;}
 .ni-testi__card:hover .ni-testi__hover-overlay{opacity:1;transform:translateY(0)}
 
 /* Stars */
@@ -192,8 +192,7 @@
 .ni-testi__star--off{color:rgba(255,255,255,.3)}
 
 /* Quote */
-.ni-testi__quote{margin:0 0 14px;font-size:.875rem;line-height:1.6;font-style:italic;color:rgba(255,255,255,.92)}
-
+.ni-testi__quote{margin:0 0 14px;font-size:.875rem;line-height:1.6;font-style:italic;color:rgba(255,255,255,.92);background:transparent!important;border:none!important;padding:0!important;box-shadow:none!important}
 /* Author row */
 .ni-testi__author{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:10px;border-top:1px solid rgba(255,255,255,.18)}
 .ni-testi__name{font-size:.9rem;font-weight:700;color:#fff;letter-spacing:.01em}
