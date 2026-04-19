@@ -2203,7 +2203,7 @@ select:focus {
   flex: 1 !important;
 }
 
-/* Title: fixed 2-line height so text differences don't shift card sizes */
+/* Title: fixed 3-line height so full product names are visible */
 .ni-product-card .grid-view-item__title {
   padding: 12px 16px 4px !important;
   margin: 0 !important;
@@ -2212,11 +2212,11 @@ select:focus {
   color: var(--ni-dark) !important;
   transition: color var(--ni-transition);
   display: -webkit-box !important;
-  -webkit-line-clamp: 2 !important;
+  -webkit-line-clamp: 3 !important;
   -webkit-box-orient: vertical !important;
   overflow: hidden !important;
-  min-height: 2.8em !important;
-  max-height: 2.8em !important;
+  min-height: 4.2em !important;
+  max-height: 4.2em !important;
 }
 
 .ni-product-card:hover .grid-view-item__title {
