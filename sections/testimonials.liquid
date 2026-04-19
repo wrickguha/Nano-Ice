@@ -1,0 +1,455 @@
+﻿{%- comment -%}
+  ============================================================
+  NANO-ICE — Premium Testimonial Carousel
+  • Homepage → shows ALL testimonials (from customizer blocks)
+  • Product page → fetches homepage testimonials via Section
+    Rendering API, filters by product.handle
+  • Block type: "testi-card" (unique — avoids all conflicts)
+  • Swiper.js carousel · glassmorphism · Instagram-style photo cards
+  ============================================================
+{%- endcomment -%}
+
+{%- liquid
+  assign is_product = false
+  if template == 'product'
+    assign is_product = true
+    assign current_handle = product.handle
+  endif
+
+  assign has_blocks = false
+  if section.blocks.size > 0
+    assign has_blocks = true
+  endif
+
+  assign visible_count = 0
+  if has_blocks
+    for block in section.blocks
+      if block.type == 'testi-card'
+        if is_product == false or block.settings.product_handle == current_handle or block.settings.product_handle == blank
+          assign visible_count = visible_count | plus: 1
+        endif
+      endif
+    endfor
+  endif
+
+  assign should_render = false
+  if visible_count > 0
+    assign should_render = true
+  elsif has_blocks == false and is_product
+    assign should_render = true
+  endif
+-%}
+
+{%- if should_render -%}
+
+<!-- Swiper CSS -->
+<link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"></noscript>
+
+<section
+  class="ni-testi"
+  id="NiTesti-{{ section.id }}"
+  data-autoplay="{{ section.settings.autoplay }}"
+  data-speed="{{ section.settings.autoplay_speed }}"
+  {% unless has_blocks %}data-fetch-from="/"{% endunless %}
+  {% if is_product %}data-product-handle="{{ current_handle }}"{% endif %}
+>
+  <!-- Decorative blurs -->
+  <div class="ni-testi__blur ni-testi__blur--1" aria-hidden="true"></div>
+  <div class="ni-testi__blur ni-testi__blur--2" aria-hidden="true"></div>
+
+  <div class="page-width ni-testi__inner">
+
+    <div class="ni-testi__header">
+      {%- if section.settings.badge_text != blank -%}
+      <div class="ni-testi__badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        {{ section.settings.badge_text | escape }}
+      </div>
+      {%- endif -%}
+      <h2 class="ni-testi__title">{{ section.settings.heading | default: 'What Our Customers Are Saying' | escape }}</h2>
+      {%- if section.settings.subheading != blank -%}
+      <p class="ni-testi__subtitle">{{ section.settings.subheading | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    <!-- Swiper -->
+    <div class="ni-testi__wrap">
+      <div class="swiper ni-testi__swiper">
+        <div class="swiper-wrapper">
+
+          {%- if has_blocks -%}
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'testi-card' -%}
+                {%- unless is_product and block.settings.product_handle != blank and block.settings.product_handle != current_handle -%}
+
+                  {%- assign has_img = false -%}
+                  {%- if block.settings.image != blank -%}{%- assign has_img = true -%}{%- endif -%}
+                  {%- assign raw = block.settings.text | strip_html -%}
+                  {%- assign stars = block.settings.star_rating | default: 5 -%}
+
+                  <div class="swiper-slide ni-testi__slide" data-handles="{{ block.settings.product_handle | escape }}" {{ block.shopify_attributes }}>
+                    <div class="ni-testi__card">
+
+                      {%- if has_img -%}
+                      <div class="ni-testi__media">
+                        <img
+                          data-src="{{ block.settings.image | img_url: '600x800', crop: 'top' }}"
+                          src="{{ block.settings.image | img_url: '20x27', crop: 'top' }}"
+                          class="ni-testi__img lazyload"
+                          alt="{{ block.settings.author_name | escape }}"
+                          width="300" height="420" loading="lazy"
+                        >
+                      </div>
+                      {%- endif -%}
+
+                      <div class="ni-testi__hover-overlay">
+                        <!-- Stars -->
+                        <div class="ni-testi__stars" aria-label="{{ stars }} out of 5 stars">
+                          {%- for i in (1..5) -%}
+                            <svg class="ni-testi__star ni-testi__star--on" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                          {%- endfor -%}
+                        </div>
+
+                        <!-- Quote -->
+                        <blockquote class="ni-testi__quote">&ldquo;{{ raw }}&rdquo;</blockquote>
+
+                        <!-- Author -->
+                        <div class="ni-testi__author">
+                          <span class="ni-testi__name">{{ block.settings.author_name | escape }}</span>
+                          <span class="ni-testi__verified">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Verified
+                          </span>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                {%- endunless -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+
+          {%- comment -%} If no blocks (product page), JS will populate these from homepage {%- endcomment -%}
+
+        </div>
+      </div>
+
+      <!-- Arrows -->
+      <button class="ni-testi__arr ni-testi__arr--prev" aria-label="Previous">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="ni-testi__arr ni-testi__arr--next" aria-label="Next">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+    <!-- Dots -->
+    <div class="ni-testi__dots"></div>
+  </div>
+</section>
+
+<!-- ────────────────── STYLES ────────────────── -->
+<style>
+.ni-testi{position:relative;padding:96px 0 104px;overflow:hidden;background:linear-gradient(180deg,var(--ni-gray-50) 0%,var(--ni-ice-white) 50%,var(--ni-gray-50) 100%)}
+.ni-testi__blur{position:absolute;border-radius:50%;filter:blur(90px);opacity:.45;pointer-events:none;z-index:0}
+.ni-testi__blur--1{width:480px;height:480px;top:-120px;right:-60px;background:radial-gradient(circle,rgba(5,191,219,.2) 0%,transparent 70%)}
+.ni-testi__blur--2{width:400px;height:400px;bottom:-80px;left:-40px;background:radial-gradient(circle,rgba(0,255,202,.16) 0%,transparent 70%)}
+.ni-testi__inner{position:relative;z-index:1}
+
+/* Header */
+.ni-testi__header{text-align:center;margin-bottom:52px}
+.ni-testi__badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#F59E0B;background:rgba(245,158,11,.08);padding:6px 14px;border-radius:100px;margin-bottom:16px}
+.ni-testi__title{font-family:var(--ni-font-heading);font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:800;letter-spacing:-.03em;color:var(--ni-dark);margin:0 0 12px;line-height:1.15}
+.ni-testi__subtitle{font-size:clamp(.9rem,1.5vw,1.05rem);color:var(--ni-gray-500);max-width:480px;margin:0 auto;line-height:1.6}
+
+/* Swiper wrap */
+.ni-testi__wrap{position:relative;padding:12px 0 24px}
+
+/* Slide */
+.ni-testi__slide{width:300px;height:auto;transition:transform .5s cubic-bezier(.34,1.56,.64,1),opacity .4s ease}
+.ni-testi__slide:not(.swiper-slide-active){opacity:.55;transform:scale(.94)}
+.swiper-slide-active.ni-testi__slide{opacity:1;transform:scale(1)}
+
+/* Card — image only by default */
+.ni-testi__card{position:relative;border-radius:24px;overflow:hidden;cursor:pointer;height:420px;box-shadow:0 8px 32px rgba(10,77,104,.12);transition:transform .4s cubic-bezier(.34,1.56,.64,1),box-shadow .4s ease}
+.ni-testi__card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 24px 60px rgba(5,191,219,.22),0 4px 16px rgba(0,0,0,.08)}
+
+/* Image fills card */
+.ni-testi__media{position:absolute;inset:0;z-index:0}
+.ni-testi__img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.ni-testi__card:hover .ni-testi__img{transform:scale(1.06)}
+
+/* Hover overlay — hidden by default, slides up on hover */
+.ni-testi__hover-overlay{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:28px 24px 24px;background:linear-gradient(to bottom,rgba(5,25,50,0) 0%,rgba(5,25,50,.5) 38%,rgba(5,25,50,.92) 100%);opacity:0;transform:translateY(10px);transition:opacity .35s ease,transform .35s ease;pointer-events:none}
+.ni-testi__card:hover .ni-testi__hover-overlay{opacity:1;transform:translateY(0)}
+
+/* Stars */
+.ni-testi__stars{display:flex;gap:3px;margin-bottom:10px}
+.ni-testi__star--on{color:#F59E0B}
+.ni-testi__star--off{color:rgba(255,255,255,.3)}
+
+/* Quote */
+.ni-testi__quote{margin:0 0 14px;font-size:.875rem;line-height:1.6;font-style:italic;color:rgba(255,255,255,.92)}
+
+/* Author row */
+.ni-testi__author{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:10px;border-top:1px solid rgba(255,255,255,.18)}
+.ni-testi__name{font-size:.9rem;font-weight:700;color:#fff;letter-spacing:.01em}
+.ni-testi__verified{display:flex;align-items:center;gap:4px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:4px 9px;border-radius:100px;background:rgba(16,185,129,.2);color:#34D399;white-space:nowrap;border:1px solid rgba(52,211,153,.25)}
+
+/* Arrows */
+.ni-testi__arr{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.6);background:rgba(255,255,255,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 4px 16px rgba(10,77,104,.1);color:var(--ni-primary);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s cubic-bezier(.34,1.56,.64,1)}
+.ni-testi__arr:hover{background:var(--ni-primary);color:#fff;border-color:var(--ni-primary);transform:translateY(-50%) scale(1.08);box-shadow:0 6px 20px rgba(10,77,104,.2)}
+.ni-testi__arr--prev{left:-22px}
+.ni-testi__arr--next{right:-22px}
+.ni-testi__arr.swiper-button-disabled{opacity:.35;cursor:default;pointer-events:none}
+
+/* Dots */
+.ni-testi__dots{display:flex;justify-content:center;gap:8px;margin-top:32px}
+.ni-testi__dots .swiper-pagination-bullet{width:8px;height:8px;border-radius:100px;background:var(--ni-gray-300);opacity:1;transition:all .3s ease;cursor:pointer}
+.ni-testi__dots .swiper-pagination-bullet-active{width:28px;background:var(--ni-accent)}
+
+/* Responsive */
+@media(max-width:768px){.ni-testi{padding:64px 0 72px}.ni-testi__slide{width:270px}.ni-testi__card{height:380px}.ni-testi__arr--prev{left:-12px}.ni-testi__arr--next{right:-12px}.ni-testi__header{margin-bottom:40px}}
+@media(max-width:480px){.ni-testi__slide{width:calc(100vw - 60px)}.ni-testi__card{height:360px}.ni-testi__arr{width:36px;height:36px}.ni-testi__arr--prev{left:-6px}.ni-testi__arr--next{right:-6px}}
+</style>
+
+<!-- ────────────────── JS ────────────────── -->
+<script>
+(function(){
+  var el=document.getElementById('NiTesti-{{ section.id }}');
+  if(!el)return;
+
+  function initSwiper(){
+    var auto=el.dataset.autoplay==='true',
+        spd=parseInt(el.dataset.speed,10)||4000,
+        wrapper=el.querySelector('.swiper-wrapper');
+    if(!wrapper||!wrapper.children.length){el.style.display='none';return;}
+    new Swiper('#NiTesti-{{ section.id }} .ni-testi__swiper',{
+      slidesPerView:'auto',
+      spaceBetween:20,
+      centeredSlides:true,
+      loop:wrapper.children.length>2,
+      grabCursor:true,
+      speed:600,
+      autoplay:auto?{delay:spd,disableOnInteraction:false,pauseOnMouseEnter:true}:false,
+      navigation:{
+        prevEl:'#NiTesti-{{ section.id }} .ni-testi__arr--prev',
+        nextEl:'#NiTesti-{{ section.id }} .ni-testi__arr--next'
+      },
+      pagination:{
+        el:'#NiTesti-{{ section.id }} .ni-testi__dots',
+        clickable:true
+      },
+      breakpoints:{0:{spaceBetween:16},768:{spaceBetween:20}}
+    });
+  }
+
+  /* ── Read-more toggle ── */
+  el.addEventListener('click',function(e){
+    var b=e.target.closest('.ni-testi__more');
+    if(!b)return;
+    var c=b.closest('.ni-testi__card'),
+        x=b.getAttribute('aria-expanded')==='true';
+    c.classList.toggle('is-expanded',!x);
+    b.setAttribute('aria-expanded',String(!x));
+    b.textContent=x?'Read more':'Read less';
+  });
+
+  /* ── Product page: fetch testimonials from feature-columns tc-data JSON ── */
+  var fetchFrom=el.dataset.fetchFrom;
+  if(fetchFrom){
+    var handle=el.dataset.productHandle||'';
+    fetch(fetchFrom,{credentials:'same-origin'})
+      .then(function(r){return r.text();})
+      .then(function(html){
+        var doc=new DOMParser().parseFromString(html,'text/html');
+        var dataEl=doc.getElementById('tc-data');
+        if(!dataEl){el.style.display='none';return;}
+        var allReviews;
+        try{allReviews=JSON.parse(dataEl.textContent||dataEl.innerHTML);}catch(e){el.style.display='none';return;}
+        /* Filter: on product page show ONLY reviews explicitly assigned to this product */
+        var filtered=allReviews.filter(function(r){
+          return r.product_handle&&r.product_handle.trim()===handle;
+        });
+        if(!filtered.length){el.style.display='none';return;}
+        var wrapper=el.querySelector('.swiper-wrapper');
+        var starSvg='<svg class="ni-testi__star ni-testi__star--on" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+        var checkSvg='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>';
+        filtered.forEach(function(r){
+          var slide=document.createElement('div');
+          slide.className='swiper-slide ni-testi__slide';
+          var txt=r.text||'';
+          slide.innerHTML=[
+            '<div class="ni-testi__card">',
+              '<div class="ni-testi__media">',
+                '<img src="'+r.img+'" class="ni-testi__img" alt="'+(r.name||'')+'" width="300" height="420" loading="lazy">',
+              '</div>',
+              '<div class="ni-testi__hover-overlay">',
+                '<div class="ni-testi__stars" aria-label="5 out of 5 stars">'+Array(5).fill(starSvg).join('')+'</div>',
+                '<blockquote class="ni-testi__quote">&ldquo;'+txt+'&rdquo;</blockquote>',
+                '<div class="ni-testi__author">',
+                  '<span class="ni-testi__name">'+(r.name||'')+'</span>',
+                  '<span class="ni-testi__verified">'+checkSvg+' Verified</span>',
+                '</div>',
+              '</div>',
+            '</div>'
+          ].join('');
+          wrapper.appendChild(slide);
+        });
+        });
+        if(typeof Swiper!=='undefined'){initSwiper();}
+        else{var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';s.onload=initSwiper;document.head.appendChild(s);}
+      })
+      .catch(function(){el.style.display='none';});
+  }else{
+    /* ── Homepage / has blocks: init immediately ── */
+    if(typeof Swiper!=='undefined'){initSwiper();}
+    else{var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';s.onload=initSwiper;document.head.appendChild(s);}
+  }
+})();
+</script>
+
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "class": "ni-testi-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge label",
+      "default": "Real Customer Reviews"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What Our Customers Are Saying"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Thousands of happy customers cooling off every day."
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Enable autoplay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "Autoplay delay (ms)",
+      "min": 2000,
+      "max": 8000,
+      "step": 500,
+      "default": 4000
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testi-card",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Review text",
+          "default": "<p>This cooling necklace is amazing!</p>"
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author name",
+          "default": "Happy Customer"
+        },
+        {
+          "type": "text",
+          "id": "author_title",
+          "label": "Title / location (optional)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Customer photo (optional)"
+        },
+        {
+          "type": "range",
+          "id": "star_rating",
+          "label": "Star rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "product_handle",
+          "label": "Product handle (for filtering on product pages)",
+          "info": "Leave blank to show everywhere. Use the product URL slug."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "category": "Social proof",
+      "blocks": [
+        {
+          "type": "testi-card",
+          "settings": {
+            "text": "<p>These necklaces are the best! They help keep me cool all throughout the year and ESPECIALLY in the heat of summer.</p>",
+            "author_name": "Christy G",
+            "author_title": "Verified Buyer",
+            "star_rating": 5
+          }
+        },
+        {
+          "type": "testi-card",
+          "settings": {
+            "text": "<p>I have MS and suffer from debilitating heat sensitivity. This cooling necklace has been life-changing!</p>",
+            "author_name": "Pamela L",
+            "author_title": "MS Warrior",
+            "star_rating": 5
+          }
+        },
+        {
+          "type": "testi-card",
+          "settings": {
+            "text": "<p>Bought one for my wife and she loves it. The quality is excellent and it looks great too!</p>",
+            "author_name": "Gene B",
+            "author_title": "Verified Buyer",
+            "star_rating": 5
+          }
+        },
+        {
+          "type": "testi-card",
+          "settings": {
+            "text": "<p>I work outside all day and this necklace is a game changer. Stays cold for hours!</p>",
+            "author_name": "Laura S",
+            "author_title": "Outdoor Worker",
+            "star_rating": 5
+          }
+        },
+        {
+          "type": "testi-card",
+          "settings": {
+            "text": "<p>Perfect for hot flashes! The only thing that gives me instant, lasting relief. Worth every penny.</p>",
+            "author_name": "Jenn F",
+            "author_title": "Verified Buyer",
+            "star_rating": 5
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

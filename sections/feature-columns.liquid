@@ -250,7 +250,8 @@
   "thumb": "{{ block.settings.image | img_url: '600x' }}",
   "alt":   "{{ block.settings.image.alt | escape }}",
   "name":  "{{ block.settings.title | escape }}",
-  "text":  "{{ block.settings.text | strip_html | truncate: 140 | escape }}"
+  "text":  "{{ block.settings.text | strip_html | truncate: 200 | escape }}",
+  "product_handle": "{{ block.settings.product_handle | escape }}"
 }{% unless forloop.last %},{% endunless %}{% endif %}{% endfor %}]
 </script>
 
@@ -434,6 +435,12 @@
             "type": "url",
             "id": "button_link",
             "label": "Button link"
+          },
+          {
+            "type": "text",
+            "id": "product_handle",
+            "label": "Product handle (for product page reviews)",
+            "info": "Enter the product URL slug. Leave blank to show everywhere."
           }
         ]
       }

@@ -201,7 +201,8 @@
               "title": "Christy G",
               "text": "<p><strong>“</strong>These necklaces are the best! They help keep me cool all throughout the year, especially in the heat of summer. I honestly don’t know what I would do without them! I guess I’d just be using necklaces that aren’t as great.<strong>”</strong></p>",
               "button_label": "",
-              "button_link": "shopify://products/cooling-necklace-solid-purple"
+              "button_link": "shopify://products/cooling-necklace-solid-purple",
+              "product_handle": "cooling-necklace-bright-purple-with-an-extra-cooling-sphere"
             }
           },
           "1532375436826": {
@@ -212,7 +213,8 @@
               "title": "Gene B",
               "text": "<p><strong>“</strong>Love my Nano-Ice scarf necklace because it keeps me from melting away during this heat wave—in style!<strong>”</strong></p>",
               "button_label": "",
-              "button_link": "shopify://products/copy-of-cooling-scarf-purple"
+              "button_link": "shopify://products/copy-of-cooling-scarf-purple",
+              "product_handle": ""
             }
           },
           "1532369798192": {
@@ -223,7 +225,8 @@
               "title": "Jenn F",
               "text": "<p><strong>“</strong>I have been wearing two for the last week. I’ve recommended this cooling necklace to many because of the extreme heat wave. I think you’ll get a lot more business from this town—not to mention more from me, now that my daughters have ‘borrowed’ several necklaces daily.<strong>”</strong></p>",
               "button_label": "",
-              "button_link": "shopify://products/cooling-necklace-coral-turquoise"
+              "button_link": "shopify://products/cooling-necklace-coral-turquoise",
+              "product_handle": ""
             }
           },
           "1532376878213": {
@@ -234,7 +237,8 @@
               "title": "Amy C",
               "text": "<p><strong>“</strong>Ahhhhhh! Works very well. Within one minute, you can feel a cooling effect begin. Sometimes I wear it with the tie down, then switch it around. The material is so soft, which is nice.<strong>”</strong></p>",
               "button_label": "",
-              "button_link": "shopify://products/cooling-necklace-grey"
+              "button_link": "shopify://products/cooling-necklace-grey",
+              "product_handle": ""
             }
           },
           "1532377972310": {
@@ -245,7 +249,8 @@
               "title": "Pamela L",
               "text": "<p><strong>“</strong>It’s 91 degrees here in , but I’m chillin’ with my cooling necklace.<strong>”</strong></p>",
               "button_label": "",
-              "button_link": ""
+              "button_link": "",
+              "product_handle": ""
             }
           },
           "1532377881346": {
@@ -256,7 +261,8 @@
               "title": "Laura S",
               "text": "<p><strong>“</strong>I couldn’t resist letting my dog try my Nano-Ice necklace. She seemed to love it! We’re definitely beating this heat with our Nano-Ice necklaces!<strong>”</strong></p>",
               "button_label": "",
-              "button_link": "shopify://products/cooling-necklace-graphic-print"
+              "button_link": "shopify://products/cooling-necklace-graphic-print",
+              "product_handle": ""
             }
           }
         },
@@ -441,6 +447,16 @@
         "type": "why-choose-us",
         "name": "Why Choose Us",
         "settings": {}
+      },
+      "testimonials_NiPrem1": {
+        "type": "testimonials",
+        "settings": {
+          "badge_text": "Real Customer Reviews",
+          "heading": "What Our Customers Are Saying",
+          "subheading": "Thousands of happy customers cooling off every day.",
+          "autoplay": true,
+          "autoplay_speed": 4000
+        }
       }
     },
     "content_for_index": [
@@ -455,6 +471,7 @@
       "feature-row",
       "1532368278588",
       "why_choose_us_jzGQkB",
+      "testimonials_NiPrem1",
       "1557766562736",
       "1544639027080"
     ],
