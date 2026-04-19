@@ -2118,6 +2118,19 @@ select:focus {
    PRODUCT CARDS — Collection Page Grid
    ============================================================ */
 
+/* Grid items: equal height columns via flexbox */
+.grid--view-items {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: stretch !important;
+}
+
+.grid--view-items .grid__item {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Card itself fills the full height of its grid cell */
 .ni-product-card {
   background: #fff;
   border-radius: var(--ni-radius-lg);
@@ -2127,6 +2140,7 @@ select:focus {
   position: relative;
   display: flex !important;
   flex-direction: column !important;
+  width: 100% !important;
   height: 100% !important;
 }
 
@@ -2135,37 +2149,48 @@ select:focus {
   display: flex !important;
   flex-direction: column !important;
   flex: 1 !important;
+  height: 100% !important;
 }
 
 .ni-product-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--ni-shadow-lg);
 }
-  overflow: hidden;
-  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  /* Force every card to the same square image area */
+
+/* ── IMAGE AREA: fixed 280px height, all cards identical ── */
+.ni-product-card .grid-view-item__image-wrapper {
   position: relative !important;
-  aspect-ratio: 1 / 1 !important;
   width: 100% !important;
-  margin: 0 !important;
+  height: 280px !important;
+  min-height: 280px !important;
+  max-height: 280px !important;
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+  background: var(--ni-gray-50) !important;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Override the per-product inline padding-top that causes unequal heights */
+/* Kill the inline padding-top Shopify generates per image aspect ratio */
 .ni-product-card .grid-view-item__image-wrapper > div {
   padding-top: 0 !important;
   position: absolute !important;
-  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  height: 100% !important;
+  width: 100% !important;
 }
 
-/* Fill the fixed square area with object-fit: cover */
+/* Image fills the fixed box, contained so nothing is cropped */
 .ni-product-card .grid-view-item__image-wrapper .grid-view-item__image {
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;
-  object-position: center top !important;
+  object-fit: contain !important;
+  object-position: center center !important;
 }
 
 .ni-product-card:hover .grid-view-item__image-wrapper {
@@ -2173,10 +2198,12 @@ select:focus {
 }
 
 .ni-product-card .grid-view-item__image-container {
-  display: block;
-  overflow: hidden;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
 }
 
+/* Title: fixed 2-line height so text differences don't shift card sizes */
 .ni-product-card .grid-view-item__title {
   padding: 12px 16px 4px !important;
   margin: 0 !important;
@@ -2184,12 +2211,12 @@ select:focus {
   font-size: 14px !important;
   color: var(--ni-dark) !important;
   transition: color var(--ni-transition);
-  /* Clamp to 2 lines so title never makes cards unequal heights */
   display: -webkit-box !important;
   -webkit-line-clamp: 2 !important;
   -webkit-box-orient: vertical !important;
   overflow: hidden !important;
   min-height: 2.8em !important;
+  max-height: 2.8em !important;
 }
 
 .ni-product-card:hover .grid-view-item__title {
@@ -3285,7 +3312,7 @@ img, video, iframe {
   letter-spacing: -0.02em !important;
 }
 
-/* Grid view items */
+/* Grid view items spacing */
 .grid--view-items {
   margin: 0 -8px !important;
 }
