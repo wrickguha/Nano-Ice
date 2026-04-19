@@ -27,6 +27,10 @@
     <ul id="MobileNav" class="mobile-nav">
       {% for link in linklists[section.settings.main_linklist].links %}
         {%- assign nav_title = link.title -%}
+        {%- assign link_url = link.url -%}
+        {% if link.title == 'Shop' %}
+          {%- assign link_url = '/collections/all' -%}
+        {% endif %}
         {% if link.title == 'Reviews' %}
           {%- assign nav_title = 'Reviews' -%}
         {% endif %}
@@ -55,7 +59,7 @@
                       <span class="icon__fallback-text">{{ 'layout.navigation.collapse' | t }}</span>
                     </button>
                   </div>
-                  <a href="{{ link.url }}" class="mobile-nav__sublist-link mobile-nav__sublist-header">
+                  <a href="{{ link_url }}" class="mobile-nav__sublist-link mobile-nav__sublist-header">
                     {{ nav_title }}
                   </a>
                 </div>
@@ -71,7 +75,7 @@
 
             </ul>
           {% else %}
-            <a href="{{ link.url }}" class="mobile-nav__link">
+            <a href="{{ link_url }}" class="mobile-nav__link">
               {{ nav_title }}
             </a>
           {% endif %}

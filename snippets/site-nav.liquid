@@ -1,6 +1,10 @@
 <ul class="site-nav list--inline {{ nav_alignment }}" id="SiteNav">
   {% for link in linklists[section.settings.main_linklist].links %}
     {%- assign nav_title = link.title -%}
+    {%- assign link_url = link.url -%}
+    {% if link.title == 'Shop' %}
+      {%- assign link_url = '/collections/all' -%}
+    {% endif %}
     {% if link.title == 'Reviews' %}
       {%- assign nav_title = 'Reviews' -%}
     {% endif %}
@@ -19,7 +23,7 @@
     {% comment %} Added condition 'and link.title != "About"' to force About to have no dropdown {% endcomment %}
     {% if linklists[child_list_handle].links != blank and link.title != 'About' %}
       <li class="site-nav--has-dropdown{% if link.active %} site-nav--active{% endif %}">
-        <a href="{{ link.url }}" class="site-nav__link site-nav__link--main" aria-has-popup="true" aria-expanded="false" aria-controls="SiteNavLabel-{{ child_list_handle }}">
+        <a href="{{ link_url }}" class="site-nav__link site-nav__link--main" aria-has-popup="true" aria-expanded="false" aria-controls="SiteNavLabel-{{ child_list_handle }}">
           {{ nav_title }}
           {% include 'icon-chevron-down' %}
           <span class="visually-hidden">{{ 'layout.navigation.expand' | t }}</span>
@@ -37,7 +41,7 @@
       </li>
     {% else %}
       <li {% if link.active %}class="site-nav--active"{% endif %}>
-        <a href="{{ link.url }}" class="site-nav__link site-nav__link--main">{{ nav_title }}</a>
+        <a href="{{ link_url }}" class="site-nav__link site-nav__link--main">{{ nav_title }}</a>
       </li>
     {% endif %}
   {% endfor %}
