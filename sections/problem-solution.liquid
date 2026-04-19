@@ -1,0 +1,790 @@
+<!-- ============================================================
+     NANO-ICE — Problem → Solution → How It Works
+     Premium 3-column conversion section
+     ============================================================ -->
+
+<section class="ni-psw" id="ProblemSolution-{{ section.id }}">
+
+  {%- comment -%} Decorative gradient blur shapes {%- endcomment -%}
+  <div class="ni-psw__bg-blur ni-psw__bg-blur--1" aria-hidden="true"></div>
+  <div class="ni-psw__bg-blur ni-psw__bg-blur--2" aria-hidden="true"></div>
+  <div class="ni-psw__bg-blur ni-psw__bg-blur--3" aria-hidden="true"></div>
+
+  <div class="page-width ni-psw__inner">
+
+    {%- comment -%} Section Header {%- endcomment -%}
+    {% if section.settings.section_heading != blank or section.settings.section_subheading != blank %}
+      <div class="ni-psw__header">
+        {% if section.settings.section_heading != blank %}
+          <h2 class="ni-psw__title">{{ section.settings.section_heading | escape }}</h2>
+        {% endif %}
+        {% if section.settings.section_subheading != blank %}
+          <p class="ni-psw__subtitle">{{ section.settings.section_subheading | escape }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="ni-psw__grid">
+
+      {%- comment -%} ─── COLUMN 1: THE PROBLEM ─── {%- endcomment -%}
+      <div class="ni-psw__card ni-psw__card--problem ni-psw-reveal">
+        <div class="ni-psw__card-inner">
+          <span class="ni-psw__tag ni-psw__tag--problem">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            {{ section.settings.problem_tag | escape }}
+          </span>
+          <h3 class="ni-psw__heading ni-psw__heading--problem">{{ section.settings.problem_heading | escape }}</h3>
+          <ul class="ni-psw__list">
+            {% if section.settings.problem_point_1 != blank %}
+              <li class="ni-psw__list-item ni-psw__list-item--problem">
+                <span class="ni-psw__list-icon ni-psw__list-icon--problem">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v6m0 4v10M4.93 4.93l4.24 4.24m5.66 5.66l4.24 4.24M2 12h6m4 0h10M4.93 19.07l4.24-4.24m5.66-5.66l4.24-4.24"/></svg>
+                </span>
+                {{ section.settings.problem_point_1 | escape }}
+              </li>
+            {% endif %}
+            {% if section.settings.problem_point_2 != blank %}
+              <li class="ni-psw__list-item ni-psw__list-item--problem">
+                <span class="ni-psw__list-icon ni-psw__list-icon--problem">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18.364 5.636a9 9 0 11-12.728 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
+                </span>
+                {{ section.settings.problem_point_2 | escape }}
+              </li>
+            {% endif %}
+            {% if section.settings.problem_point_3 != blank %}
+              <li class="ni-psw__list-item ni-psw__list-item--problem">
+                <span class="ni-psw__list-icon ni-psw__list-icon--problem">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                </span>
+                {{ section.settings.problem_point_3 | escape }}
+              </li>
+            {% endif %}
+          </ul>
+          {% if section.settings.problem_note != blank %}
+            <p class="ni-psw__note">{{ section.settings.problem_note | escape }}</p>
+          {% endif %}
+        </div>
+        <div class="ni-psw__card-glow ni-psw__card-glow--problem" aria-hidden="true"></div>
+      </div>
+
+      {%- comment -%} ─── COLUMN 2: THE SOLUTION (hero card) ─── {%- endcomment -%}
+      <div class="ni-psw__card ni-psw__card--solution ni-psw-reveal">
+        <div class="ni-psw__card-inner">
+          <span class="ni-psw__tag ni-psw__tag--solution">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            {{ section.settings.solution_tag | escape }}
+          </span>
+          <h3 class="ni-psw__heading ni-psw__heading--solution">{{ section.settings.solution_heading | escape }}</h3>
+
+          <div class="ni-psw__hero-stat">
+            <span class="ni-psw__hero-number">{{ section.settings.solution_stat | escape }}</span>
+            <span class="ni-psw__hero-label">{{ section.settings.solution_stat_label | escape }}</span>
+          </div>
+
+          <ul class="ni-psw__list">
+            {% if section.settings.solution_point_1 != blank %}
+              <li class="ni-psw__list-item ni-psw__list-item--solution">
+                <span class="ni-psw__list-icon ni-psw__list-icon--solution">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                {{ section.settings.solution_point_1 | escape }}
+              </li>
+            {% endif %}
+            {% if section.settings.solution_point_2 != blank %}
+              <li class="ni-psw__list-item ni-psw__list-item--solution">
+                <span class="ni-psw__list-icon ni-psw__list-icon--solution">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                {{ section.settings.solution_point_2 | escape }}
+              </li>
+            {% endif %}
+            {% if section.settings.solution_point_3 != blank %}
+              <li class="ni-psw__list-item ni-psw__list-item--solution">
+                <span class="ni-psw__list-icon ni-psw__list-icon--solution">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                {{ section.settings.solution_point_3 | escape }}
+              </li>
+            {% endif %}
+          </ul>
+
+          {% if section.settings.solution_cta_text != blank %}
+            <a href="{{ section.settings.solution_cta_link }}" class="ni-psw__cta">
+              {{ section.settings.solution_cta_text | escape }}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          {% endif %}
+        </div>
+        <div class="ni-psw__card-glow ni-psw__card-glow--solution" aria-hidden="true"></div>
+        <div class="ni-psw__card-ring" aria-hidden="true"></div>
+      </div>
+
+      {%- comment -%} ─── COLUMN 3: HOW IT WORKS ─── {%- endcomment -%}
+      <div class="ni-psw__card ni-psw__card--works ni-psw-reveal">
+        <div class="ni-psw__card-inner">
+          <span class="ni-psw__tag ni-psw__tag--works">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+            {{ section.settings.works_tag | escape }}
+          </span>
+          <h3 class="ni-psw__heading ni-psw__heading--works">{{ section.settings.works_heading | escape }}</h3>
+
+          <div class="ni-psw__steps">
+            {%- comment -%} Step 1: Fast Freeze {%- endcomment -%}
+            <div class="ni-psw__step">
+              <div class="ni-psw__step-icon ni-psw__step-icon--1">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8m0 4v8M2 12h8m4 0h8M4.93 4.93l5.66 5.66m2.82 2.82l5.66 5.66M4.93 19.07l5.66-5.66m2.82-2.82l5.66-5.66"/></svg>
+              </div>
+              <div class="ni-psw__step-text">
+                <strong>{{ section.settings.works_step1_title | escape }}</strong>
+                <span>{{ section.settings.works_step1_desc | escape }}</span>
+              </div>
+            </div>
+
+            <div class="ni-psw__step-divider" aria-hidden="true"></div>
+
+            {%- comment -%} Step 2: Consistent Cooling {%- endcomment -%}
+            <div class="ni-psw__step">
+              <div class="ni-psw__step-icon ni-psw__step-icon--2">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+              </div>
+              <div class="ni-psw__step-text">
+                <strong>{{ section.settings.works_step2_title | escape }}</strong>
+                <span>{{ section.settings.works_step2_desc | escape }}</span>
+              </div>
+            </div>
+
+            <div class="ni-psw__step-divider" aria-hidden="true"></div>
+
+            {%- comment -%} Step 3: Comfortable Wear {%- endcomment -%}
+            <div class="ni-psw__step">
+              <div class="ni-psw__step-icon ni-psw__step-icon--3">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+              </div>
+              <div class="ni-psw__step-text">
+                <strong>{{ section.settings.works_step3_title | escape }}</strong>
+                <span>{{ section.settings.works_step3_desc | escape }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ni-psw__card-glow ni-psw__card-glow--works" aria-hidden="true"></div>
+      </div>
+
+    </div><!-- /.ni-psw__grid -->
+  </div><!-- /.page-width -->
+</section>
+
+<!-- ============================================================
+     STYLES — Problem → Solution → How It Works
+     ============================================================ -->
+<style>
+  /* ── Section wrapper ── */
+  .ni-psw {
+    position: relative;
+    padding: 100px 0 110px;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--ni-gray-50) 0%, #E8F4FD 40%, #F0F9FF 70%, var(--ni-gray-50) 100%);
+  }
+
+  /* ── Floating gradient blurs ── */
+  .ni-psw__bg-blur {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .ni-psw__bg-blur--1 {
+    width: 500px; height: 500px;
+    top: -150px; left: -100px;
+    background: radial-gradient(circle, rgba(5,191,219,0.18) 0%, transparent 70%);
+  }
+  .ni-psw__bg-blur--2 {
+    width: 400px; height: 400px;
+    bottom: -100px; right: -80px;
+    background: radial-gradient(circle, rgba(0,255,202,0.14) 0%, transparent 70%);
+  }
+  .ni-psw__bg-blur--3 {
+    width: 350px; height: 350px;
+    top: 30%; left: 50%;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, rgba(10,77,104,0.08) 0%, transparent 70%);
+  }
+
+  .ni-psw__inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Section header ── */
+  .ni-psw__header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .ni-psw__title {
+    font-family: var(--ni-font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: var(--ni-dark);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin: 0 0 12px;
+  }
+  .ni-psw__subtitle {
+    font-size: clamp(0.95rem, 1.6vw, 1.125rem);
+    color: var(--ni-gray-500);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* ── 3-column grid ── */
+  .ni-psw__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr 1fr;
+    gap: 28px;
+    align-items: stretch;
+  }
+
+  /* ── Card base ── */
+  .ni-psw__card {
+    position: relative;
+    border-radius: 20px;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+    will-change: transform;
+  }
+  .ni-psw__card-inner {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 36px 32px 40px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.6);
+  }
+  .ni-psw__card:hover {
+    transform: translateY(-8px);
+  }
+
+  /* ── Card glows ── */
+  .ni-psw__card-glow {
+    position: absolute;
+    inset: -1px;
+    border-radius: 21px;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .ni-psw__card:hover .ni-psw__card-glow { opacity: 1; }
+
+  .ni-psw__card-glow--problem {
+    background: linear-gradient(135deg, rgba(239,68,68,0.12) 0%, rgba(251,146,60,0.10) 100%);
+    box-shadow: 0 8px 40px rgba(239,68,68,0.10);
+  }
+  .ni-psw__card-glow--solution {
+    background: linear-gradient(135deg, rgba(5,191,219,0.15) 0%, rgba(0,255,202,0.10) 100%);
+    box-shadow: 0 8px 50px rgba(5,191,219,0.18);
+  }
+  .ni-psw__card-glow--works {
+    background: linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(5,191,219,0.08) 100%);
+    box-shadow: 0 8px 40px rgba(16,185,129,0.10);
+  }
+
+  /* ── Default card shadows ── */
+  .ni-psw__card--problem {
+    box-shadow: 0 4px 24px rgba(239,68,68,0.06), 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .ni-psw__card--problem:hover {
+    box-shadow: 0 16px 48px rgba(239,68,68,0.12), 0 4px 12px rgba(0,0,0,0.04);
+  }
+
+  .ni-psw__card--solution {
+    box-shadow: 0 4px 30px rgba(5,191,219,0.10), 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .ni-psw__card--solution:hover {
+    box-shadow: 0 20px 60px rgba(5,191,219,0.18), 0 4px 12px rgba(0,0,0,0.04);
+  }
+
+  .ni-psw__card--works {
+    box-shadow: 0 4px 24px rgba(16,185,129,0.06), 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .ni-psw__card--works:hover {
+    box-shadow: 0 16px 48px rgba(16,185,129,0.12), 0 4px 12px rgba(0,0,0,0.04);
+  }
+
+  /* ── Solution hero card: subtle ring glow ── */
+  .ni-psw__card-ring {
+    position: absolute;
+    inset: -2px;
+    border-radius: 22px;
+    z-index: 0;
+    background: linear-gradient(135deg, rgba(5,191,219,0.25), rgba(0,255,202,0.15), rgba(5,191,219,0.25));
+    opacity: 0.6;
+  }
+  .ni-psw__card--solution .ni-psw__card-inner {
+    background: rgba(255,255,255,0.82);
+    border-color: transparent;
+  }
+
+  /* ── Tags ── */
+  .ni-psw__tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+    width: fit-content;
+  }
+  .ni-psw__tag--problem {
+    background: rgba(239,68,68,0.08);
+    color: #DC2626;
+  }
+  .ni-psw__tag--solution {
+    background: rgba(5,191,219,0.10);
+    color: #0891B2;
+  }
+  .ni-psw__tag--works {
+    background: rgba(16,185,129,0.10);
+    color: #059669;
+  }
+
+  /* ── Headings ── */
+  .ni-psw__heading {
+    font-family: var(--ni-font-heading);
+    font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+    font-weight: 750;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin: 0 0 20px;
+  }
+  .ni-psw__heading--problem { color: var(--ni-dark); }
+  .ni-psw__heading--solution { color: var(--ni-dark); }
+  .ni-psw__heading--works { color: var(--ni-dark); }
+
+  /* ── List items ── */
+  .ni-psw__list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .ni-psw__list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--ni-gray-700);
+  }
+  .ni-psw__list-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  .ni-psw__list-icon--problem {
+    background: rgba(239,68,68,0.08);
+    color: #EF4444;
+  }
+  .ni-psw__list-icon--solution {
+    background: rgba(5,191,219,0.10);
+    color: #0891B2;
+  }
+
+  /* ── Note text ── */
+  .ni-psw__note {
+    margin-top: auto;
+    padding-top: 16px;
+    font-size: 0.82rem;
+    color: var(--ni-gray-400);
+    line-height: 1.5;
+    border-top: 1px solid rgba(0,0,0,0.04);
+  }
+
+  /* ── Hero stat (Solution card) ── */
+  .ni-psw__hero-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 24px;
+    padding: 20px 24px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(5,191,219,0.06) 0%, rgba(0,255,202,0.04) 100%);
+    border: 1px solid rgba(5,191,219,0.12);
+  }
+  .ni-psw__hero-number {
+    font-family: var(--ni-font-heading);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, #0A4D68, #05BFDB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+  .ni-psw__hero-label {
+    font-size: 0.88rem;
+    color: var(--ni-gray-500);
+    font-weight: 500;
+  }
+
+  /* ── CTA button (Solution card) ── */
+  .ni-psw__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding: 13px 28px;
+    border-radius: 100px;
+    background: var(--ni-gradient-primary);
+    color: #fff;
+    font-size: 0.88rem;
+    font-weight: 650;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 16px rgba(10,77,104,0.20);
+    width: fit-content;
+  }
+  .ni-psw__cta:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 28px rgba(10,77,104,0.28);
+    color: #fff;
+    text-decoration: none;
+  }
+  .ni-psw__cta svg {
+    transition: transform 0.25s ease;
+  }
+  .ni-psw__cta:hover svg {
+    transform: translateX(3px);
+  }
+
+  /* ── How It Works steps ── */
+  .ni-psw__steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 4px;
+  }
+  .ni-psw__step {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+  }
+  .ni-psw__step-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(16,185,129,0.15), transparent);
+  }
+  .ni-psw__step-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  }
+  .ni-psw__step:hover .ni-psw__step-icon {
+    transform: scale(1.1) rotate(-4deg);
+  }
+  .ni-psw__step-icon--1 {
+    background: linear-gradient(135deg, rgba(5,191,219,0.12), rgba(0,255,202,0.08));
+    color: #0891B2;
+    box-shadow: 0 2px 8px rgba(5,191,219,0.10);
+  }
+  .ni-psw__step-icon--2 {
+    background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(5,191,219,0.08));
+    color: #059669;
+    box-shadow: 0 2px 8px rgba(16,185,129,0.10);
+  }
+  .ni-psw__step-icon--3 {
+    background: linear-gradient(135deg, rgba(139,92,246,0.10), rgba(5,191,219,0.08));
+    color: #7C3AED;
+    box-shadow: 0 2px 8px rgba(139,92,246,0.08);
+  }
+
+  .ni-psw__step-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .ni-psw__step-text strong {
+    font-size: 0.92rem;
+    font-weight: 650;
+    color: var(--ni-dark);
+  }
+  .ni-psw__step-text span {
+    font-size: 0.82rem;
+    color: var(--ni-gray-500);
+    line-height: 1.45;
+  }
+
+  /* ── Scroll-reveal animation ── */
+  .ni-psw-reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .ni-psw-reveal.ni-psw-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .ni-psw__card--solution.ni-psw-reveal { transition-delay: 0.12s; }
+  .ni-psw__card--works.ni-psw-reveal { transition-delay: 0.24s; }
+
+  /* ── Responsive: Tablet ── */
+  @media (max-width: 960px) {
+    .ni-psw { padding: 72px 0 80px; }
+    .ni-psw__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .ni-psw__card--works {
+      grid-column: 1 / -1;
+      max-width: 500px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .ni-psw__header { margin-bottom: 44px; }
+  }
+
+  /* ── Responsive: Mobile ── */
+  @media (max-width: 640px) {
+    .ni-psw { padding: 56px 0 64px; }
+    .ni-psw__grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .ni-psw__card--works {
+      max-width: none;
+    }
+    .ni-psw__card-inner {
+      padding: 28px 24px 32px;
+    }
+    .ni-psw__header { margin-bottom: 36px; }
+    .ni-psw__bg-blur--1 { width: 300px; height: 300px; }
+    .ni-psw__bg-blur--2 { width: 250px; height: 250px; }
+    .ni-psw__bg-blur--3 { display: none; }
+  }
+</style>
+
+<!-- ── Scroll-reveal observer ── -->
+<script>
+  (function() {
+    var els = document.querySelectorAll('#ProblemSolution-{{ section.id }} .ni-psw-reveal');
+    if (!els.length) return;
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('ni-psw-visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function(el) { obs.observe(el); });
+    } else {
+      els.forEach(function(el) { el.classList.add('ni-psw-visible'); });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Problem → Solution",
+  "class": "ni-psw-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section heading",
+      "default": "Why Nano-Ice?"
+    },
+    {
+      "type": "text",
+      "id": "section_subheading",
+      "label": "Section subheading",
+      "default": "The science of staying cool — simplified."
+    },
+    {
+      "type": "header",
+      "content": "── The Problem ──"
+    },
+    {
+      "type": "text",
+      "id": "problem_tag",
+      "label": "Tag label",
+      "default": "THE PROBLEM"
+    },
+    {
+      "type": "text",
+      "id": "problem_heading",
+      "label": "Heading",
+      "default": "Heat isn't just uncomfortable. It's limiting."
+    },
+    {
+      "type": "text",
+      "id": "problem_point_1",
+      "label": "Bullet point 1",
+      "default": "Outdoor activities cut short by overheating"
+    },
+    {
+      "type": "text",
+      "id": "problem_point_2",
+      "label": "Bullet point 2",
+      "default": "Hot flashes & medical conditions with no instant relief"
+    },
+    {
+      "type": "text",
+      "id": "problem_point_3",
+      "label": "Bullet point 3",
+      "default": "Regular ice packs are bulky, messy, and melt fast"
+    },
+    {
+      "type": "text",
+      "id": "problem_note",
+      "label": "Supporting note",
+      "default": "Traditional cooling methods weren't designed for life on the go."
+    },
+    {
+      "type": "header",
+      "content": "── The Solution ──"
+    },
+    {
+      "type": "text",
+      "id": "solution_tag",
+      "label": "Tag label",
+      "default": "THE SOLUTION"
+    },
+    {
+      "type": "text",
+      "id": "solution_heading",
+      "label": "Heading",
+      "default": "Cooling that actually lasts."
+    },
+    {
+      "type": "text",
+      "id": "solution_stat",
+      "label": "Hero stat number",
+      "default": "2+ hours"
+    },
+    {
+      "type": "text",
+      "id": "solution_stat_label",
+      "label": "Hero stat label",
+      "default": "of continuous cooling per charge"
+    },
+    {
+      "type": "text",
+      "id": "solution_point_1",
+      "label": "Benefit 1",
+      "default": "Freezes in just 20 minutes"
+    },
+    {
+      "type": "text",
+      "id": "solution_point_2",
+      "label": "Benefit 2",
+      "default": "Stylish enough to wear anywhere"
+    },
+    {
+      "type": "text",
+      "id": "solution_point_3",
+      "label": "Benefit 3",
+      "default": "Reusable — no refills needed"
+    },
+    {
+      "type": "text",
+      "id": "solution_cta_text",
+      "label": "CTA button text",
+      "default": "Shop Cooling Necklaces"
+    },
+    {
+      "type": "url",
+      "id": "solution_cta_link",
+      "label": "CTA button link"
+    },
+    {
+      "type": "header",
+      "content": "── How It Works ──"
+    },
+    {
+      "type": "text",
+      "id": "works_tag",
+      "label": "Tag label",
+      "default": "HOW IT WORKS"
+    },
+    {
+      "type": "text",
+      "id": "works_heading",
+      "label": "Heading",
+      "default": "Simple. Effective. Beautiful."
+    },
+    {
+      "type": "text",
+      "id": "works_step1_title",
+      "label": "Step 1 title",
+      "default": "Fast Freeze"
+    },
+    {
+      "type": "text",
+      "id": "works_step1_desc",
+      "label": "Step 1 description",
+      "default": "Place in your freezer for 20 minutes. The nano-spheres lock in cold."
+    },
+    {
+      "type": "text",
+      "id": "works_step2_title",
+      "label": "Step 2 title",
+      "default": "Consistent Cooling"
+    },
+    {
+      "type": "text",
+      "id": "works_step2_desc",
+      "label": "Step 2 description",
+      "default": "Enjoy 2+ hours of steady, evenly distributed cold therapy."
+    },
+    {
+      "type": "text",
+      "id": "works_step3_title",
+      "label": "Step 3 title",
+      "default": "Comfortable Wear"
+    },
+    {
+      "type": "text",
+      "id": "works_step3_desc",
+      "label": "Step 3 description",
+      "default": "Lightweight, flexible design sits comfortably on your neck all day."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Problem → Solution",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

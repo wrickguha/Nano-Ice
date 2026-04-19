@@ -199,7 +199,7 @@
               "enable_image": true,
               "image": "shopify://shop_images/Christy_s_Review_2.jpg",
               "title": "Christy G",
-              "text": "<p><strong>\"</strong>These necklaces are the best! They help keep me cool all throughout the year and ESPECIALLY in the heat of summer.&nbsp; I honestly don&rsquo;t know what I would do without them! I guess I&rsquo;d just be using necklaces that aren&rsquo;t as great.<strong>\"</strong></p>",
+              "text": "<p><strong>“</strong>These necklaces are the best! They help keep me cool all throughout the year, especially in the heat of summer. I honestly don’t know what I would do without them! I guess I’d just be using necklaces that aren’t as great.<strong>”</strong></p>",
               "button_label": "",
               "button_link": "shopify://products/cooling-necklace-solid-purple"
             }
@@ -210,7 +210,7 @@
               "enable_image": true,
               "image": "shopify://shop_images/Purple_Scarf_dde6c61a-f1ad-4f45-b9ec-70ac9d6b183f.jpg",
               "title": "Gene B",
-              "text": "<p><strong>\"</strong>Love my Nano-Ice scarf necklace because they keep me from melting away during this heat wave in style!<strong>\"</strong></p>",
+              "text": "<p><strong>“</strong>Love my Nano-Ice scarf necklace because it keeps me from melting away during this heat wave—in style!<strong>”</strong></p>",
               "button_label": "",
               "button_link": "shopify://products/copy-of-cooling-scarf-purple"
             }
@@ -221,7 +221,7 @@
               "enable_image": true,
               "image": "shopify://shop_images/image2.JPG",
               "title": "Jenn F",
-              "text": "<p><strong>\"</strong>I have been wearing&nbsp;2 for the last week. I have recommended this cooling necklace to&nbsp;many because of the extreme heat wave. I think you will get a lot more business from this town. Not to mention more from me now that my daughters have 'borrowed' several necklaces on the daily.<strong>\"</strong></p>",
+              "text": "<p><strong>“</strong>I have been wearing two for the last week. I’ve recommended this cooling necklace to many because of the extreme heat wave. I think you’ll get a lot more business from this town—not to mention more from me, now that my daughters have ‘borrowed’ several necklaces daily.<strong>”</strong></p>",
               "button_label": "",
               "button_link": "shopify://products/cooling-necklace-coral-turquoise"
             }
@@ -232,7 +232,7 @@
               "enable_image": true,
               "image": "shopify://shop_images/Amy_C.jpg",
               "title": "Amy C",
-              "text": "<p><strong>\"</strong>Ahhhhhh! Works very well. Within 1 minute you can feel a cooling effect beginning.&nbsp; Sometimes I wear it with the tie down, then switch it around. The material is so soft which is nice.<strong>\"</strong></p>",
+              "text": "<p><strong>“</strong>Ahhhhhh! Works very well. Within one minute, you can feel a cooling effect begin. Sometimes I wear it with the tie down, then switch it around. The material is so soft, which is nice.<strong>”</strong></p>",
               "button_label": "",
               "button_link": "shopify://products/cooling-necklace-grey"
             }
@@ -243,7 +243,7 @@
               "enable_image": true,
               "image": "shopify://shop_images/Pam_L.jpg",
               "title": "Pamela L",
-              "text": "<p><strong>\"</strong>It's 91 degrees here in Boston but I'm chillin' with my Cooling Necklace.<strong>\"</strong></p>",
+              "text": "<p><strong>“</strong>It’s 91 degrees here in , but I’m chillin’ with my cooling necklace.<strong>”</strong></p>",
               "button_label": "",
               "button_link": ""
             }
@@ -254,7 +254,7 @@
               "enable_image": true,
               "image": "shopify://shop_images/Laura_S.jpg",
               "title": "Laura S",
-              "text": "<p><strong>\"</strong>I couldn't resist letting my dog try my Nano-Ice necklace.&nbsp;She seemed to like it! We are definitely beating this heat with our Nano-ice necklaces!<strong>\"</strong></p>",
+              "text": "<p><strong>“</strong>I couldn’t resist letting my dog try my Nano-Ice necklace. She seemed to love it! We’re definitely beating this heat with our Nano-Ice necklaces!<strong>”</strong></p>",
               "button_label": "",
               "button_link": "shopify://products/cooling-necklace-graphic-print"
             }
@@ -406,6 +406,37 @@
         "name": "How It Works",
         "settings": {}
       },
+      "problem_solution_Xk9mP2": {
+        "type": "problem-solution",
+        "disabled": true,
+        "settings": {
+          "section_heading": "Why Nano-Ice?",
+          "section_subheading": "The science of staying cool — simplified.",
+          "problem_tag": "THE PROBLEM",
+          "problem_heading": "Heat isn't just uncomfortable. It's limiting.",
+          "problem_point_1": "Outdoor activities cut short by overheating",
+          "problem_point_2": "Hot flashes & medical conditions with no instant relief",
+          "problem_point_3": "Regular ice packs are bulky, messy, and melt fast",
+          "problem_note": "Traditional cooling methods weren't designed for life on the go.",
+          "solution_tag": "THE SOLUTION",
+          "solution_heading": "Cooling that actually lasts.",
+          "solution_stat": "2+ hours",
+          "solution_stat_label": "of continuous cooling per charge",
+          "solution_point_1": "Freezes in just 20 minutes",
+          "solution_point_2": "Stylish enough to wear anywhere",
+          "solution_point_3": "Reusable — no refills needed",
+          "solution_cta_text": "Shop Cooling Necklaces",
+          "solution_cta_link": "/collections/all",
+          "works_tag": "HOW IT WORKS",
+          "works_heading": "Simple. Effective. Beautiful.",
+          "works_step1_title": "Fast Freeze",
+          "works_step1_desc": "Place in your freezer for 20 minutes. The nano-spheres lock in cold.",
+          "works_step2_title": "Consistent Cooling",
+          "works_step2_desc": "Enjoy 2+ hours of steady, evenly distributed cold therapy.",
+          "works_step3_title": "Comfortable Wear",
+          "works_step3_desc": "Lightweight, flexible design sits comfortably on your neck all day."
+        }
+      },
       "why_choose_us_jzGQkB": {
         "type": "why-choose-us",
         "name": "Why Choose Us",
@@ -415,10 +446,11 @@
     "content_for_index": [
       "slideshow_GaefaB",
       "press_logos_marquee",
+      "problem_solution_Xk9mP2",
+      "1539461200387",
       "key_benefits_w47Xfg",
       "featured-collections",
       "trust_indicators_3TETrr",
-      "1539461200387",
       "how_it_works_AJeznT",
       "feature-row",
       "1532368278588",
