@@ -133,7 +133,7 @@
       "featured-collections": {
         "type": "collection",
         "settings": {
-          "title": "Our Bestsellers",
+          "title": "Shop our most popular styles",
           "collection": "frontpage",
           "grid": "3",
           "rows": "1",
@@ -147,8 +147,8 @@
           "image": "shopify://shop_images/DSC07862.JPG",
           "layout": "left",
           "title": "New Scarf Style",
-          "text": "<p>Don't like the look of the cooling spheres? With our new cooling scarves, those spheres are elegantly hidden inside a beautiful handmande scarf.&nbsp;</p>",
-          "button_label": "Shop Now",
+          "text": "<p>Don't like the look of the cooling spheres? With our new cooling scarves, those spheres are elegantly hidden inside a beautiful handmade scarf. <br/><br/></p>",
+          "button_label": "Shop Scarf Style",
           "button_link": "/collections/all"
         }
       },
@@ -325,11 +325,11 @@
         "settings": {
           "image": "shopify://shop_images/DSC_1518.JPG",
           "alignment": "center",
-          "title": "Don't believe us?",
+          "title": "Don’t let the heat stop you anymore",
           "text": "",
           "hero_size": "small",
           "text_size": "medium",
-          "button_label": "View More",
+          "button_label": "Shop Now",
           "button_link": "shopify://pages/testimonials-gallery"
         }
       },
@@ -453,8 +453,8 @@
       "testimonials_NiPrem1": {
         "type": "testimonials",
         "settings": {
-          "badge_text": "Real Customer Reviews",
-          "heading": "What Our Customers Are Saying",
+          "badge_text": "Real stories from people who use Nano-Ice",
+          "heading": "Real stories from people who use Nano-Ice",
           "subheading": "Thousands of happy customers cooling off every day.",
           "autoplay": true,
           "autoplay_speed": 4000
@@ -468,9 +468,9 @@
       "1539461200387",
       "key_benefits_w47Xfg",
       "featured-collections",
+      "feature-row",
       "trust_indicators_3TETrr",
       "how_it_works_AJeznT",
-      "feature-row",
       "1532368278588",
       "why_choose_us_jzGQkB",
       "testimonials_NiPrem1",
