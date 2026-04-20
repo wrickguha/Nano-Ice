@@ -341,9 +341,9 @@
             "settings": {
               "image": "shopify://shop_images/DSC_1582.JPG",
               "alignment": "center",
-              "title": "Beat the heat in style",
-              "subheading": "Take out of your freezer  to stay cool for hours!",
-              "button_label": "Shop Now",
+              "title": "Stay cool when your body won’t",
+              "subheading": "For people who don’t just feel hot but struggle with it every day",
+              "button_label": "Explore Cooling Necklaces",
               "button_link": "shopify://collections/all",
               "btn_bg": "#03aed2",
               "btn_text": "#ffffff",
@@ -355,9 +355,9 @@
             "settings": {
               "image": "shopify://shop_images/DSC_1614.JPG",
               "alignment": "center",
-              "title": "Timeless Elegance, Crafted for You",
-              "subheading": "Discover jewelry that speaks your story — elegant, refined, and made to shine forever.",
-              "button_label": "Explore Collection",
+              "title": "Cooling that actually lasts",
+              "subheading": "Designed to keep you cool for over 2 hours so you can stay comfortable and active",
+              "button_label": "See How It Works",
               "button_link": "shopify://collections/all",
               "btn_bg": "#03aed2",
               "btn_text": "#ffffff",
@@ -369,9 +369,9 @@
             "settings": {
               "image": "shopify://shop_images/Paisley_scarf_4.jpg",
               "alignment": "top",
-              "title": "Shine Brighter Every Day",
-              "subheading": "Explore stunning collections crafted to complement your unique style.",
-              "button_label": "View Products",
+              "title": "Beat the heat in style",
+              "subheading": "Simple, elegant, and easy to wear",
+              "button_label": "Shop Now",
               "button_link": "shopify://collections/all",
               "btn_bg": "#1da3ad",
               "btn_text": "#ffffff",
@@ -409,6 +409,7 @@
       },
       "how_it_works_AJeznT": {
         "type": "how-it-works",
+        "disabled": true,
         "name": "How It Works",
         "settings": {}
       },
@@ -445,6 +446,7 @@
       },
       "why_choose_us_jzGQkB": {
         "type": "why-choose-us",
+        "disabled": true,
         "name": "Why Choose Us",
         "settings": {}
       },
