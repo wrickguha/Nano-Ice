@@ -1,3 +1,24 @@
+.ni-psw__card + .ni-psw__card {
+  margin-top: 48px;
+}
+/* ====== PROBLEM-SOLUTION SECTION: STACK CARDS VERTICALLY ON MOBILE ====== */
+
+.ni-psw__grid {
+  display: block !important;
+}
+
+.ni-psw__card {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Center the section header */
+.ni-psw__header {
+  text-align: center;
+  margin-bottom: 40px;
+}
 /* ============================================================
    NANO-ICE REDESIGN 2026 — Premium Ice-Blue Design System
    Complete responsive overhaul — All spacing, mobile, buttons fixed

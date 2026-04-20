@@ -330,7 +330,7 @@
           "hero_size": "small",
           "text_size": "medium",
           "button_label": "Shop Now",
-          "button_link": "shopify://pages/testimonials-gallery"
+          "button_link": "shopify://collections/all"
         }
       },
       "slideshow_GaefaB": {
@@ -407,15 +407,8 @@
         "name": "Trust Indicators",
         "settings": {}
       },
-      "how_it_works_AJeznT": {
-        "type": "how-it-works",
-        "disabled": true,
-        "name": "How It Works",
-        "settings": {}
-      },
       "problem_solution_Xk9mP2": {
         "type": "problem-solution",
-        "disabled": true,
         "settings": {
           "section_heading": "Why Nano-Ice?",
           "section_subheading": "The science of staying cool — simplified.",
@@ -470,7 +463,6 @@
       "featured-collections",
       "feature-row",
       "trust_indicators_3TETrr",
-      "how_it_works_AJeznT",
       "1532368278588",
       "why_choose_us_jzGQkB",
       "testimonials_NiPrem1",

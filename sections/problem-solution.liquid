@@ -109,7 +109,7 @@
           </ul>
 
           {% if section.settings.solution_cta_text != blank %}
-            <a href="{{ section.settings.solution_cta_link }}" class="ni-psw__cta">
+            <a href="http://127.0.0.1:9292/collections/all" class="ni-psw__cta">
               {{ section.settings.solution_cta_text | escape }}
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
@@ -119,56 +119,6 @@
         <div class="ni-psw__card-ring" aria-hidden="true"></div>
       </div>
 
-      {%- comment -%} ─── COLUMN 3: HOW IT WORKS ─── {%- endcomment -%}
-      <div class="ni-psw__card ni-psw__card--works ni-psw-reveal">
-        <div class="ni-psw__card-inner">
-          <span class="ni-psw__tag ni-psw__tag--works">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
-            {{ section.settings.works_tag | escape }}
-          </span>
-          <h3 class="ni-psw__heading ni-psw__heading--works">{{ section.settings.works_heading | escape }}</h3>
-
-          <div class="ni-psw__steps">
-            {%- comment -%} Step 1: Fast Freeze {%- endcomment -%}
-            <div class="ni-psw__step">
-              <div class="ni-psw__step-icon ni-psw__step-icon--1">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8m0 4v8M2 12h8m4 0h8M4.93 4.93l5.66 5.66m2.82 2.82l5.66 5.66M4.93 19.07l5.66-5.66m2.82-2.82l5.66-5.66"/></svg>
-              </div>
-              <div class="ni-psw__step-text">
-                <strong>{{ section.settings.works_step1_title | escape }}</strong>
-                <span>{{ section.settings.works_step1_desc | escape }}</span>
-              </div>
-            </div>
-
-            <div class="ni-psw__step-divider" aria-hidden="true"></div>
-
-            {%- comment -%} Step 2: Consistent Cooling {%- endcomment -%}
-            <div class="ni-psw__step">
-              <div class="ni-psw__step-icon ni-psw__step-icon--2">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
-              </div>
-              <div class="ni-psw__step-text">
-                <strong>{{ section.settings.works_step2_title | escape }}</strong>
-                <span>{{ section.settings.works_step2_desc | escape }}</span>
-              </div>
-            </div>
-
-            <div class="ni-psw__step-divider" aria-hidden="true"></div>
-
-            {%- comment -%} Step 3: Comfortable Wear {%- endcomment -%}
-            <div class="ni-psw__step">
-              <div class="ni-psw__step-icon ni-psw__step-icon--3">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-              </div>
-              <div class="ni-psw__step-text">
-                <strong>{{ section.settings.works_step3_title | escape }}</strong>
-                <span>{{ section.settings.works_step3_desc | escape }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="ni-psw__card-glow ni-psw__card-glow--works" aria-hidden="true"></div>
-      </div>
 
     </div><!-- /.ni-psw__grid -->
   </div><!-- /.page-width -->
