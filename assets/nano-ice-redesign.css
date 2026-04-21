@@ -1,3 +1,48 @@
+.ni-psw__card--solution {
+  background: #f0fcff !important;
+  border: 1.5px solid #b6f0fa !important;
+  box-shadow: 0 4px 32px 0 rgba(5, 191, 219, 0.07);
+  padding: 48px 44px 38px 44px !important;
+}
+.ni-psw__card--solution .ni-psw__heading--solution {
+  margin-bottom: 28px !important;
+}
+.ni-psw__solution-custom-content > div {
+  font-size: 1.22rem;
+  color: #1a2a33;
+  margin-bottom: 10px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+.ni-psw__solution-custom-content > div:last-child {
+  margin-bottom: 0;
+}
+.ni-psw__card--problem {
+  background: #fff7f7 !important;
+  border: 1.5px solid #ffd6d6 !important;
+  box-shadow: 0 4px 32px 0 rgba(255, 87, 87, 0.07);
+  padding: 48px 44px 38px 44px !important;
+}
+.ni-psw__card--problem .ni-psw__heading--problem {
+  margin-bottom: 28px !important;
+}
+.ni-psw__problem-custom-content {
+  margin-bottom: 18px;
+}
+.ni-psw__problem-custom-content > div {
+  font-size: 1.22rem;
+  color: #222;
+  margin-bottom: 6px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+.ni-psw__problem-custom-content > div:last-child {
+  margin-bottom: 0;
+  font-size: 1.05rem;
+  color: #6b7280;
+  font-weight: 400;
+  margin-top: 18px;
+}
 .ni-psw__card + .ni-psw__card {
   margin-top: 48px;
 }
