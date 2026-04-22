@@ -77,13 +77,26 @@
 @media (min-width: 900px) {
   .nano-hero__grid {
     grid-template-columns: 1.1fr 0.9fr;
-    gap: 4rem;
+    grid-template-rows: auto auto;
+    gap: 2rem 4rem;
     align-items: start;
   }
-  /* Pin testimonials back under the gallery column on desktop */
+  /* Gallery: col 1, row 1 */
+  .nano-hero__gallery {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  /* Info: col 2, spans both rows — fills the full left-column height */
+  .nano-hero__info {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: start;
+  }
+  /* Testimonials: col 1, row 2 — directly under the gallery */
   .nano-testimonials-inline {
     grid-column: 1;
     grid-row: 2;
+    margin-top: 0;
   }
 }
 
