@@ -765,4 +765,331 @@
   </div>
 </div>
 
+{% if page.handle == 'about-us' %}
+<section class="ni-mission" id="ni-mission-block">
+
+  <div class="ni-mission__bg-blur ni-mission__bg-blur--1" aria-hidden="true"></div>
+  <div class="ni-mission__bg-blur ni-mission__bg-blur--2" aria-hidden="true"></div>
+
+  <div class="page-width ni-mission__inner">
+
+    <div class="ni-mission__eyebrow">Our Mission</div>
+
+    <h2 class="ni-mission__title">From One Person to Many</h2>
+
+    <div class="ni-mission__steps">
+
+      <div class="ni-mission__step">
+        <div class="ni-mission__step-dot" aria-hidden="true"></div>
+        <p class="ni-mission__step-text">What started as a way to help my wife find relief has grown into something much bigger.</p>
+      </div>
+
+      <div class="ni-mission__step">
+        <div class="ni-mission__step-dot" aria-hidden="true"></div>
+        <p class="ni-mission__step-text">Today, Nano-Ice is used by people who struggle with heat sensitivity, hot flashes, POTS, MS, and everyday overheating.</p>
+      </div>
+
+      <div class="ni-mission__step">
+        <div class="ni-mission__step-dot" aria-hidden="true"></div>
+        <p class="ni-mission__step-text">What began as a personal solution is now a mission.</p>
+      </div>
+
+      <div class="ni-mission__step ni-mission__step--last">
+        <div class="ni-mission__step-dot" aria-hidden="true"></div>
+        <p class="ni-mission__step-text ni-mission__step-text--highlight">To help more people stay comfortable, stay active, and feel in control &mdash; even in the heat.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+.ni-mission {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #e8f7fb 0%, #f5fbfd 50%, #ffffff 100%);
+  padding: 80px 0 90px;
+}
+.ni-mission__bg-blur {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+.ni-mission__bg-blur--1 {
+  width: 480px;
+  height: 480px;
+  background: rgba(8, 131, 149, 0.10);
+  top: -100px;
+  right: -80px;
+}
+.ni-mission__bg-blur--2 {
+  width: 320px;
+  height: 320px;
+  background: rgba(10, 77, 104, 0.07);
+  bottom: -60px;
+  left: -60px;
+}
+.ni-mission__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.ni-mission__eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #088395;
+  margin-bottom: 16px;
+}
+.ni-mission__title {
+  font-family: 'Inter', Georgia, sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #0A4D68;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0 0 48px;
+}
+.ni-mission__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-left: 32px;
+  border-left: 2px solid rgba(8, 131, 149, 0.22);
+}
+.ni-mission__step {
+  position: relative;
+  padding: 0 0 40px 28px;
+}
+.ni-mission__step--last {
+  padding-bottom: 0;
+}
+.ni-mission__step-dot {
+  position: absolute;
+  left: -8px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #088395;
+  border: 3px solid #e8f7fb;
+  box-shadow: 0 0 0 2px rgba(8, 131, 149, 0.30);
+}
+.ni-mission__step-text {
+  font-family: 'Inter', Georgia, sans-serif;
+  font-size: 1.05rem;
+  color: #2d4a54;
+  line-height: 1.75;
+  margin: 0;
+}
+.ni-mission__step-text--highlight {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0A4D68;
+  font-style: italic;
+}
+@media (max-width: 749px) {
+  .ni-mission {
+    padding: 56px 0 64px;
+  }
+  .ni-mission__inner {
+    padding: 0 20px;
+  }
+  .ni-mission__title {
+    font-size: 2rem;
+    margin-bottom: 36px;
+  }
+  .ni-mission__steps {
+    padding-left: 20px;
+  }
+  .ni-mission__step {
+    padding-left: 18px;
+    padding-bottom: 32px;
+  }
+  .ni-mission__step-dot {
+    left: -7px;
+    width: 12px;
+    height: 12px;
+    top: 5px;
+  }
+  .ni-mission__step-text {
+    font-size: 0.975rem;
+    line-height: 1.7;
+  }
+  .ni-mission__step-text--highlight {
+    font-size: 1rem;
+  }
+}
+</style>
+
+<section class="ni-final-cta" id="ni-final-cta-block">
+  <div class="ni-final-cta__bg-blur" aria-hidden="true"></div>
+  <div class="page-width ni-final-cta__inner">
+    <p class="ni-final-cta__kicker">Stay cool for up to 2 hours</p>
+    <h2 class="ni-final-cta__heading">Cooling technology designed to look as good as it feels.</h2>
+    <a href="/collections/all" class="ni-final-cta__btn">Shop Now</a>
+  </div>
+</section>
+
+<style>
+.ni-final-cta {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0A4D68 0%, #088395 60%, #05b8cc 100%);
+  padding: 100px 0 110px;
+  text-align: center;
+}
+.ni-final-cta__bg-blur {
+  position: absolute;
+  inset: -80px;
+  background: radial-gradient(ellipse at 70% 30%, rgba(255,255,255,0.10) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+.ni-final-cta__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.ni-final-cta__kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.70);
+  margin: 0 0 20px;
+}
+.ni-final-cta__heading {
+  font-family: 'Inter', Georgia, sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+  margin: 0 0 44px;
+}
+.ni-final-cta__btn {
+  display: inline-block;
+  background: #ffffff;
+  color: #0A4D68;
+  font-family: 'Inter', Georgia, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 18px 48px;
+  border-radius: 50px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+.ni-final-cta__btn:hover {
+  background: #0A4D68;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.26);
+}
+@media (max-width: 749px) {
+  .ni-final-cta {
+    padding: 64px 0 72px;
+  }
+  .ni-final-cta__inner {
+    padding: 0 20px;
+  }
+  .ni-final-cta__heading {
+    font-size: 1.7rem;
+    margin-bottom: 36px;
+  }
+  .ni-final-cta__btn {
+    padding: 16px 36px;
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 280px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ni-final-cta__btn { transition: none; }
+}
+</style>
+
+<script>
+(function () {
+  var rte = document.querySelector('.rte');
+  if (!rte) return;
+
+  // Find "What's Unique" heading inside .rte
+  var headings = rte.querySelectorAll('h1, h2, h3, h4, h5, h6');
+  var target = null;
+  for (var i = 0; i < headings.length; i++) {
+    if (headings[i].textContent.toLowerCase().indexOf('what') !== -1 &&
+        headings[i].textContent.toLowerCase().indexOf('unique') !== -1) {
+      target = headings[i];
+      break;
+    }
+  }
+
+  if (!target) return;
+
+  // Collect all nodes from "What's Unique" to end of .rte
+  var nodesToMove = [];
+  var node = target;
+  while (node) {
+    nodesToMove.push(node);
+    node = node.nextSibling;
+  }
+
+  // Find the outer .page-width wrapping the .rte
+  var outerPageWidth = rte.closest ? rte.closest('.page-width') : (function () {
+    var el = rte;
+    while (el && !el.classList.contains('page-width')) el = el.parentNode;
+    return el;
+  }());
+  if (!outerPageWidth) return;
+
+  // Re-create the same grid/item/rte structure for the content below mission
+  var belowRte  = document.createElement('div');
+  belowRte.className = 'rte';
+  nodesToMove.forEach(function (n) { belowRte.appendChild(n); });
+
+  var belowItem = document.createElement('div');
+  belowItem.className = 'grid__item medium-up--five-sixths medium-up--push-one-twelfth';
+  belowItem.appendChild(belowRte);
+
+  var belowGrid = document.createElement('div');
+  belowGrid.className = 'grid';
+  belowGrid.appendChild(belowItem);
+
+  var belowWrap = document.createElement('div');
+  belowWrap.className = 'page-width';
+  belowWrap.style.paddingTop = '48px';
+  belowWrap.appendChild(belowGrid);
+
+  // Mission block is already in the DOM after outerPageWidth — ensure correct order:
+  // outerPageWidth → mission → belowWrap → cta
+  var mission = document.getElementById('ni-mission-block');
+  var parent  = outerPageWidth.parentNode;
+
+  // Move mission to directly after outerPageWidth
+  var afterOuter = outerPageWidth.nextSibling;
+  if (mission) parent.insertBefore(mission, afterOuter);
+
+  // Insert below-content after mission
+  var afterMission = mission ? mission.nextSibling : afterOuter;
+  parent.insertBefore(belowWrap, afterMission);
+
+  // CTA already sits after belowWrap naturally
+}());
+</script>
+{% endif %}
+
 {% endif %}

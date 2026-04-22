@@ -1,0 +1,227 @@
+<!-- ============================================================
+     NANO-ICE — Our Mission: From One Person to Many
+     ============================================================ -->
+
+<section class="ni-mission" id="OurMission-{{ section.id }}">
+
+  <div class="ni-mission__bg-blur ni-mission__bg-blur--1" aria-hidden="true"></div>
+  <div class="ni-mission__bg-blur ni-mission__bg-blur--2" aria-hidden="true"></div>
+
+  <div class="page-width ni-mission__inner">
+
+    <div class="ni-mission__eyebrow">Our Mission</div>
+
+    <h2 class="ni-mission__title">
+      {{ section.settings.heading | escape }}
+    </h2>
+
+    <div class="ni-mission__steps">
+
+      <div class="ni-mission__step ni-mission__step--1">
+        <div class="ni-mission__step-line" aria-hidden="true"></div>
+        <div class="ni-mission__step-dot" aria-hidden="true"></div>
+        <p class="ni-mission__step-text">{{ section.settings.line_1 }}</p>
+      </div>
+
+      <div class="ni-mission__step ni-mission__step--2">
+        <div class="ni-mission__step-line" aria-hidden="true"></div>
+        <div class="ni-mission__step-dot" aria-hidden="true"></div>
+        <p class="ni-mission__step-text">{{ section.settings.line_2 }}</p>
+      </div>
+
+      <div class="ni-mission__step ni-mission__step--3">
+        <div class="ni-mission__step-line" aria-hidden="true"></div>
+        <div class="ni-mission__step-dot" aria-hidden="true"></div>
+        <p class="ni-mission__step-text">{{ section.settings.line_3 }}</p>
+      </div>
+
+      <div class="ni-mission__step ni-mission__step--4 ni-mission__step--last">
+        <div class="ni-mission__step-dot" aria-hidden="true"></div>
+        <p class="ni-mission__step-text ni-mission__step-text--highlight">{{ section.settings.line_4 }}</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+/* ── Section shell ── */
+.ni-mission {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #e8f7fb 0%, #f5fbfd 50%, #ffffff 100%);
+  padding: 100px 0 110px;
+}
+
+/* ── Decorative blur blobs ── */
+.ni-mission__bg-blur {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+.ni-mission__bg-blur--1 {
+  width: 480px;
+  height: 480px;
+  background: rgba(8, 131, 149, 0.10);
+  top: -100px;
+  right: -80px;
+}
+.ni-mission__bg-blur--2 {
+  width: 320px;
+  height: 320px;
+  background: rgba(10, 77, 104, 0.07);
+  bottom: -60px;
+  left: -60px;
+}
+
+/* ── Inner layout ── */
+.ni-mission__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Eyebrow label ── */
+.ni-mission__eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #088395;
+  margin-bottom: 18px;
+}
+
+/* ── Section title ── */
+.ni-mission__title {
+  font-family: 'Inter', Georgia, sans-serif;
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  font-weight: 700;
+  color: #0A4D68;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0 0 56px;
+}
+
+/* ── Timeline steps ── */
+.ni-mission__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-left: 36px;
+  border-left: 2px solid rgba(8, 131, 149, 0.18);
+}
+
+.ni-mission__step {
+  position: relative;
+  padding: 0 0 44px 28px;
+}
+
+.ni-mission__step--last {
+  padding-bottom: 0;
+}
+
+/* Dot on the timeline */
+.ni-mission__step-dot {
+  position: absolute;
+  left: -8px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #088395;
+  border: 3px solid #e8f7fb;
+  box-shadow: 0 0 0 2px rgba(8, 131, 149, 0.30);
+  flex-shrink: 0;
+}
+
+.ni-mission__step-text {
+  font-family: 'Inter', Georgia, sans-serif;
+  font-size: 1.05rem;
+  color: #2d4a54;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 560px;
+}
+
+/* Final highlighted line */
+.ni-mission__step-text--highlight {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #0A4D68;
+  font-style: italic;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .ni-mission {
+    padding: 72px 0 80px;
+  }
+  .ni-mission__steps {
+    padding-left: 24px;
+  }
+  .ni-mission__step {
+    padding-left: 20px;
+    padding-bottom: 36px;
+  }
+  .ni-mission__step-dot {
+    left: -7px;
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .ni-mission__bg-blur { filter: none; }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Our Mission",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "From One Person to Many"
+    },
+    {
+      "type": "text",
+      "id": "line_1",
+      "label": "Line 1",
+      "default": "What started as a way to help my wife find relief has grown into something much bigger."
+    },
+    {
+      "type": "text",
+      "id": "line_2",
+      "label": "Line 2",
+      "default": "Today, Nano-Ice is used by people who struggle with heat sensitivity, hot flashes, POTS, MS, and everyday overheating."
+    },
+    {
+      "type": "text",
+      "id": "line_3",
+      "label": "Line 3",
+      "default": "What began as a personal solution is now a mission."
+    },
+    {
+      "type": "text",
+      "id": "line_4",
+      "label": "Line 4 (closing statement)",
+      "default": "To help more people stay comfortable, stay active, and feel in control — even in the heat."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Mission",
+      "category": "Brand"
+    }
+  ]
+}
+{% endschema %}
