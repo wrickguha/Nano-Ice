@@ -178,7 +178,7 @@
 
       {%- assign matching_nano_blocks = 0 -%}
       {%- for block in section.blocks -%}
-        {%- if block.type == 'nano_testimonial' -%}
+        {%- if block.type == 'nano_testimonial' or block.type == 'nano_video_review' -%}
           {%- if block.settings.product_handle == blank or block.settings.product_handle == product.handle -%}
             {%- assign matching_nano_blocks = matching_nano_blocks | plus: 1 -%}
           {%- endif -%}
@@ -270,6 +270,15 @@
                       <p>{{ block.settings.text }}</p>
                       <span class="nano-portrait__name">- {{ block.settings.author }}</span>
                     </div>
+                  </div>
+                  {% endif %}
+                {% endif %}
+                {% if block.type == 'nano_video_review' %}
+                  {% if block.settings.product_handle == blank or block.settings.product_handle == product.handle %}
+                  <div class="nano-portrait-card nano-video-card" {{ block.shopify_attributes }}>
+                    <video class="nano-video-card__video" autoplay muted loop playsinline controls>
+                      <source src="{{ block.settings.video_url }}" type="video/mp4">
+                    </video>
                   </div>
                   {% endif %}
                 {% endif %}
@@ -399,6 +408,36 @@
           "id": "product_handle",
           "label": "Product handle (leave blank to show on all products)",
           "info": "Only show this review on one specific product page, e.g. cooling-necklace-grey"
+        }
+      ]
+    },
+    {
+      "type": "nano_video_review",
+      "name": "Video Review",
+      "settings": [
+        {
+          "type": "text",
+          "id": "video_url",
+          "label": "Video URL",
+          "info": "Direct link to an .mp4 video file (e.g. CDN URL)"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Customer name",
+          "default": "Happy Customer"
+        },
+        {
+          "type": "text",
+          "id": "rating",
+          "label": "Star rating",
+          "default": "\u2605\u2605\u2605\u2605\u2605"
+        },
+        {
+          "type": "text",
+          "id": "product_handle",
+          "label": "Product handle (leave blank to show on all products)",
+          "info": "Only show this review on one specific product page, e.g. nano-ice-cooling-necklace-black"
         }
       ]
     }

@@ -121,6 +121,15 @@
             "product_handle": "cooling-scarf-paisley-cooling-balls-included",
             "text": "I couldn't resist letting my dog try my Nano-Ice necklace. She seemed to love it! We're definitely beating this heat with our Nano-Ice necklaces!"
           }
+        },
+        "video_black_necklace": {
+          "type": "nano_video_review",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/8592fdaf6cb3498d83426eecf40b179a.mp4",
+            "author": "Customer Review",
+            "rating": "\u2605\u2605\u2605\u2605\u2605",
+            "product_handle": "nano-ice-cooling-necklace-black"
+          }
         }
       },
       "block_order": [
@@ -133,7 +142,8 @@
         "nano_testi_gene_purple_scarf",
         "nano_testi_christy_purple_scarf",
         "nano_testi_jenn_paisley_scarf",
-        "nano_testi_laura_paisley_scarf"
+        "nano_testi_laura_paisley_scarf",
+        "video_black_necklace"
       ],
       "settings": {
         "show_free_shipping": true,
