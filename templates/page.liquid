@@ -766,6 +766,74 @@
 </div>
 
 {% if page.handle == 'about-us' %}
+<style>
+/* ── About Us page: fix two-column RTE layout on mobile ── */
+@media (max-width: 749px) {
+  /* Tables used as two-column layouts → stack vertically */
+  .template-page .rte table,
+  .template-page .rte tbody,
+  .template-page .rte tr,
+  .template-page .rte td,
+  .template-page .rte th {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+  .template-page .rte td,
+  .template-page .rte th {
+    padding: 0 0 16px !important;
+    text-align: center !important;
+  }
+  /* Video / iframe embeds → full width, maintain aspect ratio */
+  .template-page .rte iframe,
+  .template-page .rte video {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+    display: block;
+    margin: 0 auto 16px;
+  }
+  /* Images inside RTE → full width */
+  .template-page .rte img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto 12px;
+  }
+  /* Paragraph text → left-aligned and readable */
+  .template-page .rte p {
+    text-align: left !important;
+    font-size: 0.975rem;
+    line-height: 1.72;
+  }
+  /* Headings */
+  .template-page .rte h1,
+  .template-page .rte h2,
+  .template-page .rte h3 {
+    text-align: center !important;
+    font-size: 1.4rem !important;
+    line-height: 1.25;
+    margin-top: 32px;
+  }
+  /* Remove fixed widths on any element with inline styles */
+  .template-page .rte [style*="width"] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  /* Flexbox / grid layouts inside RTE → single column */
+  .template-page .rte [style*="display: flex"],
+  .template-page .rte [style*="display:flex"] {
+    flex-direction: column !important;
+  }
+  .template-page .rte [style*="display: grid"],
+  .template-page .rte [style*="display:grid"] {
+    display: block !important;
+  }
+}
+</style>
 <section class="ni-mission" id="ni-mission-block">
 
   <div class="ni-mission__bg-blur ni-mission__bg-blur--1" aria-hidden="true"></div>
