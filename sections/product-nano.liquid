@@ -154,32 +154,118 @@
 
       </div><!-- /nano-hero__info -->
 
-      <!-- TESTIMONIALS — moved here so mobile order is: image → desc → reviews -->
-      {% if section.settings.enable_testimonials and section.blocks.size > 0 %}
-      <div class="nano-testimonials-inline">
-        <h3 class="nano-testimonials-inline__title">{{ section.settings.testimonials_title }}</h3>
-        <p class="nano-testimonials-inline__subtitle">{{ section.settings.testimonials_subtitle }}</p>
-        <div class="nano-portraits__grid">
-          {% for block in section.blocks %}
-            {% if block.type == 'nano_testimonial' %}
-              <div class="nano-portrait-card" {{ block.shopify_attributes }}>
-                {% if block.settings.image_url != blank %}
-                  <img src="{{ block.settings.image_url }}" alt="{{ block.settings.author }}" class="nano-portrait__img">
-                {% elsif block.settings.image != blank %}
-                  <img src="{{ block.settings.image | img_url: '400x400', crop: 'center' }}" alt="{{ block.settings.author }}" class="nano-portrait__img">
-                {% else %}
-                  <img src="https://i.pravatar.cc/400?u={{ block.settings.author | url_encode }}" alt="{{ block.settings.author }}" class="nano-portrait__img">
-                {% endif %}
-                <div class="nano-portrait__overlay">
-                  <div class="nano-stars">{{ block.settings.rating }}</div>
-                  <p>{{ block.settings.text }}</p>
-                  <span class="nano-portrait__name">- {{ block.settings.author }}</span>
+      <!-- TESTIMONIALS — per-product via metafields (truly unique per product) -->
+      {%- assign t1_text   = product.metafields.testimonials.t1_text.value -%}
+      {%- assign t1_author = product.metafields.testimonials.t1_author.value -%}
+      {%- assign t1_stars  = product.metafields.testimonials.t1_stars.value -%}
+      {%- assign t1_photo  = product.metafields.testimonials.t1_photo.value -%}
+      {%- assign t2_text   = product.metafields.testimonials.t2_text.value -%}
+      {%- assign t2_author = product.metafields.testimonials.t2_author.value -%}
+      {%- assign t2_stars  = product.metafields.testimonials.t2_stars.value -%}
+      {%- assign t2_photo  = product.metafields.testimonials.t2_photo.value -%}
+      {%- assign t3_text   = product.metafields.testimonials.t3_text.value -%}
+      {%- assign t3_author = product.metafields.testimonials.t3_author.value -%}
+      {%- assign t3_stars  = product.metafields.testimonials.t3_stars.value -%}
+      {%- assign t3_photo  = product.metafields.testimonials.t3_photo.value -%}
+      {%- assign t4_text   = product.metafields.testimonials.t4_text.value -%}
+      {%- assign t4_author = product.metafields.testimonials.t4_author.value -%}
+      {%- assign t4_stars  = product.metafields.testimonials.t4_stars.value -%}
+      {%- assign t4_photo  = product.metafields.testimonials.t4_photo.value -%}
+      {%- assign has_metafield_testimonials = false -%}
+      {%- if t1_text != blank or t2_text != blank or t3_text != blank or t4_text != blank -%}
+        {%- assign has_metafield_testimonials = true -%}
+      {%- endif -%}
+
+      {% if section.settings.enable_testimonials %}
+        {% if has_metafield_testimonials %}
+          <div class="nano-testimonials-inline">
+            <h3 class="nano-testimonials-inline__title">{{ section.settings.testimonials_title }}</h3>
+            <p class="nano-testimonials-inline__subtitle">{{ section.settings.testimonials_subtitle }}</p>
+            <div class="nano-portraits__grid">
+              {% if t1_text != blank %}
+                <div class="nano-portrait-card">
+                  {% if t1_photo != blank %}
+                    <img src="{{ t1_photo }}" alt="{{ t1_author }}" class="nano-portrait__img">
+                  {% else %}
+                    <img src="https://i.pravatar.cc/400?u={{ t1_author | url_encode }}" alt="{{ t1_author }}" class="nano-portrait__img">
+                  {% endif %}
+                  <div class="nano-portrait__overlay">
+                    <div class="nano-stars">{{ t1_stars | default: '★★★★★' }}</div>
+                    <p>{{ t1_text }}</p>
+                    <span class="nano-portrait__name">- {{ t1_author }}</span>
+                  </div>
                 </div>
-              </div>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </div>
+              {% endif %}
+              {% if t2_text != blank %}
+                <div class="nano-portrait-card">
+                  {% if t2_photo != blank %}
+                    <img src="{{ t2_photo }}" alt="{{ t2_author }}" class="nano-portrait__img">
+                  {% else %}
+                    <img src="https://i.pravatar.cc/400?u={{ t2_author | url_encode }}" alt="{{ t2_author }}" class="nano-portrait__img">
+                  {% endif %}
+                  <div class="nano-portrait__overlay">
+                    <div class="nano-stars">{{ t2_stars | default: '★★★★★' }}</div>
+                    <p>{{ t2_text }}</p>
+                    <span class="nano-portrait__name">- {{ t2_author }}</span>
+                  </div>
+                </div>
+              {% endif %}
+              {% if t3_text != blank %}
+                <div class="nano-portrait-card">
+                  {% if t3_photo != blank %}
+                    <img src="{{ t3_photo }}" alt="{{ t3_author }}" class="nano-portrait__img">
+                  {% else %}
+                    <img src="https://i.pravatar.cc/400?u={{ t3_author | url_encode }}" alt="{{ t3_author }}" class="nano-portrait__img">
+                  {% endif %}
+                  <div class="nano-portrait__overlay">
+                    <div class="nano-stars">{{ t3_stars | default: '★★★★★' }}</div>
+                    <p>{{ t3_text }}</p>
+                    <span class="nano-portrait__name">- {{ t3_author }}</span>
+                  </div>
+                </div>
+              {% endif %}
+              {% if t4_text != blank %}
+                <div class="nano-portrait-card">
+                  {% if t4_photo != blank %}
+                    <img src="{{ t4_photo }}" alt="{{ t4_author }}" class="nano-portrait__img">
+                  {% else %}
+                    <img src="https://i.pravatar.cc/400?u={{ t4_author | url_encode }}" alt="{{ t4_author }}" class="nano-portrait__img">
+                  {% endif %}
+                  <div class="nano-portrait__overlay">
+                    <div class="nano-stars">{{ t4_stars | default: '★★★★★' }}</div>
+                    <p>{{ t4_text }}</p>
+                    <span class="nano-portrait__name">- {{ t4_author }}</span>
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% elsif section.blocks.size > 0 %}
+          <div class="nano-testimonials-inline">
+            <h3 class="nano-testimonials-inline__title">{{ section.settings.testimonials_title }}</h3>
+            <p class="nano-testimonials-inline__subtitle">{{ section.settings.testimonials_subtitle }}</p>
+            <div class="nano-portraits__grid">
+              {% for block in section.blocks %}
+                {% if block.type == 'nano_testimonial' %}
+                  <div class="nano-portrait-card" {{ block.shopify_attributes }}>
+                    {% if block.settings.image_url != blank %}
+                      <img src="{{ block.settings.image_url }}" alt="{{ block.settings.author }}" class="nano-portrait__img">
+                    {% elsif block.settings.image != blank %}
+                      <img src="{{ block.settings.image | img_url: '400x400', crop: 'center' }}" alt="{{ block.settings.author }}" class="nano-portrait__img">
+                    {% else %}
+                      <img src="https://i.pravatar.cc/400?u={{ block.settings.author | url_encode }}" alt="{{ block.settings.author }}" class="nano-portrait__img">
+                    {% endif %}
+                    <div class="nano-portrait__overlay">
+                      <div class="nano-stars">{{ block.settings.rating }}</div>
+                      <p>{{ block.settings.text }}</p>
+                      <span class="nano-portrait__name">- {{ block.settings.author }}</span>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
       {% endif %}
 
     </div><!-- /nano-hero__grid -->
