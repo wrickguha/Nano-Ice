@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -11,11 +20,11 @@
         "show_share_buttons": false,
         "enable_testimonials": true,
         "testimonials_title": "Loved By Thousands",
-        "testimonials_subtitle": "Real people, real results. See why customers can\u2019t stop talking about it."
-      },
-      "blocks": {},
-      "block_order": []
+        "testimonials_subtitle": "Real people, real results. See why customers can’t stop talking about it."
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }

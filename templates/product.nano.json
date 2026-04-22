@@ -1,1 +1,30 @@
-{"sections":{"main":{"type":"product-nano","blocks":{},"block_order":[],"settings":{"show_free_shipping":true,"show_returns":true,"show_premium_badge":true,"show_vendor":false,"show_quantity_selector":true,"show_share_buttons":false,"enable_testimonials":true,"testimonials_title":"Loved By Thousands","testimonials_subtitle":"Real people, real results. See why customers cannot stop talking about it."}}},"order":["main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "product-nano",
+      "settings": {
+        "show_free_shipping": true,
+        "show_returns": true,
+        "show_premium_badge": true,
+        "show_vendor": false,
+        "show_quantity_selector": true,
+        "show_share_buttons": false,
+        "enable_testimonials": true,
+        "testimonials_title": "Loved By Thousands",
+        "testimonials_subtitle": "Real people, real results. See why customers cannot stop talking about it."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
