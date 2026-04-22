@@ -11,6 +11,32 @@
   "sections": {
     "main": {
       "type": "product-nano",
+      "blocks": {
+        "nano_testimonial_LHHkmk": {
+          "type": "nano_testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Grey_2.jpg",
+            "image_url": "",
+            "author": "Pamela L",
+            "rating": "★★★★★",
+            "text": "“It’s 91 degrees here in , but I’m chillin’ with my cooling necklace.”"
+          }
+        },
+        "nano_testimonial_aTqrkh": {
+          "type": "nano_testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Amy_C.jpg",
+            "image_url": "",
+            "author": "Amy C",
+            "rating": "★★★★★",
+            "text": "“Ahhhhhh! Works very well. Within one minute, you can feel a cooling effect begin. Sometimes I wear it with the tie down, then switch it around. The material is so soft, which is nice.”"
+          }
+        }
+      },
+      "block_order": [
+        "nano_testimonial_LHHkmk",
+        "nano_testimonial_aTqrkh"
+      ],
       "settings": {
         "show_free_shipping": true,
         "show_returns": true,

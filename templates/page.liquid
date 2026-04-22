@@ -1,4 +1,4 @@
-{% if page.handle == 'testimonials-gallery' %}
+﻿{% if page.handle == 'testimonials-gallery' %}
 
 <div id="nitv-raw" style="display:none">{{ page.content }}</div>
 
@@ -749,6 +749,1767 @@
 }());
 </script>
 
+{% elsif page.handle == 'about-us' %}
+<!-- ================================================================
+     NANO-ICE — About Us Page (Beautiful Redesign)
+     ================================================================ -->
+
+<!-- ── HERO ── -->
+<section class="nau-hero" aria-label="About Nano-Ice">
+  <div class="nau-hero__orb nau-hero__orb--a" aria-hidden="true"></div>
+  <div class="nau-hero__orb nau-hero__orb--b" aria-hidden="true"></div>
+  <div class="nau-hero__orb nau-hero__orb--c" aria-hidden="true"></div>
+  <div class="page-width nau-hero__inner">
+    <p class="nau-eyebrow">Our Story</p>
+    <h1 class="nau-hero__heading">{{ page.title }}</h1>
+    <p class="nau-hero__tagline">A personal solution that became a mission — helping thousands stay cool, stay active, and feel in control of their day.</p>
+    <a href="#nau-story" class="nau-hero__scroll" aria-label="Read our story">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+    </a>
+  </div>
+  <div class="nau-hero__wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,0 C480,80 960,80 1440,0 L1440,80 L0,80 Z" fill="#ffffff"/></svg>
+  </div>
+</section>
+
+<!-- ── STORY CONTENT (Part 1 — filled by JS up to "What's Unique") ── -->
+<section class="nau-story" id="nau-story">
+  <div class="page-width nau-story__inner">
+    <div class="nau-story__rte rte" id="nau-story-rte">
+      {{ page.content }}
+    </div>
+  </div>
+</section>
+
+<!-- ── MISSION ── -->
+<section class="nau-mission" id="nau-mission-block">
+  <div class="nau-mission__orb" aria-hidden="true"></div>
+  <div class="page-width nau-mission__inner">
+    <p class="nau-eyebrow">Our Mission</p>
+    <h2 class="nau-mission__heading">From One Person to Many</h2>
+    <div class="nau-mission__timeline">
+
+      <div class="nau-mission__step">
+        <div class="nau-mission__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="nau-mission__step-body">
+          <p>What started as a way to help my wife find relief has grown into something much bigger.</p>
+        </div>
+      </div>
+
+      <div class="nau-mission__step">
+        <div class="nau-mission__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="nau-mission__step-body">
+          <p>Today, Nano-Ice is used by people who struggle with heat sensitivity, hot flashes, POTS, MS, and everyday overheating.</p>
+        </div>
+      </div>
+
+      <div class="nau-mission__step">
+        <div class="nau-mission__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <div class="nau-mission__step-body">
+          <p>What began as a personal solution is now a mission.</p>
+        </div>
+      </div>
+
+      <div class="nau-mission__step nau-mission__step--highlight">
+        <div class="nau-mission__icon nau-mission__icon--accent">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="nau-mission__step-body">
+          <p>To help more people stay comfortable, stay active, and feel in control &mdash; even in the heat.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT'S UNIQUE (Part 2 — populated by JS) ── -->
+<section class="nau-story nau-story--unique" id="nau-unique-section" style="display:none">
+  <div class="page-width nau-story__inner">
+    <div class="nau-story__rte rte" id="nau-unique-rte"></div>
+  </div>
+</section>
+
+<!-- ── IMPACT STATS ── -->
+<section class="nau-stats" aria-label="Our impact">
+  <div class="page-width nau-stats__inner">
+    <div class="nau-stats__grid">
+      <div class="nau-stats__card">
+        <span class="nau-stats__number">2</span>
+        <span class="nau-stats__unit">hours</span>
+        <span class="nau-stats__label">of cooling relief per session</span>
+      </div>
+      <div class="nau-stats__card">
+        <span class="nau-stats__number">1000s</span>
+        <span class="nau-stats__unit">&nbsp;</span>
+        <span class="nau-stats__label">of customers finding comfort</span>
+      </div>
+      <div class="nau-stats__card">
+        <span class="nau-stats__number">1</span>
+        <span class="nau-stats__unit">idea</span>
+        <span class="nau-stats__label">that changed everything</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VALUES ── -->
+<section class="nau-values">
+  <div class="page-width nau-values__inner">
+    <p class="nau-eyebrow nau-eyebrow--center">What We Stand For</p>
+    <h2 class="nau-values__heading">Built on these principles</h2>
+    <div class="nau-values__grid">
+
+      <div class="nau-values__card">
+        <div class="nau-values__card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="nau-values__card-title">Real Relief</h3>
+        <p class="nau-values__card-text">Engineered for genuine cooling — not just a marketing claim. Every product is designed to deliver real, measurable comfort.</p>
+      </div>
+
+      <div class="nau-values__card">
+        <div class="nau-values__card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3 class="nau-values__card-title">Born from Empathy</h3>
+        <p class="nau-values__card-text">Our founder experienced the problem firsthand. Every decision is guided by compassion for those who struggle with heat.</p>
+      </div>
+
+      <div class="nau-values__card">
+        <div class="nau-values__card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3 class="nau-values__card-title">Community First</h3>
+        <p class="nau-values__card-text">We build with our community, not just for them. Your feedback shapes every product improvement and new release.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="nau-cta">
+  <div class="nau-cta__orb nau-cta__orb--a" aria-hidden="true"></div>
+  <div class="nau-cta__orb nau-cta__orb--b" aria-hidden="true"></div>
+  <div class="page-width nau-cta__inner">
+    <p class="nau-cta__kicker">Stay cool for up to 2 hours</p>
+    <h2 class="nau-cta__heading">Cooling technology designed to look as good as it feels.</h2>
+    <div class="nau-cta__actions">
+      <a href="/collections/all" class="nau-cta__btn nau-cta__btn--primary">Shop Now</a>
+      <a href="/pages/testimonials-gallery" class="nau-cta__btn nau-cta__btn--secondary">See Real Stories</a>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ================================================================
+   NANO-ICE — About Us Page (nau-*)
+   ================================================================ */
+
+/* ── Shared eyebrow label ── */
+.nau-eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #088395;
+  margin: 0 0 16px;
+}
+.nau-eyebrow--center { text-align: center; }
+
+/* ================================================================
+   HERO
+   ================================================================ */
+.nau-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(150deg, #0A4D68 0%, #0c6478 30%, #088395 65%, #05b8cc 100%);
+  padding: 130px 0 106px;
+  text-align: center;
+}
+.nau-hero__orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.nau-hero__orb--a {
+  width: 600px; height: 600px;
+  background: rgba(255,255,255,0.06);
+  top: -200px; right: -120px;
+  animation: nau-float 9s ease-in-out infinite;
+}
+.nau-hero__orb--b {
+  width: 380px; height: 380px;
+  background: rgba(5,184,204,0.16);
+  bottom: -100px; left: -60px;
+  animation: nau-float 14s ease-in-out infinite reverse;
+}
+.nau-hero__orb--c {
+  width: 200px; height: 200px;
+  background: rgba(255,255,255,0.08);
+  top: 50px; left: 8%;
+  animation: nau-float 7s ease-in-out infinite 1.5s;
+}
+@keyframes nau-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-22px); }
+}
+.nau-hero__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.nau-hero .nau-eyebrow {
+  color: rgba(255,255,255,0.72);
+  letter-spacing: 0.22em;
+  text-align: center;
+}
+.nau-hero__heading {
+  font-family: 'Inter', Georgia, sans-serif;
+  font-size: clamp(3rem, 7.5vw, 5.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+  margin: 0 0 26px;
+}
+.nau-hero__tagline {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: rgba(255,255,255,0.82);
+  line-height: 1.72;
+  max-width: 580px;
+  margin: 0 auto 44px;
+}
+.nau-hero__scroll {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.32);
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.25s ease;
+  animation: nau-bounce 2.8s ease-in-out infinite;
+}
+.nau-hero__scroll:hover {
+  background: rgba(255,255,255,0.26);
+  animation: none;
+  transform: translateY(5px);
+}
+@keyframes nau-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(9px); }
+}
+.nau-hero__wave {
+  position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  line-height: 0;
+  z-index: 1;
+}
+.nau-hero__wave svg {
+  display: block;
+  width: 100%;
+  height: 80px;
+}
+
+/* ================================================================
+   STORY CONTENT
+   ================================================================ */
+.nau-story {
+  background: #ffffff;
+  padding: 88px 0 72px;
+}
+.nau-story--unique {
+  background: linear-gradient(180deg, #f5fbfd 0%, #ffffff 100%);
+  padding-top: 80px;
+}
+.nau-story__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.nau-story__rte {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: #2d4a54;
+}
+
+/* ── Video + text card (built by JS) ── */
+.nau-video-card {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  background: linear-gradient(110deg, #f2fafd 0%, #eaf6f9 100%);
+  border: 1px solid rgba(8,131,149,0.13);
+  box-shadow: 0 8px 40px rgba(10,77,104,0.10);
+  margin: 0 0 32px;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+.nau-video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(10,77,104,0.15);
+}
+.nau-video-card__media {
+  flex: 0 0 46%;
+  position: relative;
+  background: #0a2030;
+  min-height: 0;
+}
+.nau-video-card__media iframe {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  border: none;
+}
+/* Aspect-ratio holder so card height matches video */
+.nau-video-card__media-sizer {
+  padding-top: 56.25%; /* 16:9 */
+}
+.nau-video-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 44px;
+}
+.nau-video-card__body p {
+  font-size: 1.025rem;
+  line-height: 1.82;
+  color: #2d4a54;
+  margin: 0 0 1rem;
+}
+.nau-video-card__body p:last-child { margin-bottom: 0; }
+/* Accent bar on left edge of text side */
+.nau-video-card__body::before {
+  content: '';
+  display: block;
+  width: 3px;
+  height: 48px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #088395 0%, #05b8cc 100%);
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+/* ── Standalone paragraphs ── */
+.nau-story__rte > p {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.4rem;
+}
+.nau-story__rte > p:first-of-type {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #0A4D68;
+  line-height: 1.75;
+  text-align: center;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(8,131,149,0.14);
+  margin-bottom: 44px;
+}
+.nau-story__rte > p:last-of-type {
+  font-size: 1.05rem;
+  text-align: center;
+  font-style: italic;
+  color: #088395;
+  font-weight: 500;
+  padding-top: 12px;
+}
+
+/* ── Headings, links, blockquotes ── */
+.nau-story__rte h1,
+.nau-story__rte h2,
+.nau-story__rte h3,
+.nau-story__rte h4 {
+  font-family: 'Inter', Georgia, sans-serif;
+  color: #0A4D68;
+  letter-spacing: -0.025em;
+  margin-top: 2.5rem;
+  margin-bottom: 0.8rem;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.nau-story__rte h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; }
+.nau-story__rte h3 { font-size: clamp(1.2rem, 2.5vw, 1.55rem); font-weight: 600; }
+.nau-story__rte a  { color: #088395; text-decoration: underline; }
+.nau-story__rte img {
+  border-radius: 18px;
+  box-shadow: 0 10px 48px rgba(10,77,104,0.13);
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 36px auto;
+}
+.nau-story__rte blockquote {
+  border-left: 4px solid #088395;
+  background: linear-gradient(100deg, #e8f7fb 0%, #f5fbfd 100%);
+  border-radius: 0 14px 14px 0;
+  padding: 22px 32px;
+  margin: 36px auto;
+  max-width: 760px;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #0A4D68;
+  font-weight: 500;
+}
+
+/* ── "What's Unique" list items ── */
+.nau-story__rte ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 1.5rem;
+  max-width: 760px;
+}
+.nau-story__rte ul li {
+  padding: 14px 20px 14px 52px;
+  position: relative;
+  background: linear-gradient(100deg, #f4fbfd 0%, #eef8fa 100%);
+  border: 1px solid rgba(8,131,149,0.10);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #2d4a54;
+}
+.nau-story__rte ul li::before {
+  content: '';
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #088395 0%, #05b8cc 100%);
+}
+
+/* ── Mobile ── */
+@media (max-width: 749px) {
+  .nau-story       { padding: 56px 0 48px; }
+  .nau-story__inner { padding: 0 16px; }
+  .nau-story__rte  { font-size: 1rem; }
+  .nau-story__rte > p:first-of-type { font-size: 1.05rem; }
+  .nau-video-card  { flex-direction: column; border-radius: 18px; }
+  .nau-video-card:hover { transform: none; }
+  .nau-video-card__media { flex: none; }
+  .nau-video-card__media iframe {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16/9;
+  }
+  .nau-video-card__media-sizer { display: none; }
+  .nau-video-card__body { padding: 28px 24px; }
+}
+
+/* ================================================================
+   MISSION
+   ================================================================ */
+.nau-mission {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #e8f7fb 0%, #f5fbfd 50%, #ffffff 100%);
+  padding: 104px 0 114px;
+}
+.nau-mission__orb {
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(8,131,149,0.11) 0%, transparent 68%);
+  top: -130px; right: -130px;
+  pointer-events: none;
+}
+.nau-mission__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.nau-mission__heading {
+  font-family: 'Inter', Georgia, sans-serif;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 700;
+  color: #0A4D68;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0 0 56px;
+}
+.nau-mission__timeline {
+  display: flex;
+  flex-direction: column;
+}
+.nau-mission__step {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding-bottom: 40px;
+  position: relative;
+}
+.nau-mission__step:not(.nau-mission__step--highlight)::after {
+  content: '';
+  position: absolute;
+  left: 21px;
+  top: 50px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(8,131,149,0.28), rgba(8,131,149,0.06));
+}
+.nau-mission__step--highlight { padding-bottom: 0; }
+.nau-mission__icon {
+  flex-shrink: 0;
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1.5px solid rgba(8,131,149,0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #088395;
+  box-shadow: 0 4px 18px rgba(8,131,149,0.10);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.nau-mission__step:hover .nau-mission__icon {
+  transform: scale(1.08);
+  box-shadow: 0 8px 28px rgba(8,131,149,0.18);
+}
+.nau-mission__icon--accent {
+  background: linear-gradient(135deg, #088395 0%, #05b8cc 100%);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 6px 26px rgba(8,131,149,0.32);
+}
+.nau-mission__step-body p {
+  font-size: 1.05rem;
+  color: #2d4a54;
+  line-height: 1.78;
+  margin: 10px 0 0;
+}
+.nau-mission__step--highlight .nau-mission__step-body p {
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #0A4D68;
+  font-style: italic;
+}
+
+/* ================================================================
+   IMPACT STATS
+   ================================================================ */
+.nau-stats {
+  background: #0A4D68;
+  padding: 76px 0;
+}
+.nau-stats__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.nau-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.nau-stats__card {
+  text-align: center;
+  padding: 36px 24px;
+  position: relative;
+}
+.nau-stats__card:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 20%; bottom: 20%;
+  width: 1px;
+  background: rgba(255,255,255,0.14);
+}
+.nau-stats__number {
+  display: block;
+  font-family: 'Inter', Georgia, sans-serif;
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-weight: 800;
+  color: #05b8cc;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.nau-stats__unit {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.65);
+  margin-top: 4px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.nau-stats__label {
+  display: block;
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.48);
+  line-height: 1.5;
+  margin-top: 10px;
+  max-width: 160px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ================================================================
+   VALUES
+   ================================================================ */
+.nau-values {
+  background: #ffffff;
+  padding: 104px 0 114px;
+}
+.nau-values__inner {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 32px;
+  text-align: center;
+}
+.nau-values__heading {
+  font-family: 'Inter', Georgia, sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  color: #0A4D68;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 0 0 58px;
+}
+.nau-values__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: left;
+}
+.nau-values__card {
+  background: linear-gradient(145deg, #f4fbfd 0%, #eef8fa 100%);
+  border: 1px solid rgba(8,131,149,0.12);
+  border-radius: 20px;
+  padding: 40px 32px 44px;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+.nau-values__card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 24px 64px rgba(10,77,104,0.13);
+}
+.nau-values__card-icon {
+  width: 58px; height: 58px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(8,131,149,0.11) 0%, rgba(5,184,204,0.09) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #088395;
+  margin-bottom: 26px;
+}
+.nau-values__card-title {
+  font-family: 'Inter', Georgia, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0A4D68;
+  margin: 0 0 12px;
+}
+.nau-values__card-text {
+  font-size: 0.9375rem;
+  color: #4a7080;
+  line-height: 1.74;
+  margin: 0;
+}
+
+/* ================================================================
+   FINAL CTA
+   ================================================================ */
+.nau-cta {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0A4D68 0%, #088395 58%, #05b8cc 100%);
+  padding: 104px 0 114px;
+  text-align: center;
+}
+.nau-cta__orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.nau-cta__orb--a {
+  width: 520px; height: 520px;
+  background: rgba(255,255,255,0.07);
+  top: -160px; right: -90px;
+}
+.nau-cta__orb--b {
+  width: 320px; height: 320px;
+  background: rgba(5,184,204,0.14);
+  bottom: -90px; left: -50px;
+}
+.nau-cta__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.nau-cta__kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.62);
+  margin: 0 0 20px;
+  display: block;
+}
+.nau-cta__heading {
+  font-family: 'Inter', Georgia, sans-serif;
+  font-size: clamp(1.9rem, 4vw, 2.9rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+  margin: 0 0 48px;
+}
+.nau-cta__actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.nau-cta__btn {
+  display: inline-block;
+  font-family: 'Inter', Georgia, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 17px 46px;
+  border-radius: 50px;
+  transition: background 0.25s ease, color 0.25s ease,
+              transform 0.22s ease, box-shadow 0.25s ease;
+}
+.nau-cta__btn--primary {
+  background: #ffffff;
+  color: #0A4D68;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.20);
+}
+.nau-cta__btn--primary:hover {
+  background: #e8f7fb;
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.28);
+}
+.nau-cta__btn--secondary {
+  background: transparent;
+  color: rgba(255,255,255,0.88);
+  border: 1.5px solid rgba(255,255,255,0.38);
+}
+.nau-cta__btn--secondary:hover {
+  background: rgba(255,255,255,0.11);
+  border-color: rgba(255,255,255,0.68);
+  transform: translateY(-3px);
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 899px) {
+  .nau-values__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 749px) {
+  .nau-hero        { padding: 88px 0 80px; }
+  .nau-story       { padding: 56px 0 48px; }
+  .nau-story__inner { padding: 0 20px; }
+  .nau-story__rte  { font-size: 1rem; }
+  .nau-story__rte > p:first-of-type { font-size: 1.05rem; }
+  .nau-mission     { padding: 68px 0 76px; }
+  .nau-mission__inner { padding: 0 20px; }
+  .nau-mission__heading { font-size: 2rem; margin-bottom: 40px; }
+  .nau-mission__step { gap: 18px; }
+  .nau-stats       { padding: 52px 0; }
+  .nau-stats__inner { padding: 0 20px; }
+  .nau-stats__grid { grid-template-columns: 1fr; }
+  .nau-stats__card:not(:last-child)::after { display: none; }
+  .nau-values      { padding: 68px 0 76px; }
+  .nau-values__inner { padding: 0 20px; }
+  .nau-values__grid { grid-template-columns: 1fr; }
+  .nau-values__heading { margin-bottom: 36px; font-size: 1.9rem; }
+  .nau-cta         { padding: 68px 0 76px; }
+  .nau-cta__inner  { padding: 0 20px; }
+  .nau-cta__heading { font-size: 1.75rem; margin-bottom: 36px; }
+  .nau-cta__btn    { padding: 15px 32px; width: 100%; max-width: 280px; display: block; margin: 0 auto; }
+  .nau-cta__actions { gap: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nau-hero__orb, .nau-hero__scroll { animation: none !important; }
+  .nau-values__card, .nau-cta__btn,
+  .nau-cta__btn--primary, .nau-cta__btn--secondary { transition: none !important; }
+  .nau-values__card:hover, .nau-mission__step:hover .nau-mission__icon { transform: none !important; }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ── 1. Convert each <table> row → .nau-video-card flex card ── */
+  var storyRte = document.getElementById('nau-story-rte');
+  if (storyRte) {
+    var tables = storyRte.querySelectorAll('table');
+    for (var t = tables.length - 1; t >= 0; t--) {
+      var table = tables[t];
+      var rows = table.querySelectorAll('tr');
+      var fragment = document.createDocumentFragment();
+
+      for (var r = 0; r < rows.length; r++) {
+        var row = rows[r];
+        var cells = row.querySelectorAll('td, th');
+        if (cells.length < 2) continue;
+
+        /* Build card */
+        var card = document.createElement('div');
+        card.className = 'nau-video-card';
+
+        /* Left: media */
+        var mediaDiv = document.createElement('div');
+        mediaDiv.className = 'nau-video-card__media';
+        var sizer = document.createElement('div');
+        sizer.className = 'nau-video-card__media-sizer';
+        mediaDiv.appendChild(sizer);
+
+        var iframe = cells[0].querySelector('iframe');
+        if (iframe) {
+          iframe.removeAttribute('width');
+          iframe.removeAttribute('height');
+          iframe.style.cssText = '';          /* wipe any inline styles */
+          mediaDiv.appendChild(iframe);
+        } else {
+          while (cells[0].firstChild) { mediaDiv.appendChild(cells[0].firstChild); }
+        }
+
+        /* Right: text */
+        var bodyDiv = document.createElement('div');
+        bodyDiv.className = 'nau-video-card__body';
+        while (cells[1].firstChild) { bodyDiv.appendChild(cells[1].firstChild); }
+
+        card.appendChild(mediaDiv);
+        card.appendChild(bodyDiv);
+        fragment.appendChild(card);
+      }
+
+      /* Replace entire table with assembled cards */
+      table.parentNode.replaceChild(fragment, table);
+    }
+  }
+
+  /* ── 2. Move "What's Unique" content to after the Mission section ── */
+  var rte = document.getElementById('nau-story-rte');
+  if (!rte) return;
+  var headings = rte.querySelectorAll('h1,h2,h3,h4,h5,h6');
+  var target = null;
+  for (var i = 0; i < headings.length; i++) {
+    if (headings[i].textContent.toLowerCase().indexOf('unique') !== -1) {
+      target = headings[i]; break;
+    }
+  }
+  if (!target) return;
+  var nodes = [];
+  var n = target;
+  while (n) { nodes.push(n); n = n.nextSibling; }
+  var dest = document.getElementById('nau-unique-rte');
+  if (!dest) return;
+  for (var k = 0; k < nodes.length; k++) { dest.appendChild(nodes[k]); }
+  var sec = document.getElementById('nau-unique-section');
+  if (sec) sec.style.display = '';
+
+});
+</script>
+
+{% else %}
+
+{% if page.handle == 'about-us' %}
+
+<!-- ================================================================
+     NANO-ICE — About Us Page (Beautiful Redesign)
+     ================================================================ -->
+
+<!-- ── HERO ── -->
+<section class="nau-hero" aria-label="About Nano-Ice">
+  <div class="nau-hero__orb nau-hero__orb--a" aria-hidden="true"></div>
+  <div class="nau-hero__orb nau-hero__orb--b" aria-hidden="true"></div>
+  <div class="nau-hero__orb nau-hero__orb--c" aria-hidden="true"></div>
+  <div class="page-width nau-hero__inner">
+    <p class="nau-eyebrow">Our Story</p>
+    <h1 class="nau-hero__heading">{{ page.title }}</h1>
+    <p class="nau-hero__tagline">A personal solution that became a mission — helping thousands stay cool, stay active, and feel in control of their day.</p>
+    <a href="#nau-story" class="nau-hero__scroll" aria-label="Read our story">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+    </a>
+  </div>
+  <div class="nau-hero__wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,0 C480,80 960,80 1440,0 L1440,80 L0,80 Z" fill="#ffffff"/></svg>
+  </div>
+</section>
+
+<!-- ── STORY CONTENT (Part 1 — tables transformed to cards by JS) ── -->
+<section class="nau-story" id="nau-story">
+  <div class="page-width nau-story__inner">
+    <div class="nau-story__rte rte" id="nau-story-rte">
+      {{ page.content }}
+    </div>
+  </div>
+</section>
+
+<!-- ── MISSION ── -->
+<section class="nau-mission" id="nau-mission-block">
+  <div class="nau-mission__orb" aria-hidden="true"></div>
+  <div class="page-width nau-mission__inner">
+    <p class="nau-eyebrow">Our Mission</p>
+    <h2 class="nau-mission__heading">From One Person to Many</h2>
+    <div class="nau-mission__timeline">
+
+      <div class="nau-mission__step">
+        <div class="nau-mission__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="nau-mission__step-body">
+          <p>What started as a way to help my wife find relief has grown into something much bigger.</p>
+        </div>
+      </div>
+
+      <div class="nau-mission__step">
+        <div class="nau-mission__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="nau-mission__step-body">
+          <p>Today, Nano-Ice is used by people who struggle with heat sensitivity, hot flashes, POTS, MS, and everyday overheating.</p>
+        </div>
+      </div>
+
+      <div class="nau-mission__step">
+        <div class="nau-mission__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <div class="nau-mission__step-body">
+          <p>What began as a personal solution is now a mission.</p>
+        </div>
+      </div>
+
+      <div class="nau-mission__step nau-mission__step--highlight">
+        <div class="nau-mission__icon nau-mission__icon--accent">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="nau-mission__step-body">
+          <p>To help more people stay comfortable, stay active, and feel in control &mdash; even in the heat.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT'S UNIQUE (Part 2 — populated by JS) ── -->
+<section class="nau-story nau-story--unique" id="nau-unique-section" style="display:none">
+  <div class="page-width nau-story__inner">
+    <div class="nau-story__rte rte" id="nau-unique-rte"></div>
+  </div>
+</section>
+
+<!-- ── IMPACT STATS ── -->
+<section class="nau-stats" aria-label="Our impact">
+  <div class="page-width nau-stats__inner">
+    <div class="nau-stats__grid">
+      <div class="nau-stats__card">
+        <span class="nau-stats__number">2</span>
+        <span class="nau-stats__unit">hours</span>
+        <span class="nau-stats__label">of cooling relief per session</span>
+      </div>
+      <div class="nau-stats__card">
+        <span class="nau-stats__number">1000s</span>
+        <span class="nau-stats__unit">&nbsp;</span>
+        <span class="nau-stats__label">of customers finding comfort</span>
+      </div>
+      <div class="nau-stats__card">
+        <span class="nau-stats__number">1</span>
+        <span class="nau-stats__unit">idea</span>
+        <span class="nau-stats__label">that changed everything</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VALUES ── -->
+<section class="nau-values">
+  <div class="page-width nau-values__inner">
+    <p class="nau-eyebrow nau-eyebrow--center">What We Stand For</p>
+    <h2 class="nau-values__heading">Built on these principles</h2>
+    <div class="nau-values__grid">
+
+      <div class="nau-values__card">
+        <div class="nau-values__card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="nau-values__card-title">Real Relief</h3>
+        <p class="nau-values__card-text">Engineered for genuine cooling — not just a marketing claim. Every product is designed to deliver real, measurable comfort.</p>
+      </div>
+
+      <div class="nau-values__card">
+        <div class="nau-values__card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3 class="nau-values__card-title">Born from Empathy</h3>
+        <p class="nau-values__card-text">Our founder experienced the problem firsthand. Every decision is guided by compassion for those who struggle with heat.</p>
+      </div>
+
+      <div class="nau-values__card">
+        <div class="nau-values__card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3 class="nau-values__card-title">Community First</h3>
+        <p class="nau-values__card-text">We build with our community, not just for them. Your feedback shapes every product improvement and new release.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="nau-cta">
+  <div class="nau-cta__orb nau-cta__orb--a" aria-hidden="true"></div>
+  <div class="nau-cta__orb nau-cta__orb--b" aria-hidden="true"></div>
+  <div class="page-width nau-cta__inner">
+    <p class="nau-cta__kicker">Stay cool for up to 2 hours</p>
+    <h2 class="nau-cta__heading">Cooling technology designed to look as good as it feels.</h2>
+    <div class="nau-cta__actions">
+      <a href="/collections/all" class="nau-cta__btn nau-cta__btn--primary">Shop Now</a>
+      <a href="/pages/testimonials-gallery" class="nau-cta__btn nau-cta__btn--secondary">See Real Stories</a>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ================================================================
+   NANO-ICE — About Us Page (nau-*)
+   ================================================================ */
+
+/* ── Shared eyebrow label ── */
+.nau-eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #088395;
+  margin: 0 0 16px;
+}
+.nau-eyebrow--center { text-align: center; }
+
+/* ================================================================
+   HERO
+   ================================================================ */
+/* About-us page only: remove theme's default top padding so hero is flush with navbar */
+#MainContent { padding-top: 0 !important; margin-top: 0 !important; }
+
+.nau-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0A4D68 0%, #088395 55%, #05b8cc 100%);
+  padding: 120px 0 100px;
+  text-align: center;
+  margin-top: 0;
+}
+.nau-hero__orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: orbFloat 8s ease-in-out infinite alternate;
+}
+.nau-hero__orb--a {
+  width: 560px; height: 560px;
+  background: rgba(255,255,255,0.06);
+  top: -160px; right: -120px;
+  animation-duration: 9s;
+}
+.nau-hero__orb--b {
+  width: 380px; height: 380px;
+  background: rgba(5,184,204,0.14);
+  bottom: -80px; left: -80px;
+  animation-duration: 11s;
+  animation-delay: -3s;
+}
+.nau-hero__orb--c {
+  width: 220px; height: 220px;
+  background: rgba(255,255,255,0.08);
+  top: 40px; left: 12%;
+  animation-duration: 7s;
+  animation-delay: -1.5s;
+}
+@keyframes orbFloat {
+  from { transform: translateY(0) scale(1); }
+  to   { transform: translateY(-28px) scale(1.04); }
+}
+.nau-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.nau-hero__heading {
+  font-family: 'Inter', Georgia, sans-serif;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  margin: 0 0 24px;
+}
+.nau-hero__tagline {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: rgba(255,255,255,0.82);
+  line-height: 1.7;
+  margin: 0 0 48px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.nau-hero__scroll {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.38);
+  color: rgba(255,255,255,0.72);
+  text-decoration: none;
+  transition: background 0.22s ease, border-color 0.22s ease;
+  animation: scrollBounce 2.4s ease-in-out infinite;
+}
+.nau-hero__scroll:hover {
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.72);
+}
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(7px); }
+}
+.nau-hero__wave {
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  line-height: 0;
+}
+.nau-hero__wave svg { width: 100%; height: 80px; display: block; }
+
+/* ================================================================
+   STORY CONTENT
+   ================================================================ */
+.nau-story {
+  background: #ffffff;
+  padding: 88px 0 72px;
+}
+.nau-story--unique {
+  background: linear-gradient(180deg, #f5fbfd 0%, #ffffff 100%);
+  padding-top: 80px;
+}
+.nau-story__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.nau-story__rte {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: #2d4a54;
+}
+
+/* ── Video + text card (built by JS) ── */
+.nau-video-card {
+  display: flex;
+  align-items: stretch;
+  border-radius: 22px;
+  overflow: hidden;
+  background: linear-gradient(110deg, #f2fafd 0%, #eaf6f9 100%);
+  border: 1px solid rgba(8,131,149,0.13);
+  box-shadow: 0 8px 40px rgba(10,77,104,0.10);
+  margin: 0 0 32px;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+.nau-video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(10,77,104,0.15);
+}
+.nau-video-card__media {
+  flex: 0 0 46%;
+  position: relative;
+  background: #0a2030;
+  min-height: 0;
+}
+.nau-video-card__media iframe {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  border: none;
+}
+.nau-video-card__media-sizer {
+  padding-top: 56.25%;
+}
+.nau-video-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 44px;
+}
+.nau-video-card__body p {
+  font-size: 1.025rem;
+  line-height: 1.82;
+  color: #2d4a54;
+  margin: 0 0 1rem;
+}
+.nau-video-card__body p:last-child { margin-bottom: 0; }
+.nau-video-card__body::before {
+  content: '';
+  display: block;
+  width: 3px;
+  height: 48px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #088395 0%, #05b8cc 100%);
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+/* ── Standalone paragraphs ── */
+.nau-story__rte > p {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.4rem;
+}
+.nau-story__rte > p:first-of-type {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #0A4D68;
+  line-height: 1.75;
+  text-align: center;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(8,131,149,0.14);
+  margin-bottom: 44px;
+}
+.nau-story__rte > p:last-of-type {
+  font-size: 1.05rem;
+  text-align: center;
+  font-style: italic;
+  color: #088395;
+  font-weight: 500;
+  padding-top: 12px;
+}
+
+/* ── Headings ── */
+.nau-story__rte h1,
+.nau-story__rte h2,
+.nau-story__rte h3,
+.nau-story__rte h4 {
+  font-family: 'Inter', Georgia, sans-serif;
+  color: #0A4D68;
+  letter-spacing: -0.025em;
+  margin-top: 2.5rem;
+  margin-bottom: 0.8rem;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.nau-story__rte h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; }
+.nau-story__rte h3 { font-size: clamp(1.2rem, 2.5vw, 1.55rem); font-weight: 600; }
+.nau-story__rte a  { color: #088395; text-decoration: underline; }
+.nau-story__rte img {
+  border-radius: 18px;
+  box-shadow: 0 10px 48px rgba(10,77,104,0.13);
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 36px auto;
+}
+.nau-story__rte blockquote {
+  border-left: 4px solid #088395;
+  background: linear-gradient(100deg, #e8f7fb 0%, #f5fbfd 100%);
+  border-radius: 0 14px 14px 0;
+  padding: 22px 32px;
+  margin: 36px auto;
+  max-width: 760px;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #0A4D68;
+  font-weight: 500;
+}
+
+/* ── List items ── */
+.nau-story__rte ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 1.5rem;
+  max-width: 760px;
+}
+.nau-story__rte ul li {
+  padding: 14px 20px 14px 52px;
+  position: relative;
+  background: linear-gradient(100deg, #f4fbfd 0%, #eef8fa 100%);
+  border: 1px solid rgba(8,131,149,0.10);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #2d4a54;
+}
+.nau-story__rte ul li::before {
+  content: '';
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #088395 0%, #05b8cc 100%);
+}
+
+/* ================================================================
+   MISSION
+   ================================================================ */
+.nau-mission {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #0A4D68 0%, #065f77 50%, #088395 100%);
+  padding: 96px 0 104px;
+}
+.nau-mission__orb {
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 68%);
+  top: -130px; right: -130px;
+  pointer-events: none;
+}
+.nau-mission__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.nau-mission .nau-eyebrow { color: rgba(255,255,255,0.60); }
+.nau-mission__heading {
+  font-family: 'Inter', Georgia, sans-serif;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0 0 56px;
+}
+.nau-mission__timeline {
+  display: flex;
+  flex-direction: column;
+}
+.nau-mission__step {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding-bottom: 40px;
+  position: relative;
+}
+.nau-mission__step:not(.nau-mission__step--highlight)::after {
+  content: '';
+  position: absolute;
+  left: 21px;
+  top: 50px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.18), rgba(255,255,255,0.04));
+}
+.nau-mission__step--highlight { padding-bottom: 0; }
+.nau-mission__icon {
+  flex-shrink: 0;
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.10);
+  border: 1.5px solid rgba(255,255,255,0.20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.88);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.25s ease;
+}
+.nau-mission__icon--accent {
+  background: rgba(5,184,204,0.22);
+  border-color: rgba(5,184,204,0.40);
+  color: #05b8cc;
+}
+.nau-mission__step:hover .nau-mission__icon { transform: scale(1.12); }
+.nau-mission__step-body p {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.75;
+  margin: 10px 0 0;
+}
+.nau-mission__step--highlight .nau-mission__step-body p {
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #ffffff;
+  font-style: italic;
+}
+
+/* ================================================================
+   IMPACT STATS
+   ================================================================ */
+.nau-stats {
+  background: linear-gradient(135deg, #065f77 0%, #088395 100%);
+  padding: 64px 0;
+}
+.nau-stats__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.nau-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.nau-stats__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 8px 32px;
+  position: relative;
+}
+.nau-stats__card:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 10%; bottom: 10%;
+  width: 1px;
+  background: rgba(255,255,255,0.18);
+}
+.nau-stats__number {
+  font-family: 'Inter', Georgia, sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.nau-stats__unit {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.62);
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  margin-top: 4px;
+}
+.nau-stats__label {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.45;
+  margin-top: 8px;
+  max-width: 160px;
+}
+
+/* ================================================================
+   VALUES
+   ================================================================ */
+.nau-values {
+  background: #f5fbfd;
+  padding: 88px 0 96px;
+}
+.nau-values__inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 32px;
+  text-align: center;
+}
+.nau-values__heading {
+  font-family: 'Inter', Georgia, sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  color: #0A4D68;
+  letter-spacing: -0.03em;
+  margin: 0 0 56px;
+}
+.nau-values__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  text-align: left;
+}
+.nau-values__card {
+  background: #ffffff;
+  border: 1px solid rgba(8,131,149,0.12);
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: 0 4px 24px rgba(10,77,104,0.07);
+  transition: transform 0.26s ease, box-shadow 0.26s ease;
+}
+.nau-values__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 52px rgba(10,77,104,0.13);
+}
+.nau-values__card-icon {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #e8f7fb 0%, #d0f0f5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #088395;
+  margin-bottom: 20px;
+}
+.nau-values__card-title {
+  font-family: 'Inter', Georgia, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0A4D68;
+  letter-spacing: -0.015em;
+  margin: 0 0 10px;
+}
+.nau-values__card-text {
+  font-size: 0.9375rem;
+  line-height: 1.72;
+  color: #2d4a54;
+  margin: 0;
+}
+
+/* ================================================================
+   CTA
+   ================================================================ */
+.nau-cta {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0A4D68 0%, #088395 60%, #05b8cc 100%);
+  padding: 96px 0 104px;
+  text-align: center;
+}
+.nau-cta__orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.nau-cta__orb--a {
+  width: 520px; height: 520px;
+  background: rgba(255,255,255,0.07);
+  top: -160px; right: -90px;
+}
+.nau-cta__orb--b {
+  width: 320px; height: 320px;
+  background: rgba(5,184,204,0.14);
+  bottom: -90px; left: -50px;
+}
+.nau-cta__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.nau-cta__kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.62);
+  margin: 0 0 20px;
+  display: block;
+}
+.nau-cta__heading {
+  font-family: 'Inter', Georgia, sans-serif;
+  font-size: clamp(1.9rem, 4vw, 2.9rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+  margin: 0 0 48px;
+}
+.nau-cta__actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.nau-cta__btn {
+  display: inline-block;
+  font-family: 'Inter', Georgia, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 17px 46px;
+  border-radius: 50px;
+  transition: background 0.25s ease, color 0.25s ease,
+              transform 0.22s ease, box-shadow 0.25s ease;
+}
+.nau-cta__btn--primary {
+  background: #ffffff;
+  color: #0A4D68;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.20);
+}
+.nau-cta__btn--primary:hover {
+  background: #e8f7fb;
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.28);
+}
+.nau-cta__btn--secondary {
+  background: transparent;
+  color: rgba(255,255,255,0.88);
+  border: 1.5px solid rgba(255,255,255,0.38);
+}
+.nau-cta__btn--secondary:hover {
+  background: rgba(255,255,255,0.11);
+  border-color: rgba(255,255,255,0.68);
+  transform: translateY(-3px);
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 899px) {
+  .nau-values__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 749px) {
+  .nau-hero         { padding: 88px 0 80px; }
+  .nau-story        { padding: 56px 0 48px; }
+  .nau-story__inner { padding: 0 20px; }
+  .nau-story__rte   { font-size: 1rem; }
+  .nau-story__rte > p:first-of-type { font-size: 1.05rem; }
+  .nau-mission      { padding: 68px 0 76px; }
+  .nau-mission__inner { padding: 0 20px; }
+  .nau-mission__heading { font-size: 2rem; margin-bottom: 40px; }
+  .nau-mission__step { gap: 18px; }
+  .nau-stats        { padding: 52px 0; }
+  .nau-stats__inner { padding: 0 20px; }
+  .nau-stats__grid  { grid-template-columns: 1fr; }
+  .nau-stats__card:not(:last-child)::after { display: none; }
+  .nau-values       { padding: 68px 0 76px; }
+  .nau-values__inner { padding: 0 20px; }
+  .nau-values__grid { grid-template-columns: 1fr; }
+  .nau-values__heading { margin-bottom: 36px; font-size: 1.9rem; }
+  .nau-cta          { padding: 68px 0 76px; }
+  .nau-cta__inner   { padding: 0 20px; }
+  .nau-cta__heading { font-size: 1.75rem; margin-bottom: 36px; }
+  .nau-cta__btn     { padding: 15px 32px; width: 100%; max-width: 280px; display: block; margin: 0 auto; }
+  .nau-cta__actions { gap: 14px; }
+  .nau-video-card   { flex-direction: column; border-radius: 18px; }
+  .nau-video-card:hover { transform: none; }
+  .nau-video-card__media { flex: none; }
+  .nau-video-card__media iframe {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16/9;
+  }
+  .nau-video-card__media-sizer { display: none; }
+  .nau-video-card__body { padding: 28px 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nau-hero__orb, .nau-hero__scroll { animation: none !important; }
+  .nau-values__card, .nau-cta__btn { transition: none !important; }
+  .nau-values__card:hover, .nau-mission__step:hover .nau-mission__icon { transform: none !important; }
+  .nau-video-card { transition: none !important; }
+  .nau-video-card:hover { transform: none !important; }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* Remove theme's default top padding so hero is flush with the navbar */
+  var main = document.getElementById('MainContent');
+  if (main) main.style.paddingTop = '0';
+
+  /* ── 1. Convert each <table> row → .nau-video-card flex card ── */
+  var storyRte = document.getElementById('nau-story-rte');
+  if (storyRte) {
+    var tables = storyRte.querySelectorAll('table');
+    for (var t = tables.length - 1; t >= 0; t--) {
+      var table = tables[t];
+      var rows = table.querySelectorAll('tr');
+      var fragment = document.createDocumentFragment();
+
+      for (var r = 0; r < rows.length; r++) {
+        var row = rows[r];
+        var cells = row.querySelectorAll('td, th');
+        if (cells.length < 2) continue;
+
+        var card = document.createElement('div');
+        card.className = 'nau-video-card';
+
+        /* Left: media */
+        var mediaDiv = document.createElement('div');
+        mediaDiv.className = 'nau-video-card__media';
+        var sizer = document.createElement('div');
+        sizer.className = 'nau-video-card__media-sizer';
+        mediaDiv.appendChild(sizer);
+
+        var iframe = cells[0].querySelector('iframe');
+        if (iframe) {
+          iframe.removeAttribute('width');
+          iframe.removeAttribute('height');
+          iframe.style.cssText = '';
+          mediaDiv.appendChild(iframe);
+        } else {
+          while (cells[0].firstChild) { mediaDiv.appendChild(cells[0].firstChild); }
+        }
+
+        /* Right: text */
+        var bodyDiv = document.createElement('div');
+        bodyDiv.className = 'nau-video-card__body';
+        while (cells[1].firstChild) { bodyDiv.appendChild(cells[1].firstChild); }
+
+        card.appendChild(mediaDiv);
+        card.appendChild(bodyDiv);
+        fragment.appendChild(card);
+      }
+
+      table.parentNode.replaceChild(fragment, table);
+    }
+  }
+
+  /* ── 2. Move "What's Unique" content to after the Mission section ── */
+  var rte = document.getElementById('nau-story-rte');
+  if (!rte) return;
+  var headings = rte.querySelectorAll('h1,h2,h3,h4,h5,h6');
+  var target = null;
+  for (var i = 0; i < headings.length; i++) {
+    if (headings[i].textContent.toLowerCase().indexOf('unique') !== -1) {
+      target = headings[i]; break;
+    }
+  }
+  if (!target) return;
+  var nodes = [];
+  var n = target;
+  while (n) { nodes.push(n); n = n.nextSibling; }
+  var dest = document.getElementById('nau-unique-rte');
+  if (!dest) return;
+  for (var k = 0; k < nodes.length; k++) { dest.appendChild(nodes[k]); }
+  var sec = document.getElementById('nau-unique-section');
+  if (sec) sec.style.display = '';
+
+});
+</script>
+
 {% else %}
 
 <div class="page-width">
@@ -757,7 +2518,6 @@
       <div class="section-header text-center">
         <h1>{{ page.title }}</h1>
       </div>
-
       <div class="rte">
         {{ page.content }}
       </div>
@@ -765,399 +2525,6 @@
   </div>
 </div>
 
-{% if page.handle == 'about-us' %}
-<style>
-/* ── About Us page: fix two-column RTE layout on mobile ── */
-@media (max-width: 749px) {
-  /* Tables used as two-column layouts → stack vertically */
-  .template-page .rte table,
-  .template-page .rte tbody,
-  .template-page .rte tr,
-  .template-page .rte td,
-  .template-page .rte th {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box;
-  }
-  .template-page .rte td,
-  .template-page .rte th {
-    padding: 0 0 16px !important;
-    text-align: center !important;
-  }
-  /* Video / iframe embeds → full width, maintain aspect ratio */
-  .template-page .rte iframe,
-  .template-page .rte video {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 16 / 9;
-    display: block;
-    margin: 0 auto 16px;
-  }
-  /* Images inside RTE → full width */
-  .template-page .rte img {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    display: block;
-    margin: 0 auto 12px;
-  }
-  /* Paragraph text → left-aligned and readable */
-  .template-page .rte p {
-    text-align: left !important;
-    font-size: 0.975rem;
-    line-height: 1.72;
-  }
-  /* Headings */
-  .template-page .rte h1,
-  .template-page .rte h2,
-  .template-page .rte h3 {
-    text-align: center !important;
-    font-size: 1.4rem !important;
-    line-height: 1.25;
-    margin-top: 32px;
-  }
-  /* Remove fixed widths on any element with inline styles */
-  .template-page .rte [style*="width"] {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  /* Flexbox / grid layouts inside RTE → single column */
-  .template-page .rte [style*="display: flex"],
-  .template-page .rte [style*="display:flex"] {
-    flex-direction: column !important;
-  }
-  .template-page .rte [style*="display: grid"],
-  .template-page .rte [style*="display:grid"] {
-    display: block !important;
-  }
-}
-</style>
-<section class="ni-mission" id="ni-mission-block">
-
-  <div class="ni-mission__bg-blur ni-mission__bg-blur--1" aria-hidden="true"></div>
-  <div class="ni-mission__bg-blur ni-mission__bg-blur--2" aria-hidden="true"></div>
-
-  <div class="page-width ni-mission__inner">
-
-    <div class="ni-mission__eyebrow">Our Mission</div>
-
-    <h2 class="ni-mission__title">From One Person to Many</h2>
-
-    <div class="ni-mission__steps">
-
-      <div class="ni-mission__step">
-        <div class="ni-mission__step-dot" aria-hidden="true"></div>
-        <p class="ni-mission__step-text">What started as a way to help my wife find relief has grown into something much bigger.</p>
-      </div>
-
-      <div class="ni-mission__step">
-        <div class="ni-mission__step-dot" aria-hidden="true"></div>
-        <p class="ni-mission__step-text">Today, Nano-Ice is used by people who struggle with heat sensitivity, hot flashes, POTS, MS, and everyday overheating.</p>
-      </div>
-
-      <div class="ni-mission__step">
-        <div class="ni-mission__step-dot" aria-hidden="true"></div>
-        <p class="ni-mission__step-text">What began as a personal solution is now a mission.</p>
-      </div>
-
-      <div class="ni-mission__step ni-mission__step--last">
-        <div class="ni-mission__step-dot" aria-hidden="true"></div>
-        <p class="ni-mission__step-text ni-mission__step-text--highlight">To help more people stay comfortable, stay active, and feel in control &mdash; even in the heat.</p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<style>
-.ni-mission {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(160deg, #e8f7fb 0%, #f5fbfd 50%, #ffffff 100%);
-  padding: 80px 0 90px;
-}
-.ni-mission__bg-blur {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
-  z-index: 0;
-}
-.ni-mission__bg-blur--1 {
-  width: 480px;
-  height: 480px;
-  background: rgba(8, 131, 149, 0.10);
-  top: -100px;
-  right: -80px;
-}
-.ni-mission__bg-blur--2 {
-  width: 320px;
-  height: 320px;
-  background: rgba(10, 77, 104, 0.07);
-  bottom: -60px;
-  left: -60px;
-}
-.ni-mission__inner {
-  position: relative;
-  z-index: 1;
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 0 32px;
-}
-.ni-mission__eyebrow {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #088395;
-  margin-bottom: 16px;
-}
-.ni-mission__title {
-  font-family: 'Inter', Georgia, sans-serif;
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  color: #0A4D68;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-  margin: 0 0 48px;
-}
-.ni-mission__steps {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  padding-left: 32px;
-  border-left: 2px solid rgba(8, 131, 149, 0.22);
-}
-.ni-mission__step {
-  position: relative;
-  padding: 0 0 40px 28px;
-}
-.ni-mission__step--last {
-  padding-bottom: 0;
-}
-.ni-mission__step-dot {
-  position: absolute;
-  left: -8px;
-  top: 6px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #088395;
-  border: 3px solid #e8f7fb;
-  box-shadow: 0 0 0 2px rgba(8, 131, 149, 0.30);
-}
-.ni-mission__step-text {
-  font-family: 'Inter', Georgia, sans-serif;
-  font-size: 1.05rem;
-  color: #2d4a54;
-  line-height: 1.75;
-  margin: 0;
-}
-.ni-mission__step-text--highlight {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #0A4D68;
-  font-style: italic;
-}
-@media (max-width: 749px) {
-  .ni-mission {
-    padding: 56px 0 64px;
-  }
-  .ni-mission__inner {
-    padding: 0 20px;
-  }
-  .ni-mission__title {
-    font-size: 2rem;
-    margin-bottom: 36px;
-  }
-  .ni-mission__steps {
-    padding-left: 20px;
-  }
-  .ni-mission__step {
-    padding-left: 18px;
-    padding-bottom: 32px;
-  }
-  .ni-mission__step-dot {
-    left: -7px;
-    width: 12px;
-    height: 12px;
-    top: 5px;
-  }
-  .ni-mission__step-text {
-    font-size: 0.975rem;
-    line-height: 1.7;
-  }
-  .ni-mission__step-text--highlight {
-    font-size: 1rem;
-  }
-}
-</style>
-
-<section class="ni-final-cta" id="ni-final-cta-block">
-  <div class="ni-final-cta__bg-blur" aria-hidden="true"></div>
-  <div class="page-width ni-final-cta__inner">
-    <p class="ni-final-cta__kicker">Stay cool for up to 2 hours</p>
-    <h2 class="ni-final-cta__heading">Cooling technology designed to look as good as it feels.</h2>
-    <a href="/collections/all" class="ni-final-cta__btn">Shop Now</a>
-  </div>
-</section>
-
-<style>
-.ni-final-cta {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #0A4D68 0%, #088395 60%, #05b8cc 100%);
-  padding: 100px 0 110px;
-  text-align: center;
-}
-.ni-final-cta__bg-blur {
-  position: absolute;
-  inset: -80px;
-  background: radial-gradient(ellipse at 70% 30%, rgba(255,255,255,0.10) 0%, transparent 60%);
-  pointer-events: none;
-  z-index: 0;
-}
-.ni-final-cta__inner {
-  position: relative;
-  z-index: 1;
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-.ni-final-cta__kicker {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.70);
-  margin: 0 0 20px;
-}
-.ni-final-cta__heading {
-  font-family: 'Inter', Georgia, sans-serif;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: -0.025em;
-  line-height: 1.18;
-  margin: 0 0 44px;
-}
-.ni-final-cta__btn {
-  display: inline-block;
-  background: #ffffff;
-  color: #0A4D68;
-  font-family: 'Inter', Georgia, sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 18px 48px;
-  border-radius: 50px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
-}
-.ni-final-cta__btn:hover {
-  background: #0A4D68;
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 14px 40px rgba(0,0,0,0.26);
-}
-@media (max-width: 749px) {
-  .ni-final-cta {
-    padding: 64px 0 72px;
-  }
-  .ni-final-cta__inner {
-    padding: 0 20px;
-  }
-  .ni-final-cta__heading {
-    font-size: 1.7rem;
-    margin-bottom: 36px;
-  }
-  .ni-final-cta__btn {
-    padding: 16px 36px;
-    font-size: 0.95rem;
-    width: 100%;
-    max-width: 280px;
-    display: block;
-    margin: 0 auto;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .ni-final-cta__btn { transition: none; }
-}
-</style>
-
-<script>
-(function () {
-  var rte = document.querySelector('.rte');
-  if (!rte) return;
-
-  // Find "What's Unique" heading inside .rte
-  var headings = rte.querySelectorAll('h1, h2, h3, h4, h5, h6');
-  var target = null;
-  for (var i = 0; i < headings.length; i++) {
-    if (headings[i].textContent.toLowerCase().indexOf('what') !== -1 &&
-        headings[i].textContent.toLowerCase().indexOf('unique') !== -1) {
-      target = headings[i];
-      break;
-    }
-  }
-
-  if (!target) return;
-
-  // Collect all nodes from "What's Unique" to end of .rte
-  var nodesToMove = [];
-  var node = target;
-  while (node) {
-    nodesToMove.push(node);
-    node = node.nextSibling;
-  }
-
-  // Find the outer .page-width wrapping the .rte
-  var outerPageWidth = rte.closest ? rte.closest('.page-width') : (function () {
-    var el = rte;
-    while (el && !el.classList.contains('page-width')) el = el.parentNode;
-    return el;
-  }());
-  if (!outerPageWidth) return;
-
-  // Re-create the same grid/item/rte structure for the content below mission
-  var belowRte  = document.createElement('div');
-  belowRte.className = 'rte';
-  nodesToMove.forEach(function (n) { belowRte.appendChild(n); });
-
-  var belowItem = document.createElement('div');
-  belowItem.className = 'grid__item medium-up--five-sixths medium-up--push-one-twelfth';
-  belowItem.appendChild(belowRte);
-
-  var belowGrid = document.createElement('div');
-  belowGrid.className = 'grid';
-  belowGrid.appendChild(belowItem);
-
-  var belowWrap = document.createElement('div');
-  belowWrap.className = 'page-width';
-  belowWrap.style.paddingTop = '48px';
-  belowWrap.appendChild(belowGrid);
-
-  // Mission block is already in the DOM after outerPageWidth — ensure correct order:
-  // outerPageWidth → mission → belowWrap → cta
-  var mission = document.getElementById('ni-mission-block');
-  var parent  = outerPageWidth.parentNode;
-
-  // Move mission to directly after outerPageWidth
-  var afterOuter = outerPageWidth.nextSibling;
-  if (mission) parent.insertBefore(mission, afterOuter);
-
-  // Insert below-content after mission
-  var afterMission = mission ? mission.nextSibling : afterOuter;
-  parent.insertBefore(belowWrap, afterMission);
-
-  // CTA already sits after belowWrap naturally
-}());
-</script>
 {% endif %}
 
 {% endif %}
