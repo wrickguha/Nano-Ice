@@ -11,6 +11,82 @@
   "sections": {
     "main": {
       "type": "product-nano",
+      "blocks": {
+        "testi_christy_purple_necklace": {
+          "type": "nano_testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Christy_s_Review_2.jpg",
+            "image_url": "",
+            "author": "Christy G",
+            "rating": "★★★★★",
+            "product_handle": "cooling-necklace-bright-purple-with-an-extra-cooling-sphere",
+            "text": "\u201cThese necklaces are the best! They help keep me cool all throughout the year, especially in the heat of summer. I honestly don\u2019t know what I would do without them!\u201d"
+          }
+        },
+        "testi_laura_purple_necklace": {
+          "type": "nano_testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Laura_S.jpg",
+            "image_url": "",
+            "author": "Laura S",
+            "rating": "★★★★★",
+            "product_handle": "cooling-necklace-bright-purple-with-an-extra-cooling-sphere",
+            "text": "\u201cI couldn\u2019t resist letting my dog try my Nano-Ice necklace. She seemed to love it! We\u2019re definitely beating this heat with our Nano-Ice necklaces!\u201d"
+          }
+        },
+        "testi_gene_purple_scarf": {
+          "type": "nano_testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Purple_Scarf_dde6c61a-f1ad-4f45-b9ec-70ac9d6b183f.jpg",
+            "image_url": "",
+            "author": "Gene B",
+            "rating": "★★★★★",
+            "product_handle": "copy-of-cooling-scarf-purple",
+            "text": "\u201cLove my Nano-Ice scarf necklace because it keeps me from melting away during this heat wave\u2014in style!\u201d"
+          }
+        },
+        "testi_christy_purple_scarf": {
+          "type": "nano_testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Christy_s_Review_2.jpg",
+            "image_url": "",
+            "author": "Christy G",
+            "rating": "★★★★★",
+            "product_handle": "copy-of-cooling-scarf-purple",
+            "text": "\u201cThese necklaces are the best! They help keep me cool all throughout the year, especially in the heat of summer. I honestly don\u2019t know what I would do without them!\u201d"
+          }
+        },
+        "testi_jenn_paisley_scarf": {
+          "type": "nano_testimonial",
+          "settings": {
+            "image": "shopify://shop_images/image2.JPG",
+            "image_url": "",
+            "author": "Jenn F",
+            "rating": "★★★★★",
+            "product_handle": "cooling-scarf-paisley",
+            "text": "\u201cI have been wearing two for the last week. I\u2019ve recommended this cooling necklace to many because of the extreme heat wave. I think you\u2019ll get a lot more business from this town\u2014not to mention more from me, now that my daughters have \u2018borrowed\u2019 several necklaces daily.\u201d"
+          }
+        },
+        "testi_laura_paisley_scarf": {
+          "type": "nano_testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Laura_S.jpg",
+            "image_url": "",
+            "author": "Laura S",
+            "rating": "★★★★★",
+            "product_handle": "cooling-scarf-paisley",
+            "text": "\u201cI couldn\u2019t resist letting my dog try my Nano-Ice necklace. She seemed to love it! We\u2019re definitely beating this heat with our Nano-Ice necklaces!\u201d"
+          }
+        }
+      },
+      "block_order": [
+        "testi_christy_purple_necklace",
+        "testi_laura_purple_necklace",
+        "testi_gene_purple_scarf",
+        "testi_christy_purple_scarf",
+        "testi_jenn_paisley_scarf",
+        "testi_laura_paisley_scarf"
+      ],
       "settings": {
         "show_free_shipping": true,
         "show_returns": true,
@@ -20,7 +96,7 @@
         "show_share_buttons": false,
         "enable_testimonials": true,
         "testimonials_title": "Loved By Thousands",
-        "testimonials_subtitle": "Real people, real results. See why customers can’t stop talking about it."
+        "testimonials_subtitle": "Real people, real results. See why customers can't stop talking about it."
       }
     }
   },

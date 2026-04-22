@@ -176,6 +176,15 @@
         {%- assign has_metafield_testimonials = true -%}
       {%- endif -%}
 
+      {%- assign matching_nano_blocks = 0 -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'nano_testimonial' -%}
+          {%- if block.settings.product_handle == blank or block.settings.product_handle == product.handle -%}
+            {%- assign matching_nano_blocks = matching_nano_blocks | plus: 1 -%}
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+
       {% if section.settings.enable_testimonials %}
         {% if has_metafield_testimonials %}
           <div class="nano-testimonials-inline">
@@ -240,13 +249,14 @@
               {% endif %}
             </div>
           </div>
-        {% elsif section.blocks.size > 0 %}
+        {% elsif matching_nano_blocks > 0 %}
           <div class="nano-testimonials-inline">
             <h3 class="nano-testimonials-inline__title">{{ section.settings.testimonials_title }}</h3>
             <p class="nano-testimonials-inline__subtitle">{{ section.settings.testimonials_subtitle }}</p>
             <div class="nano-portraits__grid">
               {% for block in section.blocks %}
                 {% if block.type == 'nano_testimonial' %}
+                  {% if block.settings.product_handle == blank or block.settings.product_handle == product.handle %}
                   <div class="nano-portrait-card" {{ block.shopify_attributes }}>
                     {% if block.settings.image_url != blank %}
                       <img src="{{ block.settings.image_url }}" alt="{{ block.settings.author }}" class="nano-portrait__img">
@@ -261,6 +271,7 @@
                       <span class="nano-portrait__name">- {{ block.settings.author }}</span>
                     </div>
                   </div>
+                  {% endif %}
                 {% endif %}
               {% endfor %}
             </div>
@@ -382,6 +393,12 @@
           "id": "text",
           "label": "Testimonial text",
           "default": "Great product!"
+        },
+        {
+          "type": "text",
+          "id": "product_handle",
+          "label": "Product handle (leave blank to show on all products)",
+          "info": "Only show this review on one specific product page, e.g. cooling-necklace-grey"
         }
       ]
     }

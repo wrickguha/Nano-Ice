@@ -12,30 +12,128 @@
     "main": {
       "type": "product-nano",
       "blocks": {
-        "nano_testimonial_LHHkmk": {
-          "type": "nano_testimonial",
-          "settings": {
-            "image": "shopify://shop_images/Grey_2.jpg",
-            "image_url": "",
-            "author": "Pamela L",
-            "rating": "★★★★★",
-            "text": "“It’s 91 degrees here in , but I’m chillin’ with my cooling necklace.”"
-          }
-        },
-        "nano_testimonial_aTqrkh": {
+        "nano_testi_amy_grey_necklace": {
           "type": "nano_testimonial",
           "settings": {
             "image": "shopify://shop_images/Amy_C.jpg",
             "image_url": "",
             "author": "Amy C",
-            "rating": "★★★★★",
-            "text": "“Ahhhhhh! Works very well. Within one minute, you can feel a cooling effect begin. Sometimes I wear it with the tie down, then switch it around. The material is so soft, which is nice.”"
+            "rating": "\u2605\u2605\u2605\u2605\u2605",
+            "product_handle": "cooling-necklace-grey",
+            "text": "Ahhhhhh! Works very well. Within one minute, you can feel a cooling effect begin. Sometimes I wear it with the tie down, then switch it around. The material is so soft, which is nice."
+          }
+        },
+        "nano_testi_pamela_grey_necklace": {
+          "type": "nano_testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Pam_L.jpg",
+            "image_url": "",
+            "author": "Pamela L",
+            "rating": "\u2605\u2605\u2605\u2605\u2605",
+            "product_handle": "cooling-necklace-grey",
+            "text": "It's 91 degrees here in , but I'm chillin' with my cooling necklace."
+          }
+        },
+        "nano_testi_amy_grey_scarf": {
+          "type": "nano_testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Amy_C.jpg",
+            "image_url": "",
+            "author": "Amy C",
+            "rating": "\u2605\u2605\u2605\u2605\u2605",
+            "product_handle": "cooling-scarf-grey",
+            "text": "Ahhhhhh! Works very well. Within one minute, you can feel a cooling effect begin. Sometimes I wear it with the tie down, then switch it around. The material is so soft, which is nice."
+          }
+        },
+        "nano_testi_pamela_grey_scarf": {
+          "type": "nano_testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Pam_L.jpg",
+            "image_url": "",
+            "author": "Pamela L",
+            "rating": "\u2605\u2605\u2605\u2605\u2605",
+            "product_handle": "cooling-scarf-grey",
+            "text": "It's 91 degrees here in , but I'm chillin' with my cooling necklace."
+          }
+        },
+        "nano_testi_christy_purple_necklace": {
+          "type": "nano_testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Christy_s_Review_2.jpg",
+            "image_url": "",
+            "author": "Christy G",
+            "rating": "\u2605\u2605\u2605\u2605\u2605",
+            "product_handle": "cooling-necklace-bright-purple-with-an-extra-cooling-sphere",
+            "text": "These necklaces are the best! They help keep me cool all throughout the year, especially in the heat of summer. I honestly don't know what I would do without them!"
+          }
+        },
+        "nano_testi_laura_purple_necklace": {
+          "type": "nano_testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Laura_S.jpg",
+            "image_url": "",
+            "author": "Laura S",
+            "rating": "\u2605\u2605\u2605\u2605\u2605",
+            "product_handle": "cooling-necklace-bright-purple-with-an-extra-cooling-sphere",
+            "text": "I couldn't resist letting my dog try my Nano-Ice necklace. She seemed to love it! We're definitely beating this heat with our Nano-Ice necklaces!"
+          }
+        },
+        "nano_testi_gene_purple_scarf": {
+          "type": "nano_testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Purple_Scarf_dde6c61a-f1ad-4f45-b9ec-70ac9d6b183f.jpg",
+            "image_url": "",
+            "author": "Gene B",
+            "rating": "\u2605\u2605\u2605\u2605\u2605",
+            "product_handle": "copy-of-cooling-scarf-purple",
+            "text": "Love my Nano-Ice scarf necklace because it keeps me from melting away during this heat wave - in style!"
+          }
+        },
+        "nano_testi_christy_purple_scarf": {
+          "type": "nano_testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Christy_s_Review_2.jpg",
+            "image_url": "",
+            "author": "Christy G",
+            "rating": "\u2605\u2605\u2605\u2605\u2605",
+            "product_handle": "copy-of-cooling-scarf-purple",
+            "text": "These necklaces are the best! They help keep me cool all throughout the year, especially in the heat of summer. I honestly don't know what I would do without them!"
+          }
+        },
+        "nano_testi_jenn_paisley_scarf": {
+          "type": "nano_testimonial",
+          "settings": {
+            "image": "shopify://shop_images/image2.JPG",
+            "image_url": "",
+            "author": "Jenn F",
+            "rating": "\u2605\u2605\u2605\u2605\u2605",
+            "product_handle": "cooling-scarf-paisley-cooling-balls-included",
+            "text": "I have been wearing two for the last week. I've recommended this cooling necklace to many because of the extreme heat wave. I think you'll get a lot more business from this town - not to mention more from me, now that my daughters have borrowed several necklaces daily."
+          }
+        },
+        "nano_testi_laura_paisley_scarf": {
+          "type": "nano_testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Laura_S.jpg",
+            "image_url": "",
+            "author": "Laura S",
+            "rating": "\u2605\u2605\u2605\u2605\u2605",
+            "product_handle": "cooling-scarf-paisley-cooling-balls-included",
+            "text": "I couldn't resist letting my dog try my Nano-Ice necklace. She seemed to love it! We're definitely beating this heat with our Nano-Ice necklaces!"
           }
         }
       },
       "block_order": [
-        "nano_testimonial_LHHkmk",
-        "nano_testimonial_aTqrkh"
+        "nano_testi_amy_grey_necklace",
+        "nano_testi_pamela_grey_necklace",
+        "nano_testi_amy_grey_scarf",
+        "nano_testi_pamela_grey_scarf",
+        "nano_testi_christy_purple_necklace",
+        "nano_testi_laura_purple_necklace",
+        "nano_testi_gene_purple_scarf",
+        "nano_testi_christy_purple_scarf",
+        "nano_testi_jenn_paisley_scarf",
+        "nano_testi_laura_paisley_scarf"
       ],
       "settings": {
         "show_free_shipping": true,
