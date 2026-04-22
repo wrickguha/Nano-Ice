@@ -181,6 +181,19 @@
     align-items: flex-start;
   }
   .footer-col { margin-bottom: 30px; }
+  .footer-col:nth-child(1),
+  .footer-col:nth-child(2) {
+    text-align: center;
+    width: 100%;
+    align-items: center;
+    padding-right: 0;
+  }
+  .footer-col:nth-child(1) p,
+  .footer-col:nth-child(2) p {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /* ============================================================

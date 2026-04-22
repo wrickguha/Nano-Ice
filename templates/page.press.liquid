@@ -1,3 +1,5 @@
+{{ 'video-testimonials.css' | asset_url | stylesheet_tag }}
+
 <div class="press-page">
 
   <!-- Hero -->
@@ -11,37 +13,122 @@
     <!-- VIDEO FEATURES -->
     <section class="press-section">
       <h2 class="press-section__heading">Video Features</h2>
-      <div class="press-videos-grid">
 
-        <div class="press-video-card">
-          <div class="press-video-card__outlet">Press Overview</div>
-          <div class="press-video-card__embed">
-            <iframe src="https://www.youtube.com/embed/XOu4J0Mt6uw" title="Press Overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      <div class="vtg-grid press-vtg-grid" id="press-vtg-grid">
+
+        <!-- 1. Press Overview -->
+        <div class="vtg-card">
+          <div class="vtg-card__video-wrap">
+            <div class="vtg-card__video-placeholder" data-video-type="youtube" data-video-id="XOu4J0Mt6uw">
+              <img src="https://img.youtube.com/vi/XOu4J0Mt6uw/maxresdefault.jpg"
+                   onerror="this.src='https://img.youtube.com/vi/XOu4J0Mt6uw/hqdefault.jpg'"
+                   alt="Press Overview — Nano-Ice" class="vtg-card__thumbnail" loading="lazy">
+              <button class="vtg-card__play-btn press-play-btn" aria-label="Play Press Overview video">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="vtg-card__content">
+            <div class="press-vtg-outlet-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+              Press Overview
+            </div>
+            <blockquote class="vtg-card__quote">"The hottest look for the summer"</blockquote>
+            <div class="vtg-card__author">
+              <span class="vtg-card__name">WCVB 5 · FOX 13 · More</span>
+              <span class="vtg-card__location">Multiple Networks</span>
+            </div>
           </div>
         </div>
 
-        <div class="press-video-card">
-          <div class="press-video-card__outlet">ABC Boston</div>
-          <div class="press-video-card__embed">
-            <iframe src="https://www.youtube.com/embed/loEmjYsA0ZQ" title="ABC Boston" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        <!-- 2. ABC Boston -->
+        <div class="vtg-card">
+          <div class="vtg-card__video-wrap">
+            <div class="vtg-card__video-placeholder" data-video-type="youtube" data-video-id="loEmjYsA0ZQ">
+              <img src="https://img.youtube.com/vi/loEmjYsA0ZQ/maxresdefault.jpg"
+                   onerror="this.src='https://img.youtube.com/vi/loEmjYsA0ZQ/hqdefault.jpg'"
+                   alt="ABC Boston — Nano-Ice Feature" class="vtg-card__thumbnail" loading="lazy">
+              <button class="vtg-card__play-btn press-play-btn" aria-label="Play ABC Boston video">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="vtg-card__content">
+            <div class="press-vtg-outlet-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+              ABC Boston
+            </div>
+            <blockquote class="vtg-card__quote">"Brookline couple designs cooling necklaces to beat summer heat"</blockquote>
+            <div class="vtg-card__author">
+              <span class="vtg-card__name">ABC Boston</span>
+              <span class="vtg-card__location">News Feature</span>
+            </div>
           </div>
         </div>
 
-        <div class="press-video-card">
-          <div class="press-video-card__outlet">MSNBC Pitch</div>
-          <div class="press-video-card__embed">
-            <iframe src="https://www.youtube.com/embed/Hro_8FFs1Lw" title="MSNBC Pitch" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        <!-- 3. MSNBC -->
+        <div class="vtg-card">
+          <div class="vtg-card__video-wrap">
+            <div class="vtg-card__video-placeholder" data-video-type="youtube" data-video-id="Hro_8FFs1Lw">
+              <img src="https://img.youtube.com/vi/Hro_8FFs1Lw/maxresdefault.jpg"
+                   onerror="this.src='https://img.youtube.com/vi/Hro_8FFs1Lw/hqdefault.jpg'"
+                   alt="MSNBC — Nano-Ice Pitch" class="vtg-card__thumbnail" loading="lazy">
+              <button class="vtg-card__play-btn press-play-btn" aria-label="Play MSNBC video">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="vtg-card__content">
+            <div class="press-vtg-outlet-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+              MSNBC
+            </div>
+            <blockquote class="vtg-card__quote">"The wearable cooling solution taking the market by storm"</blockquote>
+            <div class="vtg-card__author">
+              <span class="vtg-card__name">MSNBC</span>
+              <span class="vtg-card__location">Pitch Segment</span>
+            </div>
           </div>
         </div>
 
-        <div class="press-video-card">
-          <div class="press-video-card__outlet">Fox 13</div>
-          <div class="press-video-card__embed">
-            <iframe src="https://www.youtube.com/embed/tc0qTbgYyIU" title="Fox 13" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        <!-- 4. Fox 13 -->
+        <div class="vtg-card">
+          <div class="vtg-card__video-wrap">
+            <div class="vtg-card__video-placeholder" data-video-type="youtube" data-video-id="tc0qTbgYyIU">
+              <img src="https://img.youtube.com/vi/tc0qTbgYyIU/maxresdefault.jpg"
+                   onerror="this.src='https://img.youtube.com/vi/tc0qTbgYyIU/hqdefault.jpg'"
+                   alt="Fox 13 — Nano-Ice Feature" class="vtg-card__thumbnail" loading="lazy">
+              <button class="vtg-card__play-btn press-play-btn" aria-label="Play Fox 13 video">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="vtg-card__content">
+            <div class="press-vtg-outlet-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+              Fox 13
+            </div>
+            <blockquote class="vtg-card__quote">"The cooling necklace that's turning heads this summer"</blockquote>
+            <div class="vtg-card__author">
+              <span class="vtg-card__name">FOX 13</span>
+              <span class="vtg-card__location">Television Feature</span>
+            </div>
           </div>
         </div>
 
+      </div><!-- /#press-vtg-grid -->
+
+      <!-- Mobile carousel navigation -->
+      <div class="vtg-carousel-nav" id="press-vtg-carousel-nav">
+        <button class="vtg-carousel-btn vtg-carousel-btn--prev" aria-label="Previous video">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="vtg-carousel-dots" id="press-vtg-carousel-dots"></div>
+        <button class="vtg-carousel-btn vtg-carousel-btn--next" aria-label="Next video">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
       </div>
+
     </section>
 
     <!-- ARTICLE FEATURES -->
@@ -82,6 +169,17 @@
   </div>
 </div>
 
+<!-- Press Video Lightbox -->
+<div class="vtg-lightbox" id="press-vtg-lightbox" role="dialog" aria-modal="true" aria-label="Video player">
+  <div class="vtg-lightbox__overlay"></div>
+  <div class="vtg-lightbox__content">
+    <button class="vtg-lightbox__close" aria-label="Close video">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="vtg-lightbox__video-container" id="press-vtg-lightbox-container"></div>
+  </div>
+</div>
+
 <style>
 /* ── Press Page ── */
 .press-page__hero {
@@ -117,42 +215,29 @@
   display: inline-block;
 }
 
-/* Video grid */
-.press-videos-grid {
-  display: grid;
+/* Video grid — replaced with vtg slider, keep a 2-col desktop override */
+.press-vtg-grid {
   grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
 }
-.press-video-card {
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+.press-vtg-grid .vtg-card__video-wrap {
+  aspect-ratio: 16 / 9;
 }
-.press-video-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(5,191,219,0.18);
-}
-.press-video-card__outlet {
-  background: #0b1a2b;
-  color: #05BFDB;
-  font-size: 13px;
+
+/* Outlet badge */
+.press-vtg-outlet-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(5, 191, 219, 0.1);
+  color: #0891B2;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  padding: 10px 16px;
-}
-.press-video-card__embed {
-  position: relative;
-  padding-top: 56.25%;
-}
-.press-video-card__embed iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
+  padding: 4px 10px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+  width: fit-content;
 }
 
 /* Article grid */
@@ -207,7 +292,7 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  .press-videos-grid { grid-template-columns: 1fr; gap: 16px; }
+  .press-vtg-grid { grid-template-columns: 1fr; }
   .press-articles-grid { grid-template-columns: 1fr; gap: 16px; }
   .press-page__hero-title { font-size: 24px; }
   .press-page__hero-sub { font-size: 14px; }
@@ -216,10 +301,125 @@
   .press-section { margin-bottom: 36px; }
   .press-section__heading { font-size: 20px; }
   .press-article-card { padding: 20px 16px; }
-  .press-video-card__outlet { font-size: 12px; padding: 8px 12px; }
 }
 @media (min-width: 769px) and (max-width: 1024px) {
   .press-articles-grid { grid-template-columns: repeat(2, 1fr); }
-  .press-videos-grid { grid-template-columns: repeat(2, 1fr); }
+  .press-vtg-grid { grid-template-columns: repeat(2, 1fr); }
 }
 </style>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── Lightbox ── */
+  var lb        = document.getElementById('press-vtg-lightbox');
+  var lbCont    = document.getElementById('press-vtg-lightbox-container');
+
+  function openLb(videoId) {
+    if (!lb || !lbCont) return;
+    lbCont.innerHTML =
+      '<iframe src="https://www.youtube-nocookie.com/embed/' +
+      encodeURIComponent(videoId) +
+      '?autoplay=1&rel=0&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    lb.classList.add('vtg-lightbox--open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLb() {
+    if (!lb) return;
+    lb.classList.remove('vtg-lightbox--open');
+    document.body.style.overflow = '';
+    setTimeout(function () { if (lbCont) lbCont.innerHTML = ''; }, 350);
+  }
+
+  if (lb) {
+    lb.querySelector('.vtg-lightbox__overlay').addEventListener('click', closeLb);
+    lb.querySelector('.vtg-lightbox__close').addEventListener('click', closeLb);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lb.classList.contains('vtg-lightbox--open')) closeLb();
+    });
+  }
+
+  /* Play buttons → open lightbox */
+  document.querySelectorAll('#press-vtg-grid .vtg-card__play-btn').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var placeholder = btn.closest('.vtg-card__video-placeholder');
+      if (placeholder) openLb(placeholder.getAttribute('data-video-id'));
+    });
+  });
+
+  /* Click anywhere on thumbnail area too */
+  document.querySelectorAll('#press-vtg-grid .vtg-card__video-placeholder').forEach(function (el) {
+    el.addEventListener('click', function () {
+      openLb(el.getAttribute('data-video-id'));
+    });
+  });
+
+  /* ── Mobile Carousel ── */
+  var grid       = document.getElementById('press-vtg-grid');
+  var nav        = document.getElementById('press-vtg-carousel-nav');
+  var dotsWrap   = document.getElementById('press-vtg-carousel-dots');
+  var current    = 0;
+
+  function isMobile() { return window.innerWidth <= 749; }
+  function cards() { return grid ? Array.prototype.slice.call(grid.querySelectorAll('.vtg-card')) : []; }
+
+  function buildDots() {
+    if (!dotsWrap || !isMobile()) return;
+    dotsWrap.innerHTML = '';
+    cards().forEach(function (_, i) {
+      var dot = document.createElement('button');
+      dot.className = 'vtg-carousel-dot' + (i === 0 ? ' vtg-carousel-dot--active' : '');
+      dot.setAttribute('aria-label', 'Video ' + (i + 1));
+      dot.addEventListener('click', function () { goTo(i); });
+      dotsWrap.appendChild(dot);
+    });
+  }
+
+  function syncDots() {
+    if (!dotsWrap) return;
+    dotsWrap.querySelectorAll('.vtg-carousel-dot').forEach(function (d, i) {
+      d.classList.toggle('vtg-carousel-dot--active', i === current);
+    });
+  }
+
+  function goTo(index) {
+    var c = cards();
+    if (!c.length || !grid) return;
+    current = Math.max(0, Math.min(index, c.length - 1));
+    grid.scrollTo({
+      left: c[current].offsetLeft - (grid.offsetWidth - c[current].offsetWidth) / 2,
+      behavior: 'smooth'
+    });
+    syncDots();
+  }
+
+  if (grid) {
+    var t;
+    grid.addEventListener('scroll', function () {
+      clearTimeout(t);
+      t = setTimeout(function () {
+        if (!isMobile()) return;
+        var mid = grid.scrollLeft + grid.offsetWidth / 2;
+        var best = 0, bestDist = Infinity;
+        cards().forEach(function (c, i) {
+          var d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid);
+          if (d < bestDist) { bestDist = d; best = i; }
+        });
+        current = best;
+        syncDots();
+      }, 50);
+    }, { passive: true });
+  }
+
+  if (nav) {
+    nav.querySelector('.vtg-carousel-btn--prev').addEventListener('click', function () { goTo(current - 1); });
+    nav.querySelector('.vtg-carousel-btn--next').addEventListener('click', function () { goTo(current + 1); });
+  }
+
+  buildDots();
+  window.addEventListener('resize', buildDots);
+})();
+</script>

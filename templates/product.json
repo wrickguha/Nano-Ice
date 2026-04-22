@@ -1,0 +1,58 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-nano",
+      "settings": {
+        "show_free_shipping": true,
+        "show_returns": true,
+        "show_premium_badge": true,
+        "show_vendor": false,
+        "show_quantity_selector": true,
+        "show_share_buttons": false,
+        "enable_testimonials": true,
+        "testimonials_title": "Loved By Thousands",
+        "testimonials_subtitle": "Real people, real results. See why customers can\u2019t stop talking about it."
+      },
+      "blocks": {
+        "testimonial-1": {
+          "type": "nano_testimonial",
+          "settings": {
+            "image_url": "https://i.pravatar.cc/400?img=47",
+            "author": "Sarah M.",
+            "rating": "\u2605\u2605\u2605\u2605\u2605",
+            "text": "An absolute lifesaver during my hot flashes. Nothing else has worked this well and lasted this long."
+          }
+        },
+        "testimonial-2": {
+          "type": "nano_testimonial",
+          "settings": {
+            "image_url": "https://i.pravatar.cc/400?img=12",
+            "author": "Jason T.",
+            "rating": "\u2605\u2605\u2605\u2605\u2605",
+            "text": "I work in a 110\u00b0F greenhouse and this is the only way I survive the shifts."
+          }
+        },
+        "testimonial-3": {
+          "type": "nano_testimonial",
+          "settings": {
+            "image_url": "https://i.pravatar.cc/400?img=32",
+            "author": "Emily K.",
+            "rating": "\u2605\u2605\u2605\u2605\u2605",
+            "text": "Comfortable, fits perfectly, and actually stays cold for hours. Worth every penny."
+          }
+        },
+        "testimonial-4": {
+          "type": "nano_testimonial",
+          "settings": {
+            "image_url": "https://i.pravatar.cc/400?img=7",
+            "author": "David R.",
+            "rating": "\u2605\u2605\u2605\u2605\u2605",
+            "text": "Bought one for my whole crew. Game changer for outdoor summer work. Will buy again."
+          }
+        }
+      },
+      "block_order": ["testimonial-1", "testimonial-2", "testimonial-3", "testimonial-4"]
+    }
+  },
+  "order": ["main"]
+}
