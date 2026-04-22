@@ -6,7 +6,7 @@
   box-shadow: 0 2px 16px 0 rgba(5, 191, 219, 0.04);
 }
 .ni-psw__solution-custom-content > div {
-  font-size: 1.22rem;
+  font-size: 1.4rem;
   color: #1a2a33;
   margin-bottom: 10px;
   font-weight: 500;
@@ -69,7 +69,7 @@
   margin-bottom: 28px !important;
 }
 .ni-psw__solution-custom-content > div {
-  font-size: 1.22rem;
+  font-size: 1.4rem;
   color: #1a2a33;
   margin-bottom: 10px;
   font-weight: 400;
@@ -5950,6 +5950,10 @@ img, video, iframe {
    SEARCH HEADER — Navbar
    ============================================================ */
 
+.search-header {
+  position: relative !important;
+}
+
 /* Expand width when focused */
 .search-header.search--focus {
   max-width: 260px !important;
@@ -5959,6 +5963,7 @@ img, video, iframe {
    We push the input text clear of it with padding-left: 36px. */
 .site-header__search .search-header__submit,
 .search-header .search-header__submit {
+  position: absolute !important;
   width:    32px !important;
   padding:  0 0 0 8px !important;
   left:     0 !important;
