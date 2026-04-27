@@ -100,37 +100,37 @@
   }
 }
 
+
 .nano-gallery__featured {
   border-radius: var(--nano-radius-lg);
   overflow: hidden;
   box-shadow: var(--nano-shadow-soft);
-  background: var(--nano-surface);
-  aspect-ratio: 4/3;
-  max-height: 550px;
+  background: #fff;
   width: 100%;
+  aspect-ratio: 1/1;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  min-height: 0;
+  max-height: none;
 }
 
 .nano-gallery__featured img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  background: #fff;
+  margin: auto;
+  display: block;
   transform-origin: center center;
   transition: transform 0.15s ease-out;
   will-change: transform;
 }
 
-/* Zoom cursor indicator */
-.nano-gallery__featured {
-  cursor: crosshair;
-}
-
-.nano-gallery__featured.is-zoomed img {
-  transform: scale(2.2);
-}
+/* Zoom feature removed: no crosshair cursor or zoomed image scaling. */
 
 .nano-gallery__thumbnails {
   display: flex;

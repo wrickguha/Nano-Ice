@@ -64,11 +64,7 @@
           <p itemprop="brand" class="nano-vendor">{{ product.vendor }}</p>
         {% endif %}
 
-        <div class="nano-trust-badges">
-          {% if section.settings.show_free_shipping %}<span>&#10004;&#65039; Free Shipping</span>{% endif %}
-          {% if section.settings.show_returns %}<span>&#10004;&#65039; 30-Day Returns</span>{% endif %}
-          {% if section.settings.show_premium_badge %}<span>&#10004;&#65039; Premium Cooling</span>{% endif %}
-        </div>
+        <!-- Trust badges removed as requested -->
 
         {%- form 'product', product, id: 'NanoAddToCartForm', class: 'nano-form', enctype: 'multipart/form-data' -%}
 

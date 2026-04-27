@@ -103,26 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- 3. GALLERY IMAGE ZOOM ON HOVER ---
-  const featuredGallery = document.querySelector('.nano-gallery__featured');
-  if (featuredGallery) {
-    featuredGallery.addEventListener('mouseenter', () => {
-      featuredGallery.classList.add('is-zoomed');
-    });
-
-    featuredGallery.addEventListener('mousemove', (e) => {
-      const rect = featuredGallery.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-      const img = featuredGallery.querySelector('img.is-active, img.nano-main-image');
-      if (img) img.style.transformOrigin = x + '% ' + y + '%';
-    });
-
-    featuredGallery.addEventListener('mouseleave', () => {
-      featuredGallery.classList.remove('is-zoomed');
-      const img = featuredGallery.querySelector('img.is-active, img.nano-main-image');
-      if (img) img.style.transformOrigin = 'center center';
-    });
-  }
+  // Zoom feature removed as requested. No event listeners for zoom.
 
   // --- 4. GALLERY THUMBNAIL LOGIC ---
   const thumbnails = document.querySelectorAll('.nano-gallery__thumb');
