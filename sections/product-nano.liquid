@@ -1,3 +1,4 @@
+
 {{ 'product-nano.css' | asset_url | stylesheet_tag }}
 <!-- GSAP & ScrollTrigger for premium animations -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
@@ -31,6 +32,8 @@
           {% endfor %}
         </div>
 
+
+
         <!-- Thumbnail Strip -->
         {% if product.images.size > 1 %}
         <div class="nano-gallery__thumbnails">
@@ -44,6 +47,25 @@
         {% endif %}
 
 
+
+      {% if product.handle == 'nano-ice-cooling-necklace-black' %}
+      <div class="nano-video-review-card" style="max-width:700px;margin:2rem auto 0 auto;padding:2.5rem 1.5rem;background:#eaf4fb;border-radius:24px;box-shadow:0 4px 24px rgba(47,101,156,0.10);display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
+        <div style="flex:0 0 160px;display:flex;justify-content:center;align-items:center;">
+          <div style="width:140px;height:140px;border-radius:50%;overflow:hidden;box-shadow:0 2px 12px rgba(47,101,156,0.13);background:#fff;display:flex;align-items:center;justify-content:center;">
+            <video style="width:140px;height:140px;object-fit:cover;" controls autoplay loop playsinline>
+              <source src="https://cdn.shopify.com/videos/c/o/v/8592fdaf6cb3498d83426eecf40b179a.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <div style="flex:1;min-width:220px;">
+          <div style="color:#222;font-size:1.5rem;font-weight:700;margin-bottom:0.5rem;">Loved By Customers</div>
+          <div style="color:#f5b50a;font-size:1.3rem;margin-bottom:0.5rem;">★★★★★</div>
+          <div style="font-size:1.08rem;color:#333;margin-bottom:0.5rem;">This video review shows the Black Cooling Necklace in action! Real people, real results.</div>
+          <div style="color:#3a3a3a;font-size:1rem;font-style:italic;">- Verified Customer</div>
+        </div>
+      </div>
+      {% endif %}
       </div><!-- /nano-hero__gallery -->
 
       <!-- RIGHT COLUMN: Product Info -->
@@ -293,6 +315,10 @@
     <a href="{{ collection.url }}" class="nano-back-link">&#8592; Back to {{ collection.title }}</a>
   </div>
   {% endif %}
+
+
+
+
 
 </div><!-- /nano-main-wrapper -->
 
