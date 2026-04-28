@@ -481,6 +481,30 @@ body {
   text-align: center;
 }
 
+/* Video review (black necklace) */
+.nano-video-review-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.nano-video-review {
+  width: 100%;
+  max-width: 680px;
+  border-radius: var(--nano-radius-md);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.nano-video-review-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--nano-accent);
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
 .nano-btn-outline {
   display: inline-flex;
   align-items: center;
