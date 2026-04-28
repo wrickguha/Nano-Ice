@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Nano Ice Custom Product Page Scripts
  * Handles Variant selection, GSAP Animations, AJAX Cart, and UI interactions.
  */
@@ -125,6 +125,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
+  });
+
+  // --- ACCORDION LOGIC ---
+  const accordions = document.querySelectorAll('.nano-accordion__item');
+  
+  accordions.forEach(accordion => {
+    const toggleBtn = accordion.querySelector('.nano-accordion__toggle');
+    const content = accordion.querySelector('.nano-accordion__content');
+    
+    if (toggleBtn && content) {
+      toggleBtn.addEventListener('click', () => {
+        const isOpen = accordion.classList.contains('is-open');
+        
+        // Close all other accordions
+        accordions.forEach(acc => {
+          acc.classList.remove('is-open');
+          const accContent = acc.querySelector('.nano-accordion__content');
+          if (accContent) accContent.style.maxHeight = null;
+        });
+        
+        // If it wasn't open, open it
+        if (!isOpen) {
+          accordion.classList.add('is-open');
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    }
   });
 
   // --- 4. QUANTITY SELECTOR ---

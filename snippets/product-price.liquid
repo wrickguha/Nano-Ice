@@ -20,17 +20,17 @@
 
 {% if compare_at_price > price and total_inventory >= 20 %}
   {% if price_varies %}
-    <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
-    <s class="product-price__price">{{ compare_at_price | money }}</s>
-    <span class="product-price__price product-price__sale">
+    <span class="product-price__price product-price__sale" style="color: #ef4444; font-weight: 700;">
       {{ money_price }}
     </span>
+    <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+    <s class="product-price__price" style="color: #9ca3af; margin-left: 5px;">{{ compare_at_price | money }}</s>
   {% else %}
-    <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
-    <s class="product-price__price">{{ compare_at_price | money }}</s>
-    <span class="product-price__price product-price__sale">
+    <span class="product-price__price product-price__sale" style="color: #ef4444; font-weight: 700;">
       {{ money_price }}
     </span>
+    <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+    <s class="product-price__price" style="color: #9ca3af; margin-left: 5px;">{{ compare_at_price | money }}</s>
   {% endif %}
 {% else %}
 

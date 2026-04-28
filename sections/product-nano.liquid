@@ -1,8 +1,4 @@
-
 {{ 'product-nano.css' | asset_url | stylesheet_tag }}
-<!-- GSAP & ScrollTrigger for premium animations -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
 <script src="{{ 'product-nano.js' | asset_url }}" defer></script>
 
 <div class="nano-main-wrapper" id="NanoProductSection" data-product-handle="{{ product.handle }}" data-section-id="{{ section.id }}">
@@ -12,32 +8,43 @@
   <section class="nano-hero">
     <div class="nano-container nano-hero__grid">
 
-      <!-- LEFT COLUMN: Image Gallery + 3D Viewer -->
+      <!-- LEFT COLUMN: Image Gallery -->
       <div class="nano-hero__gallery">
-
-        <!-- Featured Image -->
-        <div class="nano-gallery__featured">
-          {% for image in product.images %}
-            <div id="NanoImageWrapper-{{ section.id }}-{{ image.id }}"
-                 class="product-single__photo-wrapper js {% unless forloop.first %}hide{% endunless %}"
-                 data-image-id="{{ image.id }}">
-              <img
-                class="nano-main-image {% if forloop.first %}is-active{% endif %}"
-                src="{{ image | img_url: '1000x' }}"
-                alt="{{ image.alt | default: product.title }}"
-                data-image-id="{{ image.id }}"
-                loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
-              >
-            </div>
-          {% endfor %}
+        <div class="nano-gallery__main-wrapper">
+          <div class="nano-cooling-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="m19 5-7 7-7-7"/><path d="M2 12h20"/><path d="m5 19 7-7 7 7"/></svg>
+            <span>2+<br>HOURS<br><small>COOLING</small></span>
+          </div>
+          
+          <button class="nano-gallery__arrow nano-gallery__arrow--prev" aria-label="Previous image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          
+          <div class="nano-gallery__featured">
+            {% for image in product.images %}
+              <div id="NanoImageWrapper-{{ section.id }}-{{ image.id }}"
+                   class="product-single__photo-wrapper js {% unless forloop.first %}hide{% endunless %}"
+                   data-image-id="{{ image.id }}">
+                <img
+                  class="nano-main-image {% if forloop.first %}is-active{% endif %}"
+                  src="{{ image | img_url: '1000x' }}"
+                  alt="{{ image.alt | default: product.title }}"
+                  data-image-id="{{ image.id }}"
+                  loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                >
+              </div>
+            {% endfor %}
+          </div>
+          
+          <button class="nano-gallery__arrow nano-gallery__arrow--next" aria-label="Next image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
         </div>
-
-
 
         <!-- Thumbnail Strip -->
         {% if product.images.size > 1 %}
         <div class="nano-gallery__thumbnails">
-          {% for image in product.images %}
+          {% for image in product.images limit:4 %}
             <div class="nano-gallery__thumb {% if forloop.first %}is-active{% endif %}"
                  data-image-id="{{ image.id }}">
               <img src="{{ image | img_url: '150x' }}" alt="{{ image.alt | default: product.title }}">
@@ -45,79 +52,34 @@
           {% endfor %}
         </div>
         {% endif %}
-
-
-
-      {% if product.handle == 'nano-ice-cooling-necklace-black' %}
-      <div class="nano-video-review-card" style="max-width:700px;margin:2rem auto 0 auto;padding:2.5rem 1.5rem;background:#eaf4fb;border-radius:24px;box-shadow:0 4px 24px rgba(47,101,156,0.10);display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
-        <div style="flex:0 0 160px;display:flex;justify-content:center;align-items:center;">
-          <div style="width:140px;height:140px;border-radius:50%;overflow:hidden;box-shadow:0 2px 12px rgba(47,101,156,0.13);background:#fff;display:flex;align-items:center;justify-content:center;">
-            <video style="width:140px;height:140px;object-fit:cover;" controls autoplay loop playsinline>
-              <source src="https://cdn.shopify.com/videos/c/o/v/8592fdaf6cb3498d83426eecf40b179a.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-        <div style="flex:1;min-width:220px;">
-          <div style="color:#222;font-size:1.5rem;font-weight:700;margin-bottom:0.5rem;">Loved By Customers</div>
-          <div style="color:#f5b50a;font-size:1.3rem;margin-bottom:0.5rem;">★★★★★</div>
-          <div style="font-size:1.08rem;color:#333;margin-bottom:0.5rem;">This video review shows the Black Cooling Necklace in action! Real people, real results.</div>
-          <div style="color:#3a3a3a;font-size:1rem;font-style:italic;">- Verified Customer</div>
-        </div>
-      </div>
-      {% endif %}
       </div><!-- /nano-hero__gallery -->
 
       <!-- RIGHT COLUMN: Product Info -->
       <div class="nano-hero__info">
-        <div class="nano-hero__header">
-          <h1 class="nano-title" itemprop="name">{{ product.title }}</h1>
-          <div class="nano-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-            <meta itemprop="priceCurrency" content="{{ shop.currency }}">
-            <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
-            <span id="NanoPrice" class="nano-price__current" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">{{ current_variant.price | money }}</span>
-            {% if current_variant.compare_at_price > current_variant.price %}
-              <span id="NanoComparePrice" class="nano-price__compare"><s>{{ current_variant.compare_at_price | money }}</s></span>
-            {% endif %}
-          </div>
+        <h1 class="nano-title" itemprop="name">{{ product.title }}</h1>
+        
+        <div class="nano-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+          <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+          <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+          <span id="NanoPrice" class="nano-price__current" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">{{ current_variant.price | money }}</span>
         </div>
 
-        {% if section.settings.show_vendor %}
-          <p itemprop="brand" class="nano-vendor">{{ product.vendor }}</p>
-        {% endif %}
+        <a href="#reviews" class="nano-review-link">See reviews
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </a>
 
-        <!-- Trust badges removed as requested -->
+        <div class="nano-callout">
+          <span class="nano-callout-icon">✨</span>
+          <p>A bold, eye-catching design that keeps you cool while standing out.</p>
+        </div>
+
+        <div class="nano-short-desc">
+          Stay cool for over 2 hours with a wearable cooling necklace designed for real daily use. No water, no mess. Just consistent relief when you need it.
+        </div>
 
         {%- form 'product', product, id: 'NanoAddToCartForm', class: 'nano-form', enctype: 'multipart/form-data' -%}
-
-          <!-- Variant JSON for JS -->
-          <script type="application/json" id="NanoVariantJSON">
-            {{ product.variants | json }}
-          </script>
           <input type="hidden" name="id" id="NanoVariantId" value="{{ current_variant.id }}">
 
-          <!-- Variant Option Pills -->
-          {% unless product.has_only_default_variant %}
-          <div class="nano-variants">
-            {% for option in product.options_with_values %}
-              <div class="nano-option-wrapper">
-                <label class="nano-option-label">{{ option.name }}</label>
-                <div class="nano-pill-group" data-option-index="{{ forloop.index0 }}">
-                  {% for value in option.values %}
-                    <button
-                      type="button"
-                      class="nano-pill {% if option.selected_value == value %}is-active{% endif %}"
-                      data-value="{{ value | escape }}"
-                      data-option-index="{{ forloop.parentloop.index0 }}"
-                    >{{ value }}</button>
-                  {% endfor %}
-                </div>
-              </div>
-            {% endfor %}
-          </div>
-          {% endunless %}
-
-          <!-- Quantity + Add to Cart -->
           <div class="nano-form__actions">
             {% if section.settings.show_quantity_selector %}
             <div class="nano-qty">
@@ -128,383 +90,215 @@
             {% endif %}
 
             <button type="submit" name="add" id="NanoAddToCartBtn" class="nano-cta-button" {% unless current_variant.available %}disabled{% endunless %}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
               <span class="nano-cta__text">
-                {% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}
+                {% unless current_variant.available %}Sold Out{% else %}ADD TO CART{% endunless %}
               </span>
-              <span class="nano-cta__shine"></span>
             </button>
           </div>
         {%- endform -%}
 
-        <!-- Product Description -->
-        <div class="nano-desc-wrapper">
-          <div class="nano-desc-content rte" itemprop="description">
-            {{ product.description }}
+        <div class="nano-trust-icons">
+          <div class="nano-trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="m19 5-7 7-7-7"/><path d="M2 12h20"/><path d="m5 19 7-7 7 7"/></svg>
+            <span>2+ Hours<br>Cooling</span>
+          </div>
+          <div class="nano-trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+            <span>No Water,<br>No Dripping</span>
+          </div>
+          <div class="nano-trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            <span>Reusable</span>
+          </div>
+          <div class="nano-trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>30-Day<br>Free Returns</span>
           </div>
         </div>
-
-        <!-- Social Share Buttons -->
-        <div class="nano-social-share">
-          <span class="nano-social-share__label">Share this product:</span>
-          <div class="nano-social-share__buttons">
-            {%- assign share_url = shop.url | append: product.url -%}
-            {%- assign share_text = product.title | url_encode -%}
-            <a class="nano-social-btn nano-social-btn--facebook"
-               href="https://www.facebook.com/sharer/sharer.php?u={{ share_url | url_encode }}"
-               target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-              <span>Facebook</span>
-            </a>
-            <a class="nano-social-btn nano-social-btn--twitter"
-               href="https://twitter.com/intent/tweet?url={{ share_url | url_encode }}&text={{ share_text }}"
-               target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4l16 16M4 20 20 4" stroke="currentColor" stroke-width="0" fill="none"/><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L2.25 2.25h6.928l4.279 5.656 4.787-5.656Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              <span>Twitter</span>
-            </a>
-            <button class="nano-social-btn nano-social-btn--instagram"
-               data-share-url="{{ share_url }}" aria-label="Copy link to share on Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-              <span>Instagram</span>
-            </button>
-          </div>
-          <div class="nano-social-share__toast" id="NanoShareToast">Link copied! Paste it on Instagram.</div>
-        </div>
-
       </div><!-- /nano-hero__info -->
-
-      <!-- TESTIMONIALS — per-product via metafields (truly unique per product) -->
-      {%- assign t1_text   = product.metafields.testimonials.t1_text.value -%}
-      {%- assign t1_author = product.metafields.testimonials.t1_author.value -%}
-      {%- assign t1_stars  = product.metafields.testimonials.t1_stars.value -%}
-      {%- assign t1_photo  = product.metafields.testimonials.t1_photo.value -%}
-      {%- assign t2_text   = product.metafields.testimonials.t2_text.value -%}
-      {%- assign t2_author = product.metafields.testimonials.t2_author.value -%}
-      {%- assign t2_stars  = product.metafields.testimonials.t2_stars.value -%}
-      {%- assign t2_photo  = product.metafields.testimonials.t2_photo.value -%}
-      {%- assign t3_text   = product.metafields.testimonials.t3_text.value -%}
-      {%- assign t3_author = product.metafields.testimonials.t3_author.value -%}
-      {%- assign t3_stars  = product.metafields.testimonials.t3_stars.value -%}
-      {%- assign t3_photo  = product.metafields.testimonials.t3_photo.value -%}
-      {%- assign t4_text   = product.metafields.testimonials.t4_text.value -%}
-      {%- assign t4_author = product.metafields.testimonials.t4_author.value -%}
-      {%- assign t4_stars  = product.metafields.testimonials.t4_stars.value -%}
-      {%- assign t4_photo  = product.metafields.testimonials.t4_photo.value -%}
-      {%- assign has_metafield_testimonials = false -%}
-      {%- if t1_text != blank or t2_text != blank or t3_text != blank or t4_text != blank -%}
-        {%- assign has_metafield_testimonials = true -%}
-      {%- endif -%}
-
-      {%- assign matching_nano_blocks = 0 -%}
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'nano_testimonial' or block.type == 'nano_video_review' -%}
-          {%- if block.settings.product_handle == blank or block.settings.product_handle == product.handle -%}
-            {%- assign matching_nano_blocks = matching_nano_blocks | plus: 1 -%}
-          {%- endif -%}
-        {%- endif -%}
-      {%- endfor -%}
-
-      {% if section.settings.enable_testimonials %}
-        {% if has_metafield_testimonials %}
-          <div class="nano-testimonials-inline">
-            <h3 class="nano-testimonials-inline__title">{{ section.settings.testimonials_title }}</h3>
-            <p class="nano-testimonials-inline__subtitle">{{ section.settings.testimonials_subtitle }}</p>
-            <div class="nano-portraits__grid">
-              {% if t1_text != blank %}
-                <div class="nano-portrait-card">
-                  {% if t1_photo != blank %}
-                    <img src="{{ t1_photo }}" alt="{{ t1_author }}" class="nano-portrait__img">
-                  {% else %}
-                    <img src="https://i.pravatar.cc/400?u={{ t1_author | url_encode }}" alt="{{ t1_author }}" class="nano-portrait__img">
-                  {% endif %}
-                  <div class="nano-portrait__overlay">
-                    <div class="nano-stars">{{ t1_stars | default: '★★★★★' }}</div>
-                    <p>{{ t1_text }}</p>
-                    <span class="nano-portrait__name">- {{ t1_author }}</span>
-                  </div>
-                </div>
-              {% endif %}
-              {% if t2_text != blank %}
-                <div class="nano-portrait-card">
-                  {% if t2_photo != blank %}
-                    <img src="{{ t2_photo }}" alt="{{ t2_author }}" class="nano-portrait__img">
-                  {% else %}
-                    <img src="https://i.pravatar.cc/400?u={{ t2_author | url_encode }}" alt="{{ t2_author }}" class="nano-portrait__img">
-                  {% endif %}
-                  <div class="nano-portrait__overlay">
-                    <div class="nano-stars">{{ t2_stars | default: '★★★★★' }}</div>
-                    <p>{{ t2_text }}</p>
-                    <span class="nano-portrait__name">- {{ t2_author }}</span>
-                  </div>
-                </div>
-              {% endif %}
-              {% if t3_text != blank %}
-                <div class="nano-portrait-card">
-                  {% if t3_photo != blank %}
-                    <img src="{{ t3_photo }}" alt="{{ t3_author }}" class="nano-portrait__img">
-                  {% else %}
-                    <img src="https://i.pravatar.cc/400?u={{ t3_author | url_encode }}" alt="{{ t3_author }}" class="nano-portrait__img">
-                  {% endif %}
-                  <div class="nano-portrait__overlay">
-                    <div class="nano-stars">{{ t3_stars | default: '★★★★★' }}</div>
-                    <p>{{ t3_text }}</p>
-                    <span class="nano-portrait__name">- {{ t3_author }}</span>
-                  </div>
-                </div>
-              {% endif %}
-              {% if t4_text != blank %}
-                <div class="nano-portrait-card">
-                  {% if t4_photo != blank %}
-                    <img src="{{ t4_photo }}" alt="{{ t4_author }}" class="nano-portrait__img">
-                  {% else %}
-                    <img src="https://i.pravatar.cc/400?u={{ t4_author | url_encode }}" alt="{{ t4_author }}" class="nano-portrait__img">
-                  {% endif %}
-                  <div class="nano-portrait__overlay">
-                    <div class="nano-stars">{{ t4_stars | default: '★★★★★' }}</div>
-                    <p>{{ t4_text }}</p>
-                    <span class="nano-portrait__name">- {{ t4_author }}</span>
-                  </div>
-                </div>
-              {% endif %}
-            </div>
-          </div>
-        {% elsif matching_nano_blocks > 0 %}
-          <div class="nano-testimonials-inline">
-            <h3 class="nano-testimonials-inline__title">{{ section.settings.testimonials_title }}</h3>
-            <p class="nano-testimonials-inline__subtitle">{{ section.settings.testimonials_subtitle }}</p>
-            <div class="nano-portraits__grid">
-              {% for block in section.blocks %}
-                {% if block.type == 'nano_testimonial' %}
-                  {% if block.settings.product_handle == blank or block.settings.product_handle == product.handle %}
-                  <div class="nano-portrait-card" {{ block.shopify_attributes }}>
-                    {% if block.settings.image_url != blank %}
-                      <img src="{{ block.settings.image_url }}" alt="{{ block.settings.author }}" class="nano-portrait__img">
-                    {% elsif block.settings.image != blank %}
-                      <img src="{{ block.settings.image | img_url: '400x400', crop: 'center' }}" alt="{{ block.settings.author }}" class="nano-portrait__img">
-                    {% else %}
-                      <img src="https://i.pravatar.cc/400?u={{ block.settings.author | url_encode }}" alt="{{ block.settings.author }}" class="nano-portrait__img">
-                    {% endif %}
-                    <div class="nano-portrait__overlay">
-                      <div class="nano-stars">{{ block.settings.rating }}</div>
-                      <p>{{ block.settings.text }}</p>
-                      <span class="nano-portrait__name">- {{ block.settings.author }}</span>
-                    </div>
-                  </div>
-                  {% endif %}
-                {% endif %}
-                {% if block.type == 'nano_video_review' %}
-                  {% if block.settings.product_handle == blank or block.settings.product_handle == product.handle %}
-                  <div class="nano-portrait-card nano-video-card" {{ block.shopify_attributes }}>
-                    <video class="nano-video-card__video" autoplay muted loop playsinline controls>
-                      <source src="{{ block.settings.video_url }}" type="video/mp4">
-                    </video>
-                  </div>
-                  {% endif %}
-                {% endif %}
-              {% endfor %}
-            </div>
-          </div>
-        {% endif %}
-      {% endif %}
-
-    </div><!-- /nano-hero__grid -->
+    </div><!-- /nano-container -->
   </section><!-- /nano-hero -->
 
+  <!-- ACCORDION SECTION -->
+  <section class="nano-accordion-section nano-container">
+    <div class="nano-accordion">
+      <div class="nano-accordion__item">
+        <button class="nano-accordion__toggle">
+          <div class="nano-accordion__title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="m19 5-7 7-7-7"/><path d="M2 12h20"/><path d="m5 19 7-7 7 7"/></svg>
+            How It Works
+          </div>
+          <svg class="nano-accordion__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="nano-accordion__content">
+          <div class="nano-accordion__inner">
+            <p>Nano-Ice uses a proprietary cooling technology inside the spheres. Simply place the necklace in the freezer for 2 hours, and it will stay cool for over 2 hours at room temperature, providing consistent relief.</p>
+          </div>
+        </div>
+      </div>
 
-  {% if collection %}
-  <div class="nano-return-link">
-    <a href="{{ collection.url }}" class="nano-back-link">&#8592; Back to {{ collection.title }}</a>
-  </div>
-  {% endif %}
+      <div class="nano-accordion__item">
+        <button class="nano-accordion__toggle">
+          <div class="nano-accordion__title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+            Key Benefits
+          </div>
+          <svg class="nano-accordion__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="nano-accordion__content">
+          <div class="nano-accordion__inner">
+            <ul>
+              <li>Instant relief from hot flashes and heat fatigue.</li>
+              <li>No dripping water, completely dry exterior.</li>
+              <li>Reusable thousands of times.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
+      <div class="nano-accordion__item">
+        <button class="nano-accordion__toggle">
+          <div class="nano-accordion__title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg>
+            Design & Comfort
+          </div>
+          <svg class="nano-accordion__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="nano-accordion__content">
+          <div class="nano-accordion__inner">
+            <p>Designed to drape comfortably around your neck, the cooling spheres are encased in a soft, premium fabric that feels great against the skin while looking stylish.</p>
+          </div>
+        </div>
+      </div>
 
+      <div class="nano-accordion__item">
+        <button class="nano-accordion__toggle">
+          <div class="nano-accordion__title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            Important Note
+          </div>
+          <svg class="nano-accordion__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="nano-accordion__content">
+          <div class="nano-accordion__inner">
+            <p>Do not bend the spheres when frozen solid. Allow them to slightly soften if you need to adjust the shape.</p>
+          </div>
+        </div>
+      </div>
 
+      <div class="nano-accordion__item">
+        <button class="nano-accordion__toggle">
+          <div class="nano-accordion__title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18H3c-.6 0-1-.4-1-1V7c0-.6.4-1 1-1h10c.6 0 1 .4 1 1v11"/><path d="M14 9h4l4 4v4c0 .6-.4 1-1 1h-2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+            Shipping
+          </div>
+          <svg class="nano-accordion__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="nano-accordion__content">
+          <div class="nano-accordion__inner">
+            <p>Free standard shipping on all orders over $50 within the contiguous USA. International shipping available.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- REVIEWS SECTION -->
+  <section class="nano-reviews-section nano-container" id="reviews">
+    <div class="nano-reviews-header">
+      <h2>What Customers Are Saying</h2>
+      <p>Real experiences from people who use Nano-Ice for heat relief.</p>
+    </div>
+    
+    <div class="nano-reviews-grid">
+      <div class="nano-review-card">
+        <div class="nano-review-card__header">
+          <img src="https://i.pravatar.cc/150?u=1" alt="Linda M." class="nano-review-avatar">
+          <div class="nano-quote-icon">“</div>
+        </div>
+        <div class="nano-review-text">
+          This necklace really helps with my hot flashes. I keep it in the freezer and it stays cold for hours.
+        </div>
+        <div class="nano-review-divider"></div>
+        <div class="nano-review-author">- Linda M.</div>
+        <div class="nano-verified">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          Verified Buyer
+        </div>
+      </div>
+
+      <div class="nano-review-card">
+        <div class="nano-review-card__header">
+          <img src="https://i.pravatar.cc/150?u=2" alt="Sarah T." class="nano-review-avatar">
+          <div class="nano-quote-icon">“</div>
+        </div>
+        <div class="nano-review-text">
+          Beautiful and actually works. I didn't expect both, but it delivers.
+        </div>
+        <div class="nano-review-divider"></div>
+        <div class="nano-review-author">- Sarah T.</div>
+        <div class="nano-verified">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          Verified Buyer
+        </div>
+      </div>
+
+      <div class="nano-review-card">
+        <div class="nano-review-card__header">
+          <img src="https://i.pravatar.cc/150?u=3" alt="Karen P." class="nano-review-avatar">
+          <div class="nano-quote-icon">“</div>
+        </div>
+        <div class="nano-review-text">
+          I wear it every day in summer. Makes a huge difference.
+        </div>
+        <div class="nano-review-divider"></div>
+        <div class="nano-review-author">- Karen P.</div>
+        <div class="nano-verified">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          Verified Buyer
+        </div>
+      </div>
+    </div>
+
+    <div class="nano-reviews-footer">
+      <a href="/pages/reviews" class="nano-btn-outline">VIEW ALL REVIEWS &rarr;</a>
+    </div>
+  </section>
+
+  <!-- FEATURES BANNER -->
+  <section class="nano-features-banner nano-container">
+    <div class="nano-features-grid">
+      <div class="nano-feature-item">
+        <svg class="nano-feature-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+        <div class="nano-feature-text">Helps Reduce<br>Heat Fatigue</div>
+      </div>
+      <div class="nano-feature-item">
+        <svg class="nano-feature-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <div class="nano-feature-text">Great for Hot Flashes,<br>MS, Migraines & More</div>
+      </div>
+      <div class="nano-feature-item">
+        <svg class="nano-feature-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <div class="nano-feature-text">Wear at Home, Work,<br>Travel & Outdoors</div>
+      </div>
+      <div class="nano-feature-item">
+        <svg class="nano-feature-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <div class="nano-feature-text">Loved by People<br>Across the USA</div>
+      </div>
+    </div>
+  </section>
 
 </div><!-- /nano-main-wrapper -->
 
 {% schema %}
 {
   "name": "Nano Ice Product",
-  "tag": "section",
-  "class": "nano-product-section",
   "settings": [
-    {
-      "type": "header",
-      "content": "Trust Badges"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_free_shipping",
-      "label": "Show free shipping badge",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_returns",
-      "label": "Show 30-day returns badge",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_premium_badge",
-      "label": "Show premium cooling badge",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_vendor",
-      "label": "Show product vendor",
-      "default": false
-    },
     {
       "type": "checkbox",
       "id": "show_quantity_selector",
       "label": "Show quantity selector",
       "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_share_buttons",
-      "label": "Show social sharing buttons",
-      "default": false
-    },
-    {
-      "type": "header",
-      "content": "Testimonials"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_testimonials",
-      "label": "Enable testimonials section",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "testimonials_title",
-      "label": "Testimonials section title",
-      "default": "Loved By Thousands"
-    },
-    {
-      "type": "text",
-      "id": "testimonials_subtitle",
-      "label": "Testimonials section subtitle",
-      "default": "Real people, real results. See why customers can\u2019t stop talking about it."
-    }
-  ],
-  "blocks": [
-    {
-      "type": "nano_testimonial",
-      "name": "Testimonial",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Customer photo (uploaded)"
-        },
-        {
-          "type": "text",
-          "id": "image_url",
-          "label": "Customer photo URL (external)",
-          "info": "If set, this overrides the uploaded photo above."
-        },
-        {
-          "type": "text",
-          "id": "author",
-          "label": "Customer name",
-          "default": "Happy Customer"
-        },
-        {
-          "type": "text",
-          "id": "rating",
-          "label": "Star rating",
-          "default": "\u2605\u2605\u2605\u2605\u2605"
-        },
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Testimonial text",
-          "default": "Great product!"
-        },
-        {
-          "type": "text",
-          "id": "product_handle",
-          "label": "Product handle (leave blank to show on all products)",
-          "info": "Only show this review on one specific product page, e.g. cooling-necklace-grey"
-        }
-      ]
-    },
-    {
-      "type": "nano_video_review",
-      "name": "Video Review",
-      "settings": [
-        {
-          "type": "text",
-          "id": "video_url",
-          "label": "Video URL",
-          "info": "Direct link to an .mp4 video file (e.g. CDN URL)"
-        },
-        {
-          "type": "text",
-          "id": "author",
-          "label": "Customer name",
-          "default": "Happy Customer"
-        },
-        {
-          "type": "text",
-          "id": "rating",
-          "label": "Star rating",
-          "default": "\u2605\u2605\u2605\u2605\u2605"
-        },
-        {
-          "type": "text",
-          "id": "product_handle",
-          "label": "Product handle (leave blank to show on all products)",
-          "info": "Only show this review on one specific product page, e.g. nano-ice-cooling-necklace-black"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Nano Ice Product",
-      "blocks": [
-        {
-          "type": "nano_testimonial",
-          "settings": {
-            "image_url": "https://i.pravatar.cc/400?img=47",
-            "author": "Sarah M.",
-            "rating": "\u2605\u2605\u2605\u2605\u2605",
-            "text": "An absolute lifesaver during my hot flashes. Nothing else has worked this well and lasted this long."
-          }
-        },
-        {
-          "type": "nano_testimonial",
-          "settings": {
-            "image_url": "https://i.pravatar.cc/400?img=12",
-            "author": "Jason T.",
-            "rating": "\u2605\u2605\u2605\u2605\u2605",
-            "text": "I work in a 110\u00b0F greenhouse and this is the only way I survive the shifts."
-          }
-        },
-        {
-          "type": "nano_testimonial",
-          "settings": {
-            "image_url": "https://i.pravatar.cc/400?img=32",
-            "author": "Emily K.",
-            "rating": "\u2605\u2605\u2605\u2605\u2605",
-            "text": "Comfortable, fits perfectly, and actually stays cold for hours. Worth every penny."
-          }
-        },
-        {
-          "type": "nano_testimonial",
-          "settings": {
-            "image_url": "https://i.pravatar.cc/400?img=7",
-            "author": "David R.",
-            "rating": "\u2605\u2605\u2605\u2605\u2605",
-            "text": "Bought one for my whole crew. Game changer for outdoor summer work. Will buy again."
-          }
-        }
-      ]
     }
   ]
 }

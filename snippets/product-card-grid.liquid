@@ -4,36 +4,21 @@
     {%- assign total_inventory = total_inventory | plus: variant.inventory_quantity -%}
   {%- endfor -%}
   <a class="grid-view-item__link grid-view-item__image-container" href="{{ product.url | within: collection }}">
-    {% if product.available and total_inventory >= 20 %}
-      <span class="badge sale-badge">SALE</span>
+    {% if product.compare_at_price > product.price and product.available and total_inventory >= 20 %}
+      {%- assign savings = product.compare_at_price | minus: product.price -%}
+      {%- assign percentage = savings | times: 100.0 | divided_by: product.compare_at_price | round -%}
+      <span class="badge sale-badge">SAVE {{ percentage }}%</span>
     {% endif %}
-    {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
-    {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
-    {%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-
-    {% unless product.featured_image == blank %}
-      {% include 'image-style' with image: product.featured_image, width: max_height, height: max_height, small_style: true, wrapper_id: wrapper_id, img_id: img_id %}
-    {% endunless %}
-
-    <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper js">
-      <div style="padding-top:{% unless product.featured_image == blank %}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%{% else %}100%{% endunless %};">
-        <img id="{{ img_id }}"
-             class="grid-view-item__image lazyload"
-             src="{{ product.featured_image | img_url: '300x300' }}"
-             data-src="{{ img_url }}"
-             data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-             data-aspectratio="{{ product.featured_image.aspect_ratio }}"
-             data-sizes="auto"
-             alt="{{ product.featured_image.alt | escape }}">
+    <div class="custom-product-image-wrapper">
+      <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.featured_image.alt | escape }}" loading="lazy" class="custom-product-image">
+      <div class="cooling-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="m19 5-7 7-7-7"/><path d="M2 12h20"/><path d="m5 19 7-7 7 7"/></svg>
+        2+ HOURS COOLING
       </div>
     </div>
 
-    <noscript>
-      {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
-      <img class="grid-view-item__image" src="{{ product.featured_image.src | img_url: image_size, scale: 2 }}" alt="{{ product.featured_image.alt }}" style="max-width: {{ max_height | times: product.featured_image.aspect_ratio }}px;">
-    </noscript>
-
     <div class="h4 grid-view-item__title">{{ product.title }}</div>
+    <div class="product-card-desc">{{ product.description | strip_html | truncatewords: 15 }}</div>
     {% if section.settings.show_vendor %}
       <div class="grid-view-item__vendor">{{ product.vendor }}</div>
     {% endif %}
@@ -41,10 +26,4 @@
       {% include 'product-price' %}
     </div>
   </a>
-  {% if product.available %}
-    <form method="post" action="/cart/add" class="ni-quick-add">
-      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-      <button type="submit" class="btn ni-quick-add__btn">Add To Cart</button>
-    </form>
-  {% endif %}
 </div>
