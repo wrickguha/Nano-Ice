@@ -225,3 +225,19 @@
 .social-icons a svg, .social-icons__link svg {
   fill: currentColor !important; /* Uses the #666 or #fff on hover */
 }
+
+/* Minimize collection header section for better product visibility */
+.custom-collection-header-wrapper {
+  margin-bottom: 12px !important;
+  padding: 16px 0 8px 0 !important;
+}
+.custom-collection-header-wrapper .custom-title {
+  font-size: 1.5rem !important;
+  line-height: 1.2 !important;
+  margin-bottom: 0.25em !important;
+}
+.custom-collection-header-wrapper .custom-subtitle {
+  font-size: 1rem !important;
+  line-height: 1.3 !important;
+  margin-bottom: 0 !important;
+}

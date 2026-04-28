@@ -15,7 +15,9 @@
   {%- assign limit = 16 -%}
 {% endif %}
 
+
 {{ 'collection-filters.css' | asset_url | stylesheet_tag }}
+{{ 'custom-css-shopify.css' | asset_url | stylesheet_tag }}
 
 {% paginate collection.products by limit %}
 
