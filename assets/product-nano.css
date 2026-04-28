@@ -387,6 +387,110 @@ body {
   background-color: white;
 }
 
+/* Inline reviews inside the right product column */
+.nano-reviews-inline {
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 1px solid var(--nano-border);
+}
+
+.nano-reviews-inline .nano-reviews-header {
+  margin-bottom: 16px;
+}
+
+.nano-reviews-inline .nano-reviews-header h2 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.nano-reviews-inline .nano-reviews-header p {
+  font-size: 13px;
+}
+
+/* Slider wrapper */
+.nano-review-slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.nano-review-slider__track {
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.nano-review-slider__track .nano-review-card {
+  flex: 0 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  overflow: visible;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Slider controls row */
+.nano-review-slider__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+
+.nano-review-slider__arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.nano-review-slider__btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--nano-border);
+  background: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--nano-primary);
+  transition: var(--nano-transition);
+}
+
+.nano-review-slider__btn:hover {
+  background: var(--nano-ice-blue);
+  border-color: var(--nano-accent);
+}
+
+.nano-review-slider__btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* Dots */
+.nano-review-slider__dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.nano-review-slider__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--nano-border);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+
+.nano-review-slider__dot.is-active {
+  background: var(--nano-accent);
+  width: 18px;
+  border-radius: 4px;
+}
+
 .nano-reviews-header {
   margin-bottom: 40px;
 }
@@ -452,7 +556,6 @@ body {
   color: var(--nano-primary);
   line-height: 1.6;
   margin-bottom: 20px;
-  min-height: 70px;
 }
 
 .nano-review-divider {

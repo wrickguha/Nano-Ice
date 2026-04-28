@@ -290,6 +290,67 @@ document.addEventListener('DOMContentLoaded', () => {
       }),
       start: 'top 85%'
     });
-  }
+  // --- REVIEW SLIDER ---
+  document.querySelectorAll('[data-review-slider]').forEach(slider => {
+    const track = slider.querySelector('.nano-review-slider__track');
+    const dotsContainer = slider.querySelector('[data-review-dots]');
+    const prevBtn = slider.querySelector('[data-review-prev]');
+    const nextBtn = slider.querySelector('[data-review-next]');
+
+    if (!track) return;
+
+    const cards = Array.from(track.children);
+    const total = cards.length;
+    let current = 0;
+    let autoTimer = null;
+    let cardWidth = 0;
+
+    function applyWidths() {
+      cardWidth = slider.getBoundingClientRect().width;
+      cards.forEach(card => { card.style.width = cardWidth + 'px'; });
+    }
+
+    function goTo(index) {
+      current = ((index % total) + total) % total;
+      track.style.transform = `translateX(-${current * cardWidth}px)`;
+      dotsContainer && dotsContainer.querySelectorAll('.nano-review-slider__dot').forEach((d, i) => {
+        d.classList.toggle('is-active', i === current);
+      });
+    }
+
+    function startAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => goTo(current + 1), 5000);
+    }
+
+    // Build dots
+    if (dotsContainer) {
+      cards.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'nano-review-slider__dot' + (i === 0 ? ' is-active' : '');
+        dot.setAttribute('aria-label', 'Review ' + (i + 1));
+        dot.addEventListener('click', () => { goTo(i); startAuto(); });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => { goTo(current - 1); startAuto(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { goTo(current + 1); startAuto(); });
+
+    window.addEventListener('resize', () => { applyWidths(); goTo(current); });
+
+    // Defer init until element is painted and has a real width
+    function initWhenReady() {
+      const w = slider.getBoundingClientRect().width;
+      if (w > 0) {
+        applyWidths();
+        goTo(0);
+        startAuto();
+      } else {
+        requestAnimationFrame(initWhenReady);
+      }
+    }
+    requestAnimationFrame(initWhenReady);
+  });
 
 });

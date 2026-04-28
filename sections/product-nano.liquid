@@ -126,6 +126,173 @@
             <span>Free returns</span>
           </div>
         </div>
+
+        <!-- REVIEWS SECTION -->
+        {%- assign _show_reviews = false -%}
+        {%- assign _has_video_review = false -%}
+        {%- if product.handle == 'cooling-necklace-grey' or product.handle == 'cooling-necklace-bright-purple-with-an-extra-cooling-sphere' or product.handle == 'copy-of-cooling-scarf-purple' or product.handle == 'cooling-scarf-paisley-cooling-balls-included' or product.handle == 'cooling-scarf-grey' -%}
+          {%- assign _show_reviews = true -%}
+        {%- endif -%}
+        {%- if product.handle == 'nano-ice-cooling-necklace-black' -%}
+          {%- assign _has_video_review = true -%}
+        {%- endif -%}
+
+        {%- if _show_reviews or _has_video_review -%}
+        <div class="nano-reviews-inline" id="reviews">
+
+          {%- if _has_video_review -%}
+          <div class="nano-video-review-wrapper">
+            <video class="nano-video-review" autoplay muted loop playsinline controls>
+              <source src="https://cdn.shopify.com/videos/c/o/v/8592fdaf6cb3498d83426eecf40b179a.mp4" type="video/mp4">
+            </video>
+            <p class="nano-video-review-label">&starf;&starf;&starf;&starf;&starf; &mdash; Verified Customer</p>
+          </div>
+          {%- endif -%}
+
+          {%- if _show_reviews -%}
+          <div class="nano-review-slider" data-review-slider>
+          <div class="nano-review-slider__track">
+            {%- if product.handle == 'cooling-necklace-grey' or product.handle == 'cooling-scarf-grey' -%}
+            <div class="nano-review-card">
+              <div class="nano-review-card__header">
+                <img src="https://nano-ice.com/cdn/shop/files/Amy_C_400x400_crop_center.jpg?v=1613171788" alt="Amy C." class="nano-review-avatar">
+                <div class="nano-quote-icon">"</div>
+              </div>
+              <div class="nano-review-text">
+                Ahhhhhh! Works very well. Within one minute, you can feel a cooling effect begin. Sometimes I wear it with the tie down, then switch it around. The material is so soft, which is nice.
+              </div>
+              <div class="nano-review-divider"></div>
+              <div class="nano-review-author">- Amy C.</div>
+              <div class="nano-verified">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Verified Buyer
+              </div>
+            </div>
+            <div class="nano-review-card">
+              <div class="nano-review-card__header">
+                <img src="https://nano-ice.com/cdn/shop/files/Pam_L_400x400_crop_center.jpg?v=1613171788" alt="Pamela L." class="nano-review-avatar">
+                <div class="nano-quote-icon">"</div>
+              </div>
+              <div class="nano-review-text">
+                It's 91 degrees here, but I'm chillin' with my cooling necklace.
+              </div>
+              <div class="nano-review-divider"></div>
+              <div class="nano-review-author">- Pamela L.</div>
+              <div class="nano-verified">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Verified Buyer
+              </div>
+            </div>
+            {%- elsif product.handle == 'cooling-necklace-bright-purple-with-an-extra-cooling-sphere' -%}
+            <div class="nano-review-card">
+              <div class="nano-review-card__header">
+                <img src="https://nano-ice.com/cdn/shop/files/Christy_s_Review_2_400x400_crop_center.jpg?v=1613171787" alt="Christy G." class="nano-review-avatar">
+                <div class="nano-quote-icon">"</div>
+              </div>
+              <div class="nano-review-text">
+                These necklaces are the best! They help keep me cool all throughout the year, especially in the heat of summer. I honestly don't know what I would do without them!
+              </div>
+              <div class="nano-review-divider"></div>
+              <div class="nano-review-author">- Christy G.</div>
+              <div class="nano-verified">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Verified Buyer
+              </div>
+            </div>
+            <div class="nano-review-card">
+              <div class="nano-review-card__header">
+                <img src="https://nano-ice.com/cdn/shop/files/Laura_S_400x400_crop_center.jpg?v=1613171788" alt="Laura S." class="nano-review-avatar">
+                <div class="nano-quote-icon">"</div>
+              </div>
+              <div class="nano-review-text">
+                I couldn't resist letting my dog try my Nano-Ice necklace. She seemed to love it! We're definitely beating this heat with our Nano-Ice necklaces!
+              </div>
+              <div class="nano-review-divider"></div>
+              <div class="nano-review-author">- Laura S.</div>
+              <div class="nano-verified">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Verified Buyer
+              </div>
+            </div>
+            {%- elsif product.handle == 'copy-of-cooling-scarf-purple' -%}
+            <div class="nano-review-card">
+              <div class="nano-review-card__header">
+                <img src="https://nano-ice.com/cdn/shop/files/Purple_Scarf_dde6c61a-f1ad-4f45-b9ec-70ac9d6b183f_400x400_crop_center.jpg?v=1613178277" alt="Gene B." class="nano-review-avatar">
+                <div class="nano-quote-icon">"</div>
+              </div>
+              <div class="nano-review-text">
+                Love my Nano-Ice scarf necklace because it keeps me from melting away during this heat wave — in style!
+              </div>
+              <div class="nano-review-divider"></div>
+              <div class="nano-review-author">- Gene B.</div>
+              <div class="nano-verified">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Verified Buyer
+              </div>
+            </div>
+            <div class="nano-review-card">
+              <div class="nano-review-card__header">
+                <img src="https://nano-ice.com/cdn/shop/files/Christy_s_Review_2_400x400_crop_center.jpg?v=1613171787" alt="Christy G." class="nano-review-avatar">
+                <div class="nano-quote-icon">"</div>
+              </div>
+              <div class="nano-review-text">
+                These necklaces are the best! They help keep me cool all throughout the year, especially in the heat of summer. I honestly don't know what I would do without them!
+              </div>
+              <div class="nano-review-divider"></div>
+              <div class="nano-review-author">- Christy G.</div>
+              <div class="nano-verified">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Verified Buyer
+              </div>
+            </div>
+            {%- elsif product.handle == 'cooling-scarf-paisley-cooling-balls-included' -%}
+            <div class="nano-review-card">
+              <div class="nano-review-card__header">
+                <img src="https://nano-ice.com/cdn/shop/files/image2_400x400_crop_center.JPG?v=1615922987" alt="Jenn F." class="nano-review-avatar">
+                <div class="nano-quote-icon">"</div>
+              </div>
+              <div class="nano-review-text">
+                I have been wearing two for the last week. I've recommended this cooling necklace to many because of the extreme heat wave. I think you'll get a lot more business from this town — not to mention more from me, now that my daughters have borrowed several necklaces daily.
+              </div>
+              <div class="nano-review-divider"></div>
+              <div class="nano-review-author">- Jenn F.</div>
+              <div class="nano-verified">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Verified Buyer
+              </div>
+            </div>
+            <div class="nano-review-card">
+              <div class="nano-review-card__header">
+                <img src="https://nano-ice.com/cdn/shop/files/Laura_S_400x400_crop_center.jpg?v=1613171788" alt="Laura S." class="nano-review-avatar">
+                <div class="nano-quote-icon">"</div>
+              </div>
+              <div class="nano-review-text">
+                I couldn't resist letting my dog try my Nano-Ice necklace. She seemed to love it! We're definitely beating this heat with our Nano-Ice necklaces!
+              </div>
+              <div class="nano-review-divider"></div>
+              <div class="nano-review-author">- Laura S.</div>
+              <div class="nano-verified">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Verified Buyer
+              </div>
+            </div>
+            {%- endif -%}
+          </div><!-- /track -->
+          <div class="nano-review-slider__controls">
+            <div class="nano-review-slider__dots" data-review-dots></div>
+            <div class="nano-review-slider__arrows">
+              <button class="nano-review-slider__btn" data-review-prev aria-label="Previous review">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              <button class="nano-review-slider__btn" data-review-next aria-label="Next review">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+          </div><!-- /nano-review-slider -->
+          {%- endif -%}
+        </div>
+        {%- endif -%}
       </div><!-- /nano-hero__info -->
     </div><!-- /nano-container -->
   </section><!-- /nano-hero -->
@@ -214,18 +381,9 @@
     </div>
   </section>
 
-  <!-- REVIEWS SECTION -->
-  {%- assign _show_reviews = false -%}
-  {%- assign _has_video_review = false -%}
-  {%- if product.handle == 'cooling-necklace-grey' or product.handle == 'cooling-necklace-bright-purple-with-an-extra-cooling-sphere' or product.handle == 'copy-of-cooling-scarf-purple' or product.handle == 'cooling-scarf-paisley-cooling-balls-included' or product.handle == 'cooling-scarf-grey' -%}
-    {%- assign _show_reviews = true -%}
-  {%- endif -%}
-  {%- if product.handle == 'nano-ice-cooling-necklace-black' -%}
-    {%- assign _has_video_review = true -%}
-  {%- endif -%}
-
-  {%- if _show_reviews or _has_video_review -%}
-  <section class="nano-reviews-section nano-container" id="reviews">
+  {%- comment -%}Reviews moved to right column inside nano-hero__info{%- endcomment -%}
+  {%- if false -%}
+  <section class="nano-reviews-section nano-container" id="reviews-old">
     <div class="nano-reviews-header">
       <h2>Loved By Thousands</h2>
       <p>Real people, real results. See why customers can&rsquo;t stop talking about it.</p>
