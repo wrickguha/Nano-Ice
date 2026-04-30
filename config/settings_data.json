@@ -62,10 +62,10 @@
           "logo": "shopify://shop_images/New_logo.png",
           "logo_max_width": "100",
           "main_linklist": "main-menu",
-          "message": false,
+          "message": true,
           "home_page_only": false,
-          "message_text": "Click here to see our MSNBC pitch!",
-          "message_link": "https://www.ms.now/your-business/watch/nano-ice-a-freezer-charged-cooling-necklace-1072536131734",
+          "message_text": "Mother’s Day Special: Get Grey Cooling Necklace at 34% OFF for a limited period",
+          "message_link": "shopify://products/cooling-necklace-grey",
           "color_bg": "#73afd2",
           "color_text": "#ffffff"
         }
@@ -275,8 +275,7 @@
           "1532377881346"
         ],
         "settings": {
-          "title": "Testimonials",
-          "align_text": "left"
+          "title": "Testimonials"
         }
       },
       "1539461200387": {
@@ -336,6 +335,20 @@
       "slideshow_GaefaB": {
         "type": "slideshow",
         "blocks": {
+          "image_TJ6XwN": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/ChatGPT_Image_Apr_30_2026_11_27_28_PM.png",
+              "alignment": "center",
+              "title": "Mother’s Day Special",
+              "subheading": "Get the Grey Cooling Necklace at 34% off",
+              "button_label": "Shop here",
+              "button_link": "shopify://products/cooling-necklace-grey",
+              "btn_bg": "#03aed2",
+              "btn_text": "#ffffff",
+              "link": ""
+            }
+          },
           "image_rebRdz": {
             "type": "image",
             "settings": {
@@ -380,6 +393,7 @@
           }
         },
         "block_order": [
+          "image_TJ6XwN",
           "image_rebRdz",
           "image_ff63CA",
           "image_DM3DK9"
@@ -410,31 +424,13 @@
       "problem_solution_Xk9mP2": {
         "type": "problem-solution",
         "settings": {
-          "section_heading": "Why Nano-Ice?",
-          "section_subheading": "The science of staying cool — simplified.",
-          "problem_tag": "THE PROBLEM",
-          "problem_heading": "Heat isn't just uncomfortable. It's limiting.",
-          "problem_point_1": "Outdoor activities cut short by overheating",
-          "problem_point_2": "Hot flashes & medical conditions with no instant relief",
-          "problem_point_3": "Regular ice packs are bulky, messy, and melt fast",
-          "problem_note": "Traditional cooling methods weren't designed for life on the go.",
-          "solution_tag": "THE SOLUTION",
-          "solution_heading": "Cooling that actually lasts.",
-          "solution_stat": "2+ hours",
-          "solution_stat_label": "of continuous cooling per charge",
-          "solution_point_1": "Freezes in just 20 minutes",
-          "solution_point_2": "Stylish enough to wear anywhere",
-          "solution_point_3": "Reusable — no refills needed",
-          "solution_cta_text": "Shop Cooling Necklaces",
-          "solution_cta_link": "/collections/all",
-          "works_tag": "HOW IT WORKS",
-          "works_heading": "Simple. Effective. Beautiful.",
-          "works_step1_title": "Fast Freeze",
-          "works_step1_desc": "Place in your freezer for 20 minutes. The nano-spheres lock in cold.",
-          "works_step2_title": "Consistent Cooling",
-          "works_step2_desc": "Enjoy 2+ hours of steady, evenly distributed cold therapy.",
-          "works_step3_title": "Comfortable Wear",
-          "works_step3_desc": "Lightweight, flexible design sits comfortably on your neck all day."
+          "problem_title_1": "Heat doesn't just feel uncomfortable.",
+          "problem_title_2": "It quietly takes control of your day.",
+          "problem_footer": "Before you even notice.",
+          "solution_title": "That's why we created Nano-ice.",
+          "solution_description": "<p>Designed to stay cool for <strong>up to 2 hours</strong>, giving you consistent relief instead of short bursts.</p><p>Worn around your neck, it cools <strong>key pulse points</strong> like the carotid arteries, where blood flow is higher, helping your body feel <strong>cooler for longer</strong>, even after you take it off.</p>",
+          "solution_link_text": "Learn about the science behind Nano-ice",
+          "solution_link": ""
         }
       },
       "why_choose_us_jzGQkB": {
@@ -442,16 +438,6 @@
         "disabled": true,
         "name": "Why Choose Us",
         "settings": {}
-      },
-      "testimonials_NiPrem1": {
-        "type": "testimonials",
-        "settings": {
-          "badge_text": "Real stories from people who use Nano-Ice",
-          "heading": "Real stories from people who use Nano-Ice",
-          "subheading": "Thousands of happy customers cooling off every day.",
-          "autoplay": true,
-          "autoplay_speed": 4000
-        }
       }
     },
     "content_for_index": [
