@@ -712,3 +712,57 @@ body {
   color: var(--nano-secondary);
   line-height: 1.4;
 }
+
+/* ================= MOTHER'S DAY BANNER ================= */
+.nano-mothers-day-banner {
+  background: linear-gradient(135deg, #fff5f5 0%, #ffe3e3 100%);
+  border: 1px solid #ffccd5;
+  border-radius: 14px;
+  padding: 18px 24px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(255, 182, 193, 0.25);
+  animation: nanoFadeInUp 0.6s ease-out;
+}
+
+@keyframes nanoFadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.nano-mothers-day-banner::before {
+  content: '🌸';
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  opacity: 0.7;
+}
+
+.nano-mothers-day-tag {
+  color: #d63384;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+
+.nano-mothers-day-banner p {
+  margin: 0;
+  color: #4a1a2c;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .nano-mothers-day-banner::before {
+    display: none;
+  }
+}

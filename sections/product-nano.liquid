@@ -57,6 +57,12 @@
 
       <!-- RIGHT COLUMN: Product Info -->
       <div class="nano-hero__info">
+        {% if product.handle == 'cooling-necklace-grey' %}
+          <div class="nano-mothers-day-banner">
+            <span class="nano-mothers-day-tag">Mother’s Day Special</span>
+            <p>Get this necklace at 34% off</p>
+          </div>
+        {% endif %}
         <h1 class="nano-title" itemprop="name">{{ product.title }}</h1>
         
         <div class="nano-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
