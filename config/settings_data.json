@@ -285,8 +285,8 @@
           "1539461355518": {
             "type": "video",
             "settings": {
-              "video_url": "",
-              "mp4_url": "https://cdn.shopify.com/videos/c/o/v/731f0f7d4604423b933538d83d0d5bb8.mp4",
+              "video_url": "https://youtu.be/AdLnmilrH1g?si=xIPQ9ST3JKV_uTre",
+              "mp4_url": "",
               "width": "100%",
               "alignment": "center"
             }
@@ -296,7 +296,7 @@
           "1539461355518"
         ],
         "settings": {
-          "title": "Hear about Nano-Ice Necklace technology from inventor"
+          "title": "Hear about Nano-Ice Necklace from Our customers"
         }
       },
       "1544639027080": {
@@ -353,7 +353,7 @@
           "image_ff63CA": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/DSC_1614.JPG",
+              "image": "shopify://shop_images/Hero_page_2.jpg",
               "alignment": "center",
               "title": "Cooling that actually lasts",
               "subheading": "Designed to keep you cool for over 2 hours so you can stay comfortable and active",
@@ -367,7 +367,7 @@
           "image_DM3DK9": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/hero-section.png",
+              "image": "shopify://shop_images/hero_page_new_image.jpg",
               "alignment": "top",
               "title": "Beat the heat in style",
               "subheading": "Simple, elegant, and easy to wear",
