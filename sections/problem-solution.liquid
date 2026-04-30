@@ -1,453 +1,323 @@
 <!-- ============================================================
-     NANO-ICE — Problem → Solution → How It Works
-     Premium 3-column conversion section
+     NANO-ICE — New Problem & Solution Section
      ============================================================ -->
 
-<section class="ni-psw" id="ProblemSolution-{{ section.id }}">
-
-  {%- comment -%} Decorative gradient blur shapes {%- endcomment -%}
-  <div class="ni-psw__bg-blur ni-psw__bg-blur--1" aria-hidden="true"></div>
-  <div class="ni-psw__bg-blur ni-psw__bg-blur--2" aria-hidden="true"></div>
-  <div class="ni-psw__bg-blur ni-psw__bg-blur--3" aria-hidden="true"></div>
-
-  <div class="page-width ni-psw__inner">
-
-    {%- comment -%} Section Header {%- endcomment -%}
-    {% if section.settings.section_heading != blank or section.settings.section_subheading != blank %}
-      <div class="ni-psw__header">
-        {% if section.settings.section_heading != blank %}
-          <h2 class="ni-psw__title">{{ section.settings.section_heading | escape }}</h2>
-        {% endif %}
-        {% if section.settings.section_subheading != blank %}
-          <p class="ni-psw__subtitle">{{ section.settings.section_subheading | escape }}</p>
-        {% endif %}
-      </div>
-    {% endif %}
-
-    <div class="ni-psw__grid">
-
-      {%- comment -%} ─── COLUMN 1: THE PROBLEM ─── {%- endcomment -%}
-      <div class="ni-psw__card ni-psw__card--problem ni-psw-reveal">
-        <div class="ni-psw__card-inner">
-          <span class="ni-psw__tag ni-psw__tag--problem">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            {{ section.settings.problem_tag | escape }}
-          </span>
-          <h3 class="ni-psw__heading ni-psw__heading--problem">Heat isn’t just uncomfortable. It’s limiting.</h3>
-          <div class="ni-psw__problem-custom-content">
-            <div>You feel it before anyone else does</div>
-            <div>A simple walk doesn’t feel so simple</div>
-            <div>Even the AC doesn’t help much</div>
-            <div>Stepping outside feels harder than it should</div>
-            <div class="ni-psw__problem-note">
-              For people dealing with heat sensitivity, hot flashes, POTS, MS, or similar autoimmune conditions, this isn’t occasional. It affects how you plan your day, where you go, and how long you can stay out.<br>
-              That’s why you need something that actually lasts and feels good to wear, because it looks as beautiful as it feels.
-            </div>
-          </div>
+<section class="ni-ps-new" id="ProblemSolution-{{ section.id }}">
+  <div class="page-width">
+    
+    <!-- PROBLEM ROW -->
+    <div class="ni-ps-row ni-ps-row--problem ni-ps-reveal">
+      <div class="ni-ps-col ni-ps-col--image">
+        <div class="ni-ps-image-wrapper">
+          {% if section.settings.problem_image != blank %}
+            <img src="{{ section.settings.problem_image | img_url: '800x' }}" alt="{{ section.settings.problem_title_1 | escape }}" loading="lazy">
+          {% else %}
+            <img src="{{ 'problem-heat-woman.jpg' | asset_url }}" alt="Problem" loading="lazy">
+          {% endif %}
         </div>
-        <div class="ni-psw__card-glow ni-psw__card-glow--problem" aria-hidden="true"></div>
       </div>
-
-      {%- comment -%} ─── COLUMN 2: THE SOLUTION (hero card) ─── {%- endcomment -%}
-      <div class="ni-psw__card ni-psw__card--solution ni-psw-reveal">
-        <div class="ni-psw__card-inner">
-          <span class="ni-psw__tag ni-psw__tag--solution">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            {{ section.settings.solution_tag | escape }}
-          </span>
-          <h3 class="ni-psw__heading ni-psw__heading--solution">Finally, cooling that actually lasts.</h3>
-          <div class="ni-psw__solution-custom-content">
-            <div>Instead of constantly trying to manage the heat, you need something that works for longer. Most cooling products stop working within 30 to 60 minutes, leaving you right back where you started.</div>
-            <div>Nano Ice is designed to stay cool for up to 2 hours, giving you consistent relief instead of short bursts. Worn around your neck, it cools key pulse points like the carotid arteries, where blood flow is higher, helping your body feel cooler for longer, even after you take it off.</div>
-            <div>So you can stay comfortable, stay out longer, and move freely without planning everything around the heat.</div>
-          </div>
+      <div class="ni-ps-col ni-ps-col--text">
+        <div class="ni-ps-text-content">
+          <h2 class="ni-ps-title-large">{{ section.settings.problem_title_1 }}</h2>
+          <h3 class="ni-ps-subtitle-highlight">{{ section.settings.problem_title_2 }}</h3>
+          <p class="ni-ps-footer-text">{{ section.settings.problem_footer }}</p>
+          <div class="ni-ps-accent-line"></div>
         </div>
-        <div class="ni-psw__card-glow ni-psw__card-glow--solution" aria-hidden="true"></div>
-        <div class="ni-psw__card-ring" aria-hidden="true"></div>
       </div>
+    </div>
 
+    <!-- SOLUTION ROW -->
+    <div class="ni-ps-row ni-ps-row--solution ni-ps-reveal">
+      <div class="ni-ps-col ni-ps-col--text">
+        <div class="ni-ps-text-content">
+          <h2 class="ni-ps-solution-title">
+            {{ section.settings.solution_title | replace: 'Nano-ice', '<span class="ni-highlight">Nano-ice</span>' }}
+          </h2>
+          <div class="ni-ps-description">
+            {{ section.settings.solution_description }}
+          </div>
+          {% if section.settings.solution_link_text != blank %}
+            <a href="{{ section.settings.solution_link }}" class="ni-ps-link">
+              {{ section.settings.solution_link_text }} <span class="ni-arrow">→</span>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="ni-ps-col ni-ps-col--image">
+        <div class="ni-ps-image-wrapper">
+          {% if section.settings.solution_image != blank %}
+            <img src="{{ section.settings.solution_image | img_url: '800x' }}" alt="Nano-ice Solution" loading="lazy">
+          {% else %}
+            <img src="{{ 'solution-nano-ice-woman.jpg' | asset_url }}" alt="Solution" loading="lazy">
+          {% endif %}
+        </div>
+      </div>
+    </div>
 
-    </div><!-- /.ni-psw__grid -->
-  </div><!-- /.page-width -->
+  </div>
 </section>
 
-<!-- ============================================================
-     STYLES — Problem → Solution → How It Works
-     ============================================================ -->
 <style>
-  /* ── Section ── */
-  .ni-psw {
-    position: relative;
-    padding: 48px 0 56px;
+  :root {
+    --ni-brand-blue: #05BFDB;
+    --ni-dark-blue: #002B5B;
+    --ni-text-grey: #64748b;
+    --ni-bg-light: #f8fbff;
+  }
+
+  .ni-ps-new {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #ffffff 0%, var(--ni-bg-light) 100%);
     overflow: hidden;
-    background: #f7fafc;
-  }
-  .ni-psw__bg-blur { display: none; }
-  .ni-psw__inner { position: relative; z-index: 1; }
-
-  /* ── Section header ── */
-  .ni-psw__header {
-    text-align: center;
-    margin-bottom: 28px;
-  }
-  .ni-psw__title {
-    font-size: clamp(1.3rem, 2.5vw, 1.75rem);
-    font-weight: 800;
-    color: #111;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    margin: 0 0 6px;
-  }
-  .ni-psw__subtitle {
-    font-size: 0.9rem;
-    color: #6b7280;
-    max-width: 440px;
-    margin: 0 auto;
-    line-height: 1.55;
   }
 
-  /* ── Grid ── */
-  .ni-psw__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    align-items: stretch;
-  }
-
-  /* ── Cards ── */
-  .ni-psw__card {
-    position: relative;
-    border-radius: 14px;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  .ni-ps-row {
     display: flex;
-    flex-direction: column;
-  }
-  .ni-psw__card:hover { transform: translateY(-4px); }
-
-  .ni-psw__card-inner {
-    position: relative;
-    z-index: 1;
-    padding: 22px 24px 24px;
-    border-radius: 14px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* Problem card */
-  .ni-psw__card--problem .ni-psw__card-inner {
-    background: #fff8f8;
-    border: 1px solid rgba(239,68,68,0.15);
-    box-shadow: 0 2px 12px rgba(239,68,68,0.06);
-  }
-  .ni-psw__card--problem:hover .ni-psw__card-inner {
-    box-shadow: 0 8px 28px rgba(239,68,68,0.10);
-  }
-
-  /* Solution card */
-  .ni-psw__card--solution .ni-psw__card-inner {
-    background: #f0fbff;
-    border: 1px solid rgba(5,191,219,0.18);
-    box-shadow: 0 2px 12px rgba(5,191,219,0.07);
-  }
-  .ni-psw__card--solution:hover .ni-psw__card-inner {
-    box-shadow: 0 8px 28px rgba(5,191,219,0.13);
-  }
-
-  /* Remove decorative overlays */
-  .ni-psw__card-glow,
-  .ni-psw__card-ring { display: none; }
-
-  /* ── Tag pills ── */
-  .ni-psw__tag {
-    display: inline-flex;
     align-items: center;
-    gap: 5px;
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.09em;
-    padding: 3px 9px;
-    border-radius: 100px;
-    margin-bottom: 10px;
-    width: fit-content;
-  }
-  .ni-psw__tag svg { width: 12px; height: 12px; }
-  .ni-psw__tag--problem { background: rgba(239,68,68,0.09); color: #DC2626; }
-  .ni-psw__tag--solution { background: rgba(5,191,219,0.10); color: #0891B2; }
-
-  /* ── Card headings ── */
-  .ni-psw__heading {
-    font-size: 0.98rem;
-    font-weight: 700;
-    line-height: 1.3;
-    letter-spacing: -0.01em;
-    margin: 0 0 12px;
-    color: #111;
+    gap: 60px;
+    margin-bottom: 80px;
   }
 
-  /* ── Problem bullets ── */
-  .ni-psw__problem-custom-content {
-    font-size: 0.82rem;
-    line-height: 1.55;
-    color: #374151;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-  .ni-psw__problem-custom-content > div:not(.ni-psw__problem-note) {
-    padding: 6px 0 6px 14px;
-    border-left: 2px solid rgba(239,68,68,0.35);
-    margin-bottom: 5px;
-    font-size: 0.82rem;
-    color: #374151;
-  }
-  .ni-psw__problem-custom-content > div:not(.ni-psw__problem-note):last-of-type {
+  .ni-ps-row:last-child {
     margin-bottom: 0;
   }
 
-  /* ── Problem note paragraph ── */
-  .ni-psw__problem-note {
-    margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px solid rgba(239,68,68,0.12);
-    font-size: 0.78rem;
-    color: #6b7280;
+  .ni-ps-col {
+    flex: 1;
+  }
+
+  /* Image Styling */
+  .ni-ps-image-wrapper {
+    width: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  }
+
+  .ni-ps-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+
+  .ni-ps-image-wrapper:hover img {
+    transform: scale(1.03);
+  }
+
+  /* Text Styling - Problem */
+  .ni-ps-text-content {
+    max-width: 600px;
+  }
+
+  .ni-ps-title-large {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    color: var(--ni-dark-blue);
+    line-height: 1.1;
+    margin-bottom: 15px;
+  }
+
+  .ni-ps-subtitle-highlight {
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--ni-brand-blue);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .ni-ps-footer-text {
+    font-size: 24px;
+    color: #94a3b8;
+    margin-bottom: 25px;
+  }
+
+  .ni-ps-accent-line {
+    width: 60px;
+    height: 3px;
+    background-color: var(--ni-brand-blue);
+    border-radius: 2px;
+  }
+
+  /* Text Styling - Solution */
+  .ni-ps-solution-title {
+    font-size: 32px;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 30px;
+  }
+
+  .ni-ps-solution-title .ni-highlight {
+    color: var(--ni-brand-blue);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .ni-ps-description {
+    font-size: 18px;
     line-height: 1.6;
-    border-left: none !important;
-    padding-left: 0 !important;
+    color: #475569;
+    margin-bottom: 35px;
   }
 
-  /* ── Solution paragraphs ── */
-  .ni-psw__solution-custom-content {
-    font-size: 0.9rem;
-    line-height: 1.55;
-    color: #374151;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .ni-psw__solution-custom-content > div {
-    padding-left: 12px;
-    border-left: 2px solid rgba(5,191,219,0.4);
-    font-size: 0.9rem;
+  .ni-ps-description strong {
+    color: var(--ni-brand-blue);
+    font-weight: 600;
   }
 
-  /* ── Scroll-reveal ── */
-  .ni-psw-reveal {
+  .ni-ps-link {
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ni-brand-blue);
+    text-decoration: none;
+    background: rgba(5, 191, 219, 0.08);
+    padding: 10px 20px;
+    border-radius: 100px;
+    transition: all 0.3s ease;
+  }
+
+  .ni-ps-link:hover {
+    background: var(--ni-brand-blue);
+    color: white;
+    transform: translateX(5px);
+  }
+
+  .ni-ps-arrow {
+    margin-left: 8px;
+    font-size: 18px;
+  }
+
+  /* Reveal Animation */
+  .ni-ps-reveal {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
-  .ni-psw-reveal.ni-psw-visible { opacity: 1; transform: translateY(0); }
-  .ni-psw__card--solution.ni-psw-reveal { transition-delay: 0.1s; }
 
-  /* ── Mobile ── */
-  @media (max-width: 640px) {
-    .ni-psw { padding: 36px 0 44px; }
-    .ni-psw__grid { grid-template-columns: 1fr; gap: 16px; }
-    .ni-psw__header { margin-bottom: 22px; }
-    .ni-psw__card-inner { padding: 18px 18px 20px; }
+  .ni-ps-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Responsive */
+  @media (max-width: 991px) {
+    .ni-ps-row {
+      gap: 40px;
+    }
+    .ni-ps-title-large { font-size: 34px; }
+    .ni-ps-subtitle-highlight { font-size: 28px; }
+  }
+
+  @media (max-width: 767px) {
+    .ni-ps-new { padding: 50px 0; }
+    .ni-ps-row {
+      flex-direction: column;
+      gap: 30px;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+    .ni-ps-row--solution {
+      flex-direction: column-reverse;
+    }
+    .ni-ps-col--text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .ni-ps-accent-line { margin: 0 auto; }
+    .ni-ps-title-large { font-size: 30px; }
+    .ni-ps-subtitle-highlight { font-size: 24px; }
+    .ni-ps-footer-text { font-size: 20px; }
   }
 </style>
 
-<!-- ── Scroll-reveal observer ── -->
 <script>
-  (function() {
-    var els = document.querySelectorAll('#ProblemSolution-{{ section.id }} .ni-psw-reveal');
-    if (!els.length) return;
-    if ('IntersectionObserver' in window) {
-      var obs = new IntersectionObserver(function(entries) {
-        entries.forEach(function(e) {
-          if (e.isIntersecting) {
-            e.target.classList.add('ni-psw-visible');
-            obs.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-      els.forEach(function(el) { obs.observe(el); });
-    } else {
-      els.forEach(function(el) { el.classList.add('ni-psw-visible'); });
-    }
-  })();
+  document.addEventListener('DOMContentLoaded', function() {
+    const observerOptions = {
+      threshold: 0.2
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.ni-ps-reveal').forEach(el => observer.observe(el));
+  });
 </script>
 
 {% schema %}
 {
-  "name": "Problem → Solution",
-  "class": "ni-psw-section",
+  "name": "Problem → Solution v2",
   "settings": [
     {
       "type": "header",
-      "content": "Section Header"
+      "content": "The Problem Row"
+    },
+    {
+      "type": "image_picker",
+      "id": "problem_image",
+      "label": "Problem Image"
     },
     {
       "type": "text",
-      "id": "section_heading",
-      "label": "Section heading",
-      "default": "Why Nano-Ice?"
+      "id": "problem_title_1",
+      "label": "Problem Title Line 1",
+      "default": "Heat doesn't just feel uncomfortable."
     },
     {
       "type": "text",
-      "id": "section_subheading",
-      "label": "Section subheading",
-      "default": "The science of staying cool — simplified."
+      "id": "problem_title_2",
+      "label": "Problem Title Line 2",
+      "default": "It quietly takes control of your day."
+    },
+    {
+      "type": "text",
+      "id": "problem_footer",
+      "label": "Problem Footer Text",
+      "default": "Before you even notice."
     },
     {
       "type": "header",
-      "content": "── The Problem ──"
+      "content": "The Solution Row"
+    },
+    {
+      "type": "image_picker",
+      "id": "solution_image",
+      "label": "Solution Image"
     },
     {
       "type": "text",
-      "id": "problem_tag",
-      "label": "Tag label",
-      "default": "THE PROBLEM"
+      "id": "solution_title",
+      "label": "Solution Title",
+      "default": "That's why we created Nano-ice."
+    },
+    {
+      "type": "richtext",
+      "id": "solution_description",
+      "label": "Solution Description",
+      "default": "<p>Designed to stay cool for <strong>up to 2 hours</strong>, giving you consistent relief instead of short bursts.</p><p>Worn around your neck, it cools <strong>key pulse points</strong> like the carotid arteries, where blood flow is higher, helping your body feel <strong>cooler for longer</strong>, even after you take it off.</p>"
     },
     {
       "type": "text",
-      "id": "problem_heading",
-      "label": "Heading",
-      "default": "Heat isn't just uncomfortable. It's limiting."
-    },
-    {
-      "type": "text",
-      "id": "problem_point_1",
-      "label": "Bullet point 1",
-      "default": "Outdoor activities cut short by overheating"
-    },
-    {
-      "type": "text",
-      "id": "problem_point_2",
-      "label": "Bullet point 2",
-      "default": "Hot flashes & medical conditions with no instant relief"
-    },
-    {
-      "type": "text",
-      "id": "problem_point_3",
-      "label": "Bullet point 3",
-      "default": "Regular ice packs are bulky, messy, and melt fast"
-    },
-    {
-      "type": "text",
-      "id": "problem_note",
-      "label": "Supporting note",
-      "default": "Traditional cooling methods weren't designed for life on the go."
-    },
-    {
-      "type": "header",
-      "content": "── The Solution ──"
-    },
-    {
-      "type": "text",
-      "id": "solution_tag",
-      "label": "Tag label",
-      "default": "THE SOLUTION"
-    },
-    {
-      "type": "text",
-      "id": "solution_heading",
-      "label": "Heading",
-      "default": "Cooling that actually lasts."
-    },
-    {
-      "type": "text",
-      "id": "solution_stat",
-      "label": "Hero stat number",
-      "default": "2+ hours"
-    },
-    {
-      "type": "text",
-      "id": "solution_stat_label",
-      "label": "Hero stat label",
-      "default": "of continuous cooling per charge"
-    },
-    {
-      "type": "text",
-      "id": "solution_point_1",
-      "label": "Benefit 1",
-      "default": "Freezes in just 20 minutes"
-    },
-    {
-      "type": "text",
-      "id": "solution_point_2",
-      "label": "Benefit 2",
-      "default": "Stylish enough to wear anywhere"
-    },
-    {
-      "type": "text",
-      "id": "solution_point_3",
-      "label": "Benefit 3",
-      "default": "Reusable — no refills needed"
-    },
-    {
-      "type": "text",
-      "id": "solution_cta_text",
-      "label": "CTA button text",
-      "default": "Shop Cooling Necklaces"
+      "id": "solution_link_text",
+      "label": "Link Text",
+      "default": "Learn about the science behind Nano-ice"
     },
     {
       "type": "url",
-      "id": "solution_cta_link",
-      "label": "CTA button link"
-    },
-    {
-      "type": "header",
-      "content": "── How It Works ──"
-    },
-    {
-      "type": "text",
-      "id": "works_tag",
-      "label": "Tag label",
-      "default": "HOW IT WORKS"
-    },
-    {
-      "type": "text",
-      "id": "works_heading",
-      "label": "Heading",
-      "default": "Simple. Effective. Beautiful."
-    },
-    {
-      "type": "text",
-      "id": "works_step1_title",
-      "label": "Step 1 title",
-      "default": "Fast Freeze"
-    },
-    {
-      "type": "text",
-      "id": "works_step1_desc",
-      "label": "Step 1 description",
-      "default": "Place in your freezer for 20 minutes. The nano-spheres lock in cold."
-    },
-    {
-      "type": "text",
-      "id": "works_step2_title",
-      "label": "Step 2 title",
-      "default": "Consistent Cooling"
-    },
-    {
-      "type": "text",
-      "id": "works_step2_desc",
-      "label": "Step 2 description",
-      "default": "Enjoy 2+ hours of steady, evenly distributed cold therapy."
-    },
-    {
-      "type": "text",
-      "id": "works_step3_title",
-      "label": "Step 3 title",
-      "default": "Comfortable Wear"
-    },
-    {
-      "type": "text",
-      "id": "works_step3_desc",
-      "label": "Step 3 description",
-      "default": "Lightweight, flexible design sits comfortably on your neck all day."
+      "id": "solution_link",
+      "label": "Link URL"
     }
   ],
   "presets": [
     {
-      "name": "Problem → Solution",
-      "category": "Text"
+      "name": "Problem → Solution v2"
     }
   ]
 }
