@@ -1,4 +1,4 @@
-﻿{% if page.handle == 'testimonials-gallery' %}
+{% if page.handle == 'testimonials-gallery' %}
 
 <div id="nitv-raw" style="display:none">{{ page.content }}</div>
 
@@ -393,16 +393,14 @@
   <div class="nau-hero__orb nau-hero__orb--b" aria-hidden="true"></div>
   <div class="nau-hero__orb nau-hero__orb--c" aria-hidden="true"></div>
   <div class="page-width nau-hero__inner">
-    <p class="nau-eyebrow">Our Story</p>
+
     <h1 class="nau-hero__heading">{{ page.title }}</h1>
-    <p class="nau-hero__tagline">A personal solution that became a mission — helping thousands stay cool, stay active, and feel in control of their day.</p>
+    <p class="nau-hero__tagline">A personal solution that became a mission.<br>Helping thousands stay cool, stay active, and feel in control of their day.</p>
     <a href="#nau-story" class="nau-hero__scroll" aria-label="Read our story">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
     </a>
   </div>
-  <div class="nau-hero__wave" aria-hidden="true">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,0 C480,80 960,80 1440,0 L1440,80 L0,80 Z" fill="#ffffff"/></svg>
-  </div>
+
 </section>
 
 <!-- ── STORY CONTENT (Part 1 — filled by JS up to "What's Unique") ── -->
@@ -469,28 +467,6 @@
   </div>
 </section>
 
-<!-- ── IMPACT STATS ── -->
-<section class="nau-stats" aria-label="Our impact">
-  <div class="page-width nau-stats__inner">
-    <div class="nau-stats__grid">
-      <div class="nau-stats__card">
-        <span class="nau-stats__number">2</span>
-        <span class="nau-stats__unit">hours</span>
-        <span class="nau-stats__label">of cooling relief per session</span>
-      </div>
-      <div class="nau-stats__card">
-        <span class="nau-stats__number">1000s</span>
-        <span class="nau-stats__unit">&nbsp;</span>
-        <span class="nau-stats__label">of customers finding comfort</span>
-      </div>
-      <div class="nau-stats__card">
-        <span class="nau-stats__number">1</span>
-        <span class="nau-stats__unit">idea</span>
-        <span class="nau-stats__label">that changed everything</span>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ── VALUES ── -->
 <section class="nau-values">
@@ -532,7 +508,7 @@
   <div class="nau-cta__orb nau-cta__orb--a" aria-hidden="true"></div>
   <div class="nau-cta__orb nau-cta__orb--b" aria-hidden="true"></div>
   <div class="page-width nau-cta__inner">
-    <p class="nau-cta__kicker">Stay cool for up to 2 hours</p>
+    <p class="nau-cta__kicker">Stay cool for over 2 hours</p>
     <h2 class="nau-cta__heading">Cooling technology designed to look as good as it feels.</h2>
     <div class="nau-cta__actions">
       <a href="/collections/all" class="nau-cta__btn nau-cta__btn--primary">Shop Now</a>
@@ -561,11 +537,16 @@
 /* ================================================================
    HERO
    ================================================================ */
+/* Flush hero to header */
+#MainContent {
+  padding-top: 0 !important;
+}
+
 .nau-hero {
   position: relative;
   overflow: hidden;
   background: linear-gradient(150deg, #0A4D68 0%, #0c6478 30%, #088395 65%, #05b8cc 100%);
-  padding: 130px 0 106px;
+  padding: 40px 0 30px;
   text-align: center;
 }
 .nau-hero__orb {
@@ -574,26 +555,26 @@
   pointer-events: none;
 }
 .nau-hero__orb--a {
-  width: 600px; height: 600px;
+  width: 300px; height: 300px;
   background: rgba(255,255,255,0.06);
-  top: -200px; right: -120px;
+  top: -100px; right: -60px;
   animation: nau-float 9s ease-in-out infinite;
 }
 .nau-hero__orb--b {
-  width: 380px; height: 380px;
+  width: 190px; height: 190px;
   background: rgba(5,184,204,0.16);
-  bottom: -100px; left: -60px;
+  bottom: -50px; left: -30px;
   animation: nau-float 14s ease-in-out infinite reverse;
 }
 .nau-hero__orb--c {
-  width: 200px; height: 200px;
+  width: 100px; height: 100px;
   background: rgba(255,255,255,0.08);
-  top: 50px; left: 8%;
+  top: 25px; left: 8%;
   animation: nau-float 7s ease-in-out infinite 1.5s;
 }
 @keyframes nau-float {
   0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-22px); }
+  50%       { transform: translateY(-11px); }
 }
 .nau-hero__inner {
   position: relative;
@@ -609,32 +590,22 @@
 }
 .nau-hero__heading {
   font-family: 'Inter', Georgia, sans-serif;
-  font-size: clamp(3rem, 7.5vw, 5.5rem);
+  font-size: 1.5rem;
   font-weight: 800;
   color: #ffffff;
-  letter-spacing: -0.045em;
-  line-height: 1.02;
-  margin: 0 0 26px;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 0 0 10px;
 }
 .nau-hero__tagline {
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-size: 1rem;
   color: rgba(255,255,255,0.82);
-  line-height: 1.72;
+  line-height: 1.4;
   max-width: 580px;
-  margin: 0 auto 44px;
+  margin: 0 auto;
 }
 .nau-hero__scroll {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 54px; height: 54px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.14);
-  color: #fff;
-  border: 1.5px solid rgba(255,255,255,0.32);
-  text-decoration: none;
-  transition: background 0.25s ease, transform 0.25s ease;
-  animation: nau-bounce 2.8s ease-in-out infinite;
+  display: none;
 }
 .nau-hero__scroll:hover {
   background: rgba(255,255,255,0.26);
@@ -645,17 +616,7 @@
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(9px); }
 }
-.nau-hero__wave {
-  position: absolute;
-  bottom: -2px; left: 0; right: 0;
-  line-height: 0;
-  z-index: 1;
-}
-.nau-hero__wave svg {
-  display: block;
-  width: 100%;
-  height: 80px;
-}
+
 
 /* ================================================================
    STORY CONTENT
@@ -1107,6 +1068,7 @@
   display: block;
 }
 .nau-cta__heading {
+  text-transform: none !important;
   font-family: 'Inter', Georgia, sans-serif;
   font-size: clamp(1.9rem, 4vw, 2.9rem);
   font-weight: 700;
@@ -1359,28 +1321,6 @@ document.addEventListener('DOMContentLoaded', function () {
   </div>
 </section>
 
-<!-- ── IMPACT STATS ── -->
-<section class="nau-stats" aria-label="Our impact">
-  <div class="page-width nau-stats__inner">
-    <div class="nau-stats__grid">
-      <div class="nau-stats__card">
-        <span class="nau-stats__number">2</span>
-        <span class="nau-stats__unit">hours</span>
-        <span class="nau-stats__label">of cooling relief per session</span>
-      </div>
-      <div class="nau-stats__card">
-        <span class="nau-stats__number">1000s</span>
-        <span class="nau-stats__unit">&nbsp;</span>
-        <span class="nau-stats__label">of customers finding comfort</span>
-      </div>
-      <div class="nau-stats__card">
-        <span class="nau-stats__number">1</span>
-        <span class="nau-stats__unit">idea</span>
-        <span class="nau-stats__label">that changed everything</span>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ── VALUES ── -->
 <section class="nau-values">
@@ -1422,7 +1362,7 @@ document.addEventListener('DOMContentLoaded', function () {
   <div class="nau-cta__orb nau-cta__orb--a" aria-hidden="true"></div>
   <div class="nau-cta__orb nau-cta__orb--b" aria-hidden="true"></div>
   <div class="page-width nau-cta__inner">
-    <p class="nau-cta__kicker">Stay cool for up to 2 hours</p>
+    <p class="nau-cta__kicker">Stay cool for over 2 hours</p>
     <h2 class="nau-cta__heading">Cooling technology designed to look as good as it feels.</h2>
     <div class="nau-cta__actions">
       <a href="/collections/all" class="nau-cta__btn nau-cta__btn--primary">Shop Now</a>
@@ -1967,6 +1907,7 @@ document.addEventListener('DOMContentLoaded', function () {
   display: block;
 }
 .nau-cta__heading {
+  text-transform: none !important;
   font-family: 'Inter', Georgia, sans-serif;
   font-size: clamp(1.9rem, 4vw, 2.9rem);
   font-weight: 700;
@@ -2041,7 +1982,7 @@ document.addEventListener('DOMContentLoaded', function () {
   .nau-values__heading { margin-bottom: 36px; font-size: 1.9rem; }
   .nau-cta          { padding: 68px 0 76px; }
   .nau-cta__inner   { padding: 0 20px; }
-  .nau-cta__heading { font-size: 1.75rem; margin-bottom: 36px; }
+  .nau-cta__heading { font-size: 1.75rem; margin-bottom: 36px; text-transform: none !important; }
   .nau-cta__btn     { padding: 15px 32px; width: 100%; max-width: 280px; display: block; margin: 0 auto; }
   .nau-cta__actions { gap: 14px; }
   .nau-video-card   { flex-direction: column; border-radius: 18px; }

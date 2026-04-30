@@ -190,8 +190,8 @@
           "cart_notes_enable": false
         }
       },
-      "1532368278588": {
-        "type": "feature-columns",
+      "reviews": {
+        "type": "reviews",
         "blocks": {
           "1532368278588-0": {
             "type": "text_block",
@@ -463,9 +463,7 @@
       "featured-collections",
       "feature-row",
       "trust_indicators_3TETrr",
-      "1532368278588",
       "why_choose_us_jzGQkB",
-      "testimonials_NiPrem1",
       "1557766562736",
       "1544639027080"
     ],

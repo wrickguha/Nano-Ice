@@ -127,6 +127,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // --- 4b. GALLERY ARROW NAVIGATION ---
+  const prevArrow = document.querySelector('.nano-gallery__arrow--prev');
+  const nextArrow = document.querySelector('.nano-gallery__arrow--next');
+
+  if (prevArrow && nextArrow && thumbnails.length > 1) {
+    const navigateGallery = (direction) => {
+      const activeThumb = document.querySelector('.nano-gallery__thumb.is-active');
+      const thumbArray = Array.from(thumbnails);
+      let currentIndex = thumbArray.indexOf(activeThumb);
+      
+      if (currentIndex === -1) currentIndex = 0;
+
+      let nextIndex;
+      if (direction === 'next') {
+        nextIndex = (currentIndex + 1) % thumbArray.length;
+      } else {
+        nextIndex = (currentIndex - 1 + thumbArray.length) % thumbArray.length;
+      }
+
+      thumbArray[nextIndex].click();
+    };
+
+    prevArrow.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigateGallery('prev');
+    });
+
+    nextArrow.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigateGallery('next');
+    });
+  }
+
   // --- ACCORDION LOGIC ---
   const accordions = document.querySelectorAll('.nano-accordion__item');
   

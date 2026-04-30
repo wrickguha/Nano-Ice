@@ -23,29 +23,9 @@
         Featured in 10+ National &amp; Local Outlets
       </div>
       <h1 class="np-hero__heading">Press &amp; <span class="np-hero__heading-accent">Media</span></h1>
-      <p class="np-hero__sub">Nano-Ice has been featured in leading news outlets, TV networks, and publications across the country — from Boston to national broadcasts.</p>
-      <div class="np-hero__stats">
-        <div class="np-hero__stat">
-          <span class="np-hero__stat-num" data-target="10">0</span><span class="np-hero__stat-plus">+</span>
-          <span class="np-hero__stat-label">Media Outlets</span>
-        </div>
-        <div class="np-hero__stat-divider"></div>
-        <div class="np-hero__stat">
-          <span class="np-hero__stat-num" data-target="4">0</span>
-          <span class="np-hero__stat-label">TV Features</span>
-        </div>
-        <div class="np-hero__stat-divider"></div>
-        <div class="np-hero__stat">
-          <span class="np-hero__stat-num" data-target="3">0</span>
-          <span class="np-hero__stat-label">Print Articles</span>
-        </div>
-      </div>
+      <p class="np-hero__sub">Nano-Ice has been featured in leading news outlets, TV networks, and publications across the country.</p>
     </div>
-    <div class="np-hero__wave" aria-hidden="true">
-      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#f4f8fb"/>
-      </svg>
-    </div>
+
   </section>
 
   <!-- ── VIDEO FEATURES ────────────────────────────────────── -->
@@ -339,7 +319,7 @@
   background: linear-gradient(135deg, #06263a 0%, #0A4D68 45%, #088395 75%, #05b8cc 100%);
   background-size: 300% 300%;
   animation: np-hero-shift 14s ease infinite;
-  padding: 110px 0 120px;
+  padding: 40px 0 40px;
   text-align: center;
 }
 
@@ -435,7 +415,7 @@
 .np-hero__badge svg { color: #FFD700; flex-shrink: 0; }
 
 .np-hero__heading {
-  font-size: clamp(2.4rem, 7vw, 4.4rem);
+  font-size: 1.5rem;
   font-weight: 900;
   color: #fff;
   line-height: 1.05;
@@ -451,10 +431,10 @@
 }
 
 .np-hero__sub {
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-size: 1rem;
   color: rgba(255,255,255,0.8);
   max-width: 600px;
-  margin: 0 auto 48px;
+  margin: 0 auto 32px;
   line-height: 1.75;
   animation: np-fade-up 0.7s var(--np-ease) 0.4s both;
 }
@@ -469,13 +449,13 @@
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 100px;
-  padding: 16px 36px;
+  padding: 12px 28px;
   animation: np-fade-up 0.7s var(--np-ease) 0.55s both;
 }
 .np-hero__stat { text-align: center; padding: 0 24px; }
 .np-hero__stat-num {
   display: inline-block;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 900;
   color: #fff;
   line-height: 1;
@@ -497,12 +477,7 @@
   flex-shrink: 0;
 }
 
-/* Wave */
-.np-hero__wave {
-  position: absolute; bottom: -1px; left: 0; right: 0;
-  line-height: 0; pointer-events: none;
-}
-.np-hero__wave svg { display: block; width: 100%; height: 80px; }
+
 
 /* ================================================================
    SECTION COMMON

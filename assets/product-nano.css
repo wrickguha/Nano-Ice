@@ -234,31 +234,68 @@ body {
 }
 
 .nano-qty {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  border: 1px solid var(--nano-border);
-  border-radius: var(--nano-radius-sm);
-  height: 50px;
-  background: white;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  height: 52px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.nano-qty:hover {
+  border-color: #b8cfe8;
+  box-shadow: 0 4px 16px rgba(47, 101, 156, 0.12);
 }
 
 .nano-qty__btn {
-  width: 40px;
+  width: 48px;
   height: 100%;
   background: none;
   border: none;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 400;
   cursor: pointer;
-  color: var(--nano-primary);
+  color: #374151;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s ease, color 0.18s ease;
+  line-height: 1;
+}
+
+.nano-qty__btn:hover {
+  background: #f0f6ff;
+  color: var(--nano-accent);
+}
+
+.nano-qty__btn:active {
+  background: #dbeafe;
+}
+
+.nano-qty__divider {
+  width: 1px;
+  height: 28px;
+  background: #e2e8f0;
+  flex-shrink: 0;
 }
 
 .nano-qty__input {
-  width: 40px;
+  width: 44px;
   text-align: center;
   border: none;
+  border-left: 1px solid #e2e8f0;
+  border-right: 1px solid #e2e8f0;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
+  color: #111827;
+  background: transparent;
   -moz-appearance: textfield;
+  outline: none;
+  padding: 0;
+  height: 100%;
 }
 
 .nano-qty__input::-webkit-outer-spin-button,
