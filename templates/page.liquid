@@ -21,14 +21,16 @@
   <div class="nitv-dots" id="nitv-dots"></div>
 </div>
 
+{% section 'reviews' %}
+
 <style>
 /* ================================================
    NITV — Video Testimonials Spotlight Carousel
    ================================================ */
 .nitv-page {
   background: linear-gradient(160deg, #e8f7fb 0%, #f0fafb 45%, #ffffff 100%);
-  padding: 80px 24px 100px;
-  min-height: 100vh;
+  padding: 80px 24px 40px;
+  min-height: auto;
   box-sizing: border-box;
 }
 
@@ -1245,16 +1247,14 @@ document.addEventListener('DOMContentLoaded', function () {
   <div class="nau-hero__orb nau-hero__orb--b" aria-hidden="true"></div>
   <div class="nau-hero__orb nau-hero__orb--c" aria-hidden="true"></div>
   <div class="page-width nau-hero__inner">
-    <p class="nau-eyebrow">Our Story</p>
     <h1 class="nau-hero__heading">{{ page.title }}</h1>
-    <p class="nau-hero__tagline">A personal solution that became a mission — helping thousands stay cool, stay active, and feel in control of their day.</p>
+    <p class="nau-hero__tagline">A personal solution that became a mission.<br>Helping thousands stay cool, stay active, and feel in control of their day.</p>
     <a href="#nau-story" class="nau-hero__scroll" aria-label="Read our story">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
     </a>
   </div>
-  <div class="nau-hero__wave" aria-hidden="true">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,0 C480,80 960,80 1440,0 L1440,80 L0,80 Z" fill="#ffffff"/></svg>
-  </div>
+
+  <div class="nau-hero__wave" aria-hidden="true" style="background:#fff; height:2px;"></div>
 </section>
 
 <!-- ── STORY CONTENT (Part 1 — tables transformed to cards by JS) ── -->
@@ -1398,7 +1398,7 @@ document.addEventListener('DOMContentLoaded', function () {
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, #0A4D68 0%, #088395 55%, #05b8cc 100%);
-  padding: 120px 0 100px;
+  padding: 60px 0 40px;
   text-align: center;
   margin-top: 0;
 }
