@@ -1,3 +1,29 @@
+<style>
+  .template-index .grid__item--{{ section.id }} .grid-view-item__image-wrapper {
+    height: 200px !important;
+    min-height: 200px !important;
+    max-height: 200px !important;
+  }
+  .template-index .grid__item--{{ section.id }} .ni-product-card {
+    padding: 10px !important;
+  }
+  .template-index .grid__item--{{ section.id }} .ni-product-card .grid-view-item__title {
+    min-height: 2.8em !important;
+    max-height: 2.8em !important;
+    padding-top: 8px !important;
+    font-size: 13px !important;
+  }
+  .template-index .grid__item--{{ section.id }} .product-card-desc {
+    font-size: 11px !important;
+    margin-bottom: 5px !important;
+    line-height: 1.3 !important;
+  }
+  #shopify-section-{{ section.id }} {
+    padding-top: 25px !important;
+    padding-bottom: 25px !important;
+  }
+</style>
+
 <div class="page-width">
   {% if section.settings.title != blank %}
     <div class="section-header text-center">
