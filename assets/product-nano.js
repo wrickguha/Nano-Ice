@@ -141,14 +141,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Close all other accordions
         accordions.forEach(acc => {
           acc.classList.remove('is-open');
-          const accContent = acc.querySelector('.nano-accordion__content');
-          if (accContent) accContent.style.maxHeight = null;
         });
         
         // If it wasn't open, open it
         if (!isOpen) {
           accordion.classList.add('is-open');
-          content.style.maxHeight = content.scrollHeight + "px";
         }
       });
     }
@@ -290,6 +287,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }),
       start: 'top 85%'
     });
+  }
+
   // --- REVIEW SLIDER ---
   document.querySelectorAll('[data-review-slider]').forEach(slider => {
     const track = slider.querySelector('.nano-review-slider__track');
@@ -303,19 +302,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const total = cards.length;
     let current = 0;
     let autoTimer = null;
-    let cardWidth = 0;
-
-    function applyWidths() {
-      cardWidth = slider.getBoundingClientRect().width;
-      cards.forEach(card => { card.style.width = cardWidth + 'px'; });
-    }
 
     function goTo(index) {
       current = ((index % total) + total) % total;
-      track.style.transform = `translateX(-${current * cardWidth}px)`;
-      dotsContainer && dotsContainer.querySelectorAll('.nano-review-slider__dot').forEach((d, i) => {
-        d.classList.toggle('is-active', i === current);
-      });
+      cards.forEach((card, i) => card.classList.toggle('is-active', i === current));
+      if (dotsContainer) {
+        dotsContainer.querySelectorAll('.nano-review-slider__dot').forEach((d, i) => {
+          d.classList.toggle('is-active', i === current);
+        });
+      }
     }
 
     function startAuto() {
@@ -337,20 +332,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (prevBtn) prevBtn.addEventListener('click', () => { goTo(current - 1); startAuto(); });
     if (nextBtn) nextBtn.addEventListener('click', () => { goTo(current + 1); startAuto(); });
 
-    window.addEventListener('resize', () => { applyWidths(); goTo(current); });
-
-    // Defer init until element is painted and has a real width
-    function initWhenReady() {
-      const w = slider.getBoundingClientRect().width;
-      if (w > 0) {
-        applyWidths();
-        goTo(0);
-        startAuto();
-      } else {
-        requestAnimationFrame(initWhenReady);
-      }
-    }
-    requestAnimationFrame(initWhenReady);
+    goTo(0);
+    startAuto();
   });
 
 });

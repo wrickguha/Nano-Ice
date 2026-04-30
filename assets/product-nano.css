@@ -326,6 +326,15 @@ body {
 
 .nano-accordion__item {
   border-bottom: 1px solid var(--nano-border);
+  list-style: none;
+}
+
+/* Remove native details/summary triangle */
+.nano-accordion__item > summary {
+  list-style: none;
+}
+.nano-accordion__item > summary::-webkit-details-marker {
+  display: none;
 }
 
 .nano-accordion__toggle {
@@ -356,16 +365,11 @@ body {
 .nano-accordion__chevron {
   transition: transform 0.3s ease;
   color: var(--nano-secondary);
+  flex-shrink: 0;
 }
 
-.nano-accordion__item.is-open .nano-accordion__chevron {
+.nano-accordion__item[open] .nano-accordion__chevron {
   transform: rotate(180deg);
-}
-
-.nano-accordion__content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
 }
 
 .nano-accordion__inner {
@@ -374,6 +378,14 @@ body {
   color: var(--nano-secondary);
   font-size: 15px;
   line-height: 1.6;
+}
+
+.nano-accordion__inner p {
+  margin: 0 0 10px;
+}
+
+.nano-accordion__inner p:last-child {
+  margin-bottom: 0;
 }
 
 .nano-accordion__inner ul {
@@ -410,24 +422,24 @@ body {
 /* Slider wrapper */
 .nano-review-slider {
   position: relative;
-  overflow: hidden;
   width: 100%;
 }
 
 .nano-review-slider__track {
-  display: flex;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
+  position: relative;
 }
 
 .nano-review-slider__track .nano-review-card {
-  flex: 0 0 auto;
+  display: none;
   width: 100%;
   box-sizing: border-box;
   padding: 20px;
-  overflow: visible;
   word-wrap: break-word;
   word-break: break-word;
+}
+
+.nano-review-slider__track .nano-review-card.is-active {
+  display: block;
 }
 
 /* Slider controls row */
