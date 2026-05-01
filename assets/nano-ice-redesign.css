@@ -4930,14 +4930,14 @@ img, video, iframe {
   }
 
   .press-logos__item {
-    height: 46px !important;
-    padding: 6px 12px !important;
+    height: 60px !important;
+    padding: 8px 16px !important;
     border-radius: 8px !important;
   }
 
   .press-logos__item img {
-    height: 28px !important;
-    max-width: 100px !important;
+    height: 40px !important;
+    max-width: 140px !important;
   }
 
   .press-logos__item img[alt="Wicked Local"] {
@@ -5262,13 +5262,13 @@ img, video, iframe {
   }
 
   .press-logos__item {
-    height: 40px !important;
-    padding: 4px 10px !important;
+    height: 54px !important;
+    padding: 6px 14px !important;
   }
 
   .press-logos__item img {
-    height: 22px !important;
-    max-width: 80px !important;
+    height: 34px !important;
+    max-width: 120px !important;
   }
 
   .press-logos__item img[alt="Wicked Local"] {
