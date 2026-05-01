@@ -13,7 +13,7 @@
     "color_body_text": "#5d676e",
     "color_sale_text": "#3e9cd2",
     "color_borders": "#e8e9eb",
-    "color_button": "#239be1",
+    "color_button": "#1da3ad",
     "color_button_text": "#fff",
     "color_small_button": "#fff",
     "color_small_button_text": "#3d4246",
@@ -170,6 +170,7 @@
           "show_collection_image": false,
           "show_vendor": false,
           "sort_enable": true,
+          "filters_enable": true,
           "tags_enable": true
         }
       },
@@ -338,7 +339,7 @@
           "image_TJ6XwN": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/ChatGPT_Image_Apr_30_2026_11_27_28_PM.png",
+              "image": "shopify://shop_images/Untitled_design_12.png",
               "alignment": "center",
               "title": "Mother’s Day Special",
               "subheading": "Get the Grey Cooling Necklace at 34% off",
