@@ -1505,6 +1505,16 @@ html {
   transition: all 0.35s ease;
 }
 
+/* Wicked Local logo: crop baked-in right whitespace, center logo in box */
+.press-logos__item img[alt="Wicked Local"] {
+  height: 52px;
+  width: 240px;
+  max-width: 240px;
+  object-fit: cover;
+  object-position: left center;
+  transform: none;
+}
+
 @keyframes press-marquee {
   0% {
     transform: translateX(0);
@@ -4845,6 +4855,15 @@ img, video, iframe {
     max-width: 120px;
   }
 
+  .press-logos__item img[alt="Wicked Local"] {
+    height: 44px;
+    width: 200px;
+    max-width: 200px;
+    object-fit: cover;
+    object-position: left center;
+    transform: none;
+  }
+
   /* Collection grid — 2 columns */
   .collection-template .grid__item.small--one-half {
     width: 50% !important;
@@ -4919,6 +4938,15 @@ img, video, iframe {
   .press-logos__item img {
     height: 28px !important;
     max-width: 100px !important;
+  }
+
+  .press-logos__item img[alt="Wicked Local"] {
+    height: 34px !important;
+    width: 155px !important;
+    max-width: 155px !important;
+    object-fit: cover !important;
+    object-position: left center !important;
+    transform: none !important;
   }
 
   .press-logos__track-wrapper::before,
@@ -5241,6 +5269,15 @@ img, video, iframe {
   .press-logos__item img {
     height: 22px !important;
     max-width: 80px !important;
+  }
+
+  .press-logos__item img[alt="Wicked Local"] {
+    height: 28px !important;
+    width: 125px !important;
+    max-width: 125px !important;
+    object-fit: cover !important;
+    object-position: left center !important;
+    transform: none !important;
   }
 }
 
