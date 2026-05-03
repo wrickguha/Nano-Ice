@@ -478,6 +478,34 @@
   }
 
   /* ============================================================
+     11. AUTOMATIC CART UPDATE
+     ============================================================ */
+  function initAutoCartUpdate() {
+    var cartForm = document.querySelector('form.cart');
+    if (!cartForm) return;
+
+    var qtyInputs = cartForm.querySelectorAll('.cart__qty-input');
+    qtyInputs.forEach(function (input) {
+      input.addEventListener('change', function () {
+        cartForm.submit();
+      });
+      
+      // Also handle 'input' event for arrow clicks in some browsers
+      // but debounce it to avoid multiple submits
+      var debounceTimer;
+      input.addEventListener('input', function() {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(function() {
+          // Only submit if the value is a valid number
+          if (input.value !== "" && !isNaN(input.value)) {
+             cartForm.submit();
+          }
+        }, 1000); // 1 second delay
+      });
+    });
+  }
+
+  /* ============================================================
      INITIALIZE ALL
      ============================================================ */
   function init() {
@@ -491,6 +519,7 @@
     initShippingProgressBar();
     initImageZoom();
     initHeroParallax();
+    initAutoCartUpdate();
   }
 
   // Run on DOM ready

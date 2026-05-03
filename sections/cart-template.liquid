@@ -93,7 +93,7 @@
                   <label for="updates_{{ item.key }}" class="cart__qty-label">{{ 'cart.label.quantity' | t }}</label>
                   <input class="cart__qty-input" type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" pattern="[0-9]*">
                 </div>
-                <input type="submit" name="update" class="btn btn--small cart__update medium-up--hide" value="{{ 'cart.general.update' | t }}">
+                {% comment %} <input type="submit" name="update" class="btn btn--small cart__update medium-up--hide" value="{{ 'cart.general.update' | t }}"> {% endcomment %}
               </td>
               <td class="text-right small--hide">
                 {% if item.original_line_price != item.line_price %}
@@ -133,51 +133,53 @@
               </div>
             {% endif %}
             <div class="cart__shipping">{{ 'cart.general.shipping_at_checkout' | t }}</div>
-            <a href="collections/all" class="btn btn--secondary cart__update cart__continue--large small--hide" >{{ 'cart.general.continue_shopping' | t }}</a>
-            <input type="submit" name="update" class="btn btn--secondary cart__update cart__update--large small--hide" value="{{ 'cart.general.update' | t }}">
-            <button type="submit" name="checkout" class="ni-checkout-btn">
-              <span class="ni-checkout-btn__label">
-                <svg class="ni-checkout-btn__lock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-                {{ 'cart.general.checkout' | t }}
-              </span>
-              <span class="ni-checkout-btn__divider"></span>
-              <span class="ni-checkout-btn__icons">
-                <span class="ni-pay-badge" title="Credit Card">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 34" width="72" height="28">
-                    <rect width="90" height="34" rx="6" fill="#1A1F36"/>
-                    <rect x="10" y="7" width="28" height="20" rx="3" fill="none" stroke="#fff" stroke-width="1.5"/>
-                    <line x1="10" y1="13" x2="38" y2="13" stroke="#fff" stroke-width="2"/>
-                    <rect x="13" y="17" width="8" height="3" rx="1" fill="rgba(255,255,255,0.5)"/>
-                    <text x="44" y="21" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="11" fill="white">Card</text>
-                    <text x="44" y="11" font-family="Arial,Helvetica,sans-serif" font-size="7" fill="rgba(255,255,255,0.6)">Credit</text>
-                  </svg>
+            <div class="cart__buttons-container">
+              <a href="collections/all" class="btn btn--secondary cart__continue--large" >{{ 'cart.general.continue_shopping' | t }}</a>
+              {% comment %} <input type="submit" name="update" class="btn btn--secondary cart__update cart__update--large small--hide" value="{{ 'cart.general.update' | t }}"> {% endcomment %}
+              <button type="submit" name="checkout" class="ni-checkout-btn">
+                <span class="ni-checkout-btn__label">
+                  <svg class="ni-checkout-btn__lock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                  {{ 'cart.general.checkout' | t }}
                 </span>
-                <span class="ni-pay-badge" title="PayPal">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 34" width="80" height="28">
-                    <rect width="100" height="34" rx="6" fill="#FFC439"/>
-                    <text x="13" y="24" font-family="Arial,Helvetica,sans-serif" font-weight="bold" font-style="italic" font-size="18" fill="#003087">Pay</text>
-                    <text x="50" y="24" font-family="Arial,Helvetica,sans-serif" font-weight="bold" font-style="italic" font-size="18" fill="#0079C1">Pal</text>
-                  </svg>
+                <span class="ni-checkout-btn__divider"></span>
+                <span class="ni-checkout-btn__icons">
+                  <span class="ni-pay-badge" title="Credit Card">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 34" width="72" height="28">
+                      <rect width="90" height="34" rx="6" fill="#1A1F36"/>
+                      <rect x="10" y="7" width="28" height="20" rx="3" fill="none" stroke="#fff" stroke-width="1.5"/>
+                      <line x1="10" y1="13" x2="38" y2="13" stroke="#fff" stroke-width="2"/>
+                      <rect x="13" y="17" width="8" height="3" rx="1" fill="rgba(255,255,255,0.5)"/>
+                      <text x="44" y="21" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="11" fill="white">Card</text>
+                      <text x="44" y="11" font-family="Arial,Helvetica,sans-serif" font-size="7" fill="rgba(255,255,255,0.6)">Credit</text>
+                    </svg>
+                  </span>
+                  <span class="ni-pay-badge" title="PayPal">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 34" width="80" height="28">
+                      <rect width="100" height="34" rx="6" fill="#FFC439"/>
+                      <text x="13" y="24" font-family="Arial,Helvetica,sans-serif" font-weight="bold" font-style="italic" font-size="18" fill="#003087">Pay</text>
+                      <text x="50" y="24" font-family="Arial,Helvetica,sans-serif" font-weight="bold" font-style="italic" font-size="18" fill="#0079C1">Pal</text>
+                    </svg>
+                  </span>
+                  <span class="ni-pay-badge" title="Shop Pay">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 34" width="98" height="28">
+                      <rect width="120" height="34" rx="6" fill="#5A31F4"/>
+                      <path d="M16.5 14V10.5a3.5 3.5 0 017 0V14" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+                      <rect x="14" y="14" width="10" height="11" rx="2" fill="white" fill-opacity="0.92"/>
+                      <text x="30" y="24" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="16" fill="white">Shop Pay</text>
+                    </svg>
+                  </span>
+                  <span class="ni-pay-badge" title="Buy with Prime">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 34" width="88" height="28">
+                      <rect width="108" height="34" rx="6" fill="#232F3E"/>
+                      <text x="12" y="15" font-family="Arial,Helvetica,sans-serif" font-size="11" letter-spacing="0.3" fill="#FF9900">amazon</text>
+                      <path d="M12 18q22 6 42-1" fill="none" stroke="#FF9900" stroke-width="1.5" stroke-linecap="round"/>
+                      <path d="M50 15l4 2-4 2" fill="none" stroke="#FF9900" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <text x="12" y="30" font-family="Arial,Helvetica,sans-serif" font-weight="bold" font-size="13" fill="white">prime</text>
+                    </svg>
+                  </span>
                 </span>
-                <span class="ni-pay-badge" title="Shop Pay">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 34" width="98" height="28">
-                    <rect width="120" height="34" rx="6" fill="#5A31F4"/>
-                    <path d="M16.5 14V10.5a3.5 3.5 0 017 0V14" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
-                    <rect x="14" y="14" width="10" height="11" rx="2" fill="white" fill-opacity="0.92"/>
-                    <text x="30" y="24" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="16" fill="white">Shop Pay</text>
-                  </svg>
-                </span>
-                <span class="ni-pay-badge" title="Buy with Prime">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 34" width="88" height="28">
-                    <rect width="108" height="34" rx="6" fill="#232F3E"/>
-                    <text x="12" y="15" font-family="Arial,Helvetica,sans-serif" font-size="11" letter-spacing="0.3" fill="#FF9900">amazon</text>
-                    <path d="M12 18q22 6 42-1" fill="none" stroke="#FF9900" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M50 15l4 2-4 2" fill="none" stroke="#FF9900" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <text x="12" y="30" font-family="Arial,Helvetica,sans-serif" font-weight="bold" font-size="13" fill="white">prime</text>
-                  </svg>
-                </span>
-              </span>
-            </button>
+              </button>
+            </div>
           </div>
         </div>
       </footer>

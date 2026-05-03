@@ -6499,3 +6499,72 @@ img, video, iframe {
   margin-bottom: 30px !important;
 }
 
+/* --- Cart Actions Forced Side-by-Side --- */
+.cart__buttons-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: stretch !important; /* Ensure same height */
+  gap: 16px !important;
+  flex-wrap: nowrap !important; /* Force side-by-side */
+  margin: 40px auto 20px !important;
+  width: 100% !important;
+  max-width: 1100px !important; /* Wider container to fit both side-by-side */
+}
+
+.cart__buttons-container .ni-checkout-btn,
+.cart__buttons-container .btn.cart__continue--large {
+  flex: 1 1 50% !important; /* Take equal space */
+  height: 64px !important; 
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 9999px !important;
+  padding: 0 30px !important;
+  font-size: 16px !important;
+  margin: 0 !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+  white-space: nowrap !important;
+}
+
+.cart__buttons-container .ni-checkout-btn {
+  justify-content: space-between !important; 
+  min-width: 560px !important; /* Minimum needed for all logos */
+  flex-grow: 2 !important; /* Give checkout button more weight if needed */
+}
+
+/* Ensure the Continue Shopping text is centered and looks premium */
+.cart__buttons-container .btn.cart__continue--large {
+  border: 2px solid var(--ni-secondary) !important;
+  background: white !important;
+  color: var(--ni-secondary) !important;
+  font-weight: 700 !important;
+  transition: all var(--ni-transition-spring) !important;
+}
+
+.cart__buttons-container .btn.cart__continue--large:hover {
+  background: var(--ni-secondary) !important;
+  color: white !important;
+  box-shadow: 0 8px 24px rgba(8, 131, 149, 0.2) !important;
+  transform: translateY(-2px) !important;
+}
+
+@media screen and (max-width: 749px) {
+  .cart__buttons-container {
+    gap: 12px !important;
+    padding: 0 10px !important;
+  }
+  
+  .cart__buttons-container .ni-checkout-btn,
+  .cart__buttons-container .btn.cart__continue--large {
+    flex: 1 1 100% !important; /* Stack nicely on very small screens but stay large */
+    height: 56px !important;
+    font-size: 15px !important;
+  }
+
+  .ni-checkout-btn__divider,
+  .ni-checkout-btn__icons {
+    display: none !important; /* Simplified look on mobile to maintain symmetry */
+  }
+}
+
