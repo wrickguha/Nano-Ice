@@ -17,8 +17,28 @@
       </div>
     </div>
 
-    <div class="h4 grid-view-item__title">{{ product.title }}</div>
-    <div class="product-card-desc">A bold, eye-catching design that keeps you cool while standing out.</div>
+    {%- assign product_description = 'A wearable cooling solution designed for daily comfort and relief.' -%}
+    {%- case product.handle -%}
+      {%- when 'copy-of-cooling-scarf-purple' -%}
+        {%- assign product_description = 'A soft and versatile scarf design that keeps you cool while fitting naturally into your everyday style.' -%}
+      {%- when 'cooling-necklace-bright-purple-with-an-extra-cooling-sphere' -%}
+        {%- assign product_description = 'A bold, eye-catching design that keeps you cool while standing out.' -%}
+      {%- when 'cooling-scarf-paisley-cooling-balls-included' -%}
+        {%- assign product_description = 'A classic paisley design that adds character while delivering consistent cooling.' -%}
+      {%- when 'cooling-scarf-grey' -%}
+        {%- assign product_description = 'A clean and minimal style designed for everyday comfort and easy wear.' -%}
+      {%- when 'cooling-necklace-coral-turquoise' -%}
+        {%- assign product_description = 'A vibrant, statement design inspired by timeless style that keeps you cool throughout the day.' -%}
+      {%- when 'cooling-necklace-grey' -%}
+        {%- assign product_description = 'A minimal and modern design that fits seamlessly into any daily routine.' -%}
+      {%- when 'nano-ice-cooling-necklace-black' -%}
+        {%- assign product_description = 'A sleek and understated design built for long-lasting comfort in daily use.' -%}
+      {%- when 'cooling-necklace-graphic-print' -%}
+        {%- assign product_description = 'A bright and expressive design that adds energy while keeping you cool.' -%}
+    {%- endcase -%}
+
+    <div class="h4 grid-view-item__title">{{ product.title | replace: 'COOLING BALLS INCLUDED!', 'Cooling balls included!' }}</div>
+    <div class="product-card-desc">{{ product_description }}</div>
     {% if section.settings.show_vendor %}
       <div class="grid-view-item__vendor">{{ product.vendor }}</div>
     {% endif %}

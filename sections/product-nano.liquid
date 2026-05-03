@@ -63,7 +63,26 @@
             <p>Get this necklace at 34% off</p>
           </div>
         {% endif %}
-        <h1 class="nano-title" itemprop="name">{{ product.title }}</h1>
+        {%- assign product_description = 'A wearable cooling solution designed for daily comfort and relief.' -%}
+        {%- case product.handle -%}
+          {%- when 'copy-of-cooling-scarf-purple' -%}
+            {%- assign product_description = 'A soft and versatile scarf design that keeps you cool while fitting naturally into your everyday style.' -%}
+          {%- when 'cooling-necklace-bright-purple-with-an-extra-cooling-sphere' -%}
+            {%- assign product_description = 'A bold, eye-catching design that keeps you cool while standing out.' -%}
+          {%- when 'cooling-scarf-paisley-cooling-balls-included' -%}
+            {%- assign product_description = 'A classic paisley design that adds character while delivering consistent cooling.' -%}
+          {%- when 'cooling-scarf-grey' -%}
+            {%- assign product_description = 'A clean and minimal style designed for everyday comfort and easy wear.' -%}
+          {%- when 'cooling-necklace-coral-turquoise' -%}
+            {%- assign product_description = 'A vibrant, statement design inspired by timeless style that keeps you cool throughout the day.' -%}
+          {%- when 'cooling-necklace-grey' -%}
+            {%- assign product_description = 'A minimal and modern design that fits seamlessly into any daily routine.' -%}
+          {%- when 'nano-ice-cooling-necklace-black' -%}
+            {%- assign product_description = 'A sleek and understated design built for long-lasting comfort in daily use.' -%}
+          {%- when 'cooling-necklace-graphic-print' -%}
+            {%- assign product_description = 'A bright and expressive design that adds energy while keeping you cool.' -%}
+        {%- endcase -%}
+        <h1 class="nano-title" itemprop="name">{{ product.title | replace: 'COOLING BALLS INCLUDED!', 'Cooling balls included!' }}</h1>
         
         <div class="nano-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
           <meta itemprop="priceCurrency" content="{{ shop.currency }}">
@@ -77,7 +96,7 @@
 
         <div class="nano-callout">
           <span class="nano-callout-icon">✨</span>
-          <p>A bold, eye-catching design that keeps you cool while standing out.</p>
+          <p>{{ product_description }}</p>
         </div>
 
         <div class="nano-short-desc">
