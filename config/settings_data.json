@@ -64,7 +64,7 @@
           "main_linklist": "main-menu",
           "message": true,
           "home_page_only": false,
-          "message_text": "Mother’s Day Special: Get Grey Cooling Necklace at 34% OFF for a limited period",
+          "message_text": "🩷Mother’s Day Special: Get Grey Cooling Necklace at 34% OFF for a limited period",
           "message_link": "shopify://products/cooling-necklace-grey",
           "color_bg": "#73afd2",
           "color_text": "#ffffff"
@@ -370,7 +370,7 @@
               "image": "shopify://shop_images/Hero_page_2.jpg",
               "alignment": "center",
               "title": "Cooling that actually lasts",
-              "subheading": "Designed to keep you cool for over 2 hours so you can stay comfortable and active",
+              "subheading": "Cooling that lasts 2+ hours, designed to look as good as it feels",
               "button_label": "See How It Works",
               "button_link": "shopify://collections/all",
               "btn_bg": "#03aed2",
