@@ -100,19 +100,19 @@
 
         <!-- 3. MSNBC -->
         <div class="np-video-card np-reveal" data-delay="2">
-          <div class="np-video-card__media" data-video-id="Hro_8FFs1Lw">
+          <a href="https://www.msnbc.com/your-business/watch/nano-ice-a-freezer-charged-cooling-necklace-1072536131734" target="_blank" class="np-video-card__media" style="text-decoration: none;">
             <img src="{{ 'press-msnbc.jpg' | asset_url }}"
                  alt="MSNBC — Nano-Ice Pitch" class="np-video-card__thumb" loading="lazy">
             <div class="np-video-card__overlay"></div>
-            <button class="np-play-btn" aria-label="Play MSNBC video">
+            <div class="np-play-btn" aria-label="Play MSNBC video">
               <span class="np-play-btn__ring"></span>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-            </button>
+            </div>
             <div class="np-video-card__badge">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
               MSNBC
             </div>
-          </div>
+          </a>
           <div class="np-video-card__body">
             <div class="np-outlet-pill">
               <span class="np-outlet-pill__dot"></span>
@@ -120,10 +120,10 @@
             </div>
             <blockquote class="np-video-card__quote">"The wearable cooling solution taking the market by storm"</blockquote>
             <p class="np-video-card__desc">Pitch Segment</p>
-            <button class="np-video-card__btn" data-video-id="Hro_8FFs1Lw" aria-label="Watch MSNBC">
+            <a href="https://www.msnbc.com/your-business/watch/nano-ice-a-freezer-charged-cooling-necklace-1072536131734" target="_blank" class="np-video-card__btn" style="text-decoration: none;" aria-label="Watch MSNBC">
               Watch Now
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-            </button>
+            </a>
           </div>
         </div>
 
@@ -1220,7 +1220,7 @@
   var lbVid  = document.getElementById('np-lightbox-video');
 
   function openLb(videoId) {
-    if (!lb || !lbVid) return;
+    if (!lb || !lbVid || !videoId) return;
     lbVid.innerHTML =
       '<iframe src="https://www.youtube-nocookie.com/embed/' +
       encodeURIComponent(videoId) +
