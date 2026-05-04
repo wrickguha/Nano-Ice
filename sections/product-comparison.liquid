@@ -2,9 +2,7 @@
 <section class="ni-comparison-section" id="product-comparison">
   <div class="page-width">
     <div class="ni-comparison-header ni-reveal">
-      <span class="ni-eyebrow">The Better Choice</span>
-      <h2 class="ni-comparison-title">Experience the Nano-Ice Difference</h2>
-      <p class="ni-comparison-subtitle">Why settle for short-lived relief when you can stay cool for hours in style?</p>
+      <h2 class="ni-comparison-title">Why settle for short-lived relief when you can stay cool for hours in style?</h2>
       <div class="ni-section__line"></div>
     </div>
 
@@ -70,7 +68,6 @@
             </tr>
             <tr class="ni-row-highlight">
               <td class="ni-product-name">
-                <div class="ni-nano-badge">Best Choice</div>
                 <span class="ni-product-label">Nano-Ice</span>
               </td>
               <td class="ni-cooling-time">
@@ -130,11 +127,7 @@
   }
 
   .ni-comparison-subtitle {
-    font-size: 1.1rem;
-    color: var(--ni-gray-600, #475569);
-    max-width: 600px;
-    margin: 0 auto 24px;
-    line-height: 1.6;
+    display: none;
   }
 
   .ni-section__line {
@@ -245,20 +238,7 @@
     font-size: 18px;
   }
 
-  .ni-nano-badge {
-    position: absolute;
-    top: -12px;
-    left: 32px;
-    background: var(--ni-gradient-primary, #0A4D68);
-    color: #fff;
-    font-size: 10px;
-    font-weight: 800;
-    padding: 2px 10px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    box-shadow: 0 4px 10px rgba(10, 77, 104, 0.2);
-  }
+
 
   /* Reveal animation simulation */
   .ni-reveal {
@@ -323,12 +303,6 @@
       "type": "text",
       "id": "title",
       "label": "Heading",
-      "default": "Experience the Nano-Ice Difference"
-    },
-    {
-      "type": "textarea",
-      "id": "subtitle",
-      "label": "Subheading",
       "default": "Why settle for short-lived relief when you can stay cool for hours in style?"
     }
   ],
