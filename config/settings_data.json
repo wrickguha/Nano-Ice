@@ -152,6 +152,13 @@
           "button_link": "/collections/all"
         }
       },
+      "product_comparison_new": {
+        "type": "product-comparison",
+        "settings": {
+          "title": "Experience the Nano-Ice Difference",
+          "subtitle": "Why settle for short-lived relief when you can stay cool for hours in style?"
+        }
+      },
       "footer": {
         "type": "footer",
         "settings": {
@@ -449,6 +456,7 @@
       "key_benefits_w47Xfg",
       "featured-collections",
       "feature-row",
+      "product_comparison_new",
       "trust_indicators_3TETrr",
       "why_choose_us_jzGQkB",
       "1557766562736",

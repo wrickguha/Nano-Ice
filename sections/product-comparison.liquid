@@ -1,0 +1,341 @@
+<!-- sections/product-comparison.liquid -->
+<section class="ni-comparison-section" id="product-comparison">
+  <div class="page-width">
+    <div class="ni-comparison-header ni-reveal">
+      <span class="ni-eyebrow">The Better Choice</span>
+      <h2 class="ni-comparison-title">Experience the Nano-Ice Difference</h2>
+      <p class="ni-comparison-subtitle">Why settle for short-lived relief when you can stay cool for hours in style?</p>
+      <div class="ni-section__line"></div>
+    </div>
+
+    <div class="ni-comparison-container ni-reveal">
+      <div class="ni-comparison-table-wrapper">
+        <table class="ni-comparison-table">
+          <thead>
+            <tr>
+              <th class="ni-col-product">Product</th>
+              <th class="ni-col-time">Cooling Time</th>
+              <th class="ni-col-look">Looks Good?</th>
+              <th class="ni-col-mess">Mess-Free</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="ni-product-name">
+                <span class="ni-product-label">Cooling Towels</span>
+              </td>
+              <td class="ni-cooling-time">20–30 min</td>
+              <td class="ni-status-icon">
+                <div class="ni-status ni-status--cross" title="No">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </div>
+              </td>
+              <td class="ni-status-icon">
+                <div class="ni-status ni-status--cross" title="No">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="ni-product-name">
+                <span class="ni-product-label">Neck Fans</span>
+              </td>
+              <td class="ni-cooling-time">1–2 hours</td>
+              <td class="ni-status-icon">
+                <div class="ni-status ni-status--cross" title="No">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </div>
+              </td>
+              <td class="ni-status-icon">
+                <div class="ni-status ni-status--check" title="Yes">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="ni-product-name">
+                <span class="ni-product-label">Other Freezable Necklaces</span>
+              </td>
+              <td class="ni-cooling-time"><1 hour</td>
+              <td class="ni-status-icon">
+                <div class="ni-status ni-status--cross" title="No">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </div>
+              </td>
+              <td class="ni-status-icon">
+                <div class="ni-status ni-status--check" title="Yes">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </td>
+            </tr>
+            <tr class="ni-row-highlight">
+              <td class="ni-product-name">
+                <div class="ni-nano-badge">Best Choice</div>
+                <span class="ni-product-label">Nano-Ice</span>
+              </td>
+              <td class="ni-cooling-time">
+                <span class="ni-highlight-text">2+ hours</span>
+              </td>
+              <td class="ni-status-icon">
+                <div class="ni-status ni-status--check ni-status--premium" title="Yes">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </td>
+              <td class="ni-status-icon">
+                <div class="ni-status ni-status--check ni-status--premium" title="Yes">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ni-comparison-section {
+    padding: var(--ni-space-4xl, 96px) 0;
+    background-color: #fff;
+    overflow: hidden;
+  }
+
+  .ni-comparison-header {
+    text-align: center;
+    margin-bottom: var(--ni-space-3xl, 64px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ni-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--ni-accent, #05BFDB);
+    margin-bottom: 12px;
+    background: rgba(5, 191, 219, 0.1);
+    padding: 6px 16px;
+    border-radius: 100px;
+  }
+
+  .ni-comparison-title {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 800;
+    color: var(--ni-dark, #0C1222);
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .ni-comparison-subtitle {
+    font-size: 1.1rem;
+    color: var(--ni-gray-600, #475569);
+    max-width: 600px;
+    margin: 0 auto 24px;
+    line-height: 1.6;
+  }
+
+  .ni-section__line {
+    width: 60px;
+    height: 4px;
+    background: var(--ni-gradient-primary, linear-gradient(135deg, #0A4D68 0%, #05BFDB 100%));
+    border-radius: 2px;
+  }
+
+  .ni-comparison-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .ni-comparison-table-wrapper {
+    background: #fff;
+    border-radius: var(--ni-radius-xl, 24px);
+    box-shadow: var(--ni-shadow-xl, 0 20px 60px rgba(10, 77, 104, 0.12));
+    border: 1px solid var(--ni-gray-100, #F1F5F9);
+    overflow: hidden;
+  }
+
+  .ni-comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+
+  .ni-comparison-table th {
+    padding: 24px 32px;
+    background: var(--ni-gray-50, #F8FAFC);
+    color: var(--ni-gray-900, #0F172A);
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--ni-gray-200, #E2E8F0);
+  }
+
+  .ni-comparison-table td {
+    padding: 24px 32px;
+    border-bottom: 1px solid var(--ni-gray-100, #F1F5F9);
+    color: var(--ni-gray-700, #334155);
+    vertical-align: middle;
+  }
+
+  .ni-product-name {
+    font-weight: 700;
+    color: var(--ni-dark, #0C1222);
+    font-size: 16px;
+    position: relative;
+  }
+
+  .ni-cooling-time {
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  .ni-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+
+  .ni-status svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .ni-status--check {
+    background: rgba(0, 255, 202, 0.1);
+    color: #10B981; /* Emerald 500 */
+  }
+
+  .ni-status--cross {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444; /* Red 500 */
+  }
+
+  .ni-status--premium {
+    background: var(--ni-gradient-accent, linear-gradient(135deg, #05BFDB 0%, #00FFCA 100%));
+    color: var(--ni-dark, #0C1222);
+    box-shadow: 0 4px 12px rgba(5, 191, 219, 0.3);
+  }
+
+  .ni-row-highlight {
+    background: linear-gradient(to right, rgba(5, 191, 219, 0.05), rgba(0, 255, 202, 0.05));
+    position: relative;
+  }
+
+  .ni-row-highlight td {
+    border-bottom: none;
+  }
+
+  .ni-row-highlight .ni-product-label {
+    color: var(--ni-primary, #0A4D68);
+    font-size: 18px;
+  }
+
+  .ni-highlight-text {
+    color: var(--ni-primary, #0A4D68);
+    font-weight: 800;
+    font-size: 18px;
+  }
+
+  .ni-nano-badge {
+    position: absolute;
+    top: -12px;
+    left: 32px;
+    background: var(--ni-gradient-primary, #0A4D68);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 2px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    box-shadow: 0 4px 10px rgba(10, 77, 104, 0.2);
+  }
+
+  /* Reveal animation simulation */
+  .ni-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .ni-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    .ni-comparison-table th, 
+    .ni-comparison-table td {
+      padding: 16px 20px;
+    }
+    
+    .ni-comparison-table-wrapper {
+      margin: 0 16px;
+      overflow-x: auto;
+    }
+    
+    .ni-comparison-table {
+      min-width: 600px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const reveals = document.querySelectorAll('.ni-reveal');
+    
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, observerOptions);
+    
+    reveals.forEach(el => observer.observe(el));
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Product Comparison",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Experience the Nano-Ice Difference"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "Why settle for short-lived relief when you can stay cool for hours in style?"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Comparison"
+    }
+  ]
+}
+{% endschema %}
