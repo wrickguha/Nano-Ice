@@ -5357,7 +5357,7 @@ img, video, iframe {
 .ni-checkout-btn {
   display: flex !important;
   align-items: center !important;
-  justify-content: space-between !important;
+  justify-content: center !important;
   width: 100% !important;
   background: var(--ni-gradient-primary) !important;
   color: #fff !important;
@@ -5370,7 +5370,6 @@ img, video, iframe {
               inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
   margin-top: var(--ni-space-md) !important;
   min-height: auto !important;
-  gap: 16px !important;
   overflow: hidden !important;
   text-decoration: none !important;
   -webkit-appearance: none !important;
@@ -5430,51 +5429,8 @@ img, video, iframe {
   opacity: 0.85 !important;
 }
 
-.ni-checkout-btn__divider {
-  width: 1px !important;
-  height: 28px !important;
-  background: rgba(255, 255, 255, 0.3) !important;
-  flex-shrink: 0 !important;
-  position: relative !important;
-  z-index: 1 !important;
-}
-
-.ni-checkout-btn__icons {
-  display: flex !important;
-  align-items: center !important;
-  gap: 8px !important;
-  flex-shrink: 0 !important;
-  position: relative !important;
-  z-index: 1 !important;
-}
-
-.ni-pay-badge {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  border-radius: 6px !important;
-  overflow: hidden !important;
-  line-height: 1 !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
-  flex-shrink: 0 !important;
-  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
-}
-
-.ni-pay-badge:hover {
-  transform: scale(1.06) !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3) !important;
-}
-
-.ni-pay-badge svg {
-  display: block !important;
-  max-width: none !important;
-}
-
 @media (max-width: 520px) {
   .ni-checkout-btn {
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 12px !important;
     padding: 16px 22px !important;
     border-radius: 18px !important;
   }
@@ -5483,20 +5439,6 @@ img, video, iframe {
     width: 100% !important;
     justify-content: center !important;
     font-size: 15px !important;
-  }
-
-  .ni-checkout-btn__divider {
-    display: none !important;
-  }
-
-  .ni-checkout-btn__icons {
-    gap: 6px !important;
-    justify-content: center !important;
-  }
-
-  .ni-pay-badge svg {
-    width: 64px !important;
-    height: 22px !important;
   }
 }
 
@@ -6528,9 +6470,8 @@ img, video, iframe {
 }
 
 .cart__buttons-container .ni-checkout-btn {
-  justify-content: space-between !important; 
-  min-width: 560px !important; /* Minimum needed for all logos */
-  flex-grow: 2 !important; /* Give checkout button more weight if needed */
+  justify-content: center !important; 
+  flex-grow: 2 !important;
 }
 
 /* Ensure the Continue Shopping text is centered and looks premium */
@@ -6562,9 +6503,8 @@ img, video, iframe {
     font-size: 15px !important;
   }
 
-  .ni-checkout-btn__divider,
   .ni-checkout-btn__icons {
-    display: none !important; /* Simplified look on mobile to maintain symmetry */
+    display: none !important;
   }
 }
 
