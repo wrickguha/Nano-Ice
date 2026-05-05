@@ -17,37 +17,27 @@
       </div>
     </div>
 
-    {%- assign product_handle = product.handle | strip -%}
-    {%- assign product_title = product.title | replace: 'COOLING BALLS INCLUDED!', 'Cooling balls included!' -%}
     {%- assign product_description = 'A wearable cooling solution designed for daily comfort and relief.' -%}
-    {%- case product_handle -%}
+    {%- case product.handle -%}
       {%- when 'copy-of-cooling-scarf-purple' -%}
-        {%- assign product_title = 'Cooling Scarf - Purple (Cooling spheres included)' -%}
-        {%- assign product_description = 'A soft, statement scarf that adds a touch of color while keeping you cool for over 2 hours' -%}
+        {%- assign product_description = 'A soft and versatile scarf design that keeps you cool while fitting naturally into your everyday style.' -%}
       {%- when 'cooling-necklace-bright-purple-with-an-extra-cooling-sphere' -%}
-        {%- assign product_title = 'Cooling Necklace - Purple' -%}
-        {%- assign product_description = 'A bold statement piece designed to stand out while delivering long-lasting cooling around your neck.' -%}
+        {%- assign product_description = 'A bold, eye-catching design that keeps you cool while standing out.' -%}
       {%- when 'cooling-scarf-paisley-cooling-balls-included' -%}
-        {%- assign product_title = 'Cooling Scarf - Paisley (Cooling spheres included)' -%}
-        {%- assign product_description = 'A classic paisley statement design that brings character to your outfit while providing steady cooling comfort for hours.' -%}
+        {%- assign product_description = 'A classic paisley design that adds character while delivering consistent cooling.' -%}
       {%- when 'cooling-scarf-grey' -%}
-        {%- assign product_title = 'Cooling Scarf - Grey (Cooling spheres included)' -%}
-        {%- assign product_description = 'A clean, everyday statement scarf that pairs with anything while keeping you cool and comfortable for over 2 hours.' -%}
-      {%- when 'cooling-necklace-multi-color-gatsby' -%}
-        {%- assign product_title = 'Cooling Necklace - Multi Color (Great Gatsby)' -%}
-        {%- assign product_description = 'A vibrant, statement necklace inspired by timeless style, designed to keep you cool for hours while elevating your look.' -%}
+        {%- assign product_description = 'A clean and minimal style designed for everyday comfort and easy wear.' -%}
+      {%- when 'cooling-necklace-coral-turquoise' -%}
+        {%- assign product_description = 'A vibrant, statement design inspired by timeless style that keeps you cool throughout the day.' -%}
       {%- when 'cooling-necklace-grey' -%}
-        {%- assign product_title = 'Cooling Necklace - Grey' -%}
-        {%- assign product_description = 'A modern statement piece that blends effortlessly into your routine while delivering consistent cooling for 2+ hours.' -%}
+        {%- assign product_description = 'A minimal and modern design that fits seamlessly into any daily routine.' -%}
       {%- when 'nano-ice-cooling-necklace-black' -%}
-        {%- assign product_title = 'Cooling Necklace - Black' -%}
-        {%- assign product_description = 'A bold, statement design that keeps you cool and comfortable for extended wear throughout the day.' -%}
-      {%- when 'cooling-necklace-multi-color-1' -%}
-        {%- assign product_title = 'Cooling Necklace – Vibrant Leaf' -%}
-        {%- assign product_description = 'A bright, expressive statement piece that adds energy to your outfit while providing long-lasting cooling comfort.' -%}
+        {%- assign product_description = 'A sleek and understated design built for long-lasting comfort in daily use.' -%}
+      {%- when 'cooling-necklace-graphic-print' -%}
+        {%- assign product_description = 'A bright and expressive design that adds energy while keeping you cool.' -%}
     {%- endcase -%}
 
-    <div class="h4 grid-view-item__title">{{ product_title }}</div>
+    <div class="h4 grid-view-item__title">{{ product.title | replace: 'COOLING BALLS INCLUDED!', 'Cooling balls included!' }}</div>
     <div class="product-card-desc">{{ product_description }}</div>
     {% if section.settings.show_vendor %}
       <div class="grid-view-item__vendor">{{ product.vendor }}</div>
