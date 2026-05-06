@@ -372,7 +372,7 @@
     var cartFooter = document.querySelector('.cart__footer');
     if (!cartFooter) return;
 
-    var FREE_SHIPPING_THRESHOLD = 5000; // $50.00 in cents — adjust as needed
+    var FREE_SHIPPING_THRESHOLD = 7500; // $75.00 in cents — adjust as needed
 
     // Try to get cart total from Shopify
     var subtotalEl = document.querySelector('.cart__subtotal');
