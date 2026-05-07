@@ -30,8 +30,9 @@
             class="slideshow__slide slideshow__slide--{{ block.id }}{% if is_background_video %} slideshow__slide--background-video{% endif %}"
             {{ block.shopify_attributes }}
           >
-            {% if block.settings.link != blank %}
-              <a href="{{ block.settings.link }}" class="slideshow__link">
+            {%- assign slide_link = block.settings.link -%}
+            {% if slide_link == blank %}
+              {%- assign slide_link = '/collections/all' -%}
             {% endif %}
 
             {% if block.type == 'video' %}
@@ -106,8 +107,7 @@
                   {% endunless %}
                   {% if block.settings.button_label != blank %}
                     <div class="slideshow__btn-wrapper">
-                      <a
-                        href="{{ block.settings.button_link }}"
+                      <span
                         class="hero-btn"
                         style="
                           background: {{ block.settings.btn_bg }};
@@ -115,7 +115,7 @@
                         "
                       >
                         {{ block.settings.button_label }}
-                      </a>
+                      </span>
                     </div>
                   {% endif %}
                   {% if block.type == 'video' %}
@@ -136,8 +136,8 @@
               </div>
             </div>
 
-            {% if block.settings.link != blank %}
-              </a>
+            {% if slide_link != blank %}
+              <a href="{{ slide_link }}" class="slideshow__link" style="z-index: 3;"></a>
             {% endif %}
           </div>
         {% endfor %}

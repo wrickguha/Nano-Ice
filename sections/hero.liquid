@@ -18,13 +18,15 @@
       {% if section.settings.text != blank %}
         <div class="rte-setting mega-subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %} ni-animate" style="animation: ni-slide-up 0.8s 0.15s ease both;">{{ section.settings.text }}</div>
       {% endif %}
-      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-        <a href="{{ section.settings.button_link }}" class="btn hero__btn ni-animate" style="animation: ni-slide-up 0.8s 0.3s ease both;">
+      {% if section.settings.button_label != blank %}
+        <span class="btn hero__btn ni-animate" style="animation: ni-slide-up 0.8s 0.3s ease both;">
           {{ section.settings.button_label | escape }}
-        </a>
+        </span>
       {% endif %}
     </div>
   </div>
+  {%- assign hero_link = section.settings.button_link | default: '/collections/all' -%}
+  <a href="{{ hero_link }}" class="slideshow__link" style="z-index: 3;"></a>
 </div>
 
 <noscript>
