@@ -2564,7 +2564,7 @@ img, video, iframe {
 /* Footer 4-column layout */
 .custom-footer-top {
   display: grid !important;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: var(--ni-space-xl);
   margin-bottom: var(--ni-space-2xl) !important;
 }
@@ -4456,7 +4456,7 @@ select:focus {
   }
 
   .custom-footer-top {
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: repeat(3, 1fr) !important;
   }
 
   .hero__inner {
