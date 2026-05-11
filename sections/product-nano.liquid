@@ -57,12 +57,6 @@
 
       <!-- RIGHT COLUMN: Product Info -->
       <div class="nano-hero__info">
-        {% if product.handle == 'cooling-necklace-grey' %}
-          <div class="nano-mothers-day-banner">
-            <span class="nano-mothers-day-tag">Mother’s Day Special</span>
-            <p>Get this necklace at 34% off</p>
-          </div>
-        {% endif %}
         {%- assign product_handle = product.handle | strip -%}
         {%- assign product_title = product.title | replace: 'COOLING BALLS INCLUDED!', 'Cooling balls included!' -%}
         {%- assign product_description = 'A wearable cooling solution designed for daily comfort and relief.' -%}
