@@ -62,7 +62,7 @@
           "logo": "shopify://shop_images/New_logo.png",
           "logo_max_width": "100",
           "main_linklist": "main-menu",
-          "message": true,
+          "message": false,
           "home_page_only": false,
           "message_text": "🩷Mother’s Day Special: Get Grey Cooling Necklace at 34% OFF for a limited period",
           "message_link": "shopify://products/cooling-necklace-grey",
@@ -344,6 +344,7 @@
         "blocks": {
           "image_TJ6XwN": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image": "shopify://shop_images/ChatGPT_Image_May_4_2026_03_06_15_AM.png",
               "alignment": "center",
