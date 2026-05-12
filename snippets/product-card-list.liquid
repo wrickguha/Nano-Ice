@@ -4,7 +4,7 @@
     {%- for variant in product.variants -%}
       {%- assign total_inventory = total_inventory | plus: variant.inventory_quantity -%}
     {%- endfor -%}
-    {% if product.available and total_inventory >= 20 %}
+    {% if product.available and total_inventory >= 10 %}
       <span class="badge sale-badge">SALE</span>
     {% endif %}
     <img class="list-view-item__image" src="{{ product.featured_image.src | img_url: '95x95', scale: 2 }}" alt="{{ product.featured_image.alt | escape }}">

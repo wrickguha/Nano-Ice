@@ -18,7 +18,7 @@
   {%- assign total_inventory = total_inventory | plus: variant.inventory_quantity -%}
 {%- endfor -%}
 
-{% if compare_at_price > price and total_inventory >= 20 %}
+{% if total_inventory >= 10 %}
   {% if price_varies %}
     <span class="product-price__price product-price__sale" style="color: #ef4444; font-weight: 700;">
       {{ money_price }}

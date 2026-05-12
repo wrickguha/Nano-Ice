@@ -4,10 +4,14 @@
     {%- assign total_inventory = total_inventory | plus: variant.inventory_quantity -%}
   {%- endfor -%}
   <a class="grid-view-item__link grid-view-item__image-container" href="{{ product.url | within: collection }}">
-    {% if product.compare_at_price > product.price and product.available and total_inventory >= 20 %}
-      {%- assign savings = product.compare_at_price | minus: product.price -%}
-      {%- assign percentage = savings | times: 100.0 | divided_by: product.compare_at_price | round -%}
-      <span class="badge sale-badge">SAVE {{ percentage }}%</span>
+    {% if product.available and total_inventory >= 10 %}
+      {% if product.compare_at_price > product.price %}
+        {%- assign savings = product.compare_at_price | minus: product.price -%}
+        {%- assign percentage = savings | times: 100.0 | divided_by: product.compare_at_price | round -%}
+        <span class="badge sale-badge">SAVE {{ percentage }}%</span>
+      {% else %}
+        <span class="badge sale-badge">SALE</span>
+      {% endif %}
     {% endif %}
     <div class="custom-product-image-wrapper">
       <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.featured_image.alt | escape }}" loading="lazy" class="custom-product-image">
